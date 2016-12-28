@@ -1,1 +1,6 @@
 %h1 Rosalind
+
+- @artworks.each do |artwork|
+  %h2= artwork.title
+  %img{ src: artwork.images.first['image_urls']['square'] }
+  %p= artwork.published_at

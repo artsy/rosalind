@@ -25,6 +25,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'haml-rails'
 
+kinetic_gem_spec = { git: 'https://github.com/artsy/kinetic.git', branch: 'master' }
+# kinetic_gem_spec = { path: '../kinetic' }
+gem 'kinetic', kinetic_gem_spec
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
