@@ -1,4 +1,4 @@
-# Rosalind
+# Rosalind [![CircleCI](https://circleci.com/gh/artsy/rosalind.svg?style=svg&circle-token=cb49eab5b9f460be61b18d9eef1153b3db16e02a)](https://circleci.com/gh/artsy/rosalind)
 
 Rosalind is an admin app for large-batch operations on artist and artwork genomes (Artsy-created genomes as well as "partner-applied categories").
 
