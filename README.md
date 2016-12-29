@@ -9,9 +9,10 @@ You can read more about [the motivation for the app](https://github.com/artsy/ro
 ## Meta
 
 - **State**: development
-- **CI**: TBD / Circle
-- **Staging**: TBD / Heroku
 - **Production** TBD / Heroku
+- **Staging**: TBD / Heroku
+- **CI**: [CircleCI](https://circleci.com/gh/artsy/rosalind)
+- **Github**: [https://github.com/artsy/rosalind](https://github.com/artsy/rosalind)
 - **Point people**: [@anandaroop](https://github.com/anandaroop)
 - **Branching**:  This project uses the master-release workflow —
 	- PRs merged to the master branch are automatically deployed to staging
