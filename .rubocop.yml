@@ -1,1 +1,20 @@
-inherit_from: ./.rubocop_todo.yml
+# inherit_from: ./.rubocop_todo.yml
+
+Metrics/LineLength:
+  Max: 132 # good for desktop Github
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/FirstParameterIndentation:
+  EnforcedStyle: consistent
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/IndentArray:
+  EnforcedStyle: consistent
