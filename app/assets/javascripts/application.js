@@ -10,8 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+/// NOTE: Please think twice before enabling jQuery!
+/// require jquery
+/// require jquery_ujs
+//
 //= require_tree .
 
 console.log("Hello world from sprockets");
