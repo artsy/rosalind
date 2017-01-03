@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 gem 'haml-rails'
+gem 'webpack-rails'
 
 kinetic_gem_spec = { git: 'https://github.com/artsy/kinetic.git', branch: 'master' }
 # kinetic_gem_spec = { path: '../kinetic' }
@@ -36,6 +37,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'foreman', require: false
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
