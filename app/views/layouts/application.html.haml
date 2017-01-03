@@ -6,5 +6,9 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     = javascript_include_tag *webpack_asset_paths('application')
+
+    - if Rails.env == 'development'
+      / hot reloading server for webpack bundle
+      = javascript_include_tag 'http://localhost:3808/webpack-dev-server.js'
   %body
     = yield
