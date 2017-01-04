@@ -34,6 +34,7 @@ gem 'kinetic', kinetic_gem_spec
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'danger'
   gem 'rspec-rails'
   gem 'rubocop', '~> 0.46.0', require: false
 end
