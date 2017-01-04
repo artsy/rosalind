@@ -7,3 +7,5 @@ dependencies:
 test:
   pre:
     - bundle exec rubocop --rails
+  post:
+    - bundle exec danger
