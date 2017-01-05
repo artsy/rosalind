@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use jquery as the JavaScript library
 # NOTE: Please think twice before enabling jQuery!
-# gem 'jquery-rails'
+gem 'jquery-rails'
 
 gem 'haml-rails'
 gem 'webpack-rails'

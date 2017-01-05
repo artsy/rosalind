@@ -11,8 +11,8 @@
 // about supported directives.
 //
 /// NOTE: Please think twice before enabling jQuery!
-/// require jquery
-/// require jquery_ujs
+//= require jquery
+//= require jquery_ujs
 //
 //= require_tree .
 
