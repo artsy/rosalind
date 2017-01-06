@@ -28,6 +28,16 @@ var config = {
     filename: production ? '[name]-[chunkhash].js' : '[name].js'
   },
 
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ["babel"],
+      }
+    ],
+  },
+
   resolve: {
     root: path.join(__dirname, '..', 'webpack')
   },
