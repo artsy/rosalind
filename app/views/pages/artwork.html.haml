@@ -1,3 +1,6 @@
-%h1 an Artwork React component to come for…
+/ bootstrap the artwork over to client side
+= javascript_tag "window.artwork = #{@artwork.to_json}"
 
-= debug @artwork
+/ mount React
+#root
+= javascript_include_tag *webpack_asset_paths('artwork-viewer')
