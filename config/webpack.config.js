@@ -29,6 +29,14 @@ var config = {
   },
 
   module: {
+    preLoaders: [
+      {
+        // set up standard-loader as a preloader
+        test: /\.js$/,
+        loader: 'standard',
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
         test: /\.js$/,
