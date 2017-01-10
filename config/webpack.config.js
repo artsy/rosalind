@@ -14,7 +14,7 @@ var production = process.env.NODE_ENV === 'production';
 var config = {
   entry: {
     // Sources are expected to live in $app_root/webpack
-    'application': './webpack/application.js'
+    'artwork-viewer': './webpack/apps/artwork-viewer'
   },
 
   output: {
@@ -28,8 +28,21 @@ var config = {
     filename: production ? '[name]-[chunkhash].js' : '[name].js'
   },
 
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ["babel"],
+      }
+    ],
+  },
+
   resolve: {
-    root: path.join(__dirname, '..', 'webpack')
+    root: path.join(__dirname, '..', 'webpack'),
+    alias: {
+      components: path.resolve(__dirname, '..', 'webpack', 'components'),
+    }
   },
 
   plugins: [

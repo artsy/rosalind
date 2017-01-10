@@ -10,14 +10,19 @@ end
 
 # Complain if someone tries to re-enable jquery
 
-jquery_suspects = %w(
+def warn_if_adding(term:, files:)
+  regexp = Regexp.new term
+  files.each do |file|
+    next unless diff = git.diff_for_file(file)
+    added_lines = diff.patch.split(/\n/).select{|line| line =~ /^\+/}
+    if added_lines.any?{|line| line =~ regexp}
+      warn "Please think twice before adding #{term} to the project 😱 (#{file})"
+    end
+  end
+end
+
+warn_if_adding term: 'jquery', files: %w(
   Gemfile.lock
   app/assets/javascripts/application.js
   app/views/layouts/application.html.haml
 )
-jquery_suspects.each do |file|
-  diff = git.diff_for_file(file)
-  if diff && diff.patch =~ /jquery/i
-    warn "Please think twice before adding jQuery to the project 😱 (#{file})"
-  end
-end
