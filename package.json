@@ -24,6 +24,7 @@
     "webpack-dev-server": "^1.9.0"
   },
   "scripts": {
-    "lint": "standard config/**/*.js webpack/**/*.js"
+    "lint": "standard config/**/*.js webpack/**/*.js",
+    "test": "jest"
   }
 }
