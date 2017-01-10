@@ -1,15 +1,15 @@
 // Example webpack configuration with asset fingerprinting in production.
-'use strict';
+'use strict'
 
-var path = require('path');
-var webpack = require('webpack');
-var StatsPlugin = require('stats-webpack-plugin');
+var path = require('path')
+var webpack = require('webpack')
+var StatsPlugin = require('stats-webpack-plugin')
 
 // must match config.webpack.dev_server.port
-var devServerPort = 3808;
+var devServerPort = 3808
 
 // set NODE_ENV=production on the environment to add asset fingerprints
-var production = process.env.NODE_ENV === 'production';
+var production = process.env.NODE_ENV === 'production'
 
 var config = {
   entry: {
@@ -29,19 +29,27 @@ var config = {
   },
 
   module: {
+    preLoaders: [
+      {
+        // set up standard-loader as a preloader
+        test: /\.js$/,
+        loader: 'standard',
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ["babel"],
+        loaders: ['babel']
       }
-    ],
+    ]
   },
 
   resolve: {
     root: path.join(__dirname, '..', 'webpack'),
     alias: {
-      components: path.resolve(__dirname, '..', 'webpack', 'components'),
+      components: path.resolve(__dirname, '..', 'webpack', 'components')
     }
   },
 
@@ -55,7 +63,7 @@ var config = {
       modules: false,
       assets: true
     })]
-};
+}
 
 if (production) {
   config.plugins.push(
@@ -69,15 +77,15 @@ if (production) {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin()
-  );
+  )
 } else {
   config.devServer = {
     port: devServerPort,
     headers: { 'Access-Control-Allow-Origin': '*' }
-  };
-  config.output.publicPath = '//localhost:' + devServerPort + '/webpack/';
+  }
+  config.output.publicPath = '//localhost:' + devServerPort + '/webpack/'
   // Source maps
-  config.devtool = 'cheap-module-eval-source-map';
+  config.devtool = 'cheap-module-eval-source-map'
 }
 
-module.exports = config;
+module.exports = config

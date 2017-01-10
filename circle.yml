@@ -7,5 +7,6 @@ dependencies:
 test:
   pre:
     - bundle exec rubocop --rails
+    - npm run lint
   post:
     - bundle exec danger
