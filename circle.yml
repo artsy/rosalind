@@ -8,5 +8,8 @@ test:
   pre:
     - bundle exec rubocop --rails
     - npm run lint
+  override:
+    - bundle exec rspec
+    - npm run test
   post:
     - bundle exec danger
