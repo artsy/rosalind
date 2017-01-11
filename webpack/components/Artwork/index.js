@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 export default function Artwork (props) {
   const { title, images, artist } = props
