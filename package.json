@@ -31,7 +31,8 @@
   },
   "scripts": {
     "lint": "standard $(find config webpack -name *.js)",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "standard": {
     "globals": [ "describe", "it", "expect" ]
