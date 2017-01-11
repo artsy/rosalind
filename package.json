@@ -24,6 +24,12 @@
     "webpack": "^1.9.11",
     "webpack-dev-server": "^1.9.0"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/webpack/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "<rootDir>/webpack/__mocks__/styleMock.js"
+    }
+  },
   "scripts": {
     "lint": "standard config/**/*.js webpack/**/*.js",
     "test": "jest"
