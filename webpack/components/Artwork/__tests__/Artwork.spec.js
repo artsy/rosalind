@@ -2,11 +2,14 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import Artwork from 'components/Artwork'
 
-test('true is true', () => {
-  expect(true).toBe(true)
-})
-
 it('renders correctly', () => {
-  const tree = renderer.create(<Artwork />).toJSON()
+  const artworkFixture = {
+    title: 'title',
+    images: [
+      { image_urls: { normalized: 'soup-can.jpg' } }
+    ],
+    artist: { name: 'andy warhol' }
+  }
+  const tree = renderer.create(<Artwork {...artworkFixture} />).toJSON()
   expect(tree).toMatchSnapshot()
 })
