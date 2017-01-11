@@ -31,7 +31,10 @@
     }
   },
   "scripts": {
-    "lint": "standard config/**/*.js webpack/**/*.js",
+    "lint": "standard $(find config webpack -name *.js)",
     "test": "jest"
+  },
+  "standard": {
+    "globals": [ "describe", "it", "expect" ]
   }
 }
