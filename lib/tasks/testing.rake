@@ -1,12 +1,12 @@
-require 'rubocop/rake_task'
-
-desc 'Run rubocop'
-task :rubocop do
-  RuboCop::RakeTask.new
+namespace :test do
+  desc 'Shortcut to run all ruby and javascript linters and specs'
+  task :all do
+    commands = [
+      'bundle exec rubocop --rails',
+      'bundle exec rspec',
+      'yarn run lint',
+      'yarn run test'
+    ]
+    system commands.join(' && ')
+  end
 end
-
-# reassign unused 'test' task
-task test: [:rubocop, :spec]
-
-# overwrite 'default' task to invoke 'test'
-task(:default).clear.enhance([:test])

@@ -4,10 +4,6 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1"
-  },
-  "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.10",
@@ -16,6 +12,8 @@
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.26.1",
     "jest": "^18.1.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "react-test-renderer": "^15.4.2",
     "standard": "^8.6.0",
     "standard-loader": "^5.0.0",
@@ -23,6 +21,8 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.9.11",
     "webpack-dev-server": "^1.9.0"
+  },
+  "devDependencies": {
   },
   "jest": {
     "moduleNameMapper": {
