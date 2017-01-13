@@ -13,3 +13,9 @@ test:
     - npm run test
   post:
     - bundle exec danger
+deployment:
+  staging:
+    branch: master
+    owner: artsy
+    heroku:
+      appname: rosalind-staging
