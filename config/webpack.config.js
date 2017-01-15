@@ -34,14 +34,19 @@ var config = {
       {
         // set up standard-loader as a preloader
         test: /\.js$/,
-        loader: 'standard',
+        loader: 'standard-loader',
         exclude: /node_modules/
       }
     ],
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
+        loaders: ['babel-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
         exclude: /node_modules/
       },
       {
