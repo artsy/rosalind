@@ -37,6 +37,7 @@ class Artwork extends React.Component {
 
   render () {
     const { name, image_url: imageUrl } = this.props.artwork
+    console.log(missingImage, imageUrl)
     return (
       <div className='tmp-artwork' onClick={this.handleClick}>
         <img src={imageUrl || missingImage} alt={name} />
