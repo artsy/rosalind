@@ -1,14 +1,15 @@
-import React from 'react';
-// import SearchForm from './SearchForm.js';
-// import SearchResults from './SearchResults.js';
-// import './App.css';
+import React from 'react'
+
+import SearchForm from './SearchForm.js'
+// import SearchResults from './SearchResults.js'
+import './App.css'
 // import { ELASTICSEARCH_HOST, ELASTICSEARCH_AUTH_HEADER } from './secrets.js'
 
 // const findByName = (items, item) => items.find(i => i.name === item.name)
 // const getArtworksFromResponse = (esResponse) => esResponse.hits.hits.map(hit => hit._source)
 
 class App extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       genes: [],
@@ -142,11 +143,11 @@ class App extends React.Component {
   //   this.setState({ previewedArtwork: artwork })
   // }
 
-  render() {
-    const { genes, tags, artworks, previewedArtwork } = this.state
+  render () {
+    // const { genes, tags, artworks, previewedArtwork } = this.state
+    const { genes, tags } = this.state
     return (
-      <div className="App">
-        {/*
+      <div className='App'>
         <SearchForm
           genes={genes}
           tags={tags}
@@ -154,9 +155,10 @@ class App extends React.Component {
           onAddGene={this.onAddGene}
           onRemoveTag={this.onRemoveTag}
           onAddTag={this.onAddTag}
-          onUpdateFilter={this.onUpdateFilter} 
+          onUpdateFilter={this.onUpdateFilter}
           />
 
+        {/*
         <SearchResults
           artworks={artworks}
           previewedArtwork={previewedArtwork}
@@ -166,9 +168,8 @@ class App extends React.Component {
           />
         */}
       </div>
-    );
+    )
   }
 }
 
-
-export default App;
+export default App
