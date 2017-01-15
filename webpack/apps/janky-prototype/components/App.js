@@ -1,11 +1,11 @@
 import React from 'react'
 
 import SearchForm from './SearchForm.js'
-// import SearchResults from './SearchResults.js'
+import SearchResults from './SearchResults.js'
 import './App.css'
 // import { ELASTICSEARCH_HOST, ELASTICSEARCH_AUTH_HEADER } from './secrets.js'
 
-// const findByName = (items, item) => items.find(i => i.name === item.name)
+const findByName = (items, item) => items.find(i => i.name === item.name)
 // const getArtworksFromResponse = (esResponse) => esResponse.hits.hits.map(hit => hit._source)
 
 class App extends React.Component {
@@ -22,8 +22,8 @@ class App extends React.Component {
       artworks: [],
       previewedArtwork: null
     }
-    // this.onRemoveGene = this.onRemoveGene.bind(this)
-    // this.onAddGene = this.onAddGene.bind(this)
+    this.onRemoveGene = this.onRemoveGene.bind(this)
+    this.onAddGene = this.onAddGene.bind(this)
     // this.onRemoveTag = this.onRemoveTag.bind(this)
     // this.onAddTag = this.onAddTag.bind(this)
     // this.onUpdateFilter = this.onUpdateFilter.bind(this)
@@ -89,19 +89,19 @@ class App extends React.Component {
   //   }
   // }
 
-  // onRemoveGene(geneName) {
-  //   const { genes } = this.state
-  //   this.setState({
-  //     genes: genes.filter(g => g.name !== geneName)
-  //   })
-  // }
+  onRemoveGene (geneName) {
+    const { genes } = this.state
+    this.setState({
+      genes: genes.filter(g => g.name !== geneName)
+    })
+  }
 
-  // onAddGene(gene) {
-  //   const { genes } = this.state
-  //   findByName(genes, gene) || this.setState({
-  //     genes: genes.concat(gene)
-  //   })
-  // }
+  onAddGene (gene) {
+    const { genes } = this.state
+    findByName(genes, gene) || this.setState({
+      genes: genes.concat(gene)
+    })
+  }
 
   // onRemoveTag(tagName) {
   //   const { tags } = this.state
@@ -144,8 +144,8 @@ class App extends React.Component {
   // }
 
   render () {
-    // const { genes, tags, artworks, previewedArtwork } = this.state
-    const { genes, tags } = this.state
+    // const { genes, tags, previewedArtwork } = this.state
+    const { genes, tags, artworks } = this.state
     return (
       <div className='App'>
         <SearchForm
@@ -158,15 +158,15 @@ class App extends React.Component {
           onUpdateFilter={this.onUpdateFilter}
           />
 
-        {/*
         <SearchResults
-          artworks={artworks}
+          artworks={artworks} />
+        {/*
           previewedArtwork={previewedArtwork}
           onPreviewArtwork={this.onPreviewArtwork}
           onPreviewPrevious={this.onPreviewPrevious}
           onPreviewNext={this.onPreviewNext}
-          />
         */}
+          />
       </div>
     )
   }
