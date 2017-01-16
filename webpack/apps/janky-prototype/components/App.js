@@ -1,5 +1,4 @@
 import React from 'react'
-
 import SearchForm from './SearchForm.js'
 import SearchResults from './SearchResults.js'
 import './App.css'
@@ -14,11 +13,11 @@ class App extends React.Component {
     this.state = {
       genes: [],
       tags: [],
-      filters: {
-        published: null,
-        deleted: null,
-        genomed: null
-      },
+      partner: null,
+      fair: null,
+      publishedFilter: 'SHOW_ALL',
+      deletedFilter: 'SHOW_ALL',
+      genomedFilter: 'SHOW_ALL',
       artworks: [],
       previewedArtwork: null
     }
@@ -26,14 +25,23 @@ class App extends React.Component {
     this.onAddGene = this.onAddGene.bind(this)
     this.onRemoveTag = this.onRemoveTag.bind(this)
     this.onAddTag = this.onAddTag.bind(this)
-    // this.onUpdateFilter = this.onUpdateFilter.bind(this)
+    this.onSetPartner = this.onSetPartner.bind(this)
+    this.onClearPartner = this.onClearPartner.bind(this)
+    // this.onSetFair = this.onSetFair.bind(this)
+    // this.onClearFair = this.onClearFair.bind(this)
+
+    // this.onSetPublishedFilter = this.onSetPublishedFilter.bind(this)
+    // this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
+    // this.onSetGenomedFilter = this.onSetGenomedFilter.bind(this)
+
     // this.onPreviewArtwork = this.onPreviewArtwork.bind(this)
     // this.onPreviewPrevious = this.onPreviewPrevious.bind(this)
     // this.onPreviewNext = this.onPreviewNext.bind(this)
   }
 
   fetchArtworks () {
-    if ((this.state.genes.length === 0) && (this.state.tags.length === 0)) {
+    const { genes, tags, partner, fair } = this.state
+    if ((genes.length === 0) && (tags.length === 0) && (partner === null) && (fair === null)) {
       this.setState({ artworks: [] })
     } else {
       const query = this.buildElasticSearchQuery()
@@ -41,7 +49,7 @@ class App extends React.Component {
       const headers = new window.Headers({ 'Authorization': ELASTICSEARCH_AUTH_HEADER })
       const method = 'post'
       const body = JSON.stringify(query)
-      console.log('fetching', query)
+      console.log('fetching', body)
       window.fetch(uri, { headers, method, body }).then(response => {
         if (response.ok) {
           response.json().then(data => {
@@ -55,22 +63,65 @@ class App extends React.Component {
   }
 
   buildElasticSearchQuery () {
-    const geneMatches = this.state.genes.map(g => { return { 'match': { 'genes': g.name } } })
-    const tagMatches = this.state.tags.map(t => { return { 'match': { 'tags': t.name } } })
-    // const { filters } = this.state
-    let statusFilters = []
-    // if (filters.published !== null) statusFilters = [ ...statusFilters, { term: { published: filters.published }} ]
-    // if (filters.deleted !== null) statusFilters = [ ...statusFilters, { term: { deleted: filters.deleted }} ]
-    // if (filters.genomed !== null) statusFilters = [ ...statusFilters, { term: { genomed: filters.genomed }} ]
+    const { genes, tags, partner, fair } = this.state
+    const geneMatches = genes.map(g => { return { 'match': { 'genes': g.name } } })
+    const tagMatches = tags.map(t => { return { 'match': { 'tags': t.name } } })
+    const filterMatches = this.buildFilterMatches()
+    const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
+    const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
     return {
       'query': {
         'bool': {
-          'must': geneMatches.concat(tagMatches),
-          'filter': statusFilters
+          'must': [...geneMatches, ...tagMatches, ...filterMatches, partnerMatch, fairMatch].filter(m => m !== null)
         }
       },
-      'sort': { 'created_at': 'desc' },
+      'sort': [
+          { 'published_at': 'desc' },
+          { 'id': 'desc' }
+      ],
       'size': 100
+    }
+  }
+
+  buildFilterMatches () {
+    let matches = [
+      this.publishedMatcher(),
+      this.deletedMatcher(),
+      this.genomedMatcher()
+    ]
+    return matches
+  }
+
+  publishedMatcher () {
+    switch (this.state.publishedFilter) {
+      case 'SHOW_PUBLISHED':
+        return { 'match': { 'published': true } }
+      case 'SHOW_NOT_PUBLISHED':
+        return { 'match': { 'published': false } }
+      default:
+        return null
+    }
+  }
+
+  deletedMatcher () {
+    switch (this.state.deletedFilter) {
+      case 'SHOW_DELETED':
+        return { 'match': { 'deleted': true } }
+      case 'SHOW_NOT_DELETED':
+        return { 'match': { 'deleted': false } }
+      default:
+        return null
+    }
+  }
+
+  genomedMatcher () {
+    switch (this.state.genomedFilter) {
+      case 'SHOW_GENOMED':
+        return { 'match': { 'genomed': true } }
+      case 'SHOW_NOT_GENOMED':
+        return { 'match': { 'genomed': false } }
+      default:
+        return null
     }
   }
 
@@ -81,11 +132,16 @@ class App extends React.Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
-    if ((this.state.genes !== prevState.genes) || (this.state.tags !== prevState.tags) || (this.state.filters !== prevState.filters)) {
-      console.log('gotta fetch')
+    if (
+      (this.state.genes !== prevState.genes) ||
+      (this.state.tags !== prevState.tags) ||
+      (this.state.partner !== prevState.partner) ||
+      (this.state.fair !== prevState.fair) ||
+      (this.state.publishedFilter !== prevState.publishedFilter) ||
+      (this.state.deletedFilter !== prevState.deletedFilter) ||
+      (this.state.genomedFilter !== prevState.genomedFilter)
+     ) {
       this.fetchArtworks()
-    } else {
-      console.log('no fetch')
     }
   }
 
@@ -117,12 +173,36 @@ class App extends React.Component {
     })
   }
 
-  // onUpdateFilter(filter) {
-  //   console.log(filter)
-  //   const current = this.state.filters
-  //   this.setState({
-  //     filters: Object.assign({}, current, filter)
-  //   })
+  onSetPartner (partner) {
+    this.setState({ partner })
+  }
+
+  onClearPartner () {
+    this.setState({ partner: null })
+  }
+
+  onSetFair (fair) {
+    this.setState({ fair })
+  }
+
+  onClearFair () {
+    this.setState({ fair: null })
+  }
+
+  onSetPublishedFilter (filterValue) {
+    this.setState({ publishedFilter: filterValue })
+  }
+
+  onSetDeletedFilter (filterValue) {
+    this.setState({ deletedFilter: filterValue })
+  }
+
+  onSetGenomedFilter (filterValue) {
+    this.setState({ genomedFilter: filterValue })
+  }
+
+  // onPreviewArtwork(artwork) {
+  //   this.setState({ previewedArtwork: artwork })
   // }
 
   // onPreviewArtwork(artwork) {
@@ -138,35 +218,43 @@ class App extends React.Component {
 
   // onPreviewNext() {
   //   const curr = this.state.artworks.indexOf(this.state.previewedArtwork)
-  //   const next = Math.min(this.state.artworks.length-1, curr+1)
+  //   const next = Math.min(this.state.artworks.length, curr+1)
   //   const artwork = this.state.artworks[next]
   //   this.setState({ previewedArtwork: artwork })
   // }
 
   render () {
-    // const { genes, tags, previewedArtwork } = this.state
-    const { genes, tags, artworks } = this.state
+    const { genes, tags, partner, fair, artworks, previewedArtwork } = this.state
     return (
       <div className='App'>
         <SearchForm
           genes={genes}
           tags={tags}
+          partner={partner}
+          fair={fair}
           onRemoveGene={this.onRemoveGene}
           onAddGene={this.onAddGene}
           onRemoveTag={this.onRemoveTag}
           onAddTag={this.onAddTag}
-          onUpdateFilter={this.onUpdateFilter}
+          onSetPartner={this.onSetPartner}
+          onClearPartner={this.onClearPartner}
+          onSetFair={this.onSetFair}
+          onClearFair={this.onClearFair}
+          publishedFilter={this.state.publishedFilter}
+          onSetPublishedFilter={this.onSetPublishedFilter}
+          deletedFilter={this.state.deletedFilter}
+          onSetDeletedFilter={this.onSetDeletedFilter}
+          genomedFilter={this.state.genomedFilter}
+          onSetGenomedFilter={this.onSetGenomedFilter}
           />
 
         <SearchResults
-          artworks={artworks} />
-        {/*
+          artworks={artworks}
           previewedArtwork={previewedArtwork}
           onPreviewArtwork={this.onPreviewArtwork}
           onPreviewPrevious={this.onPreviewPrevious}
           onPreviewNext={this.onPreviewNext}
           />
-        */}
       </div>
     )
   }
