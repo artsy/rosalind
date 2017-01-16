@@ -3,7 +3,7 @@ import React from 'react'
 import SearchForm from './SearchForm.js'
 import SearchResults from './SearchResults.js'
 import './App.css'
-import { ELASTICSEARCH_HOST, ELASTICSEARCH_AUTH_HEADER } from './secrets.js'
+import { ELASTICSEARCH_HOST, ELASTICSEARCH_AUTH_HEADER } from '../secrets.js'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 const getArtworksFromResponse = (esResponse) => esResponse.hits.hits.map(hit => hit._source)
@@ -24,8 +24,8 @@ class App extends React.Component {
     }
     this.onRemoveGene = this.onRemoveGene.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
-    // this.onRemoveTag = this.onRemoveTag.bind(this)
-    // this.onAddTag = this.onAddTag.bind(this)
+    this.onRemoveTag = this.onRemoveTag.bind(this)
+    this.onAddTag = this.onAddTag.bind(this)
     // this.onUpdateFilter = this.onUpdateFilter.bind(this)
     // this.onPreviewArtwork = this.onPreviewArtwork.bind(this)
     // this.onPreviewPrevious = this.onPreviewPrevious.bind(this)
@@ -103,19 +103,19 @@ class App extends React.Component {
     })
   }
 
-  // onRemoveTag(tagName) {
-  //   const { tags } = this.state
-  //   this.setState({
-  //     tags: tags.filter(t => t.name !== tagName)
-  //   })
-  // }
+  onRemoveTag (tagName) {
+    const { tags } = this.state
+    this.setState({
+      tags: tags.filter(t => t.name !== tagName)
+    })
+  }
 
-  // onAddTag(tag) {
-  //   const { tags } = this.state
-  //   findByName(tags, tag) || this.setState({
-  //     tags: tags.concat(tag)
-  //   })
-  // }
+  onAddTag (tag) {
+    const { tags } = this.state
+    findByName(tags, tag) || this.setState({
+      tags: tags.concat(tag)
+    })
+  }
 
   // onUpdateFilter(filter) {
   //   console.log(filter)

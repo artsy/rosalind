@@ -1,13 +1,13 @@
 import React from 'react'
 import GeneAutosuggest from './GeneAutosuggest'
-// import TagAutosuggest from './TagAutosuggest'
+import TagAutosuggest from './TagAutosuggest'
 // import PartnerAutosuggest from './PartnerAutosuggest'
 // import FairAutosuggest from './FairAutosuggest'
 
 class SearchForm extends React.Component {
   render () {
-    // const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.props
-    const { genes } = this.props
+    // const { genes, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.props
+    const { genes, tags } = this.props
     return (
       <div className='SearchForm'>
         {
@@ -21,13 +21,13 @@ class SearchForm extends React.Component {
         }
 
         {
-          // tags.length ? <h2 className='SearchForm-SectionHeader'>Tags</h2> : ''
+          tags.length ? <h2 className='SearchForm-SectionHeader'>Tags</h2> : ''
         }
         {
-          // tags.map((t) =>
-          //   <SelectedTag key={t.id} name={t.name}
-          //     onRemoveTag={this.props.onRemoveTag} />
-          // )
+          tags.map((t) =>
+            <SelectedTag key={t.id} name={t.name}
+              onRemoveTag={this.props.onRemoveTag} />
+          )
         }
         {
           // partner !== null ? <h2 className='SearchForm-SectionHeader'>Partner</h2> : ''
@@ -45,8 +45,8 @@ class SearchForm extends React.Component {
         }
         <form onSubmit={e => e.preventDefault()}>
           <GeneAutosuggest onSelectGene={this.props.onAddGene} />
-          {/*
           <TagAutosuggest onSelectTag={this.props.onAddTag} />
+          {/*
           {
             partner === null ? <PartnerAutosuggest onSetPartner={this.props.onSetPartner} /> : ''
           }
@@ -94,27 +94,27 @@ class SelectedGene extends React.Component {
   }
 }
 
-// class SelectedTag extends React.Component {
-//   constructor (props) {
-//     super(props)
-//     this.handleRemove = this.handleRemove.bind(this)
-//   }
+class SelectedTag extends React.Component {
+  constructor (props) {
+    super(props)
+    this.handleRemove = this.handleRemove.bind(this)
+  }
 
-//   handleRemove (e) {
-//     e.preventDefault()
-//     this.props.onRemoveTag(this.props.name)
-//   }
+  handleRemove (e) {
+    e.preventDefault()
+    this.props.onRemoveTag(this.props.name)
+  }
 
-//   render () {
-//     return (
-//       <div className='SelectedTag'>
-//         {this.props.name}
-//         <a href='#' className='SelectedTag-remove'
-//           onClick={this.handleRemove}>✕</a>
-//       </div>
-//     )
-//   }
-// }
+  render () {
+    return (
+      <div className='SelectedTag'>
+        {this.props.name}
+        <a href='#' className='SelectedTag-remove'
+          onClick={this.handleRemove}>✕</a>
+      </div>
+    )
+  }
+}
 
 // class SelectedPartner extends React.Component {
 //   constructor (props) {
