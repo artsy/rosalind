@@ -81,7 +81,8 @@ class ArtworkPreview extends React.Component {
   }
 
   render () {
-    const { id, artist_id: artistId, name, imageUrl, published, genomed, deleted } = this.props.artwork
+    const { id, artist_id: artistId, name, image_url: imageUrl, published, genomed, deleted } = this.props.artwork
+    console.log('previewing with img', imageUrl)
     return (
       <div className='ArtworkPreview-Overlay' onClick={this.dismiss}>
         <div className='ArtworkPreview' ref={(el) => { this.modal = el }}>

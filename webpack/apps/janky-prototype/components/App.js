@@ -27,16 +27,16 @@ class App extends React.Component {
     this.onAddTag = this.onAddTag.bind(this)
     this.onSetPartner = this.onSetPartner.bind(this)
     this.onClearPartner = this.onClearPartner.bind(this)
-    // this.onSetFair = this.onSetFair.bind(this)
-    // this.onClearFair = this.onClearFair.bind(this)
+    this.onSetFair = this.onSetFair.bind(this)
+    this.onClearFair = this.onClearFair.bind(this)
 
-    // this.onSetPublishedFilter = this.onSetPublishedFilter.bind(this)
-    // this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
-    // this.onSetGenomedFilter = this.onSetGenomedFilter.bind(this)
+    this.onSetPublishedFilter = this.onSetPublishedFilter.bind(this)
+    this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
+    this.onSetGenomedFilter = this.onSetGenomedFilter.bind(this)
 
-    // this.onPreviewArtwork = this.onPreviewArtwork.bind(this)
-    // this.onPreviewPrevious = this.onPreviewPrevious.bind(this)
-    // this.onPreviewNext = this.onPreviewNext.bind(this)
+    this.onPreviewArtwork = this.onPreviewArtwork.bind(this)
+    this.onPreviewPrevious = this.onPreviewPrevious.bind(this)
+    this.onPreviewNext = this.onPreviewNext.bind(this)
   }
 
   fetchArtworks () {
@@ -201,27 +201,23 @@ class App extends React.Component {
     this.setState({ genomedFilter: filterValue })
   }
 
-  // onPreviewArtwork(artwork) {
-  //   this.setState({ previewedArtwork: artwork })
-  // }
+  onPreviewArtwork (artwork) {
+    this.setState({ previewedArtwork: artwork })
+  }
 
-  // onPreviewArtwork(artwork) {
-  //   this.setState({ previewedArtwork: artwork })
-  // }
+  onPreviewPrevious () {
+    const curr = this.state.artworks.indexOf(this.state.previewedArtwork)
+    const prev = Math.max(0, curr - 1)
+    const artwork = this.state.artworks[prev]
+    this.setState({ previewedArtwork: artwork })
+  }
 
-  // onPreviewPrevious() {
-  //   const curr = this.state.artworks.indexOf(this.state.previewedArtwork)
-  //   const prev = Math.max(0, curr-1)
-  //   const artwork = this.state.artworks[prev]
-  //   this.setState({ previewedArtwork: artwork })
-  // }
-
-  // onPreviewNext() {
-  //   const curr = this.state.artworks.indexOf(this.state.previewedArtwork)
-  //   const next = Math.min(this.state.artworks.length, curr+1)
-  //   const artwork = this.state.artworks[next]
-  //   this.setState({ previewedArtwork: artwork })
-  // }
+  onPreviewNext () {
+    const curr = this.state.artworks.indexOf(this.state.previewedArtwork)
+    const next = Math.min(this.state.artworks.length, curr + 1)
+    const artwork = this.state.artworks[next]
+    this.setState({ previewedArtwork: artwork })
+  }
 
   render () {
     const { genes, tags, partner, fair, artworks, previewedArtwork } = this.state
