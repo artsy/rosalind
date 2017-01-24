@@ -20,4 +20,9 @@
 /node_modules
 /public/webpack
 
+# Ignore secrets and other env stuff
 .env
+
+# Ignore developer preferences
+.ruby-version
+.ruby-gemset
