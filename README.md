@@ -105,6 +105,8 @@ yarn run test
 foreman start
 ```
 
+- You should now be able to visit the application at [http://localhost:5000](http://localhost:5000)
+
 ## The name
 
 Rosalind is named after [Rosalind Franklin](https://www.google.com/search?q=Rosalind+Franklin), the biophysicist whose pioneering work in X-ray crystallography led to the discovery of the double [helix](https://github.com/artsy/helix).
