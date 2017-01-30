@@ -7,3 +7,7 @@ require 'rubocop/rake_task'
 RuboCop::RakeTask.new(:rubocop) do |task|
   task.options = ['--display-cop-names']
 end
+
+task :yarn do
+  `yarn lint && yarn test`
+end
