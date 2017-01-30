@@ -11,3 +11,5 @@ end
 task :yarn do
   `yarn lint && yarn test`
 end
+
+task default: [:rubocop, :spec, :yarn]
