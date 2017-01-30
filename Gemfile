@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'jquery-rails'
 
 gem 'haml-rails'
+gem 'typhoeus'
 gem 'webpack-rails'
 
 kinetic_gem_spec = { git: 'https://github.com/artsy/kinetic.git', branch: 'master' }
