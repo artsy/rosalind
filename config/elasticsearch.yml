@@ -1,0 +1,8 @@
+development: &default
+  url: <%= ENV['ELASTICSEARCH_URL'] %>
+  index: <%= ENV['ELASTICSEARCH_INDEX'] %>
+  auth_header: <%= ENV['ELASTICSEARCH_AUTH_HEADER'] %>
+test:
+  <<: *default
+production:
+  <<: *default

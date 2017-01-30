@@ -2,7 +2,6 @@ import React from 'react'
 import SearchForm from './SearchForm.js'
 import SearchResults from './SearchResults.js'
 import './App.css'
-import { ELASTICSEARCH_HOST, ELASTICSEARCH_AUTH_HEADER } from '../secrets.js'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 const getArtworksFromResponse = (esResponse) => esResponse.hits.hits.map(hit => hit._source)
@@ -45,12 +44,10 @@ class App extends React.Component {
       this.setState({ artworks: [] })
     } else {
       const query = this.buildElasticSearchQuery()
-      const uri = `${ELASTICSEARCH_HOST}/gravity_application_production/artwork/_search`
-      const headers = new window.Headers({ 'Authorization': ELASTICSEARCH_AUTH_HEADER })
-      const method = 'post'
-      const body = JSON.stringify(query)
-      console.log('fetching', body)
-      window.fetch(uri, { headers, method, body }).then(response => {
+      const queryJSON = JSON.stringify(query)
+      console.log('fetching', queryJSON)
+      const uri = `/search/artworks?query=${encodeURIComponent(queryJSON)}`
+      window.fetch(uri, { credentials: 'include' }).then(response => {
         if (response.ok) {
           response.json().then(data => {
             this.setState({ artworks: getArtworksFromResponse(data) })
