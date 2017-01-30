@@ -18,3 +18,7 @@ Style/FrozenStringLiteralComment:
 
 Style/IndentArray:
   EnforcedStyle: consistent
+
+AllCops:
+  Exclude:
+    - Gemfile
