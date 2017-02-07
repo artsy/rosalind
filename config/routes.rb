@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   get 'artwork/:id', to: 'pages#artwork', as: 'artwork'
 
   get 'search/artworks'
+
+  get 'match/genes'
+  get 'match/tags'
+
 end
