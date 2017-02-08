@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
-  context 'with a logged in user' do
-    include_context 'logged in user'
+  context 'with a logged in admin' do
+    include_context 'logged in admin'
 
     describe 'GET #home' do
       let(:artwork) { Fabricate(:kinetic_artwork) }

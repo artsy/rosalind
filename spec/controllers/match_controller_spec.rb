@@ -1,49 +1,47 @@
 require 'rails_helper'
 
 RSpec.describe MatchController, type: :controller do
-  let!(:gravity_api_root) { Rails.application.config_for(:gravity)['api_root'] }
+  context 'with a logged in admin' do
+    include_context 'logged in admin'
 
-  describe '#genes' do
-    let(:gravity_request) do
-      stub_request(:get, Regexp.new("#{gravity_api_root}/match/tags"))
+    describe '#genes' do
+      let(:gene) { Fabricate(:kinetic_gene, name: 'Photojournalism') }
+      let!(:gravity_request) { Kinetic::Stub::Gravity::GravityModel.match([gene]) }
+
+      it 'issues the correct gravity query' do
+        get :genes, params: { term: 'photo' }
+        expect(gravity_request).to have_been_made
+      end
     end
 
-    it 'issues the correct gravity query' do
-      get :genes, params: { term: 'photo' }
-      expect(gravity_request).to have_been_made
-    end
-  end
+    describe '#tags' do
+      let(:tag) { Fabricate(:kinetic_tag, name: 'Clown') }
+      let!(:gravity_request) { Kinetic::Stub::Gravity::GravityModel.match([tag]) }
 
-  describe '#tags' do
-    let(:gravity_request) do
-      stub_request(:get, Regexp.new("#{gravity_api_root}/match/tags"))
-    end
-
-    it 'issues the correct gravity query' do
-      get :tags, params: { term: 'new york' }
-      expect(gravity_request).to have_been_made
-    end
-  end
-
-  describe '#partners' do
-    let(:gravity_request) do
-      stub_request(:get, Regexp.new("#{gravity_api_root}/match/partners"))
+      it 'issues the correct gravity query' do
+        get :tags, params: { term: 'clown' }
+        expect(gravity_request).to have_been_made
+      end
     end
 
-    it 'issues the correct gravity query' do
-      get :partners, params: { term: 'gago' }
-      expect(gravity_request).to have_been_made
-    end
-  end
+    describe '#partners' do
+      let(:partner) { Fabricate(:kinetic_partner, name: 'Gagosian') }
+      let!(:gravity_request) { Kinetic::Stub::Gravity::GravityModel.match([partner]) }
 
-  describe '#fairs' do
-    let(:gravity_request) do
-      stub_request(:get, Regexp.new("#{gravity_api_root}/match/fairs"))
+      it 'issues the correct gravity query' do
+        get :partners, params: { term: 'gago' }
+        expect(gravity_request).to have_been_made
+      end
     end
 
-    it 'issues the correct gravity query' do
-      get :fairs, params: { term: 'new york' }
-      expect(gravity_request).to have_been_made
+    describe '#fairs' do
+      let(:fair) { Fabricate(:kinetic_fair, name: 'Frieze') }
+      let!(:gravity_request) { Kinetic::Stub::Gravity::GravityModel.match([fair]) }
+
+      it 'issues the correct gravity query' do
+        get :fairs, params: { term: 'frieze' }
+        expect(gravity_request).to have_been_made
+      end
     end
   end
 end

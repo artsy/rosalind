@@ -1,6 +1,6 @@
 development: &default
-  url: <%= ENV['ELASTICSEARCH_URL'] %>
-  index: <%= ENV['ELASTICSEARCH_INDEX'] %>
+  url: <%= ENV['ELASTICSEARCH_URL'] || 'http://localhost:9200' %>
+  index: <%= ENV['ELASTICSEARCH_INDEX'] || 'gravity' %>
   auth_header: <%= ENV['ELASTICSEARCH_AUTH_HEADER'] %>
 test:
   <<: *default
