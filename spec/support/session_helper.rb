@@ -6,7 +6,7 @@ def login_as(current_user)
 end
 
 shared_context 'logged in user' do
-  let(:user) { Fabricate(:kinetic_user) }
+  let(:user) { Fabricate(:kinetic_user, roles: []) }
   before do
     login_as user
   end
@@ -14,7 +14,6 @@ end
 
 shared_context 'logged in admin' do
   let(:admin) { Fabricate(:kinetic_admin) }
-  # let(:admin) { Fabricate(:kinetic_user, type: 'Admin') }
   before do
     login_as admin
   end
