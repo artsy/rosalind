@@ -1,22 +1,9 @@
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
-import allPartners from '../data/Partners-2016-11-20.json' // gravity> puts JSON.pretty_generate Partner.each.map{|p| {id: p.id.to_s, name: p.given_name}}
 import './Autosuggest.css'
+import { matchPartners } from 'lib/rosalind-api'
 
-// Teach Autosuggest how to calculate suggestions for any given input value.
-const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase()
-  const inputLength = inputValue.length
-  const inputRegExp = new RegExp(`\\b${inputValue}`, 'i')
-
-  if (inputLength === 0) return []
-  return allPartners
-    .filter(p => p.name.match(inputRegExp))
-    // .filter(p => p.name.toLowerCase().indexOf(inputValue) >= 0)
-    .slice(0, 5)
-}
-
-  // Teach Autosuggest how to calculate the input value for every given suggestion.
+// Teach Autosuggest how to calculate the input value for every given suggestion.
 const getSuggestionValue = suggestion => suggestion.name
 
 // Use your imagination to render suggestions.
@@ -57,8 +44,10 @@ class PartnerAutosuggest extends React.Component {
 
   // Autosuggest will call this function every time you need to update suggestions.
   onSuggestionsFetchRequested ({ value }) {
-    this.setState({
-      suggestions: getSuggestions(value)
+    matchPartners(value).then(partners => {
+      this.setState({
+        suggestions: partners
+      })
     })
   }
 

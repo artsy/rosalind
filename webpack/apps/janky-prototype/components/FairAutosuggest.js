@@ -1,22 +1,9 @@
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
-import allFairs from '../data/Fairs-2016-11-20.json' // gravity> puts JSON.pretty_generate Fair.each.map{|f| {id: f.id.to_s, name: f.name}}
 import './Autosuggest.css'
+import { matchFairs } from 'lib/rosalind-api'
 
-// Teach Autosuggest how to calculate suggestions for any given input value.
-const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase()
-  const inputLength = inputValue.length
-  const inputRegExp = new RegExp(`\\b${inputValue}`, 'i')
-
-  if (inputLength === 0) return []
-  return allFairs
-    .filter(f => f.name.match(inputRegExp))
-    // .filter(f => f.name.toLowerCase().indexOf(inputValue) >= 0)
-    .slice(0, 10)
-}
-
-  // Teach Autosuggest how to calculate the input value for every given suggestion.
+// Teach Autosuggest how to calculate the input value for every given suggestion.
 const getSuggestionValue = suggestion => suggestion.name
 
 // Use your imagination to render suggestions.
@@ -57,8 +44,10 @@ class FairAutosuggest extends React.Component {
 
   // Autosuggest will call this function every time you need to update suggestions.
   onSuggestionsFetchRequested ({ value }) {
-    this.setState({
-      suggestions: getSuggestions(value)
+    matchFairs(value).then(fairs => {
+      this.setState({
+        suggestions: fairs
+      })
     })
   }
 
