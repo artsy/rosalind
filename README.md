@@ -30,13 +30,6 @@ You can read more about [the motivation for the app][motivation].
   $ bin/setup
   ```
 
-Note: you'll probably want to configure your Ruby manager before you run the
-setup script. For RVM users, something like this:
-
-```
-$ echo 2.3.0 > .ruby-version && echo rosalind > .ruby-gemset
-```
-
 ## Tests
 
 There are two levels of testing on this project: those at the Ruby level and
