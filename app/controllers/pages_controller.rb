@@ -7,7 +7,5 @@ class PagesController < ApplicationController
     @artwork = Artwork.find params[:id]
   end
 
-  def janky_prototype
-    @foo = 'bar'
-  end
+  def original_prototype; end
 end

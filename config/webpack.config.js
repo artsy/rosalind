@@ -15,7 +15,7 @@ var config = {
   entry: {
     // Sources are expected to live in $app_root/webpack
     'artwork-viewer': './webpack/apps/artwork-viewer',
-    'janky-prototype': './webpack/apps/janky-prototype'
+    'original-prototype': './webpack/apps/original-prototype'
   },
 
   output: {
