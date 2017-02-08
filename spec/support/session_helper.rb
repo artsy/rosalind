@@ -1,6 +1,6 @@
 def login_as(current_user)
   return unless defined?(session)
-  access_token = '4, 8, 15, 16, 23, 42'
+  access_token = '9, 3, 6, 5, 5, 7'
   session[:current_user] = current_user.attributes
   session[:access_token] = access_token
 end
