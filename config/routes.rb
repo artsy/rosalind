@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get 'search/artworks'
 
+  # autocomplete matchers
   get 'match/genes'
   get 'match/tags'
-
+  get 'match/fairs'
+  get 'match/partners'
 end
