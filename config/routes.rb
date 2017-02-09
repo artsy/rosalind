@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'artwork/:id', to: 'pages#artwork', as: 'artwork'
 
   # searches and autocompletes
-  get 'search/artworks'
+  get 'match/artworks'
   get 'match/genes'
   get 'match/tags'
   get 'match/fairs'

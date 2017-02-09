@@ -1,4 +1,10 @@
 class MatchController < ApplicationController
+  def artworks
+    query = params.require(:query)
+    response = ArtworkSearchService.call(query: query)
+    render json: response
+  end
+
   def genes
     term = params.require(:term)
     genes = Gene.match term: term, size: 5

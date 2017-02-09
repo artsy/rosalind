@@ -46,7 +46,7 @@ class App extends React.Component {
       const query = this.buildElasticSearchQuery()
       const queryJSON = JSON.stringify(query)
       console.log('fetching', queryJSON)
-      const uri = `/search/artworks?query=${encodeURIComponent(queryJSON)}`
+      const uri = `/match/artworks?query=${encodeURIComponent(queryJSON)}`
       window.fetch(uri, { credentials: 'include' }).then(response => {
         if (response.ok) {
           response.json().then(data => {
