@@ -3,6 +3,9 @@
 Metrics/LineLength:
   Max: 132 # good for desktop Github
 
+# Metrics/MethodLength:
+#   Max: 15
+
 Style/BlockComments:
   Exclude:
     - 'spec/spec_helper.rb'

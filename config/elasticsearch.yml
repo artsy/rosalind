@@ -1,7 +1,8 @@
 development: &default
   url: <%= ENV['ELASTICSEARCH_URL'] || 'http://localhost:9200' %>
   index: <%= ENV['ELASTICSEARCH_INDEX'] || 'gravity' %>
-  auth_header: <%= ENV['ELASTICSEARCH_AUTH_HEADER'] %>
+  username: <%= ENV['ELASTICSEARCH_USERNAME'] || 'replace' %>
+  password: <%= ENV['ELASTICSEARCH_PASSWORD'] || 'replace' %>
 test:
   <<: *default
 production:

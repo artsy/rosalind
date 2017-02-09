@@ -4,16 +4,10 @@ RSpec.describe SearchController, type: :controller do
   context 'with a logged in admin' do
     include_context 'logged in admin'
 
-    let(:elasticsearch_base_url) do
-      Rails.application.config_for(:elasticsearch).values_at('url', 'index').join('/')
-    end
-
     describe '#artworks' do
       let(:query) { '{"query":{"match_all":{}}}' }
-      let(:elasticsearch_request) do
-        stub_request(:post, Regexp.new("^#{elasticsearch_base_url}/artwork/_search"))
-          .with(body: query)
-      end
+      let(:hits) { elasticsearch_sample_artwork_hits }
+      let!(:elasticsearch_request) { stub_elasticsearch_request path: 'artwork/_search', query: query, response_hits: hits }
 
       it 'issues the correct elasticsearch query' do
         get :artworks, params: { query: query }
