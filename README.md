@@ -10,10 +10,10 @@ You can read more about [the motivation for the app][motivation].
 
 ## Meta
 
-* State: development
-* Staging: [https://rosalind-staging.herokuapp.com/][staging] | [Heroku][heroku_staging]
-* GitHub: [https://github.com/artsy/rosalind][rosalind]
-* Point People: [@anandaroop][anandaroop]
+* __State:__ development
+* __Staging:__ [https://rosalind-staging.herokuapp.com/][staging] | [Heroku][heroku_staging]
+* __GitHub:__ [https://github.com/artsy/rosalind][rosalind]
+* __Point People:__ [@anandaroop][anandaroop]
 
 ## Setup
 
