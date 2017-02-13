@@ -24,5 +24,4 @@
 .env
 
 # Ignore developer preferences
-.ruby-version
 .ruby-gemset
