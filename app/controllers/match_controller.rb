@@ -19,13 +19,13 @@ class MatchController < ApplicationController
 
   def partners
     term = params.require(:term)
-    tags = Partner.match term: term, size: 5
-    render json: tags
+    partners = Partner.match term: term, size: 5
+    render json: partners
   end
 
   def fairs
     term = params.require(:term)
-    tags = Fair.match term: term, size: 5
-    render json: tags
+    fairs = Fair.match term: term, size: 5
+    render json: fairs
   end
 end
