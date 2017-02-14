@@ -37,7 +37,6 @@ class Artwork extends React.Component {
 
   render () {
     const { name, image_url: imageUrl } = this.props.artwork
-    // console.log(missingImage, imageUrl)
     return (
       <div className='tmp-artwork' onClick={this.handleClick}>
         <img src={imageUrl || missingImage} alt={name} />
@@ -82,7 +81,6 @@ class ArtworkPreview extends React.Component {
 
   render () {
     const { id, artist_id: artistId, name, image_url: imageUrl, published, genomed, deleted } = this.props.artwork
-    console.log('previewing with img', imageUrl)
     return (
       <div className='ArtworkPreview-Overlay' onClick={this.dismiss}>
         <div className='ArtworkPreview' ref={(el) => { this.modal = el }}>
