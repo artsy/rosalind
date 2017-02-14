@@ -1,0 +1,215 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+header {
+  background: #333;
+  height: 50px;
+}
+
+#root {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+}
+
+/* basic layout */
+
+.App {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  align-items: stretch;
+}
+
+.SearchForm, .SearchResults {
+  padding: 1em;
+}
+
+.SearchForm {
+  flex-grow: 1;
+  flex-basis: 150px;
+  background: #f8f8f8;
+  margin-top: ;
+}
+
+.SearchResults {
+  flex-grow: 5;
+  flex-basis: 400px;
+}
+
+/* components */
+
+.SearchForm-SectionHeader {
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75em;
+  margin-top: 1.5em;
+}
+
+.SelectedGene,
+.SelectedTag,
+.SelectedPartner, 
+.SelectedFair {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.SelectedGene-remove,
+.SelectedTag-remove,
+.SelectedPartner-remove, 
+.SelectedFair-remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  text-decoration: none;
+}
+
+.SelectedGene-remove:hover,
+.SelectedTag-remove:hover,
+.SelectedPartner-remove:hover, 
+.SelectedFair-remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.GeneAutosuggest input,
+.TagAutosuggest input,
+.PartnerAutosuggest input, 
+.FairAutosuggest input {
+  width: 100%;
+  font-size: 1em;
+  line-height: 2em;
+  border: none;
+  border-bottom: dotted 1px #ccc;
+  margin: 1em 0 0 0;
+  /*margin: 0.5em 0 0.5em 0;*/
+  background: none;
+}
+
+.GeneAutosuggest input:focus,
+.TagAutosuggest input:focus,
+.PartnerAutosuggest input:focus, 
+.FairAutosuggest input:focus {
+  outline: none;
+}
+
+.FilterOptions {
+  font-size: 80%;
+  color: #999;
+  line-height: 140%;
+  margin-top: 2em;
+  opacity: 0.25;
+  transition: opacity 0.75s;
+}
+
+.FilterOptions:hover {
+  opacity: 1;
+  transition: opacity 0.25s;
+}
+
+.PublishedFilter,
+.DeletedFilter,
+.GenomedFilter {
+  margin-top: 1em;
+}
+
+.PublishedFilter a,
+.DeletedFilter a,
+.GenomedFilter a {
+  color: #ccc;
+  margin-right: 0.5em;
+}
+
+.PublishedFilter a.active,
+.DeletedFilter a.active,
+.GenomedFilter a.active {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;;
+}
+
+.SearchResults {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.tmp-artwork {
+  /*outline: solid 1px red;*/
+  min-width: 115px;
+  max-width: calc(20% - 1.5em);
+  margin: 0.75em;
+  flex: 1 1 calc(20% - 1.5em);
+}
+
+.tmp-artwork img {
+  width: 100%;
+}
+
+.tmp-artwork figcaption {
+  position: relative;
+  font-size: 80%;
+  max-height: 3.75em;
+  line-height: 1.25em;
+  overflow: hidden;
+}
+
+.ArtworkPreview-Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 0%, 0.5);
+  z-index: 1;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ArtworkPreview {
+  /*flex: 0 0 66%;*/
+  box-sizing: border-box;
+  padding: 2em;
+  max-height: 90%;
+  z-index: 2;
+  background: white;
+  box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.5);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ArtworkPreview-Image {
+  /*outline: solid 1px red;*/
+  /*text-align: right;*/
+  flex: 0 1 40%;
+}
+
+.ArtworkPreview-Image img {
+  /*min-width: 500px;*/
+}
+
+.ArtworkPreview-Details {
+  /*outline: solid 1px red;*/
+  max-width: 20em;
+  margin-left: 1em;
+  flex: 0 1 60%;
+}

@@ -6,4 +6,6 @@ class PagesController < ApplicationController
   def artwork
     @artwork = Artwork.find params[:id]
   end
+
+  def original_prototype; end
 end

@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+npm-debug.log
 
 # Ignore Byebug command history file.
 .byebug_history

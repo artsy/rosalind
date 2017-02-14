@@ -1,6 +1,6 @@
 development: &default
-  url: <%= ENV['gravity_url'] %>
-  api_root: <%= ENV['gravity_api_root'] %>
+  url: <%= ENV['gravity_url'] || 'http://localhost:3000' %>
+  api_root: <%= ENV['gravity_api_root'] || 'http://localhost:3000/api/v1' %>
   application_id: <%= ENV['gravity_application_id'] %>
   application_secret: <%= ENV['gravity_application_secret'] %>
   xapp_token: <%= ENV['gravity_xapp_token'] %>

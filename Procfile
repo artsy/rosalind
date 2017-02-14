@@ -1,2 +1,2 @@
 rails: bundle exec puma -C config/puma.rb
-webpack: ./node_modules/.bin/webpack-dev-server --config config/webpack.config.js
+webpack: ./node_modules/.bin/webpack-dev-server --config config/webpack.config.js --colors
