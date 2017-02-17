@@ -19,3 +19,8 @@ deployment:
     owner: artsy
     heroku:
       appname: rosalind-staging
+  production:
+    branch: release
+    owner: artsy
+    heroku:
+      appname: rosalind-production
