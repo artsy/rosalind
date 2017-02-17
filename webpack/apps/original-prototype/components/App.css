@@ -1,7 +1,6 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
 }
 
 header {
@@ -50,6 +49,8 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.75em;
+  font-family:'ITC Avant Garde Gothic W01';
+  font-weight: 400;
   margin-top: 1.5em;
 }
 

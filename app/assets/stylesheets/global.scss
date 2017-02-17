@@ -1,0 +1,36 @@
+// Bare minimum of *truly* global styles and resets
+
+// font mixins
+
+@mixin avant-garde($weight: 300) {
+  // accepts weights of 100,300,400,600,700
+  font-family:'ITC Avant Garde Gothic W01';
+  font-weight: $weight;
+}
+
+@mixin garamond {
+  font-family:'Adobe Garamond W08';
+}
+
+// box model reset
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// universal defaults
+
+body {
+  @include garamond;
+}
+
+input[type=text] {
+  @include garamond;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  @include garamond;
+}
+
