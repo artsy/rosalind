@@ -22,7 +22,7 @@ export const matchPartners = function (term) {
   const uri = `/match/partners?term=${term}`
   return window.fetch(uri, { credentials: 'include' })
     .then(resp => resp.json())
-    .then(partners => partners.map(({ id, name }) => ({ id, name })))
+    .then(partners => partners.map(({ id: slug, _id: id, name }) => ({ id, slug, name })))
     .catch((err) => {
       console.error(err)
     })
@@ -32,7 +32,7 @@ export const matchFairs = function (term) {
   const uri = `/match/fairs?term=${term}`
   return window.fetch(uri, { credentials: 'include' })
     .then(resp => resp.json())
-    .then(fairs => fairs.map(({ id, name }) => ({ id, name })))
+    .then(fairs => fairs.map(({ id: slug, _id: id, name }) => ({ id, slug, name })))
     .catch((err) => {
       console.error(err)
     })
