@@ -46,16 +46,18 @@ export default class GenericAutosuggest extends React.Component {
     }
 
     return (
-      <Autosuggest
-        id={this.props.id}
-        suggestions={this.state.suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={this.props.getSuggestionValue}
-        renderSuggestion={this.props.renderSuggestion}
-        inputProps={inputElementProps}
-        onSuggestionSelected={this.onSuggestionSelected}
-        />
+      <div className='GenericAutosuggest'>
+        <Autosuggest
+          id={this.props.id}
+          suggestions={this.state.suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={this.props.getSuggestionValue}
+          renderSuggestion={this.props.renderSuggestion}
+          inputProps={inputElementProps}
+          onSuggestionSelected={this.onSuggestionSelected}
+          />
+      </div>
     )
   }
 }
