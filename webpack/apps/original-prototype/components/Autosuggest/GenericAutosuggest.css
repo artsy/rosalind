@@ -1,0 +1,20 @@
+ul.react-autosuggest__suggestions-list {
+  /*list-style-type: none;*/
+  /*margin: 1px 0 0 0;*/
+  /*padding: 0;*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*justify-content: space-between;*/
+}
+
+
+li.react-autosuggest__suggestion {
+  /*background: white;*/
+  /*flex-basis: 50px;*/
+  /*margin: 0 0 1px 0;*/
+}
+
+li.react-autosuggest__suggestion--focused {
+  background: purple;
+  color: white;
+}
