@@ -9,47 +9,24 @@ class SearchForm extends React.Component {
     const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.props
     return (
       <div className='SearchForm'>
-        {
-          genes.length ? <h2 className='SearchForm-SectionHeader'>Genes</h2> : ''
-        }
-        {
-          genes.map((g) =>
-            <SelectedGene key={g.id} name={g.name}
-              onRemoveGene={this.props.onRemoveGene} />
-          )
-        }
-        {
-          tags.length ? <h2 className='SearchForm-SectionHeader'>Tags</h2> : ''
-        }
-        {
-          tags.map((t) =>
-            <SelectedTag key={t.id} name={t.name}
-              onRemoveTag={this.props.onRemoveTag} />
-          )
-        }
-        {
-          partner !== null ? <h2 className='SearchForm-SectionHeader'>Partner</h2> : ''
-        }
-        {
-          <SelectedPartner partner={partner}
-            onClearPartner={this.props.onClearPartner} />
-        }
-        {
-          fair !== null ? <h2 className='SearchForm-SectionHeader'>Fair</h2> : ''
-        }
-        {
-          <SelectedFair fair={fair}
-            onClearFair={this.props.onClearFair} />
-        }
+        { genes.length > 0 && <h2 className='SearchForm-SectionHeader'>Genes</h2> }
+        { genes.map((g) => <SelectedGene key={g.id} name={g.name} onRemoveGene={this.props.onRemoveGene} />)}
+
+        { tags.length > 0 && <h2 className='SearchForm-SectionHeader'>Tags</h2> }
+        { tags.map((t) => <SelectedTag key={t.id} name={t.name} onRemoveTag={this.props.onRemoveTag} />)}
+
+        { partner && <h2 className='SearchForm-SectionHeader'>Partner</h2> }
+        { <SelectedPartner partner={partner} onClearPartner={this.props.onClearPartner} /> }
+
+        { fair && <h2 className='SearchForm-SectionHeader'>Fair</h2> }
+        { <SelectedFair fair={fair} onClearFair={this.props.onClearFair} /> }
+
         <form onSubmit={e => e.preventDefault()}>
           <GeneAutosuggest onSelectGene={this.props.onAddGene} />
           <TagAutosuggest onSelectTag={this.props.onAddTag} />
-          {
-            partner === null ? <PartnerAutosuggest onSetPartner={this.props.onSetPartner} /> : ''
-          }
-          {
-            fair === null ? <FairAutosuggest onSetFair={this.props.onSetFair} /> : ''
-          }
+          { partner || <PartnerAutosuggest onSetPartner={this.props.onSetPartner} /> }
+          { fair || <FairAutosuggest onSetFair={this.props.onSetFair} /> }
+
           <div className='FilterOptions'>
             { false && <p><strong>Options</strong></p> }
             <PublishedFilter current={publishedFilter}
