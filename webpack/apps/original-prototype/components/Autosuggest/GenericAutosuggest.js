@@ -61,3 +61,26 @@ export default class GenericAutosuggest extends React.Component {
     )
   }
 }
+
+// validation
+
+const functionValidator = (signatureDescription) => {
+  return (props, propName, componentName) => {
+    const prop = props[propName]
+    if ((prop instanceof Function) === false) {
+      return new Error(
+        `Invalid '${propName}' prop supplied to ${componentName}\n\t` +
+        `'${propName}' should be a function with the signature (${signatureDescription})\n`
+      )
+    }
+  }
+}
+
+GenericAutosuggest.propTypes = {
+  id: React.PropTypes.string,
+  placeholder: React.PropTypes.string,
+  fetchSuggestions: functionValidator('searchTerm => listOfMatchingSuggestionObjects'),
+  getSuggestionValue: functionValidator('suggestionObject => displayName'),
+  renderSuggestion: functionValidator('suggestionObject => stringOrMarkupForSuggestionList'),
+  selectSuggestion: functionValidator('suggestionObject => { handlerFunction(suggestionObject) }')
+}
