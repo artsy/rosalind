@@ -34,3 +34,43 @@ input[type=text] {
   @include garamond;
 }
 
+// header and logo
+
+header {
+  background: #333;
+  height: 50px;
+  position: relative;
+}
+
+#home {
+  &__logo {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    svg {
+      fill: #ddd;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    left: 55px;
+    line-height: 50px;
+    color: #ddd;
+    @include avant-garde(400);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5pt;
+  }
+
+  &:hover &__logo svg {
+    fill: white;
+  }
+  &:hover &__title {
+    color: white;
+    text-decoration: underline
+  }
+}
