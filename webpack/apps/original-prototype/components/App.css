@@ -1,13 +1,3 @@
-body {
-  padding: 0;
-  margin: 0;
-}
-
-header {
-  background: #333;
-  height: 50px;
-}
-
 #root {
   position: absolute;
   left: 0;
@@ -33,7 +23,7 @@ header {
 .SearchForm {
   flex-grow: 1;
   flex-basis: 150px;
-  background: #f8f8f8;
+  border-right: solid 1px #eee;
   margin-top: ;
 }
 
