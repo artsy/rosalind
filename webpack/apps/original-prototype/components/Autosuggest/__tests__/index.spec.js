@@ -1,11 +1,11 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { GeneAutosuggest2 } from '../../Autosuggest'
+import { GeneAutosuggest } from '../../Autosuggest'
 
-describe('GeneAutosuggest2', () => {
+describe('GeneAutosuggest', () => {
   it('renders correctly', () => {
     const mockHandler = jest.fn()
-    const rendered = renderer.create(<GeneAutosuggest2 onSelectGene={mockHandler} />)
+    const rendered = renderer.create(<GeneAutosuggest onSelectGene={mockHandler} />)
     const tree = rendered.toJSON()
     expect(tree).toMatchSnapshot()
   })

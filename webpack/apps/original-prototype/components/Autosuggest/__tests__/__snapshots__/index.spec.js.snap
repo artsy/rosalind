@@ -1,4 +1,4 @@
-exports[`GeneAutosuggest2 renders correctly 1`] = `
+exports[`GeneAutosuggest renders correctly 1`] = `
 <div
   className="GenericAutosuggest">
   <div

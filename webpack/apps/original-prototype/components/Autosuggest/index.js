@@ -3,7 +3,7 @@ import GenericAutosuggest from './GenericAutosuggest'
 import { matchGenes } from 'lib/rosalind-api'
 import { getGeneSuggestionValue, renderGeneSuggestion } from './helpers'
 
-function GeneAutosuggest2 (props) {
+function GeneAutosuggest (props) {
   return (
     <GenericAutosuggest
       id='gene-autosuggest'
@@ -16,8 +16,8 @@ function GeneAutosuggest2 (props) {
   )
 }
 
-GeneAutosuggest2.propTypes = {
+GeneAutosuggest.propTypes = {
   onSelectGene: React.PropTypes.func.isRequired
 }
 
-export { GeneAutosuggest2 }
+export { GeneAutosuggest }
