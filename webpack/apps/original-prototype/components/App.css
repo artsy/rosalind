@@ -23,7 +23,7 @@
 .SearchForm {
   flex-grow: 1;
   flex-basis: 150px;
-  background: #f8f8f8;
+  border-right: solid 1px #eee;
   margin-top: ;
 }
 
