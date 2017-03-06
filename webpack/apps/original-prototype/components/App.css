@@ -86,7 +86,6 @@ header {
   background: #eee;
 }
 
-.TagAutosuggest input,
 .PartnerAutosuggest input, 
 .FairAutosuggest input {
   width: 100%;
@@ -99,7 +98,6 @@ header {
   background: none;
 }
 
-.TagAutosuggest input:focus,
 .PartnerAutosuggest input:focus, 
 .FairAutosuggest input:focus {
   outline: none;
