@@ -86,7 +86,6 @@ header {
   background: #eee;
 }
 
-.GeneAutosuggest input,
 .TagAutosuggest input,
 .PartnerAutosuggest input, 
 .FairAutosuggest input {
@@ -100,7 +99,6 @@ header {
   background: none;
 }
 
-.GeneAutosuggest input:focus,
 .TagAutosuggest input:focus,
 .PartnerAutosuggest input:focus, 
 .FairAutosuggest input:focus {

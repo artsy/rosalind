@@ -1,11 +1,9 @@
-.GeneAutosuggest,
 .TagAutosuggest, 
 .PartnerAutosuggest,
 .FairAutosuggest {
   margin: 0;
 }
 
-.GeneAutosuggest ul.react-autosuggest__suggestions-list,
 .TagAutosuggest ul.react-autosuggest__suggestions-list,
 .PartnerAutosuggest ul.react-autosuggest__suggestions-list,
 .FairAutosuggest ul.react-autosuggest__suggestions-list {
@@ -19,7 +17,6 @@
   justify-content: space-between;
 }
 
-.GeneAutosuggest li.react-autosuggest__suggestion,
 .TagAutosuggest li.react-autosuggest__suggestion,
 .PartnerAutosuggest li.react-autosuggest__suggestion,
 .FairAutosuggest li.react-autosuggest__suggestion {
@@ -28,7 +25,6 @@
   margin: 0 0 1px 0;
 }
 
-.GeneAutosuggest li.react-autosuggest__suggestion--focused,
 .TagAutosuggest li.react-autosuggest__suggestion--focused,
 .PartnerAutosuggest li.react-autosuggest__suggestion--focused,
 .FairAutosuggest li.react-autosuggest__suggestion--focused {
@@ -36,7 +32,6 @@
   color: white;
 }
 
-.GeneAutosuggest .GeneSuggestion,
 .TagAutosuggest .TagSuggestion,
 .PartnerAutosuggest .PartnerSuggestion,
 .FairAutosuggest .FairSuggestion {
@@ -45,17 +40,14 @@
   align-items: center;
 }
 
-.GeneAutosuggest .GeneSuggestion,
 .TagAutosuggest .TagSuggestion,
 .PartnerAutosuggest .PartnerSuggestion,
 .FairAutosuggest .FairSuggestion {
   min-height: 2em;
 }
 
-.GeneAutosuggest .GeneSuggestion-name,
 .TagAutosuggest .TagSuggestion-name,
 .PartnerAutosuggest .PartnerSuggestion-name,
 .FairAutosuggest .FairSuggestion-name {
   flex: 1;
 }
-

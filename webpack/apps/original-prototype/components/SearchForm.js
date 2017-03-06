@@ -1,6 +1,5 @@
 import React from 'react'
 import { GeneAutosuggest2 } from './Autosuggest'
-import GeneAutosuggest from './GeneAutosuggest'
 import TagAutosuggest from './TagAutosuggest'
 import PartnerAutosuggest from './PartnerAutosuggest'
 import FairAutosuggest from './FairAutosuggest'
@@ -24,7 +23,6 @@ class SearchForm extends React.Component {
 
         <form onSubmit={e => e.preventDefault()}>
           <GeneAutosuggest2 onSelectGene={this.props.onAddGene} />
-          <GeneAutosuggest onSelectGene={this.props.onAddGene} />
           <TagAutosuggest onSelectTag={this.props.onAddTag} />
           { partner === null && <PartnerAutosuggest onSetPartner={this.props.onSetPartner} /> }
           { fair === null && <FairAutosuggest onSetFair={this.props.onSetFair} /> }
