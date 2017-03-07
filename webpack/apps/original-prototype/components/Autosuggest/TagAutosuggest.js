@@ -1,7 +1,7 @@
 import React from 'react'
 import GenericAutosuggest from './GenericAutosuggest'
 import { matchTags } from 'lib/rosalind-api'
-import { getTagSuggestionValue, renderTagSuggestion } from './helpers'
+import { getSuggestionValue, renderSuggestion } from './helpers'
 
 function TagAutosuggest (props) {
   return (
@@ -9,8 +9,8 @@ function TagAutosuggest (props) {
       id='tag-autosuggest'
       placeholder={props.placeholder}
       fetchSuggestions={matchTags}
-      getSuggestionValue={getTagSuggestionValue}
-      renderSuggestion={renderTagSuggestion}
+      getSuggestionValue={getSuggestionValue}
+      renderSuggestion={renderSuggestion}
       selectSuggestion={tag => { props.onSelectTag(tag) }}
       />
   )

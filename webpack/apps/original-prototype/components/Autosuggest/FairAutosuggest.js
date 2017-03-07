@@ -1,7 +1,7 @@
 import React from 'react'
 import GenericAutosuggest from './GenericAutosuggest'
 import { matchFairs } from 'lib/rosalind-api'
-import { getFairSuggestionValue, renderFairSuggestion } from './helpers'
+import { getSuggestionValue, renderSuggestion } from './helpers'
 
 function FairAutosuggest (props) {
   return (
@@ -9,8 +9,8 @@ function FairAutosuggest (props) {
       id='fair-autosuggest'
       placeholder={props.placeholder}
       fetchSuggestions={matchFairs}
-      getSuggestionValue={getFairSuggestionValue}
-      renderSuggestion={renderFairSuggestion}
+      getSuggestionValue={getSuggestionValue}
+      renderSuggestion={renderSuggestion}
       selectSuggestion={fair => { props.onSelectFair(fair) }}
       />
   )

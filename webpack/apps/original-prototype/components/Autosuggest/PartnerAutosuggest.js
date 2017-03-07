@@ -1,7 +1,7 @@
 import React from 'react'
 import GenericAutosuggest from './GenericAutosuggest'
 import { matchPartners } from 'lib/rosalind-api'
-import { getPartnerSuggestionValue, renderPartnerSuggestion } from './helpers'
+import { getSuggestionValue, renderSuggestion } from './helpers'
 
 function PartnerAutosuggest (props) {
   return (
@@ -9,8 +9,8 @@ function PartnerAutosuggest (props) {
       id='partner-autosuggest'
       placeholder={props.placeholder}
       fetchSuggestions={matchPartners}
-      getSuggestionValue={getPartnerSuggestionValue}
-      renderSuggestion={renderPartnerSuggestion}
+      getSuggestionValue={getSuggestionValue}
+      renderSuggestion={renderSuggestion}
       selectSuggestion={partner => { props.onSelectPartner(partner) }}
       />
   )

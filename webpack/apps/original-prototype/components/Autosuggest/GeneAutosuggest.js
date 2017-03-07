@@ -1,7 +1,7 @@
 import React from 'react'
 import GenericAutosuggest from './GenericAutosuggest'
 import { matchGenes } from 'lib/rosalind-api'
-import { getGeneSuggestionValue, renderGeneSuggestion } from './helpers'
+import { getSuggestionValue, renderSuggestion } from './helpers'
 
 function GeneAutosuggest (props) {
   return (
@@ -9,8 +9,8 @@ function GeneAutosuggest (props) {
       id='gene-autosuggest'
       placeholder={props.placeholder}
       fetchSuggestions={matchGenes}
-      getSuggestionValue={getGeneSuggestionValue}
-      renderSuggestion={renderGeneSuggestion}
+      getSuggestionValue={getSuggestionValue}
+      renderSuggestion={renderSuggestion}
       selectSuggestion={gene => { props.onSelectGene(gene) }}
       />
   )
