@@ -1,9 +1,5 @@
 import React from 'react'
-import { GeneAutosuggest2 } from './Autosuggest'
-import GeneAutosuggest from './GeneAutosuggest'
-import TagAutosuggest from './TagAutosuggest'
-import PartnerAutosuggest from './PartnerAutosuggest'
-import FairAutosuggest from './FairAutosuggest'
+import { GeneAutosuggest, TagAutosuggest, PartnerAutosuggest, FairAutosuggest } from './Autosuggest'
 
 class SearchForm extends React.Component {
   render () {
@@ -11,23 +7,22 @@ class SearchForm extends React.Component {
     return (
       <div className='SearchForm'>
         { genes.length > 0 && <h2 className='SearchForm-SectionHeader'>Genes</h2> }
-        { genes.map((g) => <SelectedGene key={g.id} name={g.name} onRemoveGene={this.props.onRemoveGene} />)}
+        { genes.map(g => <SelectedGene key={g.id} name={g.name} onRemoveGene={this.props.onRemoveGene} />)}
 
         { tags.length > 0 && <h2 className='SearchForm-SectionHeader'>Tags</h2> }
-        { tags.map((t) => <SelectedTag key={t.id} name={t.name} onRemoveTag={this.props.onRemoveTag} />)}
+        { tags.map(t => <SelectedTag key={t.id} name={t.name} onRemoveTag={this.props.onRemoveTag} />)}
 
-        { partner && <h2 className='SearchForm-SectionHeader'>Partner</h2> }
+        { partner !== null && <h2 className='SearchForm-SectionHeader'>Partner</h2> }
         { <SelectedPartner partner={partner} onClearPartner={this.props.onClearPartner} /> }
 
-        { fair && <h2 className='SearchForm-SectionHeader'>Fair</h2> }
+        { fair !== null && <h2 className='SearchForm-SectionHeader'>Fair</h2> }
         { <SelectedFair fair={fair} onClearFair={this.props.onClearFair} /> }
 
         <form onSubmit={e => e.preventDefault()}>
-          <GeneAutosuggest2 onSelectGene={this.props.onAddGene} />
-          <GeneAutosuggest onSelectGene={this.props.onAddGene} />
-          <TagAutosuggest onSelectTag={this.props.onAddTag} />
-          { partner || <PartnerAutosuggest onSetPartner={this.props.onSetPartner} /> }
-          { fair || <FairAutosuggest onSetFair={this.props.onSetFair} /> }
+          <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.props.onAddGene} />
+          <TagAutosuggest placeholder='Add a tag' onSelectTag={this.props.onAddTag} />
+          { partner === null && <PartnerAutosuggest onSelectPartner={this.props.onSetPartner} /> }
+          { fair === null && <FairAutosuggest onSelectFair={this.props.onSetFair} /> }
 
           <div className='FilterOptions'>
             { false && <p><strong>Options</strong></p> }

@@ -1,4 +1,4 @@
-exports[`GeneAutosuggest2 renders correctly 1`] = `
+exports[`TagAutosuggest renders correctly 1`] = `
 <div
   className="GenericAutosuggest">
   <div
@@ -8,20 +8,20 @@ exports[`GeneAutosuggest2 renders correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded={false}
       aria-haspopup={false}
-      aria-owns="react-autowhatever-gene-autosuggest"
+      aria-owns="react-autowhatever-tag-autosuggest"
       autoComplete="off"
       className="react-autosuggest__input"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
-      placeholder="Add a gene"
+      placeholder="Select a tag"
       role="combobox"
       type="text"
       value="" />
     <div
       className="react-autosuggest__suggestions-container"
-      id="react-autowhatever-gene-autosuggest" />
+      id="react-autowhatever-tag-autosuggest" />
   </div>
 </div>
 `;
