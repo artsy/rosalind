@@ -86,21 +86,6 @@ header {
   background: #eee;
 }
 
-.FairAutosuggest input {
-  width: 100%;
-  font-size: 1em;
-  line-height: 2em;
-  border: none;
-  border-bottom: dotted 1px #ccc;
-  margin: 1em 0 0 0;
-  /*margin: 0.5em 0 0.5em 0;*/
-  background: none;
-}
-
-.FairAutosuggest input:focus {
-  outline: none;
-}
-
 .FilterOptions {
   font-size: 80%;
   color: #999;
