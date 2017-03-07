@@ -86,7 +86,6 @@ header {
   background: #eee;
 }
 
-.PartnerAutosuggest input, 
 .FairAutosuggest input {
   width: 100%;
   font-size: 1em;
@@ -98,7 +97,6 @@ header {
   background: none;
 }
 
-.PartnerAutosuggest input:focus, 
 .FairAutosuggest input:focus {
   outline: none;
 }

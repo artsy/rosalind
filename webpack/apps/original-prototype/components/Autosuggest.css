@@ -1,9 +1,7 @@
-.PartnerAutosuggest,
 .FairAutosuggest {
   margin: 0;
 }
 
-.PartnerAutosuggest ul.react-autosuggest__suggestions-list,
 .FairAutosuggest ul.react-autosuggest__suggestions-list {
   list-style-type: none;
   margin: 1px 0 0 0;
@@ -15,32 +13,27 @@
   justify-content: space-between;
 }
 
-.PartnerAutosuggest li.react-autosuggest__suggestion,
 .FairAutosuggest li.react-autosuggest__suggestion {
   background: white;
   /*flex-basis: 50px;*/
   margin: 0 0 1px 0;
 }
 
-.PartnerAutosuggest li.react-autosuggest__suggestion--focused,
 .FairAutosuggest li.react-autosuggest__suggestion--focused {
   background: purple;
   color: white;
 }
 
-.PartnerAutosuggest .PartnerSuggestion,
 .FairAutosuggest .FairSuggestion {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.PartnerAutosuggest .PartnerSuggestion,
 .FairAutosuggest .FairSuggestion {
   min-height: 2em;
 }
 
-.PartnerAutosuggest .PartnerSuggestion-name,
 .FairAutosuggest .FairSuggestion-name {
   flex: 1;
 }
