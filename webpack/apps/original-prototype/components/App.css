@@ -1,13 +1,3 @@
-body {
-  padding: 0;
-  margin: 0;
-}
-
-header {
-  background: #333;
-  height: 50px;
-}
-
 #root {
   position: absolute;
   left: 0;
@@ -33,7 +23,7 @@ header {
 .SearchForm {
   flex-grow: 1;
   flex-basis: 150px;
-  background: #f8f8f8;
+  border-right: solid 1px #eee;
   margin-top: ;
 }
 
@@ -84,27 +74,6 @@ header {
   color: #333;
   cursor: pointer;
   background: #eee;
-}
-
-.GeneAutosuggest input,
-.TagAutosuggest input,
-.PartnerAutosuggest input, 
-.FairAutosuggest input {
-  width: 100%;
-  font-size: 1em;
-  line-height: 2em;
-  border: none;
-  border-bottom: dotted 1px #ccc;
-  margin: 1em 0 0 0;
-  /*margin: 0.5em 0 0.5em 0;*/
-  background: none;
-}
-
-.GeneAutosuggest input:focus,
-.TagAutosuggest input:focus,
-.PartnerAutosuggest input:focus, 
-.FairAutosuggest input:focus {
-  outline: none;
 }
 
 .FilterOptions {

@@ -1,0 +1,30 @@
+.GenericAutosuggest input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.GenericAutosuggest input:focus {
+  outline: none;
+}
+
+.GenericAutosuggest ul.react-autosuggest__suggestions-list {
+  list-style-type: none;
+}
+
+.GenericAutosuggest li.react-autosuggest__suggestion {
+  display: flex;
+  align-items: center;
+  min-height: 2em;
+  padding: 0 0.25em;
+  background: white;
+}
+
+.GenericAutosuggest li.react-autosuggest__suggestion--focused {
+  background: purple;
+  color: white;
+}

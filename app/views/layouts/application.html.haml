@@ -12,5 +12,10 @@
       = javascript_include_tag 'http://localhost:3808/webpack-dev-server.js'
   %body
     %header
+      %a#home{ href: '/' }
+        #home__logo
+          = render file: 'svgs/logo.svg'
+        #home__title
+          Rosalind
     %main
       = yield
