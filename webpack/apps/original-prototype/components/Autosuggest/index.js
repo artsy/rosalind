@@ -1,7 +1,7 @@
 import React from 'react'
 import GenericAutosuggest from './GenericAutosuggest'
-import { matchGenes, matchTags, matchPartners } from 'lib/rosalind-api'
-import { getGeneSuggestionValue, renderGeneSuggestion, getTagSuggestionValue, renderTagSuggestion, getPartnerSuggestionValue, renderPartnerSuggestion } from './helpers'
+import { matchGenes, matchTags, matchPartners, matchFairs } from 'lib/rosalind-api'
+import { getGeneSuggestionValue, renderGeneSuggestion, getTagSuggestionValue, renderTagSuggestion, getPartnerSuggestionValue, renderPartnerSuggestion, getFairSuggestionValue, renderFairSuggestion } from './helpers'
 
 function GeneAutosuggest (props) {
   return (
@@ -66,4 +66,25 @@ PartnerAutosuggest.defaultProps = {
   placeholder: 'Select a partner'
 }
 
-export { GeneAutosuggest, TagAutosuggest, PartnerAutosuggest }
+function FairAutosuggest (props) {
+  return (
+    <GenericAutosuggest
+      id='fair-autosuggest'
+      placeholder={props.placeholder}
+      fetchSuggestions={matchFairs}
+      getSuggestionValue={getFairSuggestionValue}
+      renderSuggestion={renderFairSuggestion}
+      selectSuggestion={fair => { props.onSelectFair(fair) }}
+      />
+  )
+}
+
+FairAutosuggest.propTypes = {
+  onSelectFair: React.PropTypes.func.isRequired
+}
+
+FairAutosuggest.defaultProps = {
+  placeholder: 'Select a fair'
+}
+
+export { GeneAutosuggest, TagAutosuggest, PartnerAutosuggest, FairAutosuggest }

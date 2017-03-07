@@ -1,9 +1,10 @@
 import React from 'react'
-import { getGeneSuggestionValue, renderGeneSuggestion, getTagSuggestionValue, renderTagSuggestion, getPartnerSuggestionValue, renderPartnerSuggestion } from '../helpers'
+import { getGeneSuggestionValue, renderGeneSuggestion, getTagSuggestionValue, renderTagSuggestion, getPartnerSuggestionValue, renderPartnerSuggestion, getFairSuggestionValue, renderFairSuggestion } from '../helpers'
 
 const geneSuggestion = {id: 'kawaii', name: 'Kawaii'}
 const tagSuggestion = {id: 'clown', name: 'Clown'}
 const partnerSuggestion = {id: 'gagosian', name: 'Gagosian'}
+const fairSuggestion = {id: 'frieze', name: 'Frieze'}
 
 describe('getGeneSuggestionValue', () => {
   it('returns the gene name', () => {
@@ -49,6 +50,22 @@ describe('renderPartnerSuggestion', () => {
   it('returns markup containing the partner name', () => {
     const expected = <div>Gagosian</div>
     const actual = renderPartnerSuggestion(partnerSuggestion)
+    expect(actual).toEqual(expected)
+  })
+})
+
+describe('getFairSuggestionValue', () => {
+  it('returns the fair name', () => {
+    const expected = 'Frieze'
+    const actual = getFairSuggestionValue(fairSuggestion)
+    expect(actual).toEqual(expected)
+  })
+})
+
+describe('renderFairSuggestion', () => {
+  it('returns markup containing the fair name', () => {
+    const expected = <div>Frieze</div>
+    const actual = renderFairSuggestion(fairSuggestion)
     expect(actual).toEqual(expected)
   })
 })

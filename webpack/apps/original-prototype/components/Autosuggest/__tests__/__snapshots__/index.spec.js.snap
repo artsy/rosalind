@@ -1,3 +1,31 @@
+exports[`FairAutosuggest renders correctly 1`] = `
+<div
+  className="GenericAutosuggest">
+  <div
+    className="react-autosuggest__container">
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-fair-autosuggest"
+      autoComplete="off"
+      className="react-autosuggest__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Select a fair"
+      role="combobox"
+      type="text"
+      value="" />
+    <div
+      className="react-autosuggest__suggestions-container"
+      id="react-autowhatever-fair-autosuggest" />
+  </div>
+</div>
+`;
+
 exports[`GeneAutosuggest renders correctly 1`] = `
 <div
   className="GenericAutosuggest">
