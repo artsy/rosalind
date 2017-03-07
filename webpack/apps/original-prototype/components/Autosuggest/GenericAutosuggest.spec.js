@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount, render } from 'enzyme'
-import GenericAutosuggest from '../GenericAutosuggest'
+import GenericAutosuggest from './GenericAutosuggest'
 
 let props
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { getSuggestionValue, renderSuggestion } from '../helpers'
+import { getSuggestionValue, renderSuggestion } from './helpers'
 
 const suggestion = {id: 'kawaii', name: 'Kawaii'}
 
