@@ -1,10 +1,11 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { GeneAutosuggest, TagAutosuggest } from '../../Autosuggest'
+import { GeneAutosuggest, TagAutosuggest, PartnerAutosuggest } from '../../Autosuggest'
+
+const mockHandler = jest.fn()
 
 describe('GeneAutosuggest', () => {
   it('renders correctly', () => {
-    const mockHandler = jest.fn()
     const rendered = renderer.create(<GeneAutosuggest onSelectGene={mockHandler} />)
     const tree = rendered.toJSON()
     expect(tree).toMatchSnapshot()
@@ -13,8 +14,15 @@ describe('GeneAutosuggest', () => {
 
 describe('TagAutosuggest', () => {
   it('renders correctly', () => {
-    const mockHandler = jest.fn()
     const rendered = renderer.create(<TagAutosuggest onSelectTag={mockHandler} />)
+    const tree = rendered.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
+
+describe('PartnerAutosuggest', () => {
+  it('renders correctly', () => {
+    const rendered = renderer.create(<PartnerAutosuggest onSelectPartner={mockHandler} />)
     const tree = rendered.toJSON()
     expect(tree).toMatchSnapshot()
   })

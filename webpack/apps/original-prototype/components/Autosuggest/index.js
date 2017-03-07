@@ -1,7 +1,7 @@
 import React from 'react'
 import GenericAutosuggest from './GenericAutosuggest'
-import { matchGenes, matchTags } from 'lib/rosalind-api'
-import { getGeneSuggestionValue, renderGeneSuggestion, getTagSuggestionValue, renderTagSuggestion } from './helpers'
+import { matchGenes, matchTags, matchPartners } from 'lib/rosalind-api'
+import { getGeneSuggestionValue, renderGeneSuggestion, getTagSuggestionValue, renderTagSuggestion, getPartnerSuggestionValue, renderPartnerSuggestion } from './helpers'
 
 function GeneAutosuggest (props) {
   return (
@@ -45,4 +45,25 @@ TagAutosuggest.defaultProps = {
   placeholder: 'Select a tag'
 }
 
-export { GeneAutosuggest, TagAutosuggest }
+function PartnerAutosuggest (props) {
+  return (
+    <GenericAutosuggest
+      id='partner-autosuggest'
+      placeholder={props.placeholder}
+      fetchSuggestions={matchPartners}
+      getSuggestionValue={getPartnerSuggestionValue}
+      renderSuggestion={renderPartnerSuggestion}
+      selectSuggestion={partner => { props.onSelectPartner(partner) }}
+      />
+  )
+}
+
+PartnerAutosuggest.propTypes = {
+  onSelectPartner: React.PropTypes.func.isRequired
+}
+
+PartnerAutosuggest.defaultProps = {
+  placeholder: 'Select a partner'
+}
+
+export { GeneAutosuggest, TagAutosuggest, PartnerAutosuggest }
