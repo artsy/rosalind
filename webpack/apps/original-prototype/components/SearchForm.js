@@ -1,22 +1,23 @@
 import React from 'react'
 import { GeneAutosuggest, TagAutosuggest, PartnerAutosuggest, FairAutosuggest } from './Autosuggest'
+import CurrentCriteria from './CurrentCriteria'
 
 class SearchForm extends React.Component {
   render () {
-    const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.props
+    const { genes, tags, partner, fair, onRemoveGene, onRemoveTag, onClearPartner, onClearFair } = this.props
+    const { publishedFilter, deletedFilter, genomedFilter } = this.props
     return (
       <div className='SearchForm'>
-        { genes.length > 0 && <h2 className='SearchForm-SectionHeader'>Genes</h2> }
-        { genes.map(g => <SelectedGene key={g.id} name={g.name} onRemoveGene={this.props.onRemoveGene} />)}
-
-        { tags.length > 0 && <h2 className='SearchForm-SectionHeader'>Tags</h2> }
-        { tags.map(t => <SelectedTag key={t.id} name={t.name} onRemoveTag={this.props.onRemoveTag} />)}
-
-        { partner !== null && <h2 className='SearchForm-SectionHeader'>Partner</h2> }
-        { <SelectedPartner partner={partner} onClearPartner={this.props.onClearPartner} /> }
-
-        { fair !== null && <h2 className='SearchForm-SectionHeader'>Fair</h2> }
-        { <SelectedFair fair={fair} onClearFair={this.props.onClearFair} /> }
+        <CurrentCriteria
+          genes={genes}
+          tags={tags}
+          partner={partner}
+          fair={fair}
+          onRemoveGene={onRemoveGene}
+          onRemoveTag={onRemoveTag}
+          onClearPartner={onClearPartner}
+          onClearFair={onClearFair}
+          />
 
         <form onSubmit={e => e.preventDefault()}>
           <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.props.onAddGene} />
@@ -39,102 +40,6 @@ class SearchForm extends React.Component {
         </form>
       </div>
     )
-  }
-}
-
-class SelectedGene extends React.Component {
-  constructor (props) {
-    super(props)
-    this.handleRemove = this.handleRemove.bind(this)
-  }
-
-  handleRemove (e) {
-    e.preventDefault()
-    this.props.onRemoveGene(this.props.name)
-  }
-
-  render () {
-    return (
-      <div className='SelectedGene'>
-        {this.props.name}
-        <a href='#' className='SelectedGene-remove'
-          onClick={this.handleRemove}>✕</a>
-      </div>
-    )
-  }
-}
-
-class SelectedTag extends React.Component {
-  constructor (props) {
-    super(props)
-    this.handleRemove = this.handleRemove.bind(this)
-  }
-
-  handleRemove (e) {
-    e.preventDefault()
-    this.props.onRemoveTag(this.props.name)
-  }
-
-  render () {
-    return (
-      <div className='SelectedTag'>
-        {this.props.name}
-        <a href='#' className='SelectedTag-remove'
-          onClick={this.handleRemove}>✕</a>
-      </div>
-    )
-  }
-}
-
-class SelectedPartner extends React.Component {
-  constructor (props) {
-    super(props)
-    this.handleRemove = this.handleRemove.bind(this)
-  }
-
-  handleRemove (e) {
-    e.preventDefault()
-    this.props.onClearPartner()
-  }
-
-  render () {
-    const { partner } = this.props
-    if (partner !== null) {
-      return (
-        <div className='SelectedPartner'>
-          {partner.name}
-          <a href='#' className='SelectedPartner-remove'
-            onClick={this.handleRemove}>✕</a>
-        </div>
-      )
-    }
-    return null
-  }
-}
-
-class SelectedFair extends React.Component {
-  constructor (props) {
-    super(props)
-    this.handleRemove = this.handleRemove.bind(this)
-  }
-
-  handleRemove (e) {
-    e.preventDefault()
-    this.props.onClearFair()
-  }
-
-  render () {
-    const { fair } = this.props
-    if (fair !== null) {
-      return (
-        <div className='SelectedFair'>
-          {fair.name}
-          <a href='#' className='SelectedFair-remove'
-            onClick={this.handleRemove}>✕</a>
-        </div>
-      )
-    }
-    return null
   }
 }
 
