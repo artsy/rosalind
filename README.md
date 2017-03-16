@@ -11,8 +11,9 @@ You can read more about [the motivation for the app][motivation].
 ## Meta
 
 * __State:__ development
-* __Staging:__ [https://rosalind-staging.herokuapp.com/][staging] | [Heroku][heroku_staging]
-* __GitHub:__ [https://github.com/artsy/rosalind][rosalind]
+* __Staging:__ [https://rosalind-staging.artsy.net/][staging] | [Heroku][heroku_staging]
+* __Production:__ [https://rosalind.artsy.net/][production] | [Heroku][heroku_production]
+* __GitHub:__ [https://github.com/artsy/rosalind][github]
 * __Point People:__ [@anandaroop][anandaroop]
 
 ## Setup
@@ -76,9 +77,11 @@ pioneering work in X-ray crystallography led to the discovery of the double
 [react]: https://facebook.github.io/react/
 [webpack]: https://webpack.github.io
 [motivation]: https://github.com/artsy/rosalind/pull/1
-[staging]: https://rosalind-staging.herokuapp.com/
+[staging]: https://rosalind-staging.artsy.net/
 [heroku_staging]: https://dashboard.heroku.com/apps/rosalind-staging
-[rosalind]: https://github.com/artsy/rosalind
+[production]: https://rosalind.artsy.net/
+[heroku_production]: https://dashboard.heroku.com/apps/rosalind-production
+[github]: https://github.com/artsy/rosalind
 [anandaroop]: https://github.com/anandaroop
 [xapp]: https://github.com/artsy/gravity/blob/master/doc/ApiAuthentication.md#create-xapp-token
 [franklin]: https://www.google.com/search?q=Rosalind+Franklin

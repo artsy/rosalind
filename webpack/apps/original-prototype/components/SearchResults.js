@@ -80,7 +80,7 @@ class ArtworkPreview extends React.Component {
   }
 
   render () {
-    const { id, artist_id: artistId, name, image_url: imageUrl, published, genomed, deleted } = this.props.artwork
+    const { id, artist_id: artistId, partner_id: partnerId, name, image_url: imageUrl, published, genomed, deleted } = this.props.artwork
     return (
       <div className='ArtworkPreview-Overlay' onClick={this.dismiss}>
         <div className='ArtworkPreview' ref={(el) => { this.modal = el }}>
@@ -89,16 +89,20 @@ class ArtworkPreview extends React.Component {
           </div>
           <div className='ArtworkPreview-Details'>
             <p style={{fontWeight: 'bold'}}>{name}</p>
-            <p style={{fontSize: '0.9em', lineHeight: '125%'}}>
+            <p style={{fontSize: '0.9em', lineHeight: '125%', margin: '1em 0'}}>
               Deleted: {deleted.toString()} <br />
               Published: {published.toString()} <br />
               Genomed: {genomed.toString()}
             </p>
             <p>
-              <a href={`https://helix.artsy.net/genome/artworks?artwork_ids=${id}`}>View artwork in Helix</a>
+              View artwork in:
+              <a style={{margin: '0 0.25em'}} href={`https://helix.artsy.net/genome/artworks?artwork_ids=${id}`}>Helix</a>|
+              <a style={{margin: '0 0.25em'}} href={`https://cms.artsy.net/artworks/${id}/edit?current_partner_id=${partnerId}`}>CMS</a>|
+              <a style={{margin: '0 0.25em'}} href={`https://www.artsy.net/artwork/${id}`}>Artsy.net</a>
             </p>
             <p>
-              <a href={`https://helix.artsy.net/genome/artist?search[genome_artist_id]=${artistId}`}>View artist in Helix</a>
+              View artist in:
+              <a style={{margin: '0 0.25em'}} href={`https://helix.artsy.net/genome/artist?search[genome_artist_id]=${artistId}`}>Helix</a>
             </p>
           </div>
         </div>
