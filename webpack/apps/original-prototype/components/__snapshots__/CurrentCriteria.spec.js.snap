@@ -1,0 +1,105 @@
+exports[`test renders nothing if there are no selected criteria 1`] = `<div />`;
+
+exports[`test renders the selected fair 1`] = `
+<div>
+  <div>
+    <h2
+      className="SearchForm-SectionHeader">
+      Fair
+    </h2>
+    <div
+      className="SelectedFair">
+      FooFair
+      <a
+        className="SelectedFair-remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders the selected genes 1`] = `
+<div>
+  <div>
+    <h2
+      className="SearchForm-SectionHeader">
+      Genes
+    </h2>
+    <div
+      className="SelectedGene">
+      Foo
+      <a
+        className="SelectedGene-remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+    <div
+      className="SelectedGene">
+      Bar
+      <a
+        className="SelectedGene-remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders the selected partner 1`] = `
+<div>
+  <div>
+    <h2
+      className="SearchForm-SectionHeader">
+      Partner
+    </h2>
+    <div
+      className="SelectedPartner">
+      Gallery Foo
+      <a
+        className="SelectedPartner-remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders the selected tags 1`] = `
+<div>
+  <div>
+    <h2
+      className="SearchForm-SectionHeader">
+      Tags
+    </h2>
+    <div
+      className="SelectedTag">
+      Foo
+      <a
+        className="SelectedTag-remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+    <div
+      className="SelectedTag">
+      Bar
+      <a
+        className="SelectedTag-remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+  </div>
+</div>
+`;
