@@ -1,0 +1,12 @@
+exports[`test renders correctly 1`] = `
+<div
+  className="SelectedFair">
+  Frieze
+  <a
+    className="SelectedFair-remove"
+    href="#"
+    onClick={[Function]}>
+    ✕
+  </a>
+</div>
+`;
