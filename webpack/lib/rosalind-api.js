@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 export const matchTags = function (term) {
   const uri = `/match/tags?term=${term}`
   return window.fetch(uri, { credentials: 'include' })
