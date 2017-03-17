@@ -25,7 +25,8 @@
     "stats-webpack-plugin": "^0.2.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.9.11",
-    "webpack-dev-server": "^1.9.0"
+    "webpack-dev-server": "^1.9.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {},
   "jest": {
