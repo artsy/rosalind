@@ -1,10 +1,10 @@
 import React from 'react'
 import SearchForm from './SearchForm.js'
 import SearchResults from './SearchResults.js'
+import { matchArtworks } from 'lib/rosalind-api'
 import './App.css'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
-const getArtworksFromResponse = (esResponse) => esResponse.hits.hits.map(hit => hit._source)
 
 class App extends React.Component {
   constructor (props) {
@@ -44,17 +44,8 @@ class App extends React.Component {
       this.setState({ artworks: [] })
     } else {
       const query = this.buildElasticSearchQuery()
-      const queryJSON = JSON.stringify(query)
-      console.log('fetching', queryJSON)
-      const uri = `/match/artworks?query=${encodeURIComponent(queryJSON)}`
-      window.fetch(uri, { credentials: 'include' }).then(response => {
-        if (response.ok) {
-          response.json().then(data => {
-            this.setState({ artworks: getArtworksFromResponse(data) })
-          })
-        } else {
-          console.error('Fetch error', response.statusText)
-        }
+      matchArtworks(query).then(artworks => {
+        this.setState({ artworks: artworks })
       })
     }
   }
