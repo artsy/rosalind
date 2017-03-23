@@ -16,6 +16,17 @@ export default function CurrentCriteria (props) {
   )
 }
 
+CurrentCriteria.propTypes = {
+  genes: React.PropTypes.arrayOf(React.PropTypes.object),
+  tags: React.PropTypes.arrayOf(React.PropTypes.object),
+  partner: React.PropTypes.object,
+  fair: React.PropTypes.object,
+  onRemoveGene: React.PropTypes.func.isRequired,
+  onRemoveTag: React.PropTypes.func.isRequired,
+  onClearPartner: React.PropTypes.func.isRequired,
+  onClearFair: React.PropTypes.func.isRequired
+}
+
 function CurrentGenes (props) {
   const { genes, onRemoveGene } = props
   if (genes.length > 0) {

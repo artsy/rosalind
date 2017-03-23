@@ -25,3 +25,8 @@ export default class SelectedFair extends React.Component {
     return null
   }
 }
+
+SelectedFair.propTypes = {
+  fair: React.PropTypes.object.isRequired,
+  onClearFair: React.PropTypes.func.isRequired
+}

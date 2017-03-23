@@ -21,3 +21,8 @@ export default class SelectedGene extends React.Component {
     )
   }
 }
+
+SelectedGene.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  onRemoveGene: React.PropTypes.func.isRequired
+}

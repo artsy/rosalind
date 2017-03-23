@@ -21,3 +21,8 @@ export default class SelectedTag extends React.Component {
     )
   }
 }
+
+SelectedTag.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  onRemoveTag: React.PropTypes.func.isRequired
+}

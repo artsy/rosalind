@@ -25,3 +25,8 @@ export default class SelectedPartner extends React.Component {
     return null
   }
 }
+
+SelectedPartner.propTypes = {
+  partner: React.PropTypes.object.isRequired,
+  onClearPartner: React.PropTypes.func.isRequired
+}
