@@ -1,5 +1,6 @@
 import React from 'react'
 import missingImage from 'file-loader!./missing_image.png'
+import { ESC, LEFT, RIGHT } from 'lib/keycodes.js'
 
 export default class ArtworkPreview extends React.Component {
   constructor (props) {
@@ -21,9 +22,9 @@ export default class ArtworkPreview extends React.Component {
   }
 
   handleKeyUp (e) {
-    e.keyCode === 27 && this.dismiss()
-    e.keyCode === 37 && this.prev()
-    e.keyCode === 39 && this.next()
+    e.keyCode === ESC && this.dismiss()
+    e.keyCode === LEFT && this.prev()
+    e.keyCode === RIGHT && this.next()
   }
 
   componentDidMount () {
