@@ -1,13 +1,13 @@
 import React from 'react'
 import missingImage from 'file-loader!./missing_image.png'
-import ArtworkPreview from './ArtworkPreview'
+import ArtworkPreviewModal from './ArtworkPreviewModal'
 
 export default function SearchResults (props) {
   const { artworks, previewedArtwork, onPreviewArtwork, onPreviewPrevious, onPreviewNext } = props
   return (
     <div className='SearchResults'>
       {
-        previewedArtwork && <ArtworkPreview
+        previewedArtwork && <ArtworkPreviewModal
           artwork={previewedArtwork}
           onPreviewArtwork={onPreviewArtwork}
           onPreviewPrevious={onPreviewPrevious}
