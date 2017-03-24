@@ -25,25 +25,14 @@ function SearchResults (props) {
   )
 }
 
-class Artwork extends React.Component {
-  constructor (props) {
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick () {
-    this.props.onPreviewArtwork(this.props.artwork)
-  }
-
-  render () {
-    const { name, image_url: imageUrl } = this.props.artwork
-    return (
-      <div className='tmp-artwork' onClick={this.handleClick}>
-        <img src={imageUrl || missingImage} alt={name} />
-        <figcaption>{name}</figcaption>
-      </div>
-    )
-  }
+const Artwork = ({artwork, onPreviewArtwork}) => {
+  const { name, image_url: imageUrl } = artwork
+  return (
+    <div className='tmp-artwork' onClick={() => { onPreviewArtwork(artwork) }}>
+      <img src={imageUrl || missingImage} alt={name} />
+      <figcaption>{name}</figcaption>
+    </div>
+  )
 }
 
 class ArtworkPreview extends React.Component {
