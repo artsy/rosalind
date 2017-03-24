@@ -44,21 +44,21 @@ export default class ArtworkPreview extends React.Component {
             <img src={imageUrl || missingImage} alt={name} />
           </div>
           <div className='ArtworkPreview-Details'>
-            <p style={{fontWeight: 'bold'}}>{name}</p>
-            <p style={{fontSize: '0.9em', lineHeight: '125%', margin: '1em 0'}}>
+            <p className='ArtworkPreview-Name'>{name}</p>
+            <p className='ArtworkPreview-Status'>
               Deleted: {deleted.toString()} <br />
               Published: {published.toString()} <br />
               Genomed: {genomed.toString()}
             </p>
-            <p>
+            <p className='ArtworkPreview-Links'>
               View artwork in:
-              <a style={{margin: '0 0.25em'}} href={`https://helix.artsy.net/genome/artworks?artwork_ids=${id}`}>Helix</a>|
-              <a style={{margin: '0 0.25em'}} href={`https://cms.artsy.net/artworks/${id}/edit?current_partner_id=${partnerId}`}>CMS</a>|
-              <a style={{margin: '0 0.25em'}} href={`https://www.artsy.net/artwork/${id}`}>Artsy.net</a>
+              <a href={`https://helix.artsy.net/genome/artworks?artwork_ids=${id}`}>Helix</a>|
+              <a href={`https://cms.artsy.net/artworks/${id}/edit?current_partner_id=${partnerId}`}>CMS</a>|
+              <a href={`https://www.artsy.net/artwork/${id}`}>Artsy.net</a>
             </p>
-            <p>
+            <p className='ArtworkPreview-Links'>
               View artist in:
-              <a style={{margin: '0 0.25em'}} href={`https://helix.artsy.net/genome/artist?search[genome_artist_id]=${artistId}`}>Helix</a>
+              <a href={`https://helix.artsy.net/genome/artist?search[genome_artist_id]=${artistId}`}>Helix</a>
             </p>
           </div>
         </div>
