@@ -2,7 +2,7 @@ import React from 'react'
 import missingImage from 'file-loader!./missing_image.png'
 import { ESC, LEFT, RIGHT } from 'lib/keycodes.js'
 
-export default class ArtworkPreview extends React.Component {
+export default class ArtworkPreviewModal extends React.Component {
   constructor (props) {
     super(props)
     this.dismiss = this.dismiss.bind(this)
@@ -65,4 +65,11 @@ export default class ArtworkPreview extends React.Component {
       </div>
     )
   }
+}
+
+ArtworkPreviewModal.propTypes = {
+  artwork: React.PropTypes.object.isRequired,
+  onPreviewArtwork: React.PropTypes.func,
+  onPreviewPrevious: React.PropTypes.func,
+  onPreviewNext: React.PropTypes.func
 }
