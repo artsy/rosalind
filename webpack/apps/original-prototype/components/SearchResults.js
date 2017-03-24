@@ -26,6 +26,14 @@ export default function SearchResults (props) {
   )
 }
 
+SearchResults.propTypes = {
+  artworks: React.PropTypes.array.isRequired,
+  previewedArtwork: React.PropTypes.object,
+  onPreviewArtwork: React.PropTypes.func,
+  onPreviewPrevious: React.PropTypes.func,
+  onPreviewNext: React.PropTypes.func
+}
+
 const ArtworkResult = ({artwork, onPreviewArtwork}) => {
   const { name, image_url: imageUrl } = artwork
   return (
