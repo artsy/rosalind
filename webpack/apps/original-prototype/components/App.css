@@ -118,7 +118,7 @@
   align-content: flex-start;
 }
 
-.tmp-artwork {
+.ArtworkResult {
   /*outline: solid 1px red;*/
   min-width: 115px;
   max-width: calc(20% - 1.5em);
@@ -126,11 +126,11 @@
   flex: 1 1 calc(20% - 1.5em);
 }
 
-.tmp-artwork img {
+.ArtworkResult img {
   width: 100%;
 }
 
-.tmp-artwork figcaption {
+.ArtworkResult figcaption {
   position: relative;
   font-size: 80%;
   max-height: 3.75em;
@@ -168,8 +168,6 @@
 }
 
 .ArtworkPreview-Image {
-  /*outline: solid 1px red;*/
-  /*text-align: right;*/
   flex: 0 1 40%;
 }
 
@@ -178,8 +176,21 @@
 }
 
 .ArtworkPreview-Details {
-  /*outline: solid 1px red;*/
   max-width: 20em;
   margin-left: 1em;
   flex: 0 1 60%;
+}
+
+.ArtworkPreview-Name {
+  font-weight: bold;
+}
+
+.ArtworkPreview-Status {
+  font-size: 0.9em;
+  line-height: 125%;
+  margin: 1em 0;
+}
+
+.ArtworkPreview-Links a {
+  margin: 0 0.25em;
 }
