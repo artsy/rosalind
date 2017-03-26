@@ -39,19 +39,6 @@ class App extends React.Component {
     this.onPreviewNext = this.onPreviewNext.bind(this)
   }
 
-  fetchArtworks () {
-    const { genes, tags, partner, fair } = this.state
-    if ((genes.length === 0) && (tags.length === 0) && (partner === null) && (fair === null)) {
-      this.setState({ artworks: [] })
-    } else {
-      const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.state
-      const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter })
-      matchArtworks(query).then(artworks => {
-        this.setState({ artworks: artworks })
-      })
-    }
-  }
-
   componentWillMount () {
     if (this.state.genes.length || this.state.tags.length) {
       this.fetchArtworks()
@@ -69,6 +56,19 @@ class App extends React.Component {
       (this.state.genomedFilter !== prevState.genomedFilter)
      ) {
       this.fetchArtworks()
+    }
+  }
+
+  fetchArtworks () {
+    const { genes, tags, partner, fair } = this.state
+    if ((genes.length === 0) && (tags.length === 0) && (partner === null) && (fair === null)) {
+      this.setState({ artworks: [] })
+    } else {
+      const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.state
+      const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter })
+      matchArtworks(query).then(artworks => {
+        this.setState({ artworks: artworks })
+      })
     }
   }
 
