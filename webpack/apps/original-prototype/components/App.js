@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchForm from './SearchForm.js'
 import SearchResults from './SearchResults.js'
+import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
 import './App.css'
 
@@ -43,73 +44,11 @@ class App extends React.Component {
     if ((genes.length === 0) && (tags.length === 0) && (partner === null) && (fair === null)) {
       this.setState({ artworks: [] })
     } else {
-      const query = this.buildElasticSearchQuery()
+      const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.state
+      const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter })
       matchArtworks(query).then(artworks => {
         this.setState({ artworks: artworks })
       })
-    }
-  }
-
-  buildElasticSearchQuery () {
-    const { genes, tags, partner, fair } = this.state
-    const geneMatches = genes.map(g => { return { 'match': { 'genes': g.name } } })
-    const tagMatches = tags.map(t => { return { 'match': { 'tags': t.name } } })
-    const filterMatches = this.buildFilterMatches()
-    const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
-    const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
-    return {
-      'query': {
-        'bool': {
-          'must': [...geneMatches, ...tagMatches, ...filterMatches, partnerMatch, fairMatch].filter(m => m !== null)
-        }
-      },
-      'sort': [
-          { 'published_at': 'desc' },
-          { 'id': 'desc' }
-      ],
-      'size': 100
-    }
-  }
-
-  buildFilterMatches () {
-    let matches = [
-      this.publishedMatcher(),
-      this.deletedMatcher(),
-      this.genomedMatcher()
-    ]
-    return matches
-  }
-
-  publishedMatcher () {
-    switch (this.state.publishedFilter) {
-      case 'SHOW_PUBLISHED':
-        return { 'match': { 'published': true } }
-      case 'SHOW_NOT_PUBLISHED':
-        return { 'match': { 'published': false } }
-      default:
-        return null
-    }
-  }
-
-  deletedMatcher () {
-    switch (this.state.deletedFilter) {
-      case 'SHOW_DELETED':
-        return { 'match': { 'deleted': true } }
-      case 'SHOW_NOT_DELETED':
-        return { 'match': { 'deleted': false } }
-      default:
-        return null
-    }
-  }
-
-  genomedMatcher () {
-    switch (this.state.genomedFilter) {
-      case 'SHOW_GENOMED':
-        return { 'match': { 'genomed': true } }
-      case 'SHOW_NOT_GENOMED':
-        return { 'match': { 'genomed': false } }
-      default:
-        return null
     }
   }
 
