@@ -4,11 +4,8 @@ import { TagAutosuggest } from './TagAutosuggest'
 
 const mockHandler = jest.fn()
 
-describe('TagAutosuggest', () => {
-  it('renders correctly', () => {
-    const rendered = renderer.create(<TagAutosuggest onSelectTag={mockHandler} />)
-    const tree = rendered.toJSON()
-    expect(tree).toMatchSnapshot()
-  })
+it('renders correctly', () => {
+  const rendered = renderer.create(<TagAutosuggest onSelectTag={mockHandler} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
 })
-
