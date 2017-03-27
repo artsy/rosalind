@@ -14,7 +14,7 @@ var production = process.env.NODE_ENV === 'production'
 var config = {
   entry: {
     // Sources are expected to live in $app_root/webpack
-    'original-prototype': './webpack/apps/original-prototype'
+    'batch-update': './webpack/apps/batch-update'
   },
 
   output: {

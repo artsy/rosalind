@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#original_prototype'
+  root to: 'pages#batch_update'
 
   # searches and autocompletes
   get 'match/artworks'
