@@ -1,6 +1,0 @@
-/ bootstrap the artwork over to client side
-= javascript_tag "window.artwork = #{@artwork.to_json}"
-
-/ mount React
-#root
-= javascript_include_tag *webpack_asset_paths('artwork-viewer')

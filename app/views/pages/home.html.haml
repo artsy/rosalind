@@ -1,6 +1,0 @@
-%h1 Rosalind
-
-- @artworks.each do |artwork|
-  %h2= artwork.title
-  = link_to image_tag(artwork.images.first['image_urls']['square']), artwork_path(artwork.id)
-  %p= artwork.published_at
