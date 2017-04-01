@@ -18,6 +18,7 @@ export default function Spinner () {
     height: '1%',
     background: 'black',
     alignSelf: 'center',
+    animation: 'spin 2s linear infinite',
     zIndex: 2
   }
   return (
