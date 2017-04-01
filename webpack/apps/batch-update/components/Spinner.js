@@ -1,29 +1,49 @@
 import React from 'react'
+import styled, { keyframes } from 'styled-components'
 
-export default function Spinner () {
-  const overlayStyle = {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    height: 'calc(100vh - 50px)',
-    background: 'hsla(0, 0%, 100%, 0.90)',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    zIndex: 1
+const spinning = keyframes`
+  from {
+    transform: rotate(0deg)
   }
-  const barStyle = {
-    width: '12%',
-    height: '1%',
-    background: 'black',
-    alignSelf: 'center',
-    animation: 'spin 2s linear infinite',
-    zIndex: 2
+  to {
+    transform: rotate(360deg)
   }
-  return (
-    <div style={overlayStyle}>
-      <div style={barStyle} />
-    </div>
-  )
+`
+
+const Overlay = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: calc(100vh - 50px);
+  background: hsla(0, 0%, 100%, 0.90);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  z-index: 1
+`
+
+const AnimatedLine = styled.div`
+  width: 12%;
+  height: 1%;
+  background: ${props => props.color};
+  align-self: center;
+  z-index: 2;
+  animation: ${spinning} 2s linear infinite;
+`
+
+AnimatedLine.propTypes = {
+  color: React.PropTypes.string
 }
+
+AnimatedLine.defaultProps = {
+  color: 'black'
+}
+
+const Spinner = () => (
+  <Overlay>
+    <AnimatedLine />
+  </Overlay>
+)
+
+export default Spinner
