@@ -28,6 +28,7 @@
 }
 
 .SearchResults {
+  position: relative;
   flex-grow: 5;
   flex-basis: 400px;
 }
