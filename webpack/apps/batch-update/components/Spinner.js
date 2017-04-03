@@ -1,10 +1,10 @@
 import React from 'react'
-import './Spinner.css'
+import styles from './Spinner.css'
 
 export default function Spinner () {
   return (
-    <div className='Spinner__Overlay'>
-      <div className='Spinner__Line' />
+    <div className={styles.overlay}>
+      <div className={styles.line} />
     </div>
   )
 }
