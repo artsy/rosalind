@@ -1,4 +1,4 @@
-.Spinner__Overlay {
+.overlay {
   position: absolute;
   left: 0;
   top: 0;
@@ -11,7 +11,7 @@
   z-index: 1
 }
 
-.Spinner__Line {
+.line {
   width: 12%;
   height: 1%;
   background: black;
