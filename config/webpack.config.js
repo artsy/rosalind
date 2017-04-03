@@ -49,9 +49,23 @@ var config = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        test: /(App\.css|GenericAutosuggest\.css)$/,
+        loaders: ['style-loader', 'css-loader'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader',
+        exclude: /(node_modules|App\.css|GenericAutosuggest\.css)/
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        exclude: /(node_modules|App\.css|GenericAutosuggest\.css)/,
+        query: {
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]'
+        }
       }
     ]
   },
