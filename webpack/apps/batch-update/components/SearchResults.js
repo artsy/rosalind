@@ -7,7 +7,7 @@ export default function SearchResults (props) {
   const { artworks, isLoading, previewedArtwork, onPreviewArtwork, onPreviewPrevious, onPreviewNext } = props
   return (
     <div className='SearchResults'>
-      { isLoading && <Spinner /> }
+      {isLoading && <Spinner />}
       {
         previewedArtwork && <ArtworkPreviewModal
           artwork={previewedArtwork}

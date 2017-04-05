@@ -23,8 +23,8 @@ export default class SearchForm extends React.Component {
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />
         <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
-        { partner === null && <PartnerAutosuggest onSelectPartner={onSetPartner} /> }
-        { fair === null && <FairAutosuggest onSelectFair={onSetFair} /> }
+        {partner === null && <PartnerAutosuggest onSelectPartner={onSetPartner} />}
+        {fair === null && <FairAutosuggest onSelectFair={onSetFair} />}
 
         <FilterOptions
           publishedFilter={publishedFilter}
