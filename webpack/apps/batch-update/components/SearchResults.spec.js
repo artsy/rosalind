@@ -41,3 +41,9 @@ it('does not render a modal when not previewing', () => {
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+it('renders a spinner while fetching artworks', () => {
+  const rendered = renderer.create(<SearchResults isLoading={true} previewedArtwork={null} artworks={artworks} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})

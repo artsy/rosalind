@@ -134,3 +134,35 @@ exports[`test renders a modal when previewing 1`] = `
   </div>
 </div>
 `;
+
+exports[`test renders a spinner while fetching artworks 1`] = `
+<div
+  className="SearchResults">
+  <div
+    className="lnzNIy">
+    <div
+      className="eWOvlO"
+      color="black" />
+  </div>
+  <div
+    className="ArtworkResult"
+    onClick={[Function]}>
+    <img
+      alt="Soup Can"
+      src="can.jpg" />
+    <figcaption>
+      Soup Can
+    </figcaption>
+  </div>
+  <div
+    className="ArtworkResult"
+    onClick={[Function]}>
+    <img
+      alt="Shark"
+      src="shark.jpg" />
+    <figcaption>
+      Shark
+    </figcaption>
+  </div>
+</div>
+`;

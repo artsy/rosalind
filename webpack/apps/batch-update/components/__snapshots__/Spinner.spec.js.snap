@@ -1,0 +1,8 @@
+exports[`test renders correctly 1`] = `
+<div
+  className="lnzNIy">
+  <div
+    className="eWOvlO"
+    color="black" />
+</div>
+`;
