@@ -19,7 +19,8 @@ class App extends React.Component {
       deletedFilter: 'SHOW_ALL',
       genomedFilter: 'SHOW_ALL',
       artworks: [],
-      previewedArtwork: null
+      previewedArtwork: null,
+      isLoading: false
     }
     this.onRemoveGene = this.onRemoveGene.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
@@ -66,8 +67,9 @@ class App extends React.Component {
     } else {
       const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.state
       const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter })
+      this.setState({ isLoading: true })
       matchArtworks(query).then(artworks => {
-        this.setState({ artworks: artworks })
+        this.setState({ artworks: artworks, isLoading: false })
       })
     }
   }
@@ -147,7 +149,7 @@ class App extends React.Component {
   }
 
   render () {
-    const { genes, tags, partner, fair, artworks, previewedArtwork } = this.state
+    const { genes, tags, partner, fair, artworks, previewedArtwork, isLoading } = this.state
     return (
       <div className='App'>
         <SearchForm
@@ -174,6 +176,7 @@ class App extends React.Component {
         <SearchResults
           artworks={artworks}
           previewedArtwork={previewedArtwork}
+          isLoading={isLoading}
           onPreviewArtwork={this.onPreviewArtwork}
           onPreviewPrevious={this.onPreviewPrevious}
           onPreviewNext={this.onPreviewNext}

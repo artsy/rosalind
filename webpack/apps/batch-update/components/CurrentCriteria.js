@@ -33,7 +33,7 @@ function CurrentGenes (props) {
     return (
       <div>
         <h2 className='SearchForm-SectionHeader'>Genes</h2>
-        { genes.map(g => <SelectedGene key={g.id} name={g.name} onRemoveGene={onRemoveGene} />) }
+        {genes.map(g => <SelectedGene key={g.id} name={g.name} onRemoveGene={onRemoveGene} />)}
       </div>
     )
   } else {
@@ -47,7 +47,7 @@ function CurrentTags (props) {
     return (
       <div>
         <h2 className='SearchForm-SectionHeader'>Tags</h2>
-        { tags.map(t => <SelectedTag key={t.id} name={t.name} onRemoveTag={onRemoveTag} />) }
+        {tags.map(t => <SelectedTag key={t.id} name={t.name} onRemoveTag={onRemoveTag} />)}
       </div>
     )
   } else {
