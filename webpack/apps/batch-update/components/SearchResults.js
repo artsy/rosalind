@@ -3,10 +3,10 @@ import missingImage from 'file-loader!./missing_image.png'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
 import Spinner from './Spinner'
 
-export default function SearchResults (props) {
-  const { artworks, isLoading, previewedArtwork, onPreviewArtwork, onPreviewPrevious, onPreviewNext } = props
+function SearchResults (props) {
+  const { className, artworks, isLoading, previewedArtwork, onPreviewArtwork, onPreviewPrevious, onPreviewNext } = props
   return (
-    <div className='SearchResults'>
+    <div className={className}>
       {isLoading && <Spinner />}
       {
         previewedArtwork && <ArtworkPreviewModal
@@ -46,3 +46,12 @@ const ArtworkResult = ({artwork, onPreviewArtwork}) => {
     </div>
   )
 }
+
+/* default styled component */
+
+import styled from 'styled-components'
+
+const StyledSearchResults = styled(SearchResults)`
+`
+
+export default StyledSearchResults
