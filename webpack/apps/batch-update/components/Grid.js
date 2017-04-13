@@ -10,6 +10,10 @@ export const breakpoints = {
   `
 }
 
+export const avantGarde = css`
+  font-family:'ITC Avant Garde Gothic W01';
+`
+
 /* grid components */
 
 export const Wrapper = styled.div`

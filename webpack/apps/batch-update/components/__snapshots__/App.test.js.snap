@@ -6,7 +6,8 @@ exports[`test renders correctly 1`] = `
       className="eWsBsv">
       <div
         className="foqgVb">
-        <div />
+        <div
+          className="PSSoP" />
         <div
           className="GenericAutosuggest">
           <div

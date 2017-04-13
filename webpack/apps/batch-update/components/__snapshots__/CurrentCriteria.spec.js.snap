@@ -1,10 +1,13 @@
-exports[`test renders nothing if there are no selected criteria 1`] = `<div />`;
+exports[`test renders nothing if there are no selected criteria 1`] = `
+<div
+  className="PSSoP" />
+`;
 
 exports[`test renders the selected fair 1`] = `
-<div>
+<div
+  className="PSSoP">
   <div>
-    <h2
-      className="SearchForm-SectionHeader">
+    <h2>
       Fair
     </h2>
     <div
@@ -22,10 +25,10 @@ exports[`test renders the selected fair 1`] = `
 `;
 
 exports[`test renders the selected genes 1`] = `
-<div>
+<div
+  className="PSSoP">
   <div>
-    <h2
-      className="SearchForm-SectionHeader">
+    <h2>
       Genes
     </h2>
     <div
@@ -53,10 +56,10 @@ exports[`test renders the selected genes 1`] = `
 `;
 
 exports[`test renders the selected partner 1`] = `
-<div>
+<div
+  className="PSSoP">
   <div>
-    <h2
-      className="SearchForm-SectionHeader">
+    <h2>
       Partner
     </h2>
     <div
@@ -74,10 +77,10 @@ exports[`test renders the selected partner 1`] = `
 `;
 
 exports[`test renders the selected tags 1`] = `
-<div>
+<div
+  className="PSSoP">
   <div>
-    <h2
-      className="SearchForm-SectionHeader">
+    <h2>
       Tags
     </h2>
     <div
