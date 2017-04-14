@@ -152,44 +152,41 @@ class App extends React.Component {
   render () {
     const { genes, tags, partner, fair, artworks, previewedArtwork, isLoading } = this.state
     return (
-      <div>
-        <Wrapper>
-          <Sidebar>
-            <SearchForm
-              genes={genes}
-              tags={tags}
-              partner={partner}
-              fair={fair}
-              onRemoveGene={this.onRemoveGene}
-              onAddGene={this.onAddGene}
-              onRemoveTag={this.onRemoveTag}
-              onAddTag={this.onAddTag}
-              onSetPartner={this.onSetPartner}
-              onClearPartner={this.onClearPartner}
-              onSetFair={this.onSetFair}
-              onClearFair={this.onClearFair}
-              publishedFilter={this.state.publishedFilter}
-              onSetPublishedFilter={this.onSetPublishedFilter}
-              deletedFilter={this.state.deletedFilter}
-              onSetDeletedFilter={this.onSetDeletedFilter}
-              genomedFilter={this.state.genomedFilter}
-              onSetGenomedFilter={this.onSetGenomedFilter}
-            />
-          </Sidebar>
+      <Wrapper>
+        <Sidebar>
+          <SearchForm
+            genes={genes}
+            tags={tags}
+            partner={partner}
+            fair={fair}
+            onRemoveGene={this.onRemoveGene}
+            onAddGene={this.onAddGene}
+            onRemoveTag={this.onRemoveTag}
+            onAddTag={this.onAddTag}
+            onSetPartner={this.onSetPartner}
+            onClearPartner={this.onClearPartner}
+            onSetFair={this.onSetFair}
+            onClearFair={this.onClearFair}
+            publishedFilter={this.state.publishedFilter}
+            onSetPublishedFilter={this.onSetPublishedFilter}
+            deletedFilter={this.state.deletedFilter}
+            onSetDeletedFilter={this.onSetDeletedFilter}
+            genomedFilter={this.state.genomedFilter}
+            onSetGenomedFilter={this.onSetGenomedFilter}
+          />
+        </Sidebar>
 
-          <Content>
-            <SearchResults
-              artworks={artworks}
-              previewedArtwork={previewedArtwork}
-              isLoading={isLoading}
-              onPreviewArtwork={this.onPreviewArtwork}
-              onPreviewPrevious={this.onPreviewPrevious}
-              onPreviewNext={this.onPreviewNext}
-            />
-          </Content>
-        </Wrapper>
-
-      </div>
+        <Content>
+          <SearchResults
+            artworks={artworks}
+            previewedArtwork={previewedArtwork}
+            isLoading={isLoading}
+            onPreviewArtwork={this.onPreviewArtwork}
+            onPreviewPrevious={this.onPreviewPrevious}
+            onPreviewNext={this.onPreviewNext}
+          />
+        </Content>
+      </Wrapper>
     )
   }
 }

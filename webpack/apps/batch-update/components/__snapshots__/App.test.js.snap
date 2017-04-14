@@ -1,195 +1,193 @@
 exports[`test renders correctly 1`] = `
-<div>
+<div
+  className="hZEvTU">
   <div
-    className="hZEvTU">
+    className="kPSTEV">
     <div
-      className="kPSTEV">
+      className="foqgVb">
       <div
-        className="foqgVb">
+        className="PSSoP" />
+      <div
+        className="GenericAutosuggest">
         <div
-          className="PSSoP" />
-        <div
-          className="GenericAutosuggest">
+          className="react-autosuggest__container">
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
+            aria-owns="react-autowhatever-gene-autosuggest"
+            autoComplete="off"
+            className="react-autosuggest__input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Add a gene"
+            role="combobox"
+            type="text"
+            value="" />
           <div
-            className="react-autosuggest__container">
-            <input
-              aria-activedescendant={null}
-              aria-autocomplete="list"
-              aria-expanded={false}
-              aria-haspopup={false}
-              aria-owns="react-autowhatever-gene-autosuggest"
-              autoComplete="off"
-              className="react-autosuggest__input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              placeholder="Add a gene"
-              role="combobox"
-              type="text"
-              value="" />
-            <div
-              className="react-autosuggest__suggestions-container"
-              id="react-autowhatever-gene-autosuggest" />
+            className="react-autosuggest__suggestions-container"
+            id="react-autowhatever-gene-autosuggest" />
+        </div>
+      </div>
+      <div
+        className="GenericAutosuggest">
+        <div
+          className="react-autosuggest__container">
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
+            aria-owns="react-autowhatever-tag-autosuggest"
+            autoComplete="off"
+            className="react-autosuggest__input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Add a tag"
+            role="combobox"
+            type="text"
+            value="" />
+          <div
+            className="react-autosuggest__suggestions-container"
+            id="react-autowhatever-tag-autosuggest" />
+        </div>
+      </div>
+      <div
+        className="GenericAutosuggest">
+        <div
+          className="react-autosuggest__container">
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
+            aria-owns="react-autowhatever-partner-autosuggest"
+            autoComplete="off"
+            className="react-autosuggest__input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Select a partner"
+            role="combobox"
+            type="text"
+            value="" />
+          <div
+            className="react-autosuggest__suggestions-container"
+            id="react-autowhatever-partner-autosuggest" />
+        </div>
+      </div>
+      <div
+        className="GenericAutosuggest">
+        <div
+          className="react-autosuggest__container">
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
+            aria-owns="react-autowhatever-fair-autosuggest"
+            autoComplete="off"
+            className="react-autosuggest__input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Select a fair"
+            role="combobox"
+            type="text"
+            value="" />
+          <div
+            className="react-autosuggest__suggestions-container"
+            id="react-autowhatever-fair-autosuggest" />
+        </div>
+      </div>
+      <div
+        className="jtHWak">
+        <div
+          className="filter">
+          <div>
+            Published?
           </div>
+          <a
+            className="active"
+            href="#"
+            onClick={[Function]}>
+            All
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}>
+            Published
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}>
+            Not published
+          </a>
         </div>
         <div
-          className="GenericAutosuggest">
-          <div
-            className="react-autosuggest__container">
-            <input
-              aria-activedescendant={null}
-              aria-autocomplete="list"
-              aria-expanded={false}
-              aria-haspopup={false}
-              aria-owns="react-autowhatever-tag-autosuggest"
-              autoComplete="off"
-              className="react-autosuggest__input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              placeholder="Add a tag"
-              role="combobox"
-              type="text"
-              value="" />
-            <div
-              className="react-autosuggest__suggestions-container"
-              id="react-autowhatever-tag-autosuggest" />
+          className="filter">
+          <div>
+            Deleted?
           </div>
+          <a
+            className="active"
+            href="#"
+            onClick={[Function]}>
+            All
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}>
+            Deleted
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}>
+            Not deleted
+          </a>
         </div>
         <div
-          className="GenericAutosuggest">
-          <div
-            className="react-autosuggest__container">
-            <input
-              aria-activedescendant={null}
-              aria-autocomplete="list"
-              aria-expanded={false}
-              aria-haspopup={false}
-              aria-owns="react-autowhatever-partner-autosuggest"
-              autoComplete="off"
-              className="react-autosuggest__input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              placeholder="Select a partner"
-              role="combobox"
-              type="text"
-              value="" />
-            <div
-              className="react-autosuggest__suggestions-container"
-              id="react-autowhatever-partner-autosuggest" />
+          className="filter">
+          <div>
+            Genomed?
           </div>
-        </div>
-        <div
-          className="GenericAutosuggest">
-          <div
-            className="react-autosuggest__container">
-            <input
-              aria-activedescendant={null}
-              aria-autocomplete="list"
-              aria-expanded={false}
-              aria-haspopup={false}
-              aria-owns="react-autowhatever-fair-autosuggest"
-              autoComplete="off"
-              className="react-autosuggest__input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              placeholder="Select a fair"
-              role="combobox"
-              type="text"
-              value="" />
-            <div
-              className="react-autosuggest__suggestions-container"
-              id="react-autowhatever-fair-autosuggest" />
-          </div>
-        </div>
-        <div
-          className="jtHWak">
-          <div
-            className="filter">
-            <div>
-              Published?
-            </div>
-            <a
-              className="active"
-              href="#"
-              onClick={[Function]}>
-              All
-            </a>
-            <a
-              className={null}
-              href="#"
-              onClick={[Function]}>
-              Published
-            </a>
-            <a
-              className={null}
-              href="#"
-              onClick={[Function]}>
-              Not published
-            </a>
-          </div>
-          <div
-            className="filter">
-            <div>
-              Deleted?
-            </div>
-            <a
-              className="active"
-              href="#"
-              onClick={[Function]}>
-              All
-            </a>
-            <a
-              className={null}
-              href="#"
-              onClick={[Function]}>
-              Deleted
-            </a>
-            <a
-              className={null}
-              href="#"
-              onClick={[Function]}>
-              Not deleted
-            </a>
-          </div>
-          <div
-            className="filter">
-            <div>
-              Genomed?
-            </div>
-            <a
-              className="active"
-              href="#"
-              onClick={[Function]}>
-              All
-            </a>
-            <a
-              className={null}
-              href="#"
-              onClick={[Function]}>
-              Genomed
-            </a>
-            <a
-              className={null}
-              href="#"
-              onClick={[Function]}>
-              Not genomed
-            </a>
-          </div>
+          <a
+            className="active"
+            href="#"
+            onClick={[Function]}>
+            All
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}>
+            Genomed
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}>
+            Not genomed
+          </a>
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="iJVxYF">
     <div
-      className="iJVxYF">
-      <div
-        className="gjxyPZ" />
-    </div>
+      className="gjxyPZ" />
   </div>
 </div>
 `;

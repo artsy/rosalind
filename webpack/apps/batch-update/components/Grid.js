@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
     flex-direction: row;
   `}
 `
+Wrapper.displayName = 'Wrapper'
 
 export const Sidebar = styled.div`
   flex-grow: 1;
@@ -35,9 +36,11 @@ export const Sidebar = styled.div`
     border-right: solid 1px #eee;
   `}
 `
+Sidebar.displayName = 'Sidebar'
 
 export const Content = styled.div`
   flex-grow: 5;
   flex-basis: 400px;
   padding: 1em;
 `
+Content.displayName = 'Content'
