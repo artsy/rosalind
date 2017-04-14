@@ -3,7 +3,7 @@ import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
-import { Wrapper, Sidebar, Content } from './Grid'
+import { Wrapper, Sidebar, Content } from './Layout'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 

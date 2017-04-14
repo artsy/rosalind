@@ -86,7 +86,7 @@ function CurrentFair (props) {
 /* default styled component */
 
 import styled from 'styled-components'
-import { avantGarde } from './Grid'
+import { avantGarde } from './Layout'
 
 const StyledCurrentCriteria = styled(CurrentCriteria)`
   h2 {
