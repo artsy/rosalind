@@ -46,7 +46,9 @@ export const matchArtworks = function (esQuery) {
   const uri = `/match/artworks?query=${encodeURIComponent(queryJSON)}`
   return window.fetch(uri, { credentials: 'include' })
     .then(resp => resp.json())
-    .then(esResponse => esResponse.hits.hits.map(hit => hit._source))
+    .then(esResponse => {
+      return esResponse.hits
+    })
     .catch((err) => {
       console.error(err)
     })

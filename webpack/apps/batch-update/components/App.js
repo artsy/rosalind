@@ -20,7 +20,8 @@ class App extends React.Component {
       genomedFilter: 'SHOW_ALL',
       artworks: [],
       previewedArtwork: null,
-      isLoading: false
+      isLoading: false,
+      totalHits: null
     }
     this.onRemoveGene = this.onRemoveGene.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
@@ -68,8 +69,10 @@ class App extends React.Component {
       const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.state
       const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter })
       this.setState({ isLoading: true })
-      matchArtworks(query).then(artworks => {
-        this.setState({ artworks: artworks, isLoading: false })
+      matchArtworks(query).then(hits => {
+        const totalHits = hits.total
+        const artworks = hits.hits.map(hit => hit._source)
+        this.setState({ artworks, totalHits, isLoading: false })
       })
     }
   }
