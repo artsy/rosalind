@@ -40,7 +40,7 @@ class ArtworkPreviewModal extends React.Component {
     const { id, artist_id: artistId, partner_id: partnerId, name, image_url: imageUrl, published, genomed, deleted } = this.props.artwork
     return (
       <Overlay onClick={this.dismiss}>
-        <div className={this.props.className} ref={(el) => { this.modal = el }}>
+        <div className={this.props.className} ref={(el) => { this.modal = el }} onClickCapture={e => e.stopPropagation()}>
           <div className='image'>
             <img src={imageUrl || missingImage} alt={name} />
           </div>

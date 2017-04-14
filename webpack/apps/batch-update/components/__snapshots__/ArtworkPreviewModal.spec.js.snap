@@ -4,7 +4,8 @@ exports[`test renders correctly 1`] = `
   onClick={[Function]}
   z={1}>
   <div
-    className="dQjxAA">
+    className="dQjxAA"
+    onClickCapture={[Function]}>
     <div
       className="image">
       <img
