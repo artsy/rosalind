@@ -1,6 +1,6 @@
 import React from 'react'
 import missingImage from 'file-loader!./missing_image.png'
-import { ESC, LEFT, RIGHT } from 'lib/keycodes.js'
+import { ESC, LEFT, RIGHT } from 'lib/keycodes'
 import Overlay from './Overlay'
 
 class ArtworkPreviewModal extends React.Component {

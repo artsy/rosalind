@@ -1,9 +1,9 @@
 import React from 'react'
-import SearchForm from './SearchForm.js'
-import SearchResults from './SearchResults.js'
+import SearchForm from './SearchForm'
+import SearchResults from './SearchResults'
 import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
-import { Wrapper, Sidebar, Content } from './Grid.js'
+import { Wrapper, Sidebar, Content } from './Grid'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 
