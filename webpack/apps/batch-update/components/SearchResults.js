@@ -3,22 +3,40 @@ import missingImage from 'file-loader!./missing_image.png'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
 import Spinner from './Spinner'
 
-function SearchResults (props) {
-  const { className, artworks, isLoading, previewedArtwork, onPreviewArtwork, onPreviewPrevious, onPreviewNext } = props
-  return (
-    <div className={className}>
-      {isLoading && <Spinner />}
-      {
-        previewedArtwork && <ArtworkPreviewModal
-          artwork={previewedArtwork}
-          onPreviewArtwork={onPreviewArtwork}
-          onPreviewPrevious={onPreviewPrevious}
-          onPreviewNext={onPreviewNext}
-          />
-      }
-      <ArtworkResultList artworks={artworks} onPreviewArtwork={onPreviewArtwork} />
-    </div>
-  )
+class SearchResults extends React.Component {
+  maybeRenderSpinner () {
+    const { isLoading } = this.props
+    if (isLoading) {
+      return <Spinner />
+    } else {
+      return null
+    }
+  }
+
+  maybeRenderModal () {
+    const { previewedArtwork, onPreviewArtwork, onPreviewPrevious, onPreviewNext } = this.props
+    if (previewedArtwork) {
+      return previewedArtwork && <ArtworkPreviewModal
+        artwork={previewedArtwork}
+        onPreviewArtwork={onPreviewArtwork}
+        onPreviewPrevious={onPreviewPrevious}
+        onPreviewNext={onPreviewNext}
+      />
+    } else {
+      return null
+    }
+  }
+
+  render () {
+    const { className, artworks, onPreviewArtwork } = this.props
+    return (
+      <div className={className}>
+        {this.maybeRenderSpinner()}
+        {this.maybeRenderModal()}
+        <ArtworkResultList artworks={artworks} onPreviewArtwork={onPreviewArtwork} />
+      </div>
+    )
+  }
 }
 
 SearchResults.propTypes = {
