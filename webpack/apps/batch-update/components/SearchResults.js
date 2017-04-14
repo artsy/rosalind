@@ -33,7 +33,9 @@ class SearchResults extends React.Component {
       <div className={className}>
         {this.maybeRenderSpinner()}
         {this.maybeRenderModal()}
+        <Counts />
         <ArtworkResultList artworks={artworks} onPreviewArtwork={onPreviewArtwork} />
+        <LoadMore />
       </div>
     )
   }
@@ -47,6 +49,8 @@ SearchResults.propTypes = {
   onPreviewPrevious: React.PropTypes.func,
   onPreviewNext: React.PropTypes.func
 }
+
+const Counts = () => <div>Displaying 00 of 0000 matching artworks</div>
 
 const ArtworkResultList = ({artworks, onPreviewArtwork}) => {
   return (
@@ -66,14 +70,15 @@ const ArtworkResult = ({artwork, onPreviewArtwork}) => {
   )
 }
 
+const LoadMore = () => <a href='#'>Load more</a>
+
 /* default styled component */
 
 import styled from 'styled-components'
 
 const StyledSearchResults = styled(SearchResults)`
   display: flex;
-  flex-flow: row wrap;
-  align-content: flex-start;
+  flex-direction: column;
 
   .results {
     display: flex;
