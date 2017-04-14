@@ -187,7 +187,10 @@ exports[`test renders correctly 1`] = `
   <div
     className="iJVxYF">
     <div
-      className="gjxyPZ" />
+      className="cAVmjd">
+      <div
+        className="results" />
+    </div>
   </div>
 </div>
 `;

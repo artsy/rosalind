@@ -16,14 +16,7 @@ function SearchResults (props) {
           onPreviewNext={onPreviewNext}
           />
       }
-      {
-        artworks.map((artwork) =>
-          <ArtworkResult key={artwork.id}
-            artwork={artwork}
-            onPreviewArtwork={onPreviewArtwork}
-            />
-        )
-      }
+      <ArtworkResultList artworks={artworks} onPreviewArtwork={onPreviewArtwork} />
     </div>
   )
 }
@@ -35,6 +28,14 @@ SearchResults.propTypes = {
   onPreviewArtwork: React.PropTypes.func,
   onPreviewPrevious: React.PropTypes.func,
   onPreviewNext: React.PropTypes.func
+}
+
+const ArtworkResultList = ({artworks, onPreviewArtwork}) => {
+  return (
+    <div className='results'>
+      {artworks.map(artwork => <ArtworkResult key={artwork.id} artwork={artwork} onPreviewArtwork={onPreviewArtwork} />)}
+    </div>
+  )
 }
 
 const ArtworkResult = ({artwork, onPreviewArtwork}) => {
@@ -56,22 +57,27 @@ const StyledSearchResults = styled(SearchResults)`
   flex-flow: row wrap;
   align-content: flex-start;
 
-  .result {
-    min-width: 115px;
-    max-width: calc(20% - 1.5em);
-    margin: 0.75em;
-    flex: 1 1 calc(20% - 1.5em);
+  .results {
+    display: flex;
+    flex-flow: row wrap;
 
-    img {
-      width: 100%;
-    }
+    .result {
+      min-width: 115px;
+      max-width: calc(20% - 1.5em);
+      margin: 0.75em;
+      flex: 1 1 calc(20% - 1.5em);
 
-    figcaption {
-      position: relative;
-      font-size: 80%;
-      max-height: 3.75em;
-      line-height: 1.25em;
-      overflow: hidden;
+      img {
+        width: 100%;
+      }
+
+      figcaption {
+        position: relative;
+        font-size: 80%;
+        max-height: 3.75em;
+        line-height: 1.25em;
+        overflow: hidden;
+      }
     }
   }
 `
