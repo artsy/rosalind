@@ -63,10 +63,10 @@ exports[`test renders the selected partner 1`] = `
       Partner
     </h2>
     <div
-      className="SelectedPartner">
+      className="crrNnH">
       Gallery Foo
       <a
-        className="SelectedPartner-remove"
+        className="remove"
         href="#"
         onClick={[Function]}>
         ✕

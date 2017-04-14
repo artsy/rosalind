@@ -1,9 +1,9 @@
 exports[`test renders correctly 1`] = `
 <div
-  className="SelectedPartner">
+  className="crrNnH">
   Gagosian
   <a
-    className="SelectedPartner-remove"
+    className="remove"
     href="#"
     onClick={[Function]}>
     ✕
