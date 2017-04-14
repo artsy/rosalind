@@ -1,9 +1,9 @@
 exports[`test renders correctly 1`] = `
 <div
-  className="SelectedTag">
+  className="crrNnH">
   Clown
   <a
-    className="SelectedTag-remove"
+    className="remove"
     href="#"
     onClick={[Function]}>
     ✕
