@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import SelectedGene from './SelectedGene'
 
 let props
@@ -19,7 +19,7 @@ it('renders correctly', () => {
 })
 
 it('fires the remove handler on click', () => {
-  const wrapper = shallow(<SelectedGene {...props} />)
+  const wrapper = mount(<SelectedGene {...props} />)
   const mockClickEvent = { preventDefault: jest.fn() }
   wrapper.find('a').simulate('click', mockClickEvent)
   expect(props.onRemoveGene.mock.calls.length).toEqual(1)

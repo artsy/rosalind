@@ -32,20 +32,20 @@ exports[`test renders the selected genes 1`] = `
       Genes
     </h2>
     <div
-      className="SelectedGene">
+      className="crrNnH">
       Foo
       <a
-        className="SelectedGene-remove"
+        className="remove"
         href="#"
         onClick={[Function]}>
         ✕
       </a>
     </div>
     <div
-      className="SelectedGene">
+      className="crrNnH">
       Bar
       <a
-        className="SelectedGene-remove"
+        className="remove"
         href="#"
         onClick={[Function]}>
         ✕
