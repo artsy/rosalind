@@ -109,9 +109,9 @@ exports[`test renders correctly 1`] = `
           </div>
         </div>
         <div
-          className="FilterOptions">
+          className="jtHWak">
           <div
-            className="PublishedFilter">
+            className="filter">
             <div>
               Published?
             </div>
@@ -135,7 +135,7 @@ exports[`test renders correctly 1`] = `
             </a>
           </div>
           <div
-            className="DeletedFilter">
+            className="filter">
             <div>
               Deleted?
             </div>
@@ -159,7 +159,7 @@ exports[`test renders correctly 1`] = `
             </a>
           </div>
           <div
-            className="GenomedFilter">
+            className="filter">
             <div>
               Genomed?
             </div>
