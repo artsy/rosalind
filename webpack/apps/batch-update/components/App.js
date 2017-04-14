@@ -4,7 +4,6 @@ import SearchResults from './SearchResults.js'
 import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
 import { Wrapper, Sidebar, Content } from './Grid.js'
-import './App.css'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 
