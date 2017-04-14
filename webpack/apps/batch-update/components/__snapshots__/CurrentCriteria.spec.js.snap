@@ -11,10 +11,10 @@ exports[`test renders the selected fair 1`] = `
       Fair
     </h2>
     <div
-      className="SelectedFair">
+      className="crrNnH">
       FooFair
       <a
-        className="SelectedFair-remove"
+        className="remove"
         href="#"
         onClick={[Function]}>
         ✕

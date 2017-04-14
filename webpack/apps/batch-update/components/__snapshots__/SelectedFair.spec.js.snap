@@ -1,9 +1,9 @@
 exports[`test renders correctly 1`] = `
 <div
-  className="SelectedFair">
+  className="crrNnH">
   Frieze
   <a
-    className="SelectedFair-remove"
+    className="remove"
     href="#"
     onClick={[Function]}>
     ✕
