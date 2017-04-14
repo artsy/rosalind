@@ -64,7 +64,7 @@ class App extends React.Component {
   fetchArtworks () {
     const { genes, tags, partner, fair } = this.state
     if ((genes.length === 0) && (tags.length === 0) && (partner === null) && (fair === null)) {
-      this.setState({ artworks: [] })
+      this.setState({ artworks: [], totalHits: 0 })
     } else {
       const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.state
       const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter })
@@ -152,7 +152,7 @@ class App extends React.Component {
   }
 
   render () {
-    const { genes, tags, partner, fair, artworks, previewedArtwork, isLoading } = this.state
+    const { genes, tags, partner, fair, artworks, totalHits, previewedArtwork, isLoading } = this.state
     return (
       <Wrapper>
         <Sidebar>
@@ -183,6 +183,7 @@ class App extends React.Component {
             artworks={artworks}
             previewedArtwork={previewedArtwork}
             isLoading={isLoading}
+            totalHits={totalHits}
             onPreviewArtwork={this.onPreviewArtwork}
             onPreviewPrevious={this.onPreviewPrevious}
             onPreviewNext={this.onPreviewNext}

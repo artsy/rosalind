@@ -27,13 +27,22 @@ class SearchResults extends React.Component {
     }
   }
 
+  maybeRenderCounts () {
+    const { artworks, totalHits } = this.props
+    if (totalHits && artworks && artworks.length > 0) {
+      return <Counts displayed={artworks.length} total={totalHits} />
+    } else {
+      return null
+    }
+  }
+
   render () {
     const { className, artworks, onPreviewArtwork } = this.props
     return (
       <div className={className}>
         {this.maybeRenderSpinner()}
         {this.maybeRenderModal()}
-        <Counts />
+        {this.maybeRenderCounts()}
         <ArtworkResultList artworks={artworks} onPreviewArtwork={onPreviewArtwork} />
         <LoadMore />
       </div>
@@ -50,7 +59,11 @@ SearchResults.propTypes = {
   onPreviewNext: React.PropTypes.func
 }
 
-const Counts = () => <div>Displaying 00 of 0000 matching artworks</div>
+const Counts = ({displayed, total}) => (
+  <div className='counts'>
+    Displaying {displayed.toLocaleString()} of {total.toLocaleString()} matching artworks
+  </div>
+)
 
 const ArtworkResultList = ({artworks, onPreviewArtwork}) => {
   return (
@@ -79,6 +92,10 @@ import styled from 'styled-components'
 const StyledSearchResults = styled(SearchResults)`
   display: flex;
   flex-direction: column;
+
+  .counts {
+    padding: 0.75em;
+  }
 
   .results {
     display: flex;
