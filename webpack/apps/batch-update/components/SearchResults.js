@@ -3,6 +3,7 @@ import ArtworkPreviewModal from './ArtworkPreviewModal'
 import ArtworkSearchResult from './ArtworkSearchResult'
 import Spinner from './Spinner'
 import { Button } from './Buttons'
+import { Link } from './Links'
 
 class SearchResults extends React.Component {
   maybeRenderSpinner () {
@@ -87,13 +88,13 @@ const Controls = ({displayed, total, onSelectAllArtworks, onDeselectAllArtworks}
     </div>
     <div className='select'>
       Select:
-      <a href='#' onClick={(e) => { e.preventDefault(); onSelectAllArtworks() }}>
+      <Link href='#' onClick={(e) => { e.preventDefault(); onSelectAllArtworks() }}>
         all
-      </a>
+      </Link>
       /
-      <a href='#' onClick={(e) => { e.preventDefault(); onDeselectAllArtworks() }}>
+      <Link href='#' onClick={(e) => { e.preventDefault(); onDeselectAllArtworks() }}>
         none
-      </a>
+      </Link>
     </div>
   </div>
 )
