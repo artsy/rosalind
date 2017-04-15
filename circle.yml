@@ -10,7 +10,7 @@ test:
     - npm run lint
   override:
     - bundle exec rspec
-    - npm run test
+    - npm run test -- --runInBand
   post:
     - bundle exec danger
 deployment:
