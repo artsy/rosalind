@@ -1,10 +1,10 @@
 exports[`test does not render a modal when not previewing 1`] = `
 <div
-  className="bFIJcI">
+  className="bdWhDJ">
   <div
     className="results">
     <div
-      className="result"
+      className="bkfdwK"
       onClick={[Function]}>
       <img
         alt="Soup Can"
@@ -14,7 +14,7 @@ exports[`test does not render a modal when not previewing 1`] = `
       </figcaption>
     </div>
     <div
-      className="result"
+      className="bkfdwK"
       onClick={[Function]}>
       <img
         alt="Shark"
@@ -29,11 +29,11 @@ exports[`test does not render a modal when not previewing 1`] = `
 
 exports[`test renders a collection of artworks 1`] = `
 <div
-  className="bFIJcI">
+  className="bdWhDJ">
   <div
     className="results">
     <div
-      className="result"
+      className="bkfdwK"
       onClick={[Function]}>
       <img
         alt="Soup Can"
@@ -43,7 +43,7 @@ exports[`test renders a collection of artworks 1`] = `
       </figcaption>
     </div>
     <div
-      className="result"
+      className="bkfdwK"
       onClick={[Function]}>
       <img
         alt="Shark"
@@ -58,7 +58,7 @@ exports[`test renders a collection of artworks 1`] = `
 
 exports[`test renders a modal when previewing 1`] = `
 <div
-  className="bFIJcI">
+  className="bdWhDJ">
   <div
     className="dsEsVK"
     onClick={[Function]}
@@ -123,7 +123,7 @@ exports[`test renders a modal when previewing 1`] = `
   <div
     className="results">
     <div
-      className="result"
+      className="bkfdwK"
       onClick={[Function]}>
       <img
         alt="Soup Can"
@@ -133,7 +133,7 @@ exports[`test renders a modal when previewing 1`] = `
       </figcaption>
     </div>
     <div
-      className="result"
+      className="bkfdwK"
       onClick={[Function]}>
       <img
         alt="Shark"
@@ -148,7 +148,7 @@ exports[`test renders a modal when previewing 1`] = `
 
 exports[`test renders a spinner while fetching artworks 1`] = `
 <div
-  className="bFIJcI">
+  className="bdWhDJ">
   <div
     className="lnzNIy">
     <div
@@ -158,7 +158,7 @@ exports[`test renders a spinner while fetching artworks 1`] = `
   <div
     className="results">
     <div
-      className="result"
+      className="bkfdwK"
       onClick={[Function]}>
       <img
         alt="Soup Can"
@@ -168,7 +168,7 @@ exports[`test renders a spinner while fetching artworks 1`] = `
       </figcaption>
     </div>
     <div
-      className="result"
+      className="bkfdwK"
       onClick={[Function]}>
       <img
         alt="Shark"
