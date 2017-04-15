@@ -15,7 +15,8 @@ beforeEach(() => {
       published: true,
       genomed: true
     },
-    onPreviewArtwork: jest.fn()
+    onPreviewArtwork: jest.fn(),
+    onToggleArtwork: jest.fn()
   }
 })
 
@@ -33,9 +34,22 @@ it('renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+it('renders in the selected state', () => {
+  const rendered = renderer.create(<ArtworkSearchResult {...props} selected />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('fires the toggle handler on click', () => {
+  const wrapper = mount(<ArtworkSearchResult {...props} />)
+  wrapper.find('div').simulate('click')
+  expect(props.onToggleArtwork.mock.calls.length).toEqual(1)
+})
+
 it('fires the preview handler on command-click', () => {
   const wrapper = mount(<ArtworkSearchResult {...props} />)
   const mockClickEvent = { metaKey: true }
   wrapper.find('div').simulate('click', mockClickEvent)
   expect(props.onPreviewArtwork.mock.calls.length).toEqual(1)
 })
+
