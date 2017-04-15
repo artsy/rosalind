@@ -1,0 +1,12 @@
+exports[`test renders correctly 1`] = `
+<div
+  className="kQVYWO"
+  onClick={[Function]}>
+  <img
+    alt="Soup Can"
+    src="can.jpg" />
+  <figcaption>
+    Soup Can
+  </figcaption>
+</div>
+`;
