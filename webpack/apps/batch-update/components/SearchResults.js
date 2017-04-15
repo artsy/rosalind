@@ -1,6 +1,6 @@
 import React from 'react'
-import missingImage from 'file-loader!./missing_image.png'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
+import ArtworkSearchResult from './ArtworkSearchResult'
 import Spinner from './Spinner'
 import { Button } from './Buttons'
 
@@ -78,36 +78,9 @@ const Counts = ({displayed, total}) => (
 const ArtworkResultList = ({artworks, onPreviewArtwork}) => {
   return (
     <div className='results'>
-      {artworks.map(artwork => <ArtworkResult key={artwork.id} artwork={artwork} onPreviewArtwork={onPreviewArtwork} />)}
+      {artworks.map(artwork => <ArtworkSearchResult key={artwork.id} artwork={artwork} onPreviewArtwork={onPreviewArtwork} />)}
     </div>
   )
-}
-
-class ArtworkResult extends React.Component {
-  constructor (props) {
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick (e) {
-    const { artwork } = this.props
-    if (e.metaKey) {
-      this.props.onPreviewArtwork(artwork)
-    } else {
-      console.log('i want to toggle artwork')
-    }
-  }
-
-  render () {
-    const { artwork } = this.props
-    const { name, image_url: imageUrl } = artwork
-    return (
-      <div className='result' onClick={this.handleClick}>
-        <img src={imageUrl || missingImage} alt={name} />
-        <figcaption>{name}</figcaption>
-      </div>
-    )
-  }
 }
 
 const LoadMore = ({onLoadMore}) => (
@@ -131,25 +104,6 @@ const StyledSearchResults = styled(SearchResults)`
   .results {
     display: flex;
     flex-flow: row wrap;
-
-    .result {
-      min-width: 115px;
-      max-width: calc(20% - 1.5em);
-      margin: 0.75em;
-      flex: 1 1 calc(20% - 1.5em);
-
-      img {
-        width: 100%;
-      }
-
-      figcaption {
-        position: relative;
-        font-size: 80%;
-        max-height: 3.75em;
-        line-height: 1.25em;
-        overflow: hidden;
-      }
-    }
   }
 `
 
