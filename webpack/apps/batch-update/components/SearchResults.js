@@ -47,13 +47,17 @@ class SearchResults extends React.Component {
   }
 
   render () {
-    const { className, artworks, onPreviewArtwork } = this.props
+    const { className, artworks, onPreviewArtwork, onToggleArtwork } = this.props
     return (
       <div className={className}>
         {this.maybeRenderSpinner()}
         {this.maybeRenderModal()}
         {this.maybeRenderCounts()}
-        <ArtworkResultList artworks={artworks} onPreviewArtwork={onPreviewArtwork} />
+        <ArtworkResultList
+          artworks={artworks}
+          onPreviewArtwork={onPreviewArtwork}
+          onToggleArtwork={onToggleArtwork}
+        />
         {this.maybeRenderMoreButton()}
       </div>
     )
@@ -75,10 +79,16 @@ const Counts = ({displayed, total}) => (
   </div>
 )
 
-const ArtworkResultList = ({artworks, onPreviewArtwork}) => {
+const ArtworkResultList = ({artworks, onPreviewArtwork, onToggleArtwork}) => {
   return (
     <div className='results'>
-      {artworks.map(artwork => <ArtworkSearchResult key={artwork.id} artwork={artwork} onPreviewArtwork={onPreviewArtwork} />)}
+      {artworks.map(artwork =>
+        <ArtworkSearchResult key={artwork.id}
+          artwork={artwork}
+          onPreviewArtwork={onPreviewArtwork}
+          onToggleArtwork={onToggleArtwork}
+        />
+      )}
     </div>
   )
 }

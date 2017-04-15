@@ -11,7 +11,9 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      genes: [],
+      genes: [
+        {id: 'portrait', name: 'Portrait'}
+      ],
       tags: [],
       partner: null,
       fair: null,
@@ -215,6 +217,7 @@ class App extends React.Component {
             previewedArtwork={previewedArtwork}
             isLoading={isLoading}
             totalHits={totalHits}
+            onToggleArtwork={this.onToggleArtwork}
             onPreviewArtwork={this.onPreviewArtwork}
             onPreviewPrevious={this.onPreviewPrevious}
             onPreviewNext={this.onPreviewNext}

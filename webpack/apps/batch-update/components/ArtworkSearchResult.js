@@ -8,11 +8,11 @@ class ArtworkSearchResult extends React.Component {
   }
 
   handleClick (e) {
-    const { artwork } = this.props
+    const { artwork, onPreviewArtwork, onToggleArtwork } = this.props
     if (e.metaKey) {
-      this.props.onPreviewArtwork(artwork)
+      onPreviewArtwork(artwork)
     } else {
-      console.log('i want to toggle artwork')
+      onToggleArtwork(artwork)
     }
   }
 
