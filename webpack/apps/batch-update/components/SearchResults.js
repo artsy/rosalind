@@ -83,14 +83,31 @@ const ArtworkResultList = ({artworks, onPreviewArtwork}) => {
   )
 }
 
-const ArtworkResult = ({artwork, onPreviewArtwork}) => {
-  const { name, image_url: imageUrl } = artwork
-  return (
-    <div className='result' onClick={() => { onPreviewArtwork(artwork) }}>
-      <img src={imageUrl || missingImage} alt={name} />
-      <figcaption>{name}</figcaption>
-    </div>
-  )
+class ArtworkResult extends React.Component {
+  constructor (props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick (e) {
+    const { artwork } = this.props
+    if (e.metaKey) {
+      this.props.onPreviewArtwork(artwork)
+    } else {
+      console.log('i want to toggle artwork')
+    }
+  }
+
+  render () {
+    const { artwork } = this.props
+    const { name, image_url: imageUrl } = artwork
+    return (
+      <div className='result' onClick={this.handleClick}>
+        <img src={imageUrl || missingImage} alt={name} />
+        <figcaption>{name}</figcaption>
+      </div>
+    )
+  }
 }
 
 const LoadMore = ({onLoadMore}) => (
