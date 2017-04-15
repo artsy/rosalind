@@ -28,10 +28,15 @@ class SearchResults extends React.Component {
     }
   }
 
-  maybeRenderCounts () {
-    const { artworks, totalHits } = this.props
+  maybeRenderControls () {
+    const { artworks, totalHits, onSelectAllArtworks, onDeselectAllArtworks } = this.props
     if (totalHits && artworks && artworks.length > 0) {
-      return <Counts displayed={artworks.length} total={totalHits} />
+      return <Controls
+        displayed={artworks.length}
+        total={totalHits}
+        onSelectAllArtworks={onSelectAllArtworks}
+        onDeselectAllArtworks={onDeselectAllArtworks}
+      />
     } else {
       return null
     }
@@ -52,13 +57,14 @@ class SearchResults extends React.Component {
       <div className={className}>
         {this.maybeRenderSpinner()}
         {this.maybeRenderModal()}
-        {this.maybeRenderCounts()}
+        {this.maybeRenderControls()}
         <ArtworkResultList
           artworks={artworks}
           selectedArtworkIds={selectedArtworkIds}
           onPreviewArtwork={onPreviewArtwork}
           onToggleArtwork={onToggleArtwork}
         />
+        {this.maybeRenderControls()}
         {this.maybeRenderMoreButton()}
       </div>
     )
@@ -74,9 +80,21 @@ SearchResults.propTypes = {
   onPreviewNext: React.PropTypes.func
 }
 
-const Counts = ({displayed, total}) => (
-  <div className='counts'>
-    Displaying {displayed.toLocaleString()} of {total.toLocaleString()} matching artworks
+const Controls = ({displayed, total, onSelectAllArtworks, onDeselectAllArtworks}) => (
+  <div>
+    <div className='counts'>
+      Displaying {displayed.toLocaleString()} of {total.toLocaleString()} matching artworks
+    </div>
+    <div className='select'>
+      Select:
+      <a href='#' onClick={(e) => { e.preventDefault(); onSelectAllArtworks() }}>
+        all
+      </a>
+      /
+      <a href='#' onClick={(e) => { e.preventDefault(); onDeselectAllArtworks() }}>
+        none
+      </a>
+    </div>
   </div>
 )
 
@@ -110,7 +128,20 @@ const StyledSearchResults = styled(SearchResults)`
   flex-direction: column;
 
   .counts {
+    display: inline-block;
+    width: 75%;
     padding: 0.75em;
+  }
+
+  .select {
+    display: inline-block;
+    width: 25%;
+    padding: 0.75em;
+    text-align: right;
+
+    a {
+      margin: 0 0.25em;
+    }
   }
 
   .results {
