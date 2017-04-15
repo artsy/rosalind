@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
   min-height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
+  position: relative;
   ${breakpoints.notSmall`
     flex-direction: row;
   `}
