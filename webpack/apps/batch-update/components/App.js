@@ -21,7 +21,8 @@ class App extends React.Component {
       artworks: [],
       previewedArtwork: null,
       isLoading: false,
-      totalHits: null
+      totalHits: null,
+      size: 100
     }
     this.onRemoveGene = this.onRemoveGene.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
@@ -39,6 +40,9 @@ class App extends React.Component {
     this.onPreviewArtwork = this.onPreviewArtwork.bind(this)
     this.onPreviewPrevious = this.onPreviewPrevious.bind(this)
     this.onPreviewNext = this.onPreviewNext.bind(this)
+
+    this.fetchArtworks = this.fetchArtworks.bind(this)
+    this.fetchMoreArtworks = this.fetchMoreArtworks.bind(this)
   }
 
   componentWillMount () {
@@ -66,8 +70,8 @@ class App extends React.Component {
     if ((genes.length === 0) && (tags.length === 0) && (partner === null) && (fair === null)) {
       this.setState({ artworks: [], totalHits: 0 })
     } else {
-      const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.state
-      const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter })
+      const { publishedFilter, deletedFilter, genomedFilter, size } = this.state
+      const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, size })
       this.setState({ isLoading: true })
       matchArtworks(query).then(hits => {
         const totalHits = hits.total
@@ -75,6 +79,18 @@ class App extends React.Component {
         this.setState({ artworks, totalHits, isLoading: false })
       })
     }
+  }
+
+  fetchMoreArtworks () {
+    const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.state
+    const { artworks, size } = this.state
+    const from = artworks.length
+    const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, from, size })
+    matchArtworks(query).then(hits => {
+      const totalHits = hits.total
+      const moreArtworks = hits.hits.map(hit => hit._source)
+      this.setState({ artworks: [...artworks, ...moreArtworks], totalHits })
+    })
   }
 
   onRemoveGene (geneName) {
@@ -187,6 +203,7 @@ class App extends React.Component {
             onPreviewArtwork={this.onPreviewArtwork}
             onPreviewPrevious={this.onPreviewPrevious}
             onPreviewNext={this.onPreviewNext}
+            onLoadMore={this.fetchMoreArtworks}
           />
         </Content>
       </Wrapper>
