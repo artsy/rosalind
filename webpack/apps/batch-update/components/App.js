@@ -39,6 +39,8 @@ class App extends React.Component {
     this.onSetGenomedFilter = this.onSetGenomedFilter.bind(this)
 
     this.onToggleArtwork = this.onToggleArtwork.bind(this)
+    this.onSelectAllArtworks = this.onSelectAllArtworks.bind(this)
+    this.onDeselectAllArtworks = this.onDeselectAllArtworks.bind(this)
     this.onPreviewArtwork = this.onPreviewArtwork.bind(this)
     this.onPreviewPrevious = this.onPreviewPrevious.bind(this)
     this.onPreviewNext = this.onPreviewNext.bind(this)
@@ -164,6 +166,19 @@ class App extends React.Component {
     }
   }
 
+  onSelectAllArtworks () {
+    const { artworks } = this.state
+    this.setState({
+      selectedArtworkIds: artworks.map(a => a.id)
+    })
+  }
+
+  onDeselectAllArtworks () {
+    this.setState({
+      selectedArtworkIds: []
+    })
+  }
+
   onPreviewArtwork (artwork) {
     this.setState({ previewedArtwork: artwork })
   }
@@ -217,6 +232,8 @@ class App extends React.Component {
             isLoading={isLoading}
             totalHits={totalHits}
             onToggleArtwork={this.onToggleArtwork}
+            onSelectAllArtworks={this.onSelectAllArtworks}
+            onDeselectAllArtworks={this.onDeselectAllArtworks}
             onPreviewArtwork={this.onPreviewArtwork}
             onPreviewPrevious={this.onPreviewPrevious}
             onPreviewNext={this.onPreviewNext}
