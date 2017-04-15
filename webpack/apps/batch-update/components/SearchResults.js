@@ -2,6 +2,7 @@ import React from 'react'
 import missingImage from 'file-loader!./missing_image.png'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
 import Spinner from './Spinner'
+import { Button } from './Buttons'
 
 class SearchResults extends React.Component {
   maybeRenderSpinner () {
@@ -93,9 +94,9 @@ const ArtworkResult = ({artwork, onPreviewArtwork}) => {
 }
 
 const LoadMore = ({onLoadMore}) => (
-  <a href='#' onClick={e => { e.preventDefault(); onLoadMore() }}>
+  <Button primary fullWidth onClick={onLoadMore}>
     Load more
-  </a>
+  </Button>
 )
 
 /* default styled component */
