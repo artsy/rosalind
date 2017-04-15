@@ -19,6 +19,7 @@ class App extends React.Component {
       deletedFilter: 'SHOW_ALL',
       genomedFilter: 'SHOW_ALL',
       artworks: [],
+      selectedArtworkIds: [],
       previewedArtwork: null,
       isLoading: false,
       totalHits: null,
@@ -37,6 +38,7 @@ class App extends React.Component {
     this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
     this.onSetGenomedFilter = this.onSetGenomedFilter.bind(this)
 
+    this.onToggleArtwork = this.onToggleArtwork.bind(this)
     this.onPreviewArtwork = this.onPreviewArtwork.bind(this)
     this.onPreviewPrevious = this.onPreviewPrevious.bind(this)
     this.onPreviewNext = this.onPreviewNext.bind(this)
@@ -147,6 +149,19 @@ class App extends React.Component {
 
   onSetGenomedFilter (filterValue) {
     this.setState({ genomedFilter: filterValue })
+  }
+
+  onToggleArtwork (artwork) {
+    const { selectedArtworkIds } = this.state
+    if (selectedArtworkIds.includes(artwork.id)) {
+      this.setState({
+        selectedArtworkIds: selectedArtworkIds.filter(id => id !== artwork.id)
+      })
+    } else {
+      this.setState({
+        selectedArtworkIds: [...selectedArtworkIds, artwork.id]
+      })
+    }
   }
 
   onPreviewArtwork (artwork) {
