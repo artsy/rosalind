@@ -1,0 +1,55 @@
+exports[`Button renders a basic button 1`] = `
+<button
+  className="gsCZsz">
+  Click me
+</button>
+`;
+
+exports[`Button renders a full width button 1`] = `
+<button
+  className="jXLRud">
+  Click me
+</button>
+`;
+
+exports[`Button renders a primary button 1`] = `
+<button
+  className="eudffa">
+  Click me
+</button>
+`;
+
+exports[`Button renders a secondary button 1`] = `
+<button
+  className="gpIfRQ">
+  Click me
+</button>
+`;
+
+exports[`LinkButton renders a basic button 1`] = `
+<a
+  className="idaxhE">
+  Click me
+</a>
+`;
+
+exports[`LinkButton renders a full width button 1`] = `
+<a
+  className="gRdvSC">
+  Click me
+</a>
+`;
+
+exports[`LinkButton renders a primary button 1`] = `
+<a
+  className="iYyDwv">
+  Click me
+</a>
+`;
+
+exports[`LinkButton renders a secondary button 1`] = `
+<a
+  className="gPiWXe">
+  Click me
+</a>
+`;
