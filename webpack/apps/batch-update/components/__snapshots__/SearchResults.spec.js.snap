@@ -1,6 +1,6 @@
 exports[`test does not render a modal when not previewing 1`] = `
 <div
-  className="cAVmjd">
+  className="bFIJcI">
   <div
     className="results">
     <div
@@ -29,7 +29,7 @@ exports[`test does not render a modal when not previewing 1`] = `
 
 exports[`test renders a collection of artworks 1`] = `
 <div
-  className="cAVmjd">
+  className="bFIJcI">
   <div
     className="results">
     <div
@@ -58,7 +58,7 @@ exports[`test renders a collection of artworks 1`] = `
 
 exports[`test renders a modal when previewing 1`] = `
 <div
-  className="cAVmjd">
+  className="bFIJcI">
   <div
     className="dsEsVK"
     onClick={[Function]}
@@ -148,7 +148,7 @@ exports[`test renders a modal when previewing 1`] = `
 
 exports[`test renders a spinner while fetching artworks 1`] = `
 <div
-  className="cAVmjd">
+  className="bFIJcI">
   <div
     className="lnzNIy">
     <div
