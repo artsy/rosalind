@@ -35,7 +35,8 @@ ArtworkSearchResult.propTypes = {
 
 /* default styled component */
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { colors } from './Layout'
 
 const StyledArtworkSearchResult = styled(ArtworkSearchResult)`
   min-width: 115px;
@@ -46,6 +47,12 @@ const StyledArtworkSearchResult = styled(ArtworkSearchResult)`
   img {
     width: 100%;
   }
+
+  ${props => props.selected && css`
+    background: ${colors.purple};
+    outline: solid 5px ${colors.purple};
+    color: white;
+  `}
 
   figcaption {
     position: relative;

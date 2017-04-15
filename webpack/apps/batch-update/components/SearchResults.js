@@ -47,7 +47,7 @@ class SearchResults extends React.Component {
   }
 
   render () {
-    const { className, artworks, onPreviewArtwork, onToggleArtwork } = this.props
+    const { className, artworks, selectedArtworkIds, onPreviewArtwork, onToggleArtwork } = this.props
     return (
       <div className={className}>
         {this.maybeRenderSpinner()}
@@ -55,6 +55,7 @@ class SearchResults extends React.Component {
         {this.maybeRenderCounts()}
         <ArtworkResultList
           artworks={artworks}
+          selectedArtworkIds={selectedArtworkIds}
           onPreviewArtwork={onPreviewArtwork}
           onToggleArtwork={onToggleArtwork}
         />
@@ -79,7 +80,7 @@ const Counts = ({displayed, total}) => (
   </div>
 )
 
-const ArtworkResultList = ({artworks, onPreviewArtwork, onToggleArtwork}) => {
+const ArtworkResultList = ({artworks, selectedArtworkIds, onPreviewArtwork, onToggleArtwork}) => {
   return (
     <div className='results'>
       {artworks.map(artwork =>
@@ -87,6 +88,7 @@ const ArtworkResultList = ({artworks, onPreviewArtwork, onToggleArtwork}) => {
           artwork={artwork}
           onPreviewArtwork={onPreviewArtwork}
           onToggleArtwork={onToggleArtwork}
+          selected={selectedArtworkIds.includes(artwork.id)}
         />
       )}
     </div>

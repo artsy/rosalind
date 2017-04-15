@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import SearchResults from './SearchResults'
 
-let soup, shark, artworks
+let soup, shark, artworks, selectedArtworkIds
 
 beforeEach(() => {
   soup = {
@@ -22,28 +22,29 @@ beforeEach(() => {
     genomed: true
   }
   artworks = [soup, shark]
+  selectedArtworkIds = []
 })
 
 it('renders a collection of artworks', () => {
-  const rendered = renderer.create(<SearchResults artworks={artworks} />)
+  const rendered = renderer.create(<SearchResults artworks={artworks} selectedArtworkIds={selectedArtworkIds} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 it('renders a modal when previewing', () => {
-  const rendered = renderer.create(<SearchResults previewedArtwork={soup} artworks={artworks} />)
+  const rendered = renderer.create(<SearchResults previewedArtwork={soup} artworks={artworks} selectedArtworkIds={selectedArtworkIds} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 it('does not render a modal when not previewing', () => {
-  const rendered = renderer.create(<SearchResults previewedArtwork={null} artworks={artworks} />)
+  const rendered = renderer.create(<SearchResults previewedArtwork={null} artworks={artworks} selectedArtworkIds={selectedArtworkIds} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 it('renders a spinner while fetching artworks', () => {
-  const rendered = renderer.create(<SearchResults isLoading previewedArtwork={null} artworks={artworks} />)
+  const rendered = renderer.create(<SearchResults isLoading previewedArtwork={null} artworks={artworks} selectedArtworkIds={selectedArtworkIds} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })

@@ -11,9 +11,7 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      genes: [
-        {id: 'portrait', name: 'Portrait'}
-      ],
+      genes: [],
       tags: [],
       partner: null,
       fair: null,
@@ -185,7 +183,7 @@ class App extends React.Component {
   }
 
   render () {
-    const { genes, tags, partner, fair, artworks, totalHits, previewedArtwork, isLoading } = this.state
+    const { genes, tags, partner, fair, artworks, selectedArtworkIds, totalHits, previewedArtwork, isLoading } = this.state
     return (
       <Wrapper>
         <Sidebar>
@@ -214,6 +212,7 @@ class App extends React.Component {
         <Content>
           <SearchResults
             artworks={artworks}
+            selectedArtworkIds={selectedArtworkIds}
             previewedArtwork={previewedArtwork}
             isLoading={isLoading}
             totalHits={totalHits}
