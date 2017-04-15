@@ -36,6 +36,15 @@ class SearchResults extends React.Component {
     }
   }
 
+  maybeRenderMoreButton () {
+    const { artworks, totalHits, onLoadMore } = this.props
+    if (totalHits > artworks.length) {
+      return <LoadMore onLoadMore={onLoadMore} />
+    } else {
+      return null
+    }
+  }
+
   render () {
     const { className, artworks, onPreviewArtwork } = this.props
     return (
@@ -44,7 +53,7 @@ class SearchResults extends React.Component {
         {this.maybeRenderModal()}
         {this.maybeRenderCounts()}
         <ArtworkResultList artworks={artworks} onPreviewArtwork={onPreviewArtwork} />
-        <LoadMore />
+        {this.maybeRenderMoreButton()}
       </div>
     )
   }
@@ -83,7 +92,11 @@ const ArtworkResult = ({artwork, onPreviewArtwork}) => {
   )
 }
 
-const LoadMore = () => <a href='#'>Load more</a>
+const LoadMore = ({onLoadMore}) => (
+  <a href='#' onClick={e => { e.preventDefault(); onLoadMore() }}>
+    Load more
+  </a>
+)
 
 /* default styled component */
 
