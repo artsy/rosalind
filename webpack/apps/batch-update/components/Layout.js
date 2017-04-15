@@ -10,9 +10,31 @@ export const breakpoints = {
   `
 }
 
+/* constants */
+
 export const avantGarde = css`
   font-family:'ITC Avant Garde Gothic W01';
 `
+
+export const colors = {
+  grayLightest: '#F8F8F8',
+  grayLight: '#E5E5E5',
+  grayLighter: '#E5E5E5',
+  gray: '#cccccc',
+  grayDark: '#666666',
+  grayDarker: '#666666',
+  grayDarkest: '#333333',
+  purpleLight: '#E2D2FF',
+  purple: '#6E1FFF',
+  red: '#F7625A',
+  redLight: '#F7625A',
+  yellowLight: '#FDEFD1',
+  yellow: '#FCE1A8',
+  green: '#0EDA83',
+  greenLight: '#0EDA83',
+  white: '#ffffff',
+  black: '#000000'
+}
 
 /* grid components */
 
