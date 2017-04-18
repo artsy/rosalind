@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import SelectedPartner from './SelectedPartner'
 
 let props
@@ -22,7 +22,7 @@ it('renders correctly', () => {
 })
 
 it('fires the remove handler on click', () => {
-  const wrapper = shallow(<SelectedPartner {...props} />)
+  const wrapper = mount(<SelectedPartner {...props} />)
   const mockClickEvent = { preventDefault: jest.fn() }
   wrapper.find('a').simulate('click', mockClickEvent)
   expect(props.onClearPartner.mock.calls.length).toEqual(1)

@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import SelectedTag from './SelectedTag'
 
 let props
@@ -19,7 +19,7 @@ it('renders correctly', () => {
 })
 
 it('fires the remove handler on click', () => {
-  const wrapper = shallow(<SelectedTag {...props} />)
+  const wrapper = mount(<SelectedTag {...props} />)
   const mockClickEvent = { preventDefault: jest.fn() }
   wrapper.find('a').simulate('click', mockClickEvent)
   expect(props.onRemoveTag.mock.calls.length).toEqual(1)

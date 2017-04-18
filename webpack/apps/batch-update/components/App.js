@@ -1,9 +1,9 @@
 import React from 'react'
-import SearchForm from './SearchForm.js'
-import SearchResults from './SearchResults.js'
+import SearchForm from './SearchForm'
+import SearchResults from './SearchResults'
 import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
-import './App.css'
+import { Wrapper, Sidebar, Content } from './Layout'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 
@@ -151,37 +151,41 @@ class App extends React.Component {
   render () {
     const { genes, tags, partner, fair, artworks, previewedArtwork, isLoading } = this.state
     return (
-      <div className='App'>
-        <SearchForm
-          genes={genes}
-          tags={tags}
-          partner={partner}
-          fair={fair}
-          onRemoveGene={this.onRemoveGene}
-          onAddGene={this.onAddGene}
-          onRemoveTag={this.onRemoveTag}
-          onAddTag={this.onAddTag}
-          onSetPartner={this.onSetPartner}
-          onClearPartner={this.onClearPartner}
-          onSetFair={this.onSetFair}
-          onClearFair={this.onClearFair}
-          publishedFilter={this.state.publishedFilter}
-          onSetPublishedFilter={this.onSetPublishedFilter}
-          deletedFilter={this.state.deletedFilter}
-          onSetDeletedFilter={this.onSetDeletedFilter}
-          genomedFilter={this.state.genomedFilter}
-          onSetGenomedFilter={this.onSetGenomedFilter}
+      <Wrapper>
+        <Sidebar>
+          <SearchForm
+            genes={genes}
+            tags={tags}
+            partner={partner}
+            fair={fair}
+            onRemoveGene={this.onRemoveGene}
+            onAddGene={this.onAddGene}
+            onRemoveTag={this.onRemoveTag}
+            onAddTag={this.onAddTag}
+            onSetPartner={this.onSetPartner}
+            onClearPartner={this.onClearPartner}
+            onSetFair={this.onSetFair}
+            onClearFair={this.onClearFair}
+            publishedFilter={this.state.publishedFilter}
+            onSetPublishedFilter={this.onSetPublishedFilter}
+            deletedFilter={this.state.deletedFilter}
+            onSetDeletedFilter={this.onSetDeletedFilter}
+            genomedFilter={this.state.genomedFilter}
+            onSetGenomedFilter={this.onSetGenomedFilter}
           />
+        </Sidebar>
 
-        <SearchResults
-          artworks={artworks}
-          previewedArtwork={previewedArtwork}
-          isLoading={isLoading}
-          onPreviewArtwork={this.onPreviewArtwork}
-          onPreviewPrevious={this.onPreviewPrevious}
-          onPreviewNext={this.onPreviewNext}
+        <Content>
+          <SearchResults
+            artworks={artworks}
+            previewedArtwork={previewedArtwork}
+            isLoading={isLoading}
+            onPreviewArtwork={this.onPreviewArtwork}
+            onPreviewPrevious={this.onPreviewPrevious}
+            onPreviewNext={this.onPreviewNext}
           />
-      </div>
+        </Content>
+      </Wrapper>
     )
   }
 }

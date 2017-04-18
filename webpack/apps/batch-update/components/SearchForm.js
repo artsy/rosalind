@@ -3,13 +3,13 @@ import CurrentCriteria from './CurrentCriteria'
 import { GeneAutosuggest, TagAutosuggest, PartnerAutosuggest, FairAutosuggest } from './Autosuggest'
 import FilterOptions from './FilterOptions'
 
-export default class SearchForm extends React.Component {
+class SearchForm extends React.Component {
   render () {
     const { genes, tags, partner, fair, onRemoveGene, onRemoveTag, onClearPartner, onClearFair } = this.props
     const { onAddGene, onAddTag, onSetPartner, onSetFair } = this.props
     const { publishedFilter, deletedFilter, genomedFilter, onSetPublishedFilter, onSetDeletedFilter, onSetGenomedFilter } = this.props
     return (
-      <div className='SearchForm'>
+      <div className={this.props.className}>
         <CurrentCriteria
           genes={genes}
           tags={tags}
@@ -38,3 +38,12 @@ export default class SearchForm extends React.Component {
     )
   }
 }
+
+/* default styled component */
+
+import styled from 'styled-components'
+
+const StyledSearchForm = styled(SearchForm)`
+`
+
+export default StyledSearchForm
