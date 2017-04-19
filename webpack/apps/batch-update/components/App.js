@@ -209,6 +209,8 @@ class App extends React.Component {
             tags={tags}
             partner={partner}
             fair={fair}
+            artworksCount={artworks.length}
+            selectedArtworksCount={selectedArtworkIds.length}
             onRemoveGene={this.onRemoveGene}
             onAddGene={this.onAddGene}
             onRemoveTag={this.onRemoveTag}
