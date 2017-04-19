@@ -61,7 +61,7 @@ const StyledFilterOptions = styled(FilterOptions)`
   font-size: 80%;
   color: #999;
   line-height: 140%;
-  margin-top: 2em;
+  margin: 2em 0;
   opacity: 0.25;
   transition: opacity 0.75s;
 

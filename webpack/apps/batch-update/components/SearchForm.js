@@ -2,8 +2,25 @@ import React from 'react'
 import CurrentCriteria from './CurrentCriteria'
 import { GeneAutosuggest, TagAutosuggest, PartnerAutosuggest, FairAutosuggest } from './Autosuggest'
 import FilterOptions from './FilterOptions'
+import { Button } from './Buttons'
 
 class SearchForm extends React.Component {
+  constructor (props) {
+    super(props)
+    this.maybeRenderEditButton = this.maybeRenderEditButton.bind(this)
+  }
+
+  maybeRenderEditButton () {
+    const { artworksCount, selectedArtworksCount } = this.props
+    if (artworksCount === 0) {
+      return null
+    } else if (selectedArtworksCount === 0) {
+      return <Button fullWidth disabled>Edit Artworks</Button>
+    } else {
+      return <Button fullWidth primary onClick={(e) => { console.log('click!') }}> Edit Artworks </Button>
+    }
+  }
+
   render () {
     const { genes, tags, partner, fair, onRemoveGene, onRemoveTag, onClearPartner, onClearFair } = this.props
     const { onAddGene, onAddTag, onSetPartner, onSetFair } = this.props
@@ -19,7 +36,7 @@ class SearchForm extends React.Component {
           onRemoveTag={onRemoveTag}
           onClearPartner={onClearPartner}
           onClearFair={onClearFair}
-          />
+        />
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />
         <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
@@ -33,7 +50,9 @@ class SearchForm extends React.Component {
           onSetPublishedFilter={onSetPublishedFilter}
           onSetDeletedFilter={onSetDeletedFilter}
           onSetGenomedFilter={onSetGenomedFilter}
-          />
+        />
+
+        { this.maybeRenderEditButton() }
       </div>
     )
   }
