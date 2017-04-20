@@ -1,10 +1,5 @@
-# inherit_from: ./.rubocop_todo.yml
-
 Metrics/LineLength:
   Max: 132 # good for desktop Github
-
-# Metrics/MethodLength:
-#   Max: 15
 
 Style/BlockComments:
   Exclude:
