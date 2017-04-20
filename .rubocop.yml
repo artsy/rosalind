@@ -17,6 +17,14 @@ Style/FrozenStringLiteralComment:
 Style/IndentArray:
   EnforcedStyle: consistent
 
+Style/FileName:
+  Exclude:
+    - Dangerfile
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
 AllCops:
   Exclude:
     - Gemfile

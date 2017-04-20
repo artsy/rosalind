@@ -21,7 +21,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'danger'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.46.0', require: false
+  gem 'rubocop'
 end
 
 group :development do
