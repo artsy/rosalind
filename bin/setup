@@ -63,4 +63,4 @@ cp scripts/git.pre-push.sample .git/hooks/pre-push
 chmod +x .git/hooks/pre-push
 
 # FINISH
-printf "${CLEAR_LINE}[6/${STEPS}]${GREEN}  finished!${NO_COLOR}\n"
+printf "${CLEAR_LINE}[${STEPS}/${STEPS}]${GREEN}  finished!${NO_COLOR}\n"
