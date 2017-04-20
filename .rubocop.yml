@@ -25,6 +25,9 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*
 
+Rails/FilePath:
+  Enabled: false
+
 AllCops:
   Exclude:
     - Gemfile
