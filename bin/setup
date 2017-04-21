@@ -3,7 +3,7 @@
 # Exit if any subcommand fails
 set -e
 
-STEPS=7
+STEPS=8
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -13,6 +13,13 @@ CLEAR_LINE='\r\033[K'
 
 # STEP 1
 printf "[1/${STEPS}]  checking dependencies"
+
+if ! command -v psql > /dev/null; then
+  printf "${CLEAR_LINE}${RED}  You must install postgres before setup can continue${NO_COLOR}\n"
+  printf "    You should:\n"
+  printf "      $ brew install postgresql\n"
+  exit -1
+fi
 
 if ! command -v bundler > /dev/null; then
   printf "${CLEAR_LINE}${RED}  You must install bundler before setup can continue${NO_COLOR}\n"
@@ -58,7 +65,11 @@ printf "${CLEAR_LINE}[6/${STEPS}]  setting up dotenv"
 copy_env
 
 # STEP 7
-printf "${CLEAR_LINE}[7/${STEPS}]  adding pre-push git hook"
+printf "${CLEAR_LINE}[7/${STEPS}]  database setup"
+bundle exec rake db:create db:migrate > /dev/null
+
+# STEP 8
+printf "${CLEAR_LINE}[8/${STEPS}]  adding pre-push git hook"
 cp scripts/git.pre-push.sample .git/hooks/pre-push
 chmod +x .git/hooks/pre-push
 

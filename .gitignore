@@ -8,4 +8,5 @@
 /node_modules
 /public/webpack
 /tmp/*
+db/structure.sql
 npm-debug.log
