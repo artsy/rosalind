@@ -14,6 +14,7 @@ You can read more about [the motivation for the app][motivation].
 * __Staging:__ [https://rosalind-staging.artsy.net/][staging] | [Heroku][heroku_staging]
 * __Production:__ [https://rosalind.artsy.net/][production] | [Heroku][heroku_production]
 * __GitHub:__ [https://github.com/artsy/rosalind][github]
+* __Deployment:__ PR from master into release ([link][deploy])
 * __Point People:__ [@anandaroop][anandaroop]
 
 ## Setup
@@ -86,3 +87,4 @@ pioneering work in X-ray crystallography led to the discovery of the double
 [xapp]: https://github.com/artsy/gravity/blob/master/doc/ApiAuthentication.md#create-xapp-token
 [franklin]: https://www.google.com/search?q=Rosalind+Franklin
 [helix]: https://github.com/artsy/helix
+[deploy]: https://github.com/artsy/rosalind/compare/release...master?expand=1
