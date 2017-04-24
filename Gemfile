@@ -36,6 +36,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'fabrication'
   gem 'webmock'
 end
