@@ -24,6 +24,7 @@ describe('buildElasticsearchQuery', () => {
             ]
           }
         },
+        'from': 0,
         'size': 100,
         'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
       }
@@ -45,6 +46,7 @@ describe('buildElasticsearchQuery', () => {
             ]
           }
         },
+        'from': 0,
         'size': 100,
         'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
       }
@@ -65,6 +67,7 @@ describe('buildElasticsearchQuery', () => {
             ]
           }
         },
+        'from': 0,
         'size': 100,
         'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
       }
@@ -82,11 +85,50 @@ describe('buildElasticsearchQuery', () => {
             ]
           }
         },
+        'from': 0,
         'size': 100,
         'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
       }
       fair = {id: 'some-fair', name: 'Some Fair'}
       const actualQuery = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter })
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('builds a query requesting the specified page size', () => {
+      const expectedQuery = {
+        'query': {
+          'bool': {
+            'must': [
+              {'match': {'genes': 'Gene 1'}}
+            ]
+          }
+        },
+        'from': 0,
+        'size': 11,
+        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+      }
+      genes = [{id: 'gene1', name: 'Gene 1'}]
+      const size = 11
+      const actualQuery = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, size })
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('builds a query requesting the specified offset', () => {
+      const expectedQuery = {
+        'query': {
+          'bool': {
+            'must': [
+              {'match': {'genes': 'Gene 1'}}
+            ]
+          }
+        },
+        'from': 111,
+        'size': 100,
+        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+      }
+      genes = [{id: 'gene1', name: 'Gene 1'}]
+      const from = 111
+      const actualQuery = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, from })
       expect(actualQuery).toEqual(expectedQuery)
     })
   })
@@ -106,6 +148,7 @@ describe('buildElasticsearchQuery', () => {
             ]
           }
         },
+        'from': 0,
         'size': 100,
         'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
       }
@@ -124,6 +167,7 @@ describe('buildElasticsearchQuery', () => {
             ]
           }
         },
+        'from': 0,
         'size': 100,
         'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
       }
@@ -142,6 +186,7 @@ describe('buildElasticsearchQuery', () => {
             ]
           }
         },
+        'from': 0,
         'size': 100,
         'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
       }

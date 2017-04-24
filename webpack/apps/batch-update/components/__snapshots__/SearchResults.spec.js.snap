@@ -1,58 +1,64 @@
 exports[`test does not render a modal when not previewing 1`] = `
 <div
-  className="gjxyPZ">
+  className="bFIJcI">
   <div
-    className="result"
-    onClick={[Function]}>
-    <img
-      alt="Soup Can"
-      src="can.jpg" />
-    <figcaption>
-      Soup Can
-    </figcaption>
-  </div>
-  <div
-    className="result"
-    onClick={[Function]}>
-    <img
-      alt="Shark"
-      src="shark.jpg" />
-    <figcaption>
-      Shark
-    </figcaption>
+    className="results">
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Soup Can"
+        src="can.jpg" />
+      <figcaption>
+        Soup Can
+      </figcaption>
+    </div>
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Shark"
+        src="shark.jpg" />
+      <figcaption>
+        Shark
+      </figcaption>
+    </div>
   </div>
 </div>
 `;
 
 exports[`test renders a collection of artworks 1`] = `
 <div
-  className="gjxyPZ">
+  className="bFIJcI">
   <div
-    className="result"
-    onClick={[Function]}>
-    <img
-      alt="Soup Can"
-      src="can.jpg" />
-    <figcaption>
-      Soup Can
-    </figcaption>
-  </div>
-  <div
-    className="result"
-    onClick={[Function]}>
-    <img
-      alt="Shark"
-      src="shark.jpg" />
-    <figcaption>
-      Shark
-    </figcaption>
+    className="results">
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Soup Can"
+        src="can.jpg" />
+      <figcaption>
+        Soup Can
+      </figcaption>
+    </div>
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Shark"
+        src="shark.jpg" />
+      <figcaption>
+        Shark
+      </figcaption>
+    </div>
   </div>
 </div>
 `;
 
 exports[`test renders a modal when previewing 1`] = `
 <div
-  className="gjxyPZ">
+  className="bFIJcI">
   <div
     className="dsEsVK"
     onClick={[Function]}
@@ -115,31 +121,34 @@ exports[`test renders a modal when previewing 1`] = `
     </div>
   </div>
   <div
-    className="result"
-    onClick={[Function]}>
-    <img
-      alt="Soup Can"
-      src="can.jpg" />
-    <figcaption>
-      Soup Can
-    </figcaption>
-  </div>
-  <div
-    className="result"
-    onClick={[Function]}>
-    <img
-      alt="Shark"
-      src="shark.jpg" />
-    <figcaption>
-      Shark
-    </figcaption>
+    className="results">
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Soup Can"
+        src="can.jpg" />
+      <figcaption>
+        Soup Can
+      </figcaption>
+    </div>
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Shark"
+        src="shark.jpg" />
+      <figcaption>
+        Shark
+      </figcaption>
+    </div>
   </div>
 </div>
 `;
 
 exports[`test renders a spinner while fetching artworks 1`] = `
 <div
-  className="gjxyPZ">
+  className="bFIJcI">
   <div
     className="lnzNIy">
     <div
@@ -147,24 +156,27 @@ exports[`test renders a spinner while fetching artworks 1`] = `
       color="black" />
   </div>
   <div
-    className="result"
-    onClick={[Function]}>
-    <img
-      alt="Soup Can"
-      src="can.jpg" />
-    <figcaption>
-      Soup Can
-    </figcaption>
-  </div>
-  <div
-    className="result"
-    onClick={[Function]}>
-    <img
-      alt="Shark"
-      src="shark.jpg" />
-    <figcaption>
-      Shark
-    </figcaption>
+    className="results">
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Soup Can"
+        src="can.jpg" />
+      <figcaption>
+        Soup Can
+      </figcaption>
+    </div>
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Shark"
+        src="shark.jpg" />
+      <figcaption>
+        Shark
+      </figcaption>
+    </div>
   </div>
 </div>
 `;

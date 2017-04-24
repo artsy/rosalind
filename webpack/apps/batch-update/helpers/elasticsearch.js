@@ -1,6 +1,6 @@
 const defaultPageSize = 100
 
-export function buildElasticsearchQuery ({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter }) {
+export function buildElasticsearchQuery ({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, from, size }) {
   const geneMatches = genes.map(g => { return { 'match': { 'genes': g.name } } })
   const tagMatches = tags.map(t => { return { 'match': { 'tags': t.name } } })
   const filterMatches = buildFilterMatches({ publishedFilter, deletedFilter, genomedFilter })
@@ -16,7 +16,8 @@ export function buildElasticsearchQuery ({ genes, tags, partner, fair, published
         { 'published_at': 'desc' },
         { 'id': 'desc' }
     ],
-    'size': defaultPageSize
+    'from': from || 0,
+    'size': size || defaultPageSize
   }
 }
 
