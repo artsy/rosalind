@@ -11,6 +11,7 @@ kinetic_gem_spec = { git: 'https://github.com/artsy/kinetic.git', branch: 'maste
 gem 'kinetic', kinetic_gem_spec
 
 gem 'coffee-rails'
+gem 'decent_exposure'
 gem 'haml-rails'
 gem 'jbuilder'
 gem 'sass-rails'
