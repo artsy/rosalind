@@ -1,6 +1,6 @@
 machine:
   ruby:
-    version: 2.3.1
+    version: 2.4.1
 dependencies:
   pre:
     - gem install bundler --version 1.13.6
@@ -10,7 +10,7 @@ test:
     - npm run lint
   override:
     - bundle exec rspec
-    - npm run test
+    - npm run test -- --runInBand
   post:
     - bundle exec danger
 deployment:

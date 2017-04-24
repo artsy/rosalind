@@ -3,7 +3,7 @@
 # Exit if any subcommand fails
 set -e
 
-STEPS=6
+STEPS=7
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -57,5 +57,10 @@ git fetch --all --quiet > /dev/null
 printf "${CLEAR_LINE}[6/${STEPS}]  setting up dotenv"
 copy_env
 
+# STEP 7
+printf "${CLEAR_LINE}[7/${STEPS}]  adding pre-push git hook"
+cp scripts/git.pre-push.sample .git/hooks/pre-push
+chmod +x .git/hooks/pre-push
+
 # FINISH
-printf "${CLEAR_LINE}[6/${STEPS}]${GREEN}  finished!${NO_COLOR}\n"
+printf "${CLEAR_LINE}[${STEPS}/${STEPS}]${GREEN}  finished!${NO_COLOR}\n"

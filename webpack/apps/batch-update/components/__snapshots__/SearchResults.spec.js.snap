@@ -1,0 +1,182 @@
+exports[`test does not render a modal when not previewing 1`] = `
+<div
+  className="bFIJcI">
+  <div
+    className="results">
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Soup Can"
+        src="can.jpg" />
+      <figcaption>
+        Soup Can
+      </figcaption>
+    </div>
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Shark"
+        src="shark.jpg" />
+      <figcaption>
+        Shark
+      </figcaption>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders a collection of artworks 1`] = `
+<div
+  className="bFIJcI">
+  <div
+    className="results">
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Soup Can"
+        src="can.jpg" />
+      <figcaption>
+        Soup Can
+      </figcaption>
+    </div>
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Shark"
+        src="shark.jpg" />
+      <figcaption>
+        Shark
+      </figcaption>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders a modal when previewing 1`] = `
+<div
+  className="bFIJcI">
+  <div
+    className="dsEsVK"
+    onClick={[Function]}
+    z={1}>
+    <div
+      className="dQjxAA"
+      onClickCapture={[Function]}>
+      <div
+        className="image">
+        <img
+          alt="Soup Can"
+          src="can.jpg" />
+      </div>
+      <div
+        className="details">
+        <p
+          className="name">
+          Soup Can
+        </p>
+        <p
+          className="status">
+          Deleted: 
+          false
+           
+          <br />
+          Published: 
+          true
+           
+          <br />
+          Genomed: 
+          true
+        </p>
+        <p
+          className="links">
+          View artwork in:
+          <a
+            href="https://helix.artsy.net/genome/artworks?artwork_ids=can">
+            Helix
+          </a>
+          |
+          <a
+            href="https://cms.artsy.net/artworks/can/edit?current_partner_id=undefined">
+            CMS
+          </a>
+          |
+          <a
+            href="https://www.artsy.net/artwork/can">
+            Artsy.net
+          </a>
+        </p>
+        <p
+          className="links">
+          View artist in:
+          <a
+            href="https://helix.artsy.net/genome/artist?search[genome_artist_id]=undefined">
+            Helix
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="results">
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Soup Can"
+        src="can.jpg" />
+      <figcaption>
+        Soup Can
+      </figcaption>
+    </div>
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Shark"
+        src="shark.jpg" />
+      <figcaption>
+        Shark
+      </figcaption>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders a spinner while fetching artworks 1`] = `
+<div
+  className="bFIJcI">
+  <div
+    className="lnzNIy">
+    <div
+      className="eWOvlO"
+      color="black" />
+  </div>
+  <div
+    className="results">
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Soup Can"
+        src="can.jpg" />
+      <figcaption>
+        Soup Can
+      </figcaption>
+    </div>
+    <div
+      className="result"
+      onClick={[Function]}>
+      <img
+        alt="Shark"
+        src="shark.jpg" />
+      <figcaption>
+        Shark
+      </figcaption>
+    </div>
+  </div>
+</div>
+`;

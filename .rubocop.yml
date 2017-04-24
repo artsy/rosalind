@@ -1,10 +1,5 @@
-# inherit_from: ./.rubocop_todo.yml
-
 Metrics/LineLength:
   Max: 132 # good for desktop Github
-
-# Metrics/MethodLength:
-#   Max: 15
 
 Style/BlockComments:
   Exclude:
@@ -21,6 +16,17 @@ Style/FrozenStringLiteralComment:
 
 Style/IndentArray:
   EnforcedStyle: consistent
+
+Style/FileName:
+  Exclude:
+    - Dangerfile
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Rails/FilePath:
+  Enabled: false
 
 AllCops:
   Exclude:

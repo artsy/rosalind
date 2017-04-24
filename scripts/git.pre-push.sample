@@ -1,0 +1,11 @@
+#! /usr/bin/env ruby
+
+rb_changed = `git diff-index HEAD --name-only --diff-filter=AM | grep '\.rb$'`.split(/\n/)
+js_changed = `git diff-index HEAD --name-only --diff-filter=AM | grep '\.js$'`.split(/\n/)
+
+exit 0 unless rb_changed.any? || js_changed.any?
+
+rubocop_cmd = "bundle exec rubocop --rails #{rb_changed.join ' '}"
+standard_cmd = "yarn standard #{js_changed.join ' '}"
+
+system(rubocop_cmd) && system(standard_cmd)

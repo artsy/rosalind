@@ -1,0 +1,108 @@
+exports[`test renders nothing if there are no selected criteria 1`] = `
+<div
+  className="PSSoP" />
+`;
+
+exports[`test renders the selected fair 1`] = `
+<div
+  className="PSSoP">
+  <div>
+    <h2>
+      Fair
+    </h2>
+    <div
+      className="crrNnH">
+      FooFair
+      <a
+        className="remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders the selected genes 1`] = `
+<div
+  className="PSSoP">
+  <div>
+    <h2>
+      Genes
+    </h2>
+    <div
+      className="crrNnH">
+      Foo
+      <a
+        className="remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+    <div
+      className="crrNnH">
+      Bar
+      <a
+        className="remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders the selected partner 1`] = `
+<div
+  className="PSSoP">
+  <div>
+    <h2>
+      Partner
+    </h2>
+    <div
+      className="crrNnH">
+      Gallery Foo
+      <a
+        className="remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders the selected tags 1`] = `
+<div
+  className="PSSoP">
+  <div>
+    <h2>
+      Tags
+    </h2>
+    <div
+      className="crrNnH">
+      Foo
+      <a
+        className="remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+    <div
+      className="crrNnH">
+      Bar
+      <a
+        className="remove"
+        href="#"
+        onClick={[Function]}>
+        ✕
+      </a>
+    </div>
+  </div>
+</div>
+`;
