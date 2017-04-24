@@ -19,8 +19,8 @@ gem 'uglifier'
 gem 'webpack-rails'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
   gem 'danger'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop'
 end
