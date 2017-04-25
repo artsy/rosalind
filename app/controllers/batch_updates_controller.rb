@@ -11,7 +11,7 @@ class BatchUpdatesController < ApplicationController
     batch_update = params.fetch(:batch_update, {})
 
     genes = JSON.parse batch_update[:genes]
-    artworks = batch_update[:artworks].map(&:to_i)
+    artworks = batch_update[:artworks]
 
     {
       artworks: artworks,
