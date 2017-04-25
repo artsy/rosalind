@@ -10,16 +10,9 @@ class BatchUpdatesController < ApplicationController
   private
 
   def batch_update_params
-    batch_update = params.fetch(:batch_update, {})
-
-    genes = JSON.parse batch_update[:genes]
-    artworks = batch_update[:artworks]
-
-    {
-      artworks: artworks,
-      genes: genes,
-      user_id: current_user.id
-    }
+    defaults = { user_id: current_user.id }
+    gene_keys = params[:batch_update][:genes].try(:keys)
+    params.require(:batch_update).permit(artworks: [], genes: gene_keys).merge(defaults)
   end
 
   def require_genomer

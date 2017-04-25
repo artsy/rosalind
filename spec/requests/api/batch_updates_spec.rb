@@ -17,7 +17,7 @@ describe 'POST /api/batch_updates' do
       payload = {
         batch_update: {
           artworks: [1, 2, 3],
-          genes: genes.to_json
+          genes: genes
         }
       }
 
