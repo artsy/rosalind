@@ -155,11 +155,13 @@ class App extends React.Component {
 
   onToggleArtwork (artwork) {
     const { selectedArtworkIds } = this.state
-    if (selectedArtworkIds.includes(artwork.id)) {
+    if (selectedArtworkIds.indexOf(artwork.id) > -1) {
+      console.log('filtering')
       this.setState({
         selectedArtworkIds: selectedArtworkIds.filter(id => id !== artwork.id)
       })
     } else {
+      console.log('pushing')
       this.setState({
         selectedArtworkIds: [...selectedArtworkIds, artwork.id]
       })

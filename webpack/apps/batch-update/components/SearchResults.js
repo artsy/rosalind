@@ -107,7 +107,7 @@ const ArtworkResultList = ({artworks, selectedArtworkIds, onPreviewArtwork, onTo
           artwork={artwork}
           onPreviewArtwork={onPreviewArtwork}
           onToggleArtwork={onToggleArtwork}
-          selected={selectedArtworkIds.includes(artwork.id)}
+          selected={selectedArtworkIds.indexOf(artwork.id) > -1}
         />
       )}
     </div>
