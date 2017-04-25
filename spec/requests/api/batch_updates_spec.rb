@@ -5,6 +5,7 @@ describe 'POST /api/batch_updates' do
     it 'creates a BatchUpdate' do
       allow_any_instance_of(BatchUpdatesController).to receive(:find_current_user)
       allow_any_instance_of(BatchUpdatesController).to receive(:is_admin?).and_return(true)
+      allow_any_instance_of(BatchUpdatesController).to receive(:is_genomer?).and_return(true)
       current_user = double(:current_user, id: 123)
       allow_any_instance_of(BatchUpdatesController).to receive(:current_user).and_return(current_user)
 

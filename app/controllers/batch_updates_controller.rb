@@ -1,4 +1,6 @@
 class BatchUpdatesController < ApplicationController
+  before_action :require_genomer
+
   expose(:batch_update)
 
   def create
@@ -18,5 +20,10 @@ class BatchUpdatesController < ApplicationController
       genes: genes,
       user_id: current_user.id
     }
+  end
+
+  def require_genomer
+    return if is_genomer?
+    redirect_to Kinetic.config[:artsy_url], notice: "It doesn't look like you have access to this application."
   end
 end
