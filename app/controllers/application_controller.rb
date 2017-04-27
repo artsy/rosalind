@@ -7,7 +7,6 @@ class ApplicationController < Kinetic::ApplicationController
   private
 
   def require_admin_or_genomer
-    return if is_admin? || is_genomer?
-    redirect_to Kinetic.config[:artsy_url], notice: "It doesn't look like you have access to this application."
+    redirect_to Kinetic.config[:artsy_url] unless is_admin? || is_genomer?
   end
 end
