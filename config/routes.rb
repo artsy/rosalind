@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#batch_update'
 
-  scope :api do
-    resources :batch_updates, only: :create
-  end
+  resources :batch_updates, only: :create
 
   # searches and autocompletes
   get 'match/artworks'

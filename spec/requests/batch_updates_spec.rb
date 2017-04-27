@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'POST /api/batch_updates' do
+describe 'POST /batch_updates' do
   context 'with valid data' do
     it 'creates a BatchUpdate' do
       allow_any_instance_of(BatchUpdatesController).to receive(:find_current_user)
@@ -21,7 +21,7 @@ describe 'POST /api/batch_updates' do
         }
       }
 
-      post '/api/batch_updates', params: payload
+      post '/batch_updates', params: payload
 
       expect(BatchUpdate.count).to eq 1
     end
