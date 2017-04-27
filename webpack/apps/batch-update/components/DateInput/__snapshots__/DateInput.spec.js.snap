@@ -2,8 +2,14 @@ exports[`test renders correctly 1`] = `
 <div>
   <input
     onChange={[Function]}
-    type="text" />
+    placeholder="Select a date"
+    type="text"
+    value="" />
   <div
-    className="parsed" />
+    className="parsed">
+    <a
+      href="#"
+      onClick={[Function]} />
+  </div>
 </div>
 `;

@@ -6,27 +6,49 @@ export default class DateInput extends React.Component {
   constructor (props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
     this.state = {
-      date: null
+      suggestion: null,
+      input: '',
+      showSuggestion: true
     }
   }
 
   handleChange (event) {
-    const parsed = parseDate(event.target.value)
-    this.props.selectDate(parsed)
     this.setState({
-      date: parsed
+      input: event.target.value,
+      suggestion: parseDate(event.target.value),
+      showSuggestion: true
+    })
+  }
+
+  handleClick (event) {
+    event.preventDefault()
+    this.props.selectDate(this.state.suggestion)
+    this.setState({
+      input: this.state.suggestion,
+      showSuggestion: false
     })
   }
 
   render () {
+    const suggestion = (
+      <div className='parsed'>
+        <a href='#' onClick={this.handleClick}>
+          {this.state.suggestion}
+        </a>
+      </div>
+    )
+
     return (
       <div>
         <input
           type='text'
+          value={this.state.input}
           onChange={this.handleChange}
+          placeholder={this.props.placeholder || 'Select a date'}
           />
-        <div className='parsed'>{this.state.date}</div>
+        {this.state.showSuggestion && suggestion}
       </div>
     )
   }

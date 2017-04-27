@@ -6,6 +6,7 @@ const PublishedDateInput = (props) => {
     <div>
       <DateInput
         selectDate={props.onSelectPublishedDate}
+        placeholder='Select a published date'
         />
     </div>
   )
