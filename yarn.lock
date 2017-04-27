@@ -943,6 +943,10 @@ chokidar@^1.0.0:
   optionalDependencies:
     fsevents "^1.0.0"
 
+chrono@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/chrono/-/chrono-1.0.5.tgz#3faed1b0671661bf9f573e29a037e4aa4773ff16"
+
 ci-info@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-1.0.0.tgz#dc5285f2b4e251821683681c381c3388f46ec534"
