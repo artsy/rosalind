@@ -1,0 +1,11 @@
+exports[`test renders correctly 1`] = `
+<div>
+  <div>
+    <input
+      onChange={[Function]}
+      type="text" />
+    <div
+      className="parsed" />
+  </div>
+</div>
+`;

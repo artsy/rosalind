@@ -107,6 +107,15 @@ exports[`test renders correctly 1`] = `
             id="react-autowhatever-fair-autosuggest" />
         </div>
       </div>
+      <div>
+        <div>
+          <input
+            onChange={[Function]}
+            type="text" />
+          <div
+            className="parsed" />
+        </div>
+      </div>
       <div
         className="gxGcSj">
         <div

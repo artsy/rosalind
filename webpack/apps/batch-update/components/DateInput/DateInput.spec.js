@@ -1,9 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { DateAutosuggest } from './DateAutosuggest'
+import DateInput from './DateInput'
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<DateAutosuggest {...props} />)
+  const rendered = renderer.create(<DateInput />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })

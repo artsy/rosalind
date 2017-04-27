@@ -15,6 +15,7 @@ class App extends React.Component {
       tags: [],
       partner: null,
       fair: null,
+      publishedDate: null,
       publishedFilter: 'SHOW_ALL',
       deletedFilter: 'SHOW_ALL',
       genomedFilter: 'SHOW_ALL',
@@ -33,6 +34,7 @@ class App extends React.Component {
     this.onClearPartner = this.onClearPartner.bind(this)
     this.onSetFair = this.onSetFair.bind(this)
     this.onClearFair = this.onClearFair.bind(this)
+    this.onSetPublishedDate = this.onSetPublishedDate.bind(this)
 
     this.onSetPublishedFilter = this.onSetPublishedFilter.bind(this)
     this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
@@ -141,6 +143,15 @@ class App extends React.Component {
     this.setState({ fair: null })
   }
 
+  onSetPublishedDate (publishedDate) {
+    this.setState({ publishedDate })
+  }
+
+  // TODO
+  // onClearPublished () {
+  //   this.setState({ date: null })
+  // }
+
   onSetPublishedFilter (filterValue) {
     this.setState({ publishedFilter: filterValue })
   }
@@ -219,6 +230,8 @@ class App extends React.Component {
             onClearPartner={this.onClearPartner}
             onSetFair={this.onSetFair}
             onClearFair={this.onClearFair}
+            onSetPublishedDate={this.onSetPublishedDate}
+            // onClearPublishedDate={this.onClearPublishedDate}
             publishedFilter={this.state.publishedFilter}
             onSetPublishedFilter={this.onSetPublishedFilter}
             deletedFilter={this.state.deletedFilter}
