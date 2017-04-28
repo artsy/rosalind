@@ -19,6 +19,7 @@ class App extends React.Component {
       deletedFilter: 'SHOW_ALL',
       genomedFilter: 'SHOW_ALL',
       artworks: [],
+      selectedArtworkIds: [],
       previewedArtwork: null,
       isLoading: false,
       totalHits: null,
@@ -37,6 +38,9 @@ class App extends React.Component {
     this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
     this.onSetGenomedFilter = this.onSetGenomedFilter.bind(this)
 
+    this.onToggleArtwork = this.onToggleArtwork.bind(this)
+    this.onSelectAllArtworks = this.onSelectAllArtworks.bind(this)
+    this.onDeselectAllArtworks = this.onDeselectAllArtworks.bind(this)
     this.onPreviewArtwork = this.onPreviewArtwork.bind(this)
     this.onPreviewPrevious = this.onPreviewPrevious.bind(this)
     this.onPreviewNext = this.onPreviewNext.bind(this)
@@ -149,6 +153,34 @@ class App extends React.Component {
     this.setState({ genomedFilter: filterValue })
   }
 
+  onToggleArtwork (artwork) {
+    const { selectedArtworkIds } = this.state
+    if (selectedArtworkIds.indexOf(artwork.id) > -1) {
+      console.log('filtering')
+      this.setState({
+        selectedArtworkIds: selectedArtworkIds.filter(id => id !== artwork.id)
+      })
+    } else {
+      console.log('pushing')
+      this.setState({
+        selectedArtworkIds: [...selectedArtworkIds, artwork.id]
+      })
+    }
+  }
+
+  onSelectAllArtworks () {
+    const { artworks } = this.state
+    this.setState({
+      selectedArtworkIds: artworks.map(a => a.id)
+    })
+  }
+
+  onDeselectAllArtworks () {
+    this.setState({
+      selectedArtworkIds: []
+    })
+  }
+
   onPreviewArtwork (artwork) {
     this.setState({ previewedArtwork: artwork })
   }
@@ -168,7 +200,7 @@ class App extends React.Component {
   }
 
   render () {
-    const { genes, tags, partner, fair, artworks, totalHits, previewedArtwork, isLoading } = this.state
+    const { genes, tags, partner, fair, artworks, selectedArtworkIds, totalHits, previewedArtwork, isLoading } = this.state
     return (
       <Wrapper>
         <Sidebar>
@@ -197,9 +229,13 @@ class App extends React.Component {
         <Content>
           <SearchResults
             artworks={artworks}
+            selectedArtworkIds={selectedArtworkIds}
             previewedArtwork={previewedArtwork}
             isLoading={isLoading}
             totalHits={totalHits}
+            onToggleArtwork={this.onToggleArtwork}
+            onSelectAllArtworks={this.onSelectAllArtworks}
+            onDeselectAllArtworks={this.onDeselectAllArtworks}
             onPreviewArtwork={this.onPreviewArtwork}
             onPreviewPrevious={this.onPreviewPrevious}
             onPreviewNext={this.onPreviewNext}
