@@ -1,15 +1,23 @@
 const defaultPageSize = 100
 
-export function buildElasticsearchQuery ({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, from, size }) {
+export function buildElasticsearchQuery ({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, from, publishedDate, size }) {
   const geneMatches = genes.map(g => { return { 'match': { 'genes': g.name } } })
   const tagMatches = tags.map(t => { return { 'match': { 'tags': t.name } } })
   const filterMatches = buildFilterMatches({ publishedFilter, deletedFilter, genomedFilter })
   const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
   const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
+  const publishedDateRange = publishedDate ? { 'range' : { 'published_at' : publishedDate } } : null
   return {
     'query': {
       'bool': {
-        'must': [...geneMatches, ...tagMatches, ...filterMatches, partnerMatch, fairMatch].filter(m => m !== null)
+        'must': [
+          ...geneMatches,
+          ...tagMatches,
+          ...filterMatches,
+          partnerMatch,
+          fairMatch,
+          publishedDateRange
+        ].filter(m => m !== null)
       }
     },
     'sort': [

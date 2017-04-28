@@ -1,5 +1,6 @@
 import React from 'react'
 import chrono from 'chrono-node'
+import moment from 'moment'
 import '../Styles/Input.css'
 
 export default class DateInput extends React.Component {
@@ -24,7 +25,11 @@ export default class DateInput extends React.Component {
 
   handleClick (event) {
     event.preventDefault()
-    this.props.selectDate(this.state.suggestion)
+
+    this.props.selectDate({
+      gt: this.state.suggestion
+    })
+
     this.setState({
       input: this.state.suggestion,
       showSuggestion: false
@@ -57,7 +62,9 @@ export default class DateInput extends React.Component {
 function parseDate (raw) {
   const result = chrono.parse(raw)
   if (result.length > 0) {
-    return result[0].start.date().toString()
+    const date = result[0].start.date()
+    return date.toString()
+    // return moment(date).format('YYYY-MM-DD');
   } else {
     return null
   }

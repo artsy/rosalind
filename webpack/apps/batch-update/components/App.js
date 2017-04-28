@@ -22,6 +22,7 @@ class App extends React.Component {
       artworks: [],
       selectedArtworkIds: [],
       previewedArtwork: null,
+      publishedDate: null,
       isLoading: false,
       totalHits: null,
       size: 100
@@ -65,19 +66,20 @@ class App extends React.Component {
       (this.state.fair !== prevState.fair) ||
       (this.state.publishedFilter !== prevState.publishedFilter) ||
       (this.state.deletedFilter !== prevState.deletedFilter) ||
-      (this.state.genomedFilter !== prevState.genomedFilter)
+      (this.state.genomedFilter !== prevState.genomedFilter) ||
+      (this.state.publishedDate !== prevState.publishedDate)
      ) {
       this.fetchArtworks()
     }
   }
 
   fetchArtworks () {
-    const { genes, tags, partner, fair } = this.state
+    const { genes, tags, partner, fair, publishedDate } = this.state
     if ((genes.length === 0) && (tags.length === 0) && (partner === null) && (fair === null)) {
       this.setState({ artworks: [], totalHits: 0 })
     } else {
       const { publishedFilter, deletedFilter, genomedFilter, size } = this.state
-      const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, size })
+      const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, publishedDate, size })
       this.setState({ isLoading: true })
       matchArtworks(query).then(hits => {
         const totalHits = hits.total
@@ -146,11 +148,6 @@ class App extends React.Component {
   onSetPublishedDate (publishedDate) {
     this.setState({ publishedDate })
   }
-
-  // TODO
-  // onClearPublished () {
-  //   this.setState({ date: null })
-  // }
 
   onSetPublishedFilter (filterValue) {
     this.setState({ publishedFilter: filterValue })
@@ -231,7 +228,6 @@ class App extends React.Component {
             onSetFair={this.onSetFair}
             onClearFair={this.onClearFair}
             onSetPublishedDate={this.onSetPublishedDate}
-            // onClearPublishedDate={this.onClearPublishedDate}
             publishedFilter={this.state.publishedFilter}
             onSetPublishedFilter={this.onSetPublishedFilter}
             deletedFilter={this.state.deletedFilter}
