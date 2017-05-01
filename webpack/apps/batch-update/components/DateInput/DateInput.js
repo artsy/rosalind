@@ -9,10 +9,10 @@ export default class DateInput extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.state = {
-      selected: null,
-      suggestion: null,
       input: '',
-      showSuggestion: true
+      selected: null,
+      showSuggestion: true,
+      suggestion: null
     }
   }
 
@@ -23,8 +23,8 @@ export default class DateInput extends React.Component {
 
     this.setState({
       input: event.target.value,
-      suggestion: suggestion,
-      showSuggestion: true
+      showSuggestion: true,
+      suggestion: suggestion
     })
   }
 

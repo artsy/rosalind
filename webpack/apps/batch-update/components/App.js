@@ -11,21 +11,22 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      genes: [],
-      tags: [],
-      partner: null,
-      fair: null,
-      createdAfterDate: null,
-      publishedFilter: 'SHOW_ALL',
-      deletedFilter: 'SHOW_ALL',
-      genomedFilter: 'SHOW_ALL',
       artworks: [],
-      selectedArtworkIds: [],
-      previewedArtwork: null,
+      createdAfterDate: null,
+      deletedFilter: 'SHOW_ALL',
+      fair: null,
+      genes: [],
+      genomedFilter: 'SHOW_ALL',
       isLoading: false,
-      totalHits: null,
-      size: 100
+      partner: null,
+      previewedArtwork: null,
+      publishedFilter: 'SHOW_ALL',
+      selectedArtworkIds: [],
+      size: 100,
+      tags: [],
+      totalHits: null
     }
+    this.shouldComponentUpdate = this.shouldComponentUpdate.bind(this)
     this.onRemoveGene = this.onRemoveGene.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
     this.onRemoveTag = this.onRemoveTag.bind(this)
@@ -58,18 +59,20 @@ class App extends React.Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
-    if (
-      (this.state.genes !== prevState.genes) ||
-      (this.state.tags !== prevState.tags) ||
-      (this.state.partner !== prevState.partner) ||
-      (this.state.fair !== prevState.fair) ||
-      (this.state.publishedFilter !== prevState.publishedFilter) ||
-      (this.state.deletedFilter !== prevState.deletedFilter) ||
-      (this.state.genomedFilter !== prevState.genomedFilter) ||
-      (this.state.createdAfterDate !== prevState.createdAfterDate)
-     ) {
+    if (this.shouldComponentUpdate(prevProps, prevState)) {
       this.fetchArtworks()
     }
+  }
+
+  shouldComponentUpdate (prevProps, prevState) {
+    (this.state.createdAfterDate !== prevState.createdAfterDate) ||
+    (this.state.deletedFilter !== prevState.deletedFilter) ||
+    (this.state.fair !== prevState.fair) ||
+    (this.state.genes !== prevState.genes) ||
+    (this.state.genomedFilter !== prevState.genomedFilter) ||
+    (this.state.partner !== prevState.partner) ||
+    (this.state.publishedFilter !== prevState.publishedFilter) ||
+    (this.state.tags !== prevState.tags)
   }
 
   fetchArtworks () {
@@ -83,14 +86,14 @@ class App extends React.Component {
       const { publishedFilter, deletedFilter, genomedFilter, size } = this.state
 
       const query = buildElasticsearchQuery({
-        genes,
-        tags,
-        partner,
-        fair,
-        publishedFilter,
         deletedFilter,
+        fair,
+        genes,
         genomedFilter,
-        size
+        partner,
+        publishedFilter,
+        size,
+        tags
       })
 
       this.setState({ isLoading: true })
@@ -105,13 +108,13 @@ class App extends React.Component {
   fetchMoreArtworks () {
     const {
       createdAfterDate,
-      genes,
-      tags,
-      partner,
-      fair,
-      publishedFilter,
       deletedFilter,
-      genomedFilter
+      fair,
+      genes,
+      genomedFilter,
+      partner,
+      publishedFilter,
+      tags
     } = this.state
 
     const { artworks, size } = this.state
@@ -120,15 +123,15 @@ class App extends React.Component {
 
     const query = buildElasticsearchQuery({
       createdAfterDate,
-      genes,
-      tags,
-      partner,
-      fair,
-      publishedFilter,
       deletedFilter,
-      genomedFilter,
+      fair,
       from,
-      size
+      genes,
+      genomedFilter,
+      partner,
+      publishedFilter,
+      size,
+      tags
     })
 
     matchArtworks(query).then(hits => {
@@ -246,16 +249,16 @@ class App extends React.Component {
 
   render () {
     const {
-      createdAfterDate,
-      genes,
-      tags,
-      partner,
-      fair,
       artworks,
-      selectedArtworkIds,
-      totalHits,
+      createdAfterDate,
+      fair,
+      genes,
+      isLoading,
+      partner,
       previewedArtwork,
-      isLoading
+      selectedArtworkIds,
+      tags,
+      totalHits
     } = this.state
 
     return (

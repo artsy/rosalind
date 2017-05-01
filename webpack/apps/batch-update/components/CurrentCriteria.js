@@ -5,13 +5,14 @@ import SelectedPartner from './SelectedPartner'
 import SelectedFair from './SelectedFair'
 
 function CurrentCriteria (props) {
-  const {className, genes, tags, partner, fair, onRemoveGene, onRemoveTag, onClearPartner, onClearFair} = props
+  const {className, createdAfterDate, genes, tags, partner, fair, onRemoveGene, onRemoveTag, onClearPartner, onClearFair} = props
   return (
     <div className={className}>
       <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />
       <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />
       <CurrentPartner partner={partner} onClearPartner={onClearPartner} />
       <CurrentFair fair={fair} onClearFair={onClearFair} />
+      <CurrentCreatedDate createdAfterDate={createdAfterDate} />
     </div>
   )
 }
@@ -76,6 +77,23 @@ function CurrentFair (props) {
       <div>
         <h2>Fair</h2>
         <SelectedFair fair={fair} onClearFair={onClearFair} />
+      </div>
+    )
+  } else {
+    return null
+  }
+}
+
+function CurrentCreatedDate (props) {
+  const { date, onClearDate } = props
+  if (date !== null) {
+    return (
+      <div>
+        <h2>Created After</h2>
+        <div className='className'>
+          <emphasis>date value</emphasis>
+          <a href='#' className='remove'>✕</a>
+        </div>
       </div>
     )
   } else {

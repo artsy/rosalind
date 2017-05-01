@@ -2,10 +2,10 @@ import React from 'react'
 import CurrentCriteria from './CurrentCriteria'
 import CreatedAfterDateInput from './DateInput/CreatedAfterDateInput'
 import {
+  FairAutosuggest,
   GeneAutosuggest,
-  TagAutosuggest,
   PartnerAutosuggest,
-  FairAutosuggest
+  TagAutosuggest
 } from './Autosuggest'
 import FilterOptions from './FilterOptions'
 import { Button } from './Buttons'
@@ -30,46 +30,46 @@ class SearchForm extends React.Component {
   render () {
     const {
       createdAfterDate,
-      genes,
-      tags,
-      partner,
       fair,
+      genes,
+      onClearFair,
+      onClearPartner,
       onRemoveGene,
       onRemoveTag,
-      onClearPartner,
-      onClearFair
+      partner,
+      tags
     } = this.props
 
     const {
+      onAddCreatedAfterDate,
       onAddGene,
       onAddTag,
-      onSetPartner,
       onSetFair,
-      onAddCreatedAfterDate
+      onSetPartner
     } = this.props
 
     const {
-      publishedFilter,
       deletedFilter,
       genomedFilter,
-      onSetPublishedFilter,
       onSetDeletedFilter,
-      onSetGenomedFilter
+      onSetGenomedFilter,
+      onSetPublishedFilter,
+      publishedFilter
     } = this.props
 
     return (
       <div className={this.props.className}>
         <CurrentCriteria
           createdAfterDate={createdAfterDate}
-          genes={genes}
-          tags={tags}
-          partner={partner}
           fair={fair}
+          genes={genes}
+          onClearFair={onClearFair}
+          onClearPartner={onClearPartner}
           onRemoveGene={onRemoveGene}
           onRemoveTag={onRemoveTag}
-          onClearPartner={onClearPartner}
-          onClearFair={onClearFair}
-        />
+          partner={partner}
+          tags={tags}
+          />
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />
         <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
@@ -78,22 +78,19 @@ class SearchForm extends React.Component {
         <CreatedAfterDateInput onSelectDate={onAddCreatedAfterDate} />
 
         <FilterOptions
-          publishedFilter={publishedFilter}
           deletedFilter={deletedFilter}
           genomedFilter={genomedFilter}
-          onSetPublishedFilter={onSetPublishedFilter}
           onSetDeletedFilter={onSetDeletedFilter}
           onSetGenomedFilter={onSetGenomedFilter}
-        />
-
-        { this.maybeRenderEditButton() }
+          onSetPublishedFilter={onSetPublishedFilter}
+          publishedFilter={publishedFilter}
+          />
       </div>
     )
   }
 }
 
 /* default styled component */
-
 import styled from 'styled-components'
 
 const StyledSearchForm = styled(SearchForm)`
