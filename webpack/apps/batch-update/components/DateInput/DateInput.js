@@ -9,6 +9,7 @@ export default class DateInput extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
 
     this.state = {
       input: '',
@@ -39,14 +40,20 @@ export default class DateInput extends React.Component {
 
   handleClick (event) {
     event.preventDefault()
+    if (this.state.suggestion !== null) {
+      this.props.onSelectDate(moment(this.state.suggestion).format())
+      this.setState({
+        input: moment(this.state.suggestion).format('MMMM Do YYYY, h:mm:ss a'),
+        showComponent: false,
+        suggestion: null
+      })
+    }
+  }
 
-    this.props.onSelectDate(moment(this.state.suggestion).format())
-
-    this.setState({
-      input: moment(this.state.suggestion).format('MMMM Do YYYY, h:mm:ss a'),
-      showComponent: false,
-      suggestion: null
-    })
+  handleKeyPress (event) {
+    if (event.charCode === 13) {
+      this.handleClick(event)
+    }
   }
 
   render () {
@@ -56,6 +63,7 @@ export default class DateInput extends React.Component {
           type='text'
           value={this.state.input}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
           placeholder={this.props.placeholder || 'Select a date'}
             />
         <div className='parsed'>
