@@ -58,21 +58,23 @@ class App extends React.Component {
     }
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    if (this.shouldComponentUpdate(prevProps, prevState)) {
+  componentDidUpdate (_prevProps, prevState) {
+    if (this.shouldComponentUpdate(prevState)) {
       this.fetchArtworks()
     }
   }
 
-  shouldComponentUpdate (prevProps, prevState) {
-    (this.state.createdAfterDate !== prevState.createdAfterDate) ||
-    (this.state.deletedFilter !== prevState.deletedFilter) ||
-    (this.state.fair !== prevState.fair) ||
-    (this.state.genes !== prevState.genes) ||
-    (this.state.genomedFilter !== prevState.genomedFilter) ||
-    (this.state.partner !== prevState.partner) ||
-    (this.state.publishedFilter !== prevState.publishedFilter) ||
-    (this.state.tags !== prevState.tags)
+  shouldComponentUpdate (prevState) {
+    return (
+      (this.state.createdAfterDate !== prevState.createdAfterDate) ||
+      (this.state.deletedFilter !== prevState.deletedFilter) ||
+      (this.state.fair !== prevState.fair) ||
+      (this.state.genes !== prevState.genes) ||
+      (this.state.genomedFilter !== prevState.genomedFilter) ||
+      (this.state.partner !== prevState.partner) ||
+      (this.state.publishedFilter !== prevState.publishedFilter) ||
+      (this.state.tags !== prevState.tags)
+    )
   }
 
   fetchArtworks () {
