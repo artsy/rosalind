@@ -1,18 +1,47 @@
 import React from 'react'
+import SelectedCreatedAfterDate from './SelectedCreatedAfterDate'
 import SelectedGene from './SelectedGene'
 import SelectedTag from './SelectedTag'
 import SelectedPartner from './SelectedPartner'
 import SelectedFair from './SelectedFair'
 
 function CurrentCriteria (props) {
-  const {className, createdAfterDate, genes, tags, partner, fair, onRemoveGene, onRemoveTag, onClearPartner, onClearFair} = props
+  const {
+    className,
+    createdAfterDate,
+    fair,
+    genes,
+    onClearCreatedAfterDate,
+    onClearFair,
+    onClearPartner,
+    onRemoveGene,
+    onRemoveTag,
+    partner,
+    tags
+  } = props
+
   return (
     <div className={className}>
-      <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />
-      <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />
-      <CurrentPartner partner={partner} onClearPartner={onClearPartner} />
-      <CurrentFair fair={fair} onClearFair={onClearFair} />
-      <CurrentCreatedDate createdAfterDate={createdAfterDate} />
+      <CurrentGenes
+        genes={genes}
+        onRemoveGene={onRemoveGene}
+      />
+      <CurrentTags
+        tags={tags}
+        onRemoveTag={onRemoveTag}
+      />
+      <CurrentPartner
+        partner={partner}
+        onClearPartner={onClearPartner}
+      />
+      <CurrentFair
+        fair={fair}
+        onClearFair={onClearFair}
+      />
+      <CurrentCreatedDate
+        createdAfterDate={createdAfterDate}
+        onClearCreatedAfterDate={onClearCreatedAfterDate}
+      />
     </div>
   )
 }
@@ -85,15 +114,15 @@ function CurrentFair (props) {
 }
 
 function CurrentCreatedDate (props) {
-  const { date, onClearDate } = props
-  if (date !== null) {
+  const { createdAfterDate, onClearCreatedAfterDate } = props
+  if (createdAfterDate !== null) {
     return (
       <div>
         <h2>Created After</h2>
-        <div className='className'>
-          <emphasis>date value</emphasis>
-          <a href='#' className='remove'>✕</a>
-        </div>
+        <SelectedCreatedAfterDate
+          createdAfterDate={createdAfterDate}
+          onClearCreatedAfterDate={onClearCreatedAfterDate}
+        />
       </div>
     )
   } else {

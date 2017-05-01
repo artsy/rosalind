@@ -26,6 +26,7 @@ class App extends React.Component {
       tags: [],
       totalHits: null
     }
+
     this.shouldComponentUpdate = this.shouldComponentUpdate.bind(this)
     this.onRemoveGene = this.onRemoveGene.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
@@ -36,6 +37,7 @@ class App extends React.Component {
     this.onSetFair = this.onSetFair.bind(this)
     this.onClearFair = this.onClearFair.bind(this)
     this.onAddCreatedAfterDate = this.onAddCreatedAfterDate.bind(this)
+    this.onClearCreatedAfterDate = this.onClearCreatedAfterDate.bind(this)
 
     this.onSetPublishedFilter = this.onSetPublishedFilter.bind(this)
     this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
@@ -78,7 +80,7 @@ class App extends React.Component {
   }
 
   fetchArtworks () {
-    const { genes, tags, partner, fair } = this.state
+    const { createdAfterDate, genes, tags, partner, fair } = this.state
     if ((genes.length === 0) &&
       (tags.length === 0) &&
       (partner === null) && (fair === null)
@@ -88,6 +90,7 @@ class App extends React.Component {
       const { publishedFilter, deletedFilter, genomedFilter, size } = this.state
 
       const query = buildElasticsearchQuery({
+        createdAfterDate,
         deletedFilter,
         fair,
         genes,
@@ -191,6 +194,10 @@ class App extends React.Component {
     this.setState({ createdAfterDate })
   }
 
+  onClearCreatedAfterDate () {
+    this.setState({ createdAfterDate: null })
+  }
+
   onSetPublishedFilter (filterValue) {
     this.setState({ publishedFilter: filterValue })
   }
@@ -268,27 +275,27 @@ class App extends React.Component {
         <Sidebar>
           <SearchForm
             createdAfterDate={createdAfterDate}
-            genes={genes}
-            tags={tags}
-            partner={partner}
-            fair={fair}
-            artworksCount={artworks.length}
-            selectedArtworksCount={selectedArtworkIds.length}
-            onRemoveGene={this.onRemoveGene}
-            onAddGene={this.onAddGene}
-            onRemoveTag={this.onRemoveTag}
-            onAddTag={this.onAddTag}
-            onSetPartner={this.onSetPartner}
-            onClearPartner={this.onClearPartner}
-            onSetFair={this.onSetFair}
-            onClearFair={this.onClearFair}
-            onAddCreatedAfterDate={this.onAddCreatedAfterDate}
-            publishedFilter={this.state.publishedFilter}
-            onSetPublishedFilter={this.onSetPublishedFilter}
             deletedFilter={this.state.deletedFilter}
-            onSetDeletedFilter={this.onSetDeletedFilter}
+            fair={fair}
+            genes={genes}
             genomedFilter={this.state.genomedFilter}
+            onAddCreatedAfterDate={this.onAddCreatedAfterDate}
+            onAddGene={this.onAddGene}
+            onAddTag={this.onAddTag}
+            onClearCreatedAfterDate={this.onClearCreatedAfterDate}
+            onClearFair={this.onClearFair}
+            onClearPartner={this.onClearPartner}
+            onRemoveGene={this.onRemoveGene}
+            onRemoveTag={this.onRemoveTag}
+            onSetDeletedFilter={this.onSetDeletedFilter}
+            onSetFair={this.onSetFair}
             onSetGenomedFilter={this.onSetGenomedFilter}
+            onSetPartner={this.onSetPartner}
+            onSetPublishedFilter={this.onSetPublishedFilter}
+            partner={partner}
+            publishedFilter={this.state.publishedFilter}
+            selectedArtworksCount={selectedArtworkIds.length}
+            tags={tags}
           />
         </Sidebar>
 

@@ -6,14 +6,23 @@ import '../Styles/Input.css'
 export default class DateInput extends React.Component {
   constructor (props) {
     super(props)
+
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+
     this.state = {
       input: '',
       selected: null,
-      showSuggestion: true,
+      showComponent: true,
       suggestion: null
     }
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      showComponent: !nextProps.date,
+      input: ''
+    })
   }
 
   handleChange (event) {
@@ -23,7 +32,7 @@ export default class DateInput extends React.Component {
 
     this.setState({
       input: event.target.value,
-      showSuggestion: true,
+      showComponent: true,
       suggestion: suggestion
     })
   }
@@ -31,35 +40,29 @@ export default class DateInput extends React.Component {
   handleClick (event) {
     event.preventDefault()
 
+    this.props.onSelectDate(moment(this.state.suggestion).format())
+
     this.setState({
       input: moment(this.state.suggestion).format('MMMM Do YYYY, h:mm:ss a'),
-      selected: moment(this.state.suggestion).format(),
-      showSuggestion: false
-    })
-
-    this.props.onSelectDate({
-      [this.props.rangeInequality]: this.state.selected
+      showComponent: false,
+      suggestion: null
     })
   }
 
   render () {
-    const suggestion = (
-      <div className='parsed'>
-        <a href='#' onClick={this.handleClick}>
-          {this.state.suggestion}
-        </a>
-      </div>
-    )
-
     return (
-      <div>
+      <div style={{display: this.state.showComponent ? 'block' : 'none'}}>
         <input
           type='text'
           value={this.state.input}
           onChange={this.handleChange}
           placeholder={this.props.placeholder || 'Select a date'}
-          />
-        {this.state.showSuggestion && suggestion}
+            />
+        <div className='parsed'>
+          <a href='#' onClick={this.handleClick}>
+            {this.state.suggestion}
+          </a>
+        </div>
       </div>
     )
   }

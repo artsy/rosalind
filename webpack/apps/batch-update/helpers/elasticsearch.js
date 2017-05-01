@@ -1,12 +1,25 @@
 const defaultPageSize = 100
 
-export function buildElasticsearchQuery ({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, from, publishedDate, size }) {
+export function buildElasticsearchQuery ({
+  createdAfterDate,
+  deletedFilter,
+  fair,
+  from,
+  genes,
+  genomedFilter,
+  partner,
+  publishedFilter,
+  size,
+  tags
+}) {
   const geneMatches = genes.map(g => { return { 'match': { 'genes': g.name } } })
   const tagMatches = tags.map(t => { return { 'match': { 'tags': t.name } } })
   const filterMatches = buildFilterMatches({ publishedFilter, deletedFilter, genomedFilter })
   const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
   const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
-  const publishedDateRange = publishedDate ? { 'range': { 'published_at': publishedDate } } : null
+  // TODO: `published_at` should be updated to created at when that field is indexed
+  // TODO: Refactor this when date range includes createdBeforeDate
+  const createdDateRange = createdAfterDate ? { 'range': { 'published_at': { 'gt': createdAfterDate } } } : null
   return {
     'query': {
       'bool': {
@@ -16,7 +29,7 @@ export function buildElasticsearchQuery ({ genes, tags, partner, fair, published
           ...filterMatches,
           partnerMatch,
           fairMatch,
-          publishedDateRange
+          createdDateRange
         ].filter(m => m !== null)
       }
     },

@@ -3,13 +3,11 @@ import DateInput from './DateInput'
 
 const CreatedAfterDateInput = (props) => {
   return (
-    <div>
-      <DateInput
-        onSelectDate={props.onSelectDate}
-        placeholder='Select a published-after date'
-        rangeInequality='gt'
-      />
-    </div>
+    <DateInput
+      onSelectDate={props.onSelectDate}
+      date={props.createdAfterDate}
+      placeholder='Created after date'
+    />
   )
 }
 

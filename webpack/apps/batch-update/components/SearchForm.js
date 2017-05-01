@@ -32,6 +32,7 @@ class SearchForm extends React.Component {
       createdAfterDate,
       fair,
       genes,
+      onClearCreatedAfterDate,
       onClearFair,
       onClearPartner,
       onRemoveGene,
@@ -63,6 +64,7 @@ class SearchForm extends React.Component {
           createdAfterDate={createdAfterDate}
           fair={fair}
           genes={genes}
+          onClearCreatedAfterDate={onClearCreatedAfterDate}
           onClearFair={onClearFair}
           onClearPartner={onClearPartner}
           onRemoveGene={onRemoveGene}
@@ -75,7 +77,7 @@ class SearchForm extends React.Component {
         <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
         {partner === null && <PartnerAutosuggest onSelectPartner={onSetPartner} />}
         {fair === null && <FairAutosuggest onSelectFair={onSetFair} />}
-        <CreatedAfterDateInput onSelectDate={onAddCreatedAfterDate} />
+        <CreatedAfterDateInput onSelectDate={onAddCreatedAfterDate} createdAfterDate={this.props.createdAfterDate} />
 
         <FilterOptions
           deletedFilter={deletedFilter}
@@ -91,6 +93,7 @@ class SearchForm extends React.Component {
 }
 
 /* default styled component */
+
 import styled from 'styled-components'
 
 const StyledSearchForm = styled(SearchForm)`
