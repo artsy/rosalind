@@ -6,7 +6,7 @@ export function buildElasticsearchQuery ({ genes, tags, partner, fair, published
   const filterMatches = buildFilterMatches({ publishedFilter, deletedFilter, genomedFilter })
   const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
   const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
-  const publishedDateRange = publishedDate ? { 'range' : { 'published_at' : publishedDate } } : null
+  const publishedDateRange = publishedDate ? { 'range': { 'published_at': publishedDate } } : null
   return {
     'query': {
       'bool': {

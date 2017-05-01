@@ -22,7 +22,6 @@ class App extends React.Component {
       artworks: [],
       selectedArtworkIds: [],
       previewedArtwork: null,
-      publishedDate: null,
       isLoading: false,
       totalHits: null,
       size: 100

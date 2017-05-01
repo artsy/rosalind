@@ -9,6 +9,7 @@ export default class DateInput extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.state = {
+      selected: null,
       suggestion: null,
       input: '',
       showSuggestion: true
@@ -16,9 +17,13 @@ export default class DateInput extends React.Component {
   }
 
   handleChange (event) {
+    const date = parseDate(event.target.value)
+
+    const suggestion = date !== null ? date.toString() : null
+
     this.setState({
       input: event.target.value,
-      suggestion: parseDate(event.target.value),
+      suggestion: suggestion,
       showSuggestion: true
     })
   }
@@ -26,13 +31,14 @@ export default class DateInput extends React.Component {
   handleClick (event) {
     event.preventDefault()
 
-    this.props.selectDate({
-      gt: this.state.suggestion
+    this.setState({
+      input: moment(this.state.suggestion).format('MMMM Do YYYY, h:mm:ss a'),
+      selected: moment(this.state.suggestion).format(),
+      showSuggestion: false
     })
 
-    this.setState({
-      input: this.state.suggestion,
-      showSuggestion: false
+    this.props.selectDate({
+      gt: this.state.selected
     })
   }
 
@@ -60,11 +66,9 @@ export default class DateInput extends React.Component {
 }
 
 function parseDate (raw) {
-  const result = chrono.parse(raw)
+  const result = chrono.parse(raw) || null
   if (result.length > 0) {
-    const date = result[0].start.date()
-    return date.toString()
-    // return moment(date).format('YYYY-MM-DD');
+    return result[0].start.date()
   } else {
     return null
   }
