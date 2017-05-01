@@ -37,8 +37,8 @@ export default class DateInput extends React.Component {
       showSuggestion: false
     })
 
-    this.props.selectDate({
-      gt: this.state.selected
+    this.props.onSelectDate({
+      [this.props.rangeInequality]: this.state.selected
     })
   }
 

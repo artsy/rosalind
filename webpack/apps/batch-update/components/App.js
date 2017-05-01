@@ -15,7 +15,7 @@ class App extends React.Component {
       tags: [],
       partner: null,
       fair: null,
-      publishedDate: null,
+      createdAfterDate: null,
       publishedFilter: 'SHOW_ALL',
       deletedFilter: 'SHOW_ALL',
       genomedFilter: 'SHOW_ALL',
@@ -34,7 +34,7 @@ class App extends React.Component {
     this.onClearPartner = this.onClearPartner.bind(this)
     this.onSetFair = this.onSetFair.bind(this)
     this.onClearFair = this.onClearFair.bind(this)
-    this.onSetPublishedDate = this.onSetPublishedDate.bind(this)
+    this.onAddCreatedAfterDate = this.onAddCreatedAfterDate.bind(this)
 
     this.onSetPublishedFilter = this.onSetPublishedFilter.bind(this)
     this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
@@ -66,19 +66,33 @@ class App extends React.Component {
       (this.state.publishedFilter !== prevState.publishedFilter) ||
       (this.state.deletedFilter !== prevState.deletedFilter) ||
       (this.state.genomedFilter !== prevState.genomedFilter) ||
-      (this.state.publishedDate !== prevState.publishedDate)
+      (this.state.createdAfterDate !== prevState.createdAfterDate)
      ) {
       this.fetchArtworks()
     }
   }
 
   fetchArtworks () {
-    const { genes, tags, partner, fair, publishedDate } = this.state
-    if ((genes.length === 0) && (tags.length === 0) && (partner === null) && (fair === null)) {
+    const { genes, tags, partner, fair } = this.state
+    if ((genes.length === 0) &&
+      (tags.length === 0) &&
+      (partner === null) && (fair === null)
+    ) {
       this.setState({ artworks: [], totalHits: 0 })
     } else {
       const { publishedFilter, deletedFilter, genomedFilter, size } = this.state
-      const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, publishedDate, size })
+
+      const query = buildElasticsearchQuery({
+        genes,
+        tags,
+        partner,
+        fair,
+        publishedFilter,
+        deletedFilter,
+        genomedFilter,
+        size
+      })
+
       this.setState({ isLoading: true })
       matchArtworks(query).then(hits => {
         const totalHits = hits.total
@@ -89,10 +103,34 @@ class App extends React.Component {
   }
 
   fetchMoreArtworks () {
-    const { genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter } = this.state
+    const {
+      createdAfterDate,
+      genes,
+      tags,
+      partner,
+      fair,
+      publishedFilter,
+      deletedFilter,
+      genomedFilter
+    } = this.state
+
     const { artworks, size } = this.state
+
     const from = artworks.length
-    const query = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, from, size })
+
+    const query = buildElasticsearchQuery({
+      createdAfterDate,
+      genes,
+      tags,
+      partner,
+      fair,
+      publishedFilter,
+      deletedFilter,
+      genomedFilter,
+      from,
+      size
+    })
+
     matchArtworks(query).then(hits => {
       const totalHits = hits.total
       const moreArtworks = hits.hits.map(hit => hit._source)
@@ -144,8 +182,8 @@ class App extends React.Component {
     this.setState({ fair: null })
   }
 
-  onSetPublishedDate (publishedDate) {
-    this.setState({ publishedDate })
+  onAddCreatedAfterDate (createdAfterDate) {
+    this.setState({ createdAfterDate })
   }
 
   onSetPublishedFilter (filterValue) {
@@ -207,11 +245,24 @@ class App extends React.Component {
   }
 
   render () {
-    const { genes, tags, partner, fair, artworks, selectedArtworkIds, totalHits, previewedArtwork, isLoading } = this.state
+    const {
+      createdAfterDate,
+      genes,
+      tags,
+      partner,
+      fair,
+      artworks,
+      selectedArtworkIds,
+      totalHits,
+      previewedArtwork,
+      isLoading
+    } = this.state
+
     return (
       <Wrapper>
         <Sidebar>
           <SearchForm
+            createdAfterDate={createdAfterDate}
             genes={genes}
             tags={tags}
             partner={partner}
@@ -226,7 +277,7 @@ class App extends React.Component {
             onClearPartner={this.onClearPartner}
             onSetFair={this.onSetFair}
             onClearFair={this.onClearFair}
-            onSetPublishedDate={this.onSetPublishedDate}
+            onAddCreatedAfterDate={this.onAddCreatedAfterDate}
             publishedFilter={this.state.publishedFilter}
             onSetPublishedFilter={this.onSetPublishedFilter}
             deletedFilter={this.state.deletedFilter}
