@@ -20,5 +20,6 @@ module Rosalind
   class Application < Rails::Application
     config.active_record.belongs_to_required_by_default = true
     config.active_record.schema_format = :sql
+    config.active_job.queue_adapter = :sidekiq
   end
 end
