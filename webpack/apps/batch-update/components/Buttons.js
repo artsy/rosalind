@@ -29,6 +29,12 @@ const buttonColors = (props) => {
       color: ${colors.black};
       border: solid 1px ${colors.black};
     `
+  } else if (props.disabled) {
+    return css`
+      background: ${colors.grayLightest};
+      color: ${colors.gray};
+      border: solid 1px ${colors.grayLightest};
+    `
   } else {
     return css`
       background: ${colors.grayLightest};
@@ -49,15 +55,33 @@ const buttonTypography = (props) => {
 }
 
 const buttonTransitions = (props) => {
-  return css`
-    transition-property: background, border-color, color;
-    transition-duration: 0.15s;
-    &:hover {
-      background: ${colors.purple};
-      border-color: ${colors.purple};
-      color: ${colors.white};
-    }
-  `
+  if (props.disabled) {
+    return css`
+      transition: none;
+    `
+  } else {
+    return css`
+      transition-property: background, border-color, color;
+      transition-duration: 0.15s;
+      &:hover {
+        background: ${colors.purple};
+        border-color: ${colors.purple};
+        color: ${colors.white};
+      }
+    `
+  }
+}
+
+const buttonCursor = (props) => {
+  if (props.disabled) {
+    return css`
+      cursor: not-allowed;
+    `
+  } else {
+    return css`
+      cursor: pointer;
+    `
+  }
 }
 
 export const Button = styled.button`
@@ -65,8 +89,7 @@ export const Button = styled.button`
   ${buttonColors}
   ${buttonTypography}
   ${buttonTransitions}
-
-  cursor: pointer
+  ${buttonCursor}
 `
 
 export const LinkButton = styled.a`
@@ -74,6 +97,7 @@ export const LinkButton = styled.a`
   ${buttonColors}
   ${buttonTypography}
   ${buttonTransitions}
+  ${buttonCursor}
 
   text-decoration: none; 
   text-align: center;
