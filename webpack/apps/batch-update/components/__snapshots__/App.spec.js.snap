@@ -107,19 +107,23 @@ exports[`test renders correctly 1`] = `
             id="react-autowhatever-fair-autosuggest" />
         </div>
       </div>
-      <div>
-        <div>
-          <input
-            onChange={[Function]}
-            placeholder="Select a published date"
-            type="text"
-            value="" />
-          <div
-            className="parsed">
-            <a
-              href="#"
-              onClick={[Function]} />
-          </div>
+      <div
+        style={
+          Object {
+            "display": "block",
+          }
+        }>
+        <input
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          placeholder="Created after date"
+          type="text"
+          value="" />
+        <div
+          className="parsed">
+          <a
+            href="#"
+            onClick={[Function]} />
         </div>
       </div>
       <div
