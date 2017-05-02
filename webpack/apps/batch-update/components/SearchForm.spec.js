@@ -4,6 +4,8 @@ import SearchForm from './SearchForm'
 
 let props
 
+Date.now = jest.fn(() => new Date(Date.UTC(1, 0, 0, 0, 0, 0)))
+
 beforeEach(() => {
   props = {
     genes: [],
