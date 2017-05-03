@@ -3,7 +3,7 @@ require 'rails_helper'
 describe PartnerGenome do
   before do
     gravity_config = {
-      'api_root' => 'http://rosalind.test/api/v1',
+      'api_root' => 'http://gravity.test/api/v1',
       'xapp_token' => 'trusted_token'
     }
 
@@ -23,7 +23,7 @@ describe PartnerGenome do
       request = double(:request, run: response)
 
       expect(Typhoeus::Request).to receive(:new).with(
-        'http://rosalind.test/api/v1/partner/def456/artwork/abc123/genome',
+        'http://gravity.test/api/v1/partner/def456/artwork/abc123/genome',
         headers: { 'X-XAPP-TOKEN' => 'trusted_token' },
         params: {},
         method: :get
@@ -42,7 +42,7 @@ describe PartnerGenome do
       request = double(:request, run: nil)
 
       expect(Typhoeus::Request).to receive(:new).with(
-        'http://rosalind.test/api/v1/partner/def456/artwork/abc123/genome',
+        'http://gravity.test/api/v1/partner/def456/artwork/abc123/genome',
         headers: { 'X-XAPP-TOKEN' => 'trusted_token' },
         params: { genes: genes },
         method: :put
