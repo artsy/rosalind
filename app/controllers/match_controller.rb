@@ -1,8 +1,8 @@
 class MatchController < ApplicationController
   def artworks
     query = params.require(:query)
-    response = ArtworkSearchService.call(query: query)
-    render json: response
+    results = ArtworkSearch.run(query)
+    render json: results
   end
 
   def genes

@@ -1,29 +1,25 @@
-class ArtworkSearchService
+class ArtworkSearch
   class ServiceError < StandardError; end
 
-  def self.call(query:)
-    new(query: query).call
+  def self.run(query)
+    new(query).run
   end
 
-  def initialize(query:)
+  def initialize(query)
     @query = query
   end
 
-  def call
+  def run
     if response.success?
       response.body
     else
       error_message = "#{response.code}: #{response.body}"
-      Rails.logger.warn "ArtworkSearchService error: #{error_message}"
+      Rails.logger.warn "ArtworkSearch error: #{error_message}"
       raise ServiceError, error_message
     end
   end
 
   private
-
-  def config
-    Rails.application.config_for(:elasticsearch)
-  end
 
   def response
     @response ||= Typhoeus.post(
@@ -48,5 +44,9 @@ class ArtworkSearchService
       'Accept' => 'application/json',
       'Content-type' => 'application/json'
     }
+  end
+
+  def config
+    Rails.application.config_for(:elasticsearch)
   end
 end
