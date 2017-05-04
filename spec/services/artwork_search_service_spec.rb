@@ -1,5 +1,4 @@
-require 'spec_helper'
-require './app/services/artwork_search_service'
+require 'rails_helper'
 
 RSpec.describe ArtworkSearchService, type: :model do
   describe '.call' do
