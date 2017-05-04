@@ -1,12 +1,20 @@
-module ArtworkSearchService
+class ArtworkSearchService
   class ServiceError < StandardError; end
 
   def self.call(query:)
+    new(query: query).call
+  end
+
+  def initialize(query:)
+    @query = query
+  end
+
+  def call
     api_url = "#{Rails.application.config_for(:elasticsearch)['url']}/#{Rails.application.config_for(:elasticsearch)['index']}/artwork/_search"
     basic_auth_credentials = "#{Rails.application.config_for(:elasticsearch)['username']}:#{Rails.application.config_for(:elasticsearch)['password']}"
     headers = { 'Content-type' => 'application/json', 'Accept' => 'application/json' }
 
-    response = Typhoeus.post(api_url, body: query, userpwd: basic_auth_credentials, headers: headers, accept_encoding: 'gzip')
+    response = Typhoeus.post(api_url, body: @query, userpwd: basic_auth_credentials, headers: headers, accept_encoding: 'gzip')
 
     if response.success?
       response.body
