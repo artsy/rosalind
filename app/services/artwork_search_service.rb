@@ -26,12 +26,27 @@ class ArtworkSearchService
   end
 
   def response
-    return @response if @response
+    @response ||= Typhoeus.post(
+      api_url,
+      body: @query,
+      userpwd: credentials,
+      headers: headers,
+      accept_encoding: 'gzip'
+    )
+  end
 
-    api_url = "#{config['url']}/#{config['index']}/artwork/_search"
-    basic_auth_credentials = "#{config['username']}:#{config['password']}"
-    headers = { 'Content-type' => 'application/json', 'Accept' => 'application/json' }
+  def api_url
+    "#{config['url']}/#{config['index']}/artwork/_search"
+  end
 
-    @response = Typhoeus.post(api_url, body: @query, userpwd: basic_auth_credentials, headers: headers, accept_encoding: 'gzip')
+  def credentials
+    "#{config['username']}:#{config['password']}"
+  end
+
+  def headers
+    {
+      'Accept' => 'application/json',
+      'Content-type' => 'application/json'
+    }
   end
 end
