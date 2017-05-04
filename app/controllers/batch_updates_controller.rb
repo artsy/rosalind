@@ -5,6 +5,7 @@ class BatchUpdatesController < ApplicationController
 
   def create
     batch_update.save
+    ProcessBatchUpdateJob.perform_later batch_update.id
   end
 
   private
