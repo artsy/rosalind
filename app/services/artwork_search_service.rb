@@ -10,12 +10,6 @@ class ArtworkSearchService
   end
 
   def call
-    api_url = "#{config['url']}/#{config['index']}/artwork/_search"
-    basic_auth_credentials = "#{config['username']}:#{config['password']}"
-    headers = { 'Content-type' => 'application/json', 'Accept' => 'application/json' }
-
-    response = Typhoeus.post(api_url, body: @query, userpwd: basic_auth_credentials, headers: headers, accept_encoding: 'gzip')
-
     if response.success?
       response.body
     else
@@ -29,5 +23,15 @@ class ArtworkSearchService
 
   def config
     Rails.application.config_for(:elasticsearch)
+  end
+
+  def response
+    return @response if @response
+
+    api_url = "#{config['url']}/#{config['index']}/artwork/_search"
+    basic_auth_credentials = "#{config['username']}:#{config['password']}"
+    headers = { 'Content-type' => 'application/json', 'Accept' => 'application/json' }
+
+    @response = Typhoeus.post(api_url, body: @query, userpwd: basic_auth_credentials, headers: headers, accept_encoding: 'gzip')
   end
 end
