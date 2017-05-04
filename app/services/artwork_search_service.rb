@@ -10,8 +10,8 @@ class ArtworkSearchService
   end
 
   def call
-    api_url = "#{Rails.application.config_for(:elasticsearch)['url']}/#{Rails.application.config_for(:elasticsearch)['index']}/artwork/_search"
-    basic_auth_credentials = "#{Rails.application.config_for(:elasticsearch)['username']}:#{Rails.application.config_for(:elasticsearch)['password']}"
+    api_url = "#{config['url']}/#{config['index']}/artwork/_search"
+    basic_auth_credentials = "#{config['username']}:#{config['password']}"
     headers = { 'Content-type' => 'application/json', 'Accept' => 'application/json' }
 
     response = Typhoeus.post(api_url, body: @query, userpwd: basic_auth_credentials, headers: headers, accept_encoding: 'gzip')
@@ -23,5 +23,11 @@ class ArtworkSearchService
       Rails.logger.warn "ArtworkSearchService error: #{error_message}"
       raise ServiceError, error_message
     end
+  end
+
+  private
+
+  def config
+    Rails.application.config_for(:elasticsearch)
   end
 end
