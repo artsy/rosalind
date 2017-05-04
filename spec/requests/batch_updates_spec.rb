@@ -24,6 +24,8 @@ describe 'POST /batch_updates' do
       post '/batch_updates', params: payload
 
       expect(BatchUpdate.count).to eq 1
+      jobs = ActiveJob::Base.queue_adapter.enqueued_jobs
+      expect(jobs.count).to eq 1
     end
   end
 end
