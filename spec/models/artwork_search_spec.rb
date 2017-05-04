@@ -1,20 +1,31 @@
 require 'rails_helper'
 
-RSpec.describe ArtworkSearch do
+describe ArtworkSearch do
   describe '.run' do
-    let(:query) { '{"query":{"bool":{"must":[{"match":{"genes":"Kawaii"}}]}}}' }
-    let(:hits) { elasticsearch_sample_artwork_hits }
-    let!(:elasticsearch_request) { stub_elasticsearch_request path: 'artwork/_search', query: query, response_hits: hits }
+    context 'with a successful response' do
+      it 'returns the body of that reponse' do
+        query = '{"query":{"bool":{"must":[{"match":{"genes":"Kawaii"}}]}}}'
+        hits = elasticsearch_sample_artwork_hits
 
-    it 'issues the correct elasticsearch request' do
-      ArtworkSearch.run(query)
-      expect(elasticsearch_request).to have_been_requested
+        response = double(:response, success?: true, body: hits)
+        expect(Typhoeus).to receive(:post).and_return(response)
+
+        results = ArtworkSearch.run(query)
+
+        expect(results).to eq hits
+      end
     end
 
-    it 'returns the full elasticsearch json response' do
-      response = ArtworkSearch.run(query)
-      expect(response).to be_a String
-      expect(JSON.parse(response)['hits']['hits']).to eq(hits)
+    context 'with an unsuccessful response' do
+      it 'logs the problem and then raises an exception' do
+        response = double(:response, success?: false, code: 400, body: 'oh no!')
+        expect(Typhoeus).to receive(:post).and_return(response)
+
+        error_message = 'ArtworkSearch error: 400: oh no!'
+        expect(Rails.logger).to receive(:warn).with(error_message)
+
+        expect { ArtworkSearch.run(nil) }.to raise_error(ArtworkSearch::ServiceError)
+      end
     end
   end
 end
