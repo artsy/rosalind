@@ -109,7 +109,7 @@ class SearchForm extends React.Component {
           publishedFilter={publishedFilter}
           />
 
-        { this.maybeRenderEditButton() }
+        {this.maybeRenderEditButton()}
       </div>
     )
   }
