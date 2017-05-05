@@ -641,7 +641,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   </div>
   <button
     className="iAICvi"
-    onClick={[Function]}>
+    onClick={undefined}>
      Edit Artworks 
   </button>
 </div>

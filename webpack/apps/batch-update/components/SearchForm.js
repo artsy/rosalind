@@ -20,13 +20,13 @@ class SearchForm extends React.Component {
   }
 
   maybeRenderEditButton () {
-    const { artworksCount, selectedArtworksCount } = this.props
+    const { artworksCount, selectedArtworksCount, onOpenBatchUpdate } = this.props
     if (artworksCount === 0) {
       return null
     } else if (selectedArtworksCount === 0) {
       return <Button fullWidth disabled>Edit Artworks</Button>
     } else {
-      return <Button fullWidth primary onClick={(e) => { console.log('click!') }}> Edit Artworks </Button>
+      return <Button fullWidth primary onClick={onOpenBatchUpdate}> Edit Artworks </Button>
     }
   }
 
