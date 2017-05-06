@@ -55,6 +55,7 @@
       "describe",
       "expect",
       "it",
+      "test",
       "jest"
     ]
   }
