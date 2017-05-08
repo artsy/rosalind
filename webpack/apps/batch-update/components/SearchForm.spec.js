@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import moment from 'moment'
 import SearchForm from './SearchForm'
 
 let props
@@ -53,11 +54,16 @@ it('does not render fair autosuggest if fair is already selected', () => {
 })
 
 it('does not render createdAfterDate input if createdAfterDate is already entered', () => {
-  const createdAfterDate = '2013-01-01T12:00:00-05:00'
+
+  const createdAfterDate = moment('2020-01-01T12:00:00-00:00').utc()
   Object.assign(props, { createdAfterDate })
   const rendered = renderer.create(<SearchForm {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
+})
+
+it('uses the correct utcOffset', () => {
+  expect(moment().utc().utcOffset()).toEqual(0)
 })
 
 describe('"edit artworks" button', () => {
