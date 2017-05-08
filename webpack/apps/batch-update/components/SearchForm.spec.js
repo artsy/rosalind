@@ -4,30 +4,29 @@ import SearchForm from './SearchForm'
 
 let props
 
-Date.now = jest.fn(() => new Date(Date.UTC(1, 0, 0, 0, 0, 0)))
-
 beforeEach(() => {
   props = {
-    genes: [],
-    tags: [],
-    partner: null,
-    fair: null,
     artworksCount: 0,
-    selectedArtworksCount: 0,
-    onRemoveGene: jest.fn(),
-    onAddGene: jest.fn(),
-    onRemoveTag: jest.fn(),
-    onAddTag: jest.fn(),
-    onSetPartner: jest.fn(),
-    onClearPartner: jest.fn(),
-    onSetFair: jest.fn(),
-    onClearFair: jest.fn(),
-    publishedFilter: 'SHOW_ALL',
-    onSetPublishedFilter: jest.fn(),
+    createdAfterDate: new Date(Date.UTC(1, 0, 0, 0, 0, 0)),
     deletedFilter: 'SHOW_ALL',
-    onSetDeletedFilter: jest.fn(),
+    fair: null,
+    genes: [],
     genomedFilter: 'SHOW_ALL',
-    onSetGenomedFilter: jest.fn()
+    onAddGene: jest.fn(),
+    onAddTag: jest.fn(),
+    onClearFair: jest.fn(),
+    onClearPartner: jest.fn(),
+    onRemoveGene: jest.fn(),
+    onRemoveTag: jest.fn(),
+    onSetDeletedFilter: jest.fn(),
+    onSetFair: jest.fn(),
+    onSetGenomedFilter: jest.fn(),
+    onSetPartner: jest.fn(),
+    onSetPublishedFilter: jest.fn(),
+    partner: null,
+    publishedFilter: 'SHOW_ALL',
+    selectedArtworksCount: 0,
+    tags: []
   }
 })
 

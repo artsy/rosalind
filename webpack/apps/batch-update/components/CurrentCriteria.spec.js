@@ -4,18 +4,17 @@ import CurrentCriteria from './CurrentCriteria'
 
 let props
 
-Date.now = jest.fn(() => new Date(Date.UTC(1, 0, 0, 0, 0, 0)))
-
 beforeEach(() => {
   props = {
-    genes: [],
-    tags: [],
-    partner: null,
+    createdAfterDate: new Date(Date.UTC(1, 0, 0, 0, 0, 0)),
     fair: null,
+    genes: [],
+    onClearFair: jest.fn(),
+    onClearPartner: jest.fn(),
     onRemoveGene: jest.fn(),
     onRemoveTag: jest.fn(),
-    onClearPartner: jest.fn(),
-    onClearFair: jest.fn()
+    partner: null,
+    tags: []
   }
 })
 
