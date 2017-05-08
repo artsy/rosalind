@@ -26,7 +26,7 @@ describe('DateInput', () => {
     expect(dateInput.state().suggestion.length > 0).toBe(true)
   })
 
-  it('calls handleClick when the user enters a data and presses the Enter key', () => {
+  it('calls handleClick when the user enters a date and presses the Enter key', () => {
     const dateInput = shallow(<DateInput />)
     dateInput.instance().handleClick = jest.fn()
 
@@ -44,15 +44,5 @@ describe('DateInput', () => {
     dateInput.find('a').simulate('click')
 
     expect(mockOnSelectDate.mock.calls.length).toBe(1)
-  })
-
-  it('shows and hides the component', () => {
-    const dateInput = shallow(<DateInput />)
-
-    dateInput.instance().setState({showComponent: true})
-    expect(dateInput.props().style.display).toEqual('block')
-
-    dateInput.instance().setState({showComponent: false})
-    expect(dateInput.props().style.display).toEqual('none')
   })
 })

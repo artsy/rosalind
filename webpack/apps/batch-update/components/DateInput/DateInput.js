@@ -1,6 +1,7 @@
 import React from 'react'
 import chrono from 'chrono-node'
 import moment from 'moment'
+import { RETURN } from 'lib/keycodes'
 import '../Styles/Input.css'
 
 export default class DateInput extends React.Component {
@@ -14,16 +15,8 @@ export default class DateInput extends React.Component {
     this.state = {
       input: '',
       selected: null,
-      showComponent: true,
       suggestion: null
     }
-  }
-
-  componentWillReceiveProps (nextProps) {
-    this.setState({
-      showComponent: !nextProps.date,
-      input: ''
-    })
   }
 
   handleChange (event) {
@@ -33,7 +26,6 @@ export default class DateInput extends React.Component {
 
     this.setState({
       input: event.target.value,
-      showComponent: true,
       suggestion: suggestion
     })
   }
@@ -44,21 +36,20 @@ export default class DateInput extends React.Component {
       this.props.onSelectDate(moment(this.state.suggestion).format())
       this.setState({
         input: moment(this.state.suggestion).format('MMMM Do YYYY, h:mm:ss a'),
-        showComponent: false,
         suggestion: null
       })
     }
   }
 
   handleKeyPress (event) {
-    if (event.charCode === 13) {
+    if (event.charCode === RETURN) {
       this.handleClick(event)
     }
   }
 
   render () {
     return (
-      <div style={{display: this.state.showComponent ? 'block' : 'none'}}>
+      <div>
         <input
           type='text'
           value={this.state.input}

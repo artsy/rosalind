@@ -17,8 +17,6 @@ export function buildElasticsearchQuery ({
   const filterMatches = buildFilterMatches({ publishedFilter, deletedFilter, genomedFilter })
   const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
   const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
-  // TODO: `published_at` should be updated to created at when that field is indexed
-  // TODO: Refactor this when date range includes createdBeforeDate
   const createdDateRange = createdAfterDate ? { 'range': { 'created_at': { 'gt': createdAfterDate } } } : null
   return {
     'query': {

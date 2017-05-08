@@ -53,6 +53,14 @@ it('does not render fair autosuggest if fair is already selected', () => {
   expect(tree).toMatchSnapshot()
 })
 
+it('does not render createdAfterDate input if createdAfterDate is already entered', () => {
+  const createdAfterDate = '2013-01-01T12:00:00-05:00'
+  Object.assign(props, { createdAfterDate })
+  const rendered = renderer.create(<SearchForm {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 describe('"edit artworks" button', () => {
   it('does not render an edit button if there are no artworks', () => {
     Object.assign(props, { artworksCount: 0 })

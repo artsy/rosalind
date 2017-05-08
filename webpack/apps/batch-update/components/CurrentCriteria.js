@@ -38,7 +38,7 @@ function CurrentCriteria (props) {
         fair={fair}
         onClearFair={onClearFair}
       />
-      <CurrentCreatedDate
+      <CurrentCreatedAfterDate
         createdAfterDate={createdAfterDate}
         onClearCreatedAfterDate={onClearCreatedAfterDate}
       />
@@ -113,7 +113,7 @@ function CurrentFair (props) {
   }
 }
 
-function CurrentCreatedDate (props) {
+function CurrentCreatedAfterDate (props) {
   const { createdAfterDate, onClearCreatedAfterDate } = props
   if (createdAfterDate !== null) {
     return (

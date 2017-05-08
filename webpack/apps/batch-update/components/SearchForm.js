@@ -77,7 +77,13 @@ class SearchForm extends React.Component {
         <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
         {partner === null && <PartnerAutosuggest onSelectPartner={onSetPartner} />}
         {fair === null && <FairAutosuggest onSelectFair={onSetFair} />}
-        <CreatedAfterDateInput onSelectDate={onAddCreatedAfterDate} createdAfterDate={this.props.createdAfterDate} />
+        {
+          createdAfterDate === null &&
+          <CreatedAfterDateInput
+            onSelectDate={onAddCreatedAfterDate}
+            createdAfterDate={this.props.createdAfterDate}
+            />
+        }
 
         <FilterOptions
           deletedFilter={deletedFilter}
@@ -87,6 +93,8 @@ class SearchForm extends React.Component {
           onSetPublishedFilter={onSetPublishedFilter}
           publishedFilter={publishedFilter}
           />
+
+        { this.maybeRenderEditButton() }
       </div>
     )
   }

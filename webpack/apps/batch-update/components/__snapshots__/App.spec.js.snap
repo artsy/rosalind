@@ -107,12 +107,7 @@ exports[`test renders correctly 1`] = `
             id="react-autowhatever-fair-autosuggest" />
         </div>
       </div>
-      <div
-        style={
-          Object {
-            "display": "block",
-          }
-        }>
+      <div>
         <input
           onChange={[Function]}
           onKeyPress={[Function]}
@@ -201,6 +196,11 @@ exports[`test renders correctly 1`] = `
           </a>
         </div>
       </div>
+      <button
+        className="dsgyEb"
+        disabled={true}>
+        Edit Artworks
+      </button>
     </div>
   </div>
   <div

@@ -1,10 +1,5 @@
 exports[`DateInput renders correctly 1`] = `
-<div
-  style={
-    Object {
-      "display": "block",
-    }
-  }>
+<div>
   <input
     onChange={[Function]}
     onKeyPress={[Function]}

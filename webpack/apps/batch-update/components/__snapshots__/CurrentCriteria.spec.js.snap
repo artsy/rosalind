@@ -7,7 +7,7 @@ exports[`test renders nothing if there are no selected criteria 1`] = `
     </h2>
     <div
       className="crrNnH">
-      December 31st 1900, 12:00:00 am
+      December 30th 1900, 7:00:00 pm
       <a
         className="remove"
         href="#"
@@ -43,7 +43,7 @@ exports[`test renders the selected fair 1`] = `
     </h2>
     <div
       className="crrNnH">
-      December 31st 1900, 12:00:00 am
+      December 30th 1900, 7:00:00 pm
       <a
         className="remove"
         href="#"
@@ -89,7 +89,7 @@ exports[`test renders the selected genes 1`] = `
     </h2>
     <div
       className="crrNnH">
-      December 31st 1900, 12:00:00 am
+      December 30th 1900, 7:00:00 pm
       <a
         className="remove"
         href="#"
@@ -125,7 +125,7 @@ exports[`test renders the selected partner 1`] = `
     </h2>
     <div
       className="crrNnH">
-      December 31st 1900, 12:00:00 am
+      December 30th 1900, 7:00:00 pm
       <a
         className="remove"
         href="#"
@@ -171,7 +171,7 @@ exports[`test renders the selected tags 1`] = `
     </h2>
     <div
       className="crrNnH">
-      December 31st 1900, 12:00:00 am
+      December 30th 1900, 7:00:00 pm
       <a
         className="remove"
         href="#"
