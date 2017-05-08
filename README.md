@@ -39,13 +39,13 @@ those at the Javascript level. Same goes for linting. That means to run
 everything individually you would do:
 
 ```
-$ bundle exec rake rubocop
-$ bundle exec rake spec
-$ yarn lint
-$ yarn test
+$ bundle exec rubocop
+$ bundle exec rspec
+$ yarn run lint
+$ yarn run test
 ```
 
-Note: the default rake task is setup to run all linting and tests.
+Note: the default rake task (e.g. `bundle exec rake`) is setup to run all linting and tests.
 
 ## Starting Server
 
