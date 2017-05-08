@@ -1,22 +1,6 @@
 exports[`test renders nothing if there are no selected criteria 1`] = `
 <div
-  className="PSSoP">
-  <div>
-    <h2>
-      Created After
-    </h2>
-    <div
-      className="crrNnH">
-      December 30th 1900, 7:00:00 pm
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}>
-        ✕
-      </a>
-    </div>
-  </div>
-</div>
+  className="PSSoP" />
 `;
 
 exports[`test renders the selected fair 1`] = `
@@ -29,21 +13,6 @@ exports[`test renders the selected fair 1`] = `
     <div
       className="crrNnH">
       FooFair
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}>
-        ✕
-      </a>
-    </div>
-  </div>
-  <div>
-    <h2>
-      Created After
-    </h2>
-    <div
-      className="crrNnH">
-      December 30th 1900, 7:00:00 pm
       <a
         className="remove"
         href="#"
@@ -83,21 +52,6 @@ exports[`test renders the selected genes 1`] = `
       </a>
     </div>
   </div>
-  <div>
-    <h2>
-      Created After
-    </h2>
-    <div
-      className="crrNnH">
-      December 30th 1900, 7:00:00 pm
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}>
-        ✕
-      </a>
-    </div>
-  </div>
 </div>
 `;
 
@@ -111,21 +65,6 @@ exports[`test renders the selected partner 1`] = `
     <div
       className="crrNnH">
       Gallery Foo
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}>
-        ✕
-      </a>
-    </div>
-  </div>
-  <div>
-    <h2>
-      Created After
-    </h2>
-    <div
-      className="crrNnH">
-      December 30th 1900, 7:00:00 pm
       <a
         className="remove"
         href="#"
@@ -157,21 +96,6 @@ exports[`test renders the selected tags 1`] = `
     <div
       className="crrNnH">
       Bar
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}>
-        ✕
-      </a>
-    </div>
-  </div>
-  <div>
-    <h2>
-      Created After
-    </h2>
-    <div
-      className="crrNnH">
-      December 30th 1900, 7:00:00 pm
       <a
         className="remove"
         href="#"

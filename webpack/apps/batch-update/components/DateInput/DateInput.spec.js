@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import moment from 'moment'
 import DateInput from './DateInput'
 import { shallow, mount } from 'enzyme'
 
@@ -13,10 +14,11 @@ describe('DateInput', () => {
   it('displays a date string in the anchor element', () => {
     const date = new Date().toString()
     const dateInput = shallow(<DateInput />)
+    const formattedDate = moment(new Date(date)).format('MMMM Do YYYY, h:mm:ss a')
 
     dateInput.instance().setState({ suggestion: date })
 
-    expect(dateInput.find('a').text()).toEqual(date)
+    expect(dateInput.find('a').text()).toEqual(formattedDate)
   })
 
   it('sets state.suggestion when input.onChange fires', () => {

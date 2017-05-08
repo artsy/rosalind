@@ -7,7 +7,7 @@ let props
 beforeEach(() => {
   props = {
     artworksCount: 0,
-    createdAfterDate: new Date(Date.UTC(1, 0, 0, 0, 0, 0)),
+    createdAfterDate: null,
     deletedFilter: 'SHOW_ALL',
     fair: null,
     genes: [],

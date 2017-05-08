@@ -48,6 +48,12 @@ export default class DateInput extends React.Component {
     }
   }
 
+  formatDate (date) {
+    if (date !== null) {
+      return moment(new Date(date)).format('MMMM Do YYYY, h:mm:ss a')
+    }
+  }
+
   render () {
     return (
       <div>
@@ -57,10 +63,10 @@ export default class DateInput extends React.Component {
           onChange={this.handleChange}
           onKeyPress={this.handleKeyPress}
           placeholder={this.props.placeholder || 'Select a date'}
-            />
+        />
         <div className='parsed'>
           <a href='#' onClick={this.handleClick}>
-            {this.state.suggestion}
+            {this.formatDate(this.state.suggestion)}
           </a>
         </div>
       </div>
