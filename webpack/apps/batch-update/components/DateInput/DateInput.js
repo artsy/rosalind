@@ -2,9 +2,8 @@ import React from 'react'
 import chrono from 'chrono-node'
 import moment from 'moment'
 import { RETURN } from 'lib/keycodes'
-import '../Styles/Input.css'
 
-export default class DateInput extends React.Component {
+class DateInput extends React.Component {
   constructor (props) {
     super(props)
 
@@ -21,7 +20,6 @@ export default class DateInput extends React.Component {
 
   handleChange (event) {
     const date = parseDate(event.target.value)
-
     const suggestion = date !== null ? date.toString() : null
 
     this.setState({
@@ -56,7 +54,7 @@ export default class DateInput extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className={this.props.className}>
         <input
           type='text'
           value={this.state.input}
@@ -82,3 +80,25 @@ function parseDate (raw) {
     return null
   }
 }
+
+/* default styled component */
+
+import styled from 'styled-components'
+
+const StyledDateInput = styled(DateInput)`
+  input {
+    width: 100%;
+    margin: 1em 0 0 0;
+    line-height: 2em;
+    font-size: 1em;
+    border: none;
+    border-bottom: solid 1px #ddd;
+    background: none;
+  }
+
+  input:focus {
+    outline: none;
+  }
+`
+
+export { StyledDateInput as default, DateInput }

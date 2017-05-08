@@ -54,7 +54,6 @@ it('does not render fair autosuggest if fair is already selected', () => {
 })
 
 it('does not render createdAfterDate input if createdAfterDate is already entered', () => {
-
   const createdAfterDate = moment('2020-01-01T12:00:00-00:00').utc()
   Object.assign(props, { createdAfterDate })
   const rendered = renderer.create(<SearchForm {...props} />)

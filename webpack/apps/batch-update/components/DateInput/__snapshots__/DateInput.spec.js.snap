@@ -1,5 +1,6 @@
 exports[`DateInput renders correctly 1`] = `
-<div>
+<div
+  className="iFTuzH">
   <input
     onChange={[Function]}
     onKeyPress={[Function]}

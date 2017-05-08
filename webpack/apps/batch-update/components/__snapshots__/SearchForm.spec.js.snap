@@ -103,7 +103,8 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         id="react-autowhatever-fair-autosuggest" />
     </div>
   </div>
-  <div>
+  <div
+    className="iFTuzH">
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
@@ -300,7 +301,8 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         id="react-autowhatever-fair-autosuggest" />
     </div>
   </div>
-  <div>
+  <div
+    className="iFTuzH">
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
@@ -502,7 +504,8 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         id="react-autowhatever-fair-autosuggest" />
     </div>
   </div>
-  <div>
+  <div
+    className="iFTuzH">
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
@@ -894,7 +897,8 @@ exports[`test does not render fair autosuggest if fair is already selected 1`] =
         id="react-autowhatever-partner-autosuggest" />
     </div>
   </div>
-  <div>
+  <div
+    className="iFTuzH">
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
@@ -1082,7 +1086,8 @@ exports[`test does not render partner autosuggest if partner is already selected
         id="react-autowhatever-fair-autosuggest" />
     </div>
   </div>
-  <div>
+  <div
+    className="iFTuzH">
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
@@ -1279,7 +1284,8 @@ exports[`test renders correctly 1`] = `
         id="react-autowhatever-fair-autosuggest" />
     </div>
   </div>
-  <div>
+  <div
+    className="iFTuzH">
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
