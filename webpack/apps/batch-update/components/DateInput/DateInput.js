@@ -33,9 +33,10 @@ export default class DateInput extends React.Component {
   handleClick (event) {
     event.preventDefault()
     if (this.state.suggestion !== null) {
-      this.props.onSelectDate(moment(this.state.suggestion).format())
+      const date = new Date(this.state.suggestion)
+      this.props.onSelectDate(moment(date).format())
       this.setState({
-        input: moment(this.state.suggestion).format('MMMM Do YYYY, h:mm:ss a'),
+        input: moment(date).format('MMMM Do YYYY, h:mm:ss a'),
         suggestion: null
       })
     }
