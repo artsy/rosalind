@@ -2,7 +2,23 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 <div
   className="foqgVb">
   <div
-    className="PSSoP" />
+    className="PSSoP">
+    <div>
+      <h2>
+        Created Before
+      </h2>
+      <div
+        className="crrNnH">
+        May 9th 2017, 12:36:39 pm
+        <a
+          className="remove"
+          href="#"
+          onClick={[Function]}>
+          ✕
+        </a>
+      </div>
+    </div>
+  </div>
   <div
     className="GenericAutosuggest">
     <div
@@ -200,7 +216,23 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 <div
   className="foqgVb">
   <div
-    className="PSSoP" />
+    className="PSSoP">
+    <div>
+      <h2>
+        Created Before
+      </h2>
+      <div
+        className="crrNnH">
+        May 9th 2017, 12:36:39 pm
+        <a
+          className="remove"
+          href="#"
+          onClick={[Function]}>
+          ✕
+        </a>
+      </div>
+    </div>
+  </div>
   <div
     className="GenericAutosuggest">
     <div
@@ -403,7 +435,23 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 <div
   className="foqgVb">
   <div
-    className="PSSoP" />
+    className="PSSoP">
+    <div>
+      <h2>
+        Created Before
+      </h2>
+      <div
+        className="crrNnH">
+        May 9th 2017, 12:36:39 pm
+        <a
+          className="remove"
+          href="#"
+          onClick={[Function]}>
+          ✕
+        </a>
+      </div>
+    </div>
+  </div>
   <div
     className="GenericAutosuggest">
     <div
@@ -622,6 +670,21 @@ exports[`test does not render createdAfterDate input if createdAfterDate is alre
         </a>
       </div>
     </div>
+    <div>
+      <h2>
+        Created Before
+      </h2>
+      <div
+        className="crrNnH">
+        May 9th 2017, 12:36:39 pm
+        <a
+          className="remove"
+          href="#"
+          onClick={[Function]}>
+          ✕
+        </a>
+      </div>
+    </div>
   </div>
   <div
     className="GenericAutosuggest">
@@ -805,7 +868,23 @@ exports[`test does not render createdBeforeDate input if createdBeforeDate is al
 <div
   className="foqgVb">
   <div
-    className="PSSoP" />
+    className="PSSoP">
+    <div>
+      <h2>
+        Created Before
+      </h2>
+      <div
+        className="crrNnH">
+        January 1st 2020, 12:00:00 pm
+        <a
+          className="remove"
+          href="#"
+          onClick={[Function]}>
+          ✕
+        </a>
+      </div>
+    </div>
+  </div>
   <div
     className="GenericAutosuggest">
     <div
@@ -1019,6 +1098,21 @@ exports[`test does not render fair autosuggest if fair is already selected 1`] =
         </a>
       </div>
     </div>
+    <div>
+      <h2>
+        Created Before
+      </h2>
+      <div
+        className="crrNnH">
+        May 9th 2017, 12:36:39 pm
+        <a
+          className="remove"
+          href="#"
+          onClick={[Function]}>
+          ✕
+        </a>
+      </div>
+    </div>
   </div>
   <div
     className="GenericAutosuggest">
@@ -1208,6 +1302,21 @@ exports[`test does not render partner autosuggest if partner is already selected
         </a>
       </div>
     </div>
+    <div>
+      <h2>
+        Created Before
+      </h2>
+      <div
+        className="crrNnH">
+        May 9th 2017, 12:36:39 pm
+        <a
+          className="remove"
+          href="#"
+          onClick={[Function]}>
+          ✕
+        </a>
+      </div>
+    </div>
   </div>
   <div
     className="GenericAutosuggest">
@@ -1381,7 +1490,23 @@ exports[`test renders correctly 1`] = `
 <div
   className="foqgVb">
   <div
-    className="PSSoP" />
+    className="PSSoP">
+    <div>
+      <h2>
+        Created Before
+      </h2>
+      <div
+        className="crrNnH">
+        May 9th 2017, 12:36:39 pm
+        <a
+          className="remove"
+          href="#"
+          onClick={[Function]}>
+          ✕
+        </a>
+      </div>
+    </div>
+  </div>
   <div
     className="GenericAutosuggest">
     <div

@@ -37,6 +37,7 @@ class SearchForm extends React.Component {
       fair,
       genes,
       onClearCreatedAfterDate,
+      onClearCreatedBeforeDate,
       onClearFair,
       onClearPartner,
       onRemoveGene,
@@ -67,9 +68,11 @@ class SearchForm extends React.Component {
       <div className={this.props.className}>
         <CurrentCriteria
           createdAfterDate={createdAfterDate}
+          createdBeforeDate={createdBeforeDate}
           fair={fair}
           genes={genes}
           onClearCreatedAfterDate={onClearCreatedAfterDate}
+          onClearCreatedBeforeDate={onClearCreatedBeforeDate}
           onClearFair={onClearFair}
           onClearPartner={onClearPartner}
           onRemoveGene={onRemoveGene}
