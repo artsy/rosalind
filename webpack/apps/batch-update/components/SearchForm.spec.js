@@ -61,6 +61,14 @@ it('does not render createdAfterDate input if createdAfterDate is already entere
   expect(tree).toMatchSnapshot()
 })
 
+it('does not render createdBeforeDate input if createdBeforeDate is already entered', () => {
+  const createdBeforeDate = moment('2020-01-01T12:00:00-00:00').utc()
+  Object.assign(props, { createdBeforeDate })
+  const rendered = renderer.create(<SearchForm {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 it('uses the correct utcOffset', () => {
   expect(moment().utc().utcOffset()).toEqual(0)
 })

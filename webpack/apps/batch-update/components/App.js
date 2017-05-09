@@ -13,6 +13,7 @@ class App extends React.Component {
     this.state = {
       artworks: [],
       createdAfterDate: null,
+      createdBeforeDate: null,
       deletedFilter: 'SHOW_ALL',
       fair: null,
       genes: [],
@@ -260,6 +261,7 @@ class App extends React.Component {
     const {
       artworks,
       createdAfterDate,
+      createdBeforeDate,
       fair,
       genes,
       isLoading,
@@ -275,6 +277,7 @@ class App extends React.Component {
         <Sidebar>
           <SearchForm
             createdAfterDate={createdAfterDate}
+            createdBeforeDate={createdBeforeDate}
             deletedFilter={this.state.deletedFilter}
             fair={fair}
             genes={genes}
