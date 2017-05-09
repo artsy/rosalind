@@ -2,23 +2,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 <div
   className="foqgVb">
   <div
-    className="PSSoP">
-    <div>
-      <h2>
-        Created Before
-      </h2>
-      <div
-        className="crrNnH">
-        May 9th 2017, 12:36:39 pm
-        <a
-          className="remove"
-          href="#"
-          onClick={[Function]}>
-          ✕
-        </a>
-      </div>
-    </div>
-  </div>
+    className="PSSoP" />
   <div
     className="GenericAutosuggest">
     <div
@@ -135,6 +119,21 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     </div>
   </div>
   <div
+    className="iFTuzH">
+    <input
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Created before date"
+      type="text"
+      value="" />
+    <div
+      className="parsed">
+      <a
+        href="#"
+        onClick={[Function]} />
+    </div>
+  </div>
+  <div
     className="gxGcSj">
     <div
       className="filter">
@@ -216,23 +215,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 <div
   className="foqgVb">
   <div
-    className="PSSoP">
-    <div>
-      <h2>
-        Created Before
-      </h2>
-      <div
-        className="crrNnH">
-        May 9th 2017, 12:36:39 pm
-        <a
-          className="remove"
-          href="#"
-          onClick={[Function]}>
-          ✕
-        </a>
-      </div>
-    </div>
-  </div>
+    className="PSSoP" />
   <div
     className="GenericAutosuggest">
     <div
@@ -339,6 +322,21 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
+      type="text"
+      value="" />
+    <div
+      className="parsed">
+      <a
+        href="#"
+        onClick={[Function]} />
+    </div>
+  </div>
+  <div
+    className="iFTuzH">
+    <input
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Created before date"
       type="text"
       value="" />
     <div
@@ -435,23 +433,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 <div
   className="foqgVb">
   <div
-    className="PSSoP">
-    <div>
-      <h2>
-        Created Before
-      </h2>
-      <div
-        className="crrNnH">
-        May 9th 2017, 12:36:39 pm
-        <a
-          className="remove"
-          href="#"
-          onClick={[Function]}>
-          ✕
-        </a>
-      </div>
-    </div>
-  </div>
+    className="PSSoP" />
   <div
     className="GenericAutosuggest">
     <div
@@ -558,6 +540,21 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
+      type="text"
+      value="" />
+    <div
+      className="parsed">
+      <a
+        href="#"
+        onClick={[Function]} />
+    </div>
+  </div>
+  <div
+    className="iFTuzH">
+    <input
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Created before date"
       type="text"
       value="" />
     <div
@@ -661,22 +658,7 @@ exports[`test does not render createdAfterDate input if createdAfterDate is alre
       </h2>
       <div
         className="crrNnH">
-        January 1st 2020, 12:00:00 pm
-        <a
-          className="remove"
-          href="#"
-          onClick={[Function]}>
-          ✕
-        </a>
-      </div>
-    </div>
-    <div>
-      <h2>
-        Created Before
-      </h2>
-      <div
-        className="crrNnH">
-        May 9th 2017, 12:36:39 pm
+        January 1st 2020, 7:00:00 am
         <a
           className="remove"
           href="#"
@@ -784,6 +766,21 @@ exports[`test does not render createdAfterDate input if createdAfterDate is alre
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-fair-autosuggest" />
+    </div>
+  </div>
+  <div
+    className="iFTuzH">
+    <input
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Created before date"
+      type="text"
+      value="" />
+    <div
+      className="parsed">
+      <a
+        href="#"
+        onClick={[Function]} />
     </div>
   </div>
   <div
@@ -1098,21 +1095,6 @@ exports[`test does not render fair autosuggest if fair is already selected 1`] =
         </a>
       </div>
     </div>
-    <div>
-      <h2>
-        Created Before
-      </h2>
-      <div
-        className="crrNnH">
-        May 9th 2017, 12:36:39 pm
-        <a
-          className="remove"
-          href="#"
-          onClick={[Function]}>
-          ✕
-        </a>
-      </div>
-    </div>
   </div>
   <div
     className="GenericAutosuggest">
@@ -1195,6 +1177,21 @@ exports[`test does not render fair autosuggest if fair is already selected 1`] =
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
+      type="text"
+      value="" />
+    <div
+      className="parsed">
+      <a
+        href="#"
+        onClick={[Function]} />
+    </div>
+  </div>
+  <div
+    className="iFTuzH">
+    <input
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Created before date"
       type="text"
       value="" />
     <div
@@ -1302,21 +1299,6 @@ exports[`test does not render partner autosuggest if partner is already selected
         </a>
       </div>
     </div>
-    <div>
-      <h2>
-        Created Before
-      </h2>
-      <div
-        className="crrNnH">
-        May 9th 2017, 12:36:39 pm
-        <a
-          className="remove"
-          href="#"
-          onClick={[Function]}>
-          ✕
-        </a>
-      </div>
-    </div>
   </div>
   <div
     className="GenericAutosuggest">
@@ -1409,6 +1391,21 @@ exports[`test does not render partner autosuggest if partner is already selected
     </div>
   </div>
   <div
+    className="iFTuzH">
+    <input
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Created before date"
+      type="text"
+      value="" />
+    <div
+      className="parsed">
+      <a
+        href="#"
+        onClick={[Function]} />
+    </div>
+  </div>
+  <div
     className="gxGcSj">
     <div
       className="filter">
@@ -1490,23 +1487,7 @@ exports[`test renders correctly 1`] = `
 <div
   className="foqgVb">
   <div
-    className="PSSoP">
-    <div>
-      <h2>
-        Created Before
-      </h2>
-      <div
-        className="crrNnH">
-        May 9th 2017, 12:36:39 pm
-        <a
-          className="remove"
-          href="#"
-          onClick={[Function]}>
-          ✕
-        </a>
-      </div>
-    </div>
-  </div>
+    className="PSSoP" />
   <div
     className="GenericAutosuggest">
     <div
@@ -1613,6 +1594,21 @@ exports[`test renders correctly 1`] = `
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
+      type="text"
+      value="" />
+    <div
+      className="parsed">
+      <a
+        href="#"
+        onClick={[Function]} />
+    </div>
+  </div>
+  <div
+    className="iFTuzH">
+    <input
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Created before date"
       type="text"
       value="" />
     <div

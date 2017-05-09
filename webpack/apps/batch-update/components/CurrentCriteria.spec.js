@@ -8,6 +8,7 @@ let props
 beforeEach(() => {
   props = {
     createdAfterDate: null,
+    createdBeforeDate: null,
     fair: null,
     genes: [],
     onClearFair: jest.fn(),

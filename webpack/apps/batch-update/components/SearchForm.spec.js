@@ -9,6 +9,7 @@ beforeEach(() => {
   props = {
     artworksCount: 0,
     createdAfterDate: null,
+    createdBeforeDate: null,
     deletedFilter: 'SHOW_ALL',
     fair: null,
     genes: [],
