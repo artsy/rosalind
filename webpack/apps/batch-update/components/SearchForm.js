@@ -1,7 +1,9 @@
 import React from 'react'
 import CurrentCriteria from './CurrentCriteria'
-import CreatedAfterDateInput from './DateInput/CreatedAfterDateInput'
-import CreatedBeforeDateInput from './DateInput/CreatedBeforeDateInput'
+import {
+  CreatedAfterDateInput,
+  CreatedBeforeDateInput
+} from './DateInput'
 import {
   FairAutosuggest,
   GeneAutosuggest,

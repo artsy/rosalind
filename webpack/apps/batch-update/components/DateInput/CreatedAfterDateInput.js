@@ -11,4 +11,4 @@ const CreatedAfterDateInput = (props) => {
   )
 }
 
-export default CreatedAfterDateInput
+export { CreatedAfterDateInput }
