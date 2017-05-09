@@ -47,6 +47,7 @@ class SearchForm extends React.Component {
 
     const {
       onAddCreatedAfterDate,
+      onAddCreatedBeforeDate,
       onAddGene,
       onAddTag,
       onSetFair,
@@ -91,7 +92,7 @@ class SearchForm extends React.Component {
         {
           createdBeforeDate === null &&
           <CreatedBeforeDateInput
-            onSelectDate={onAddCreatedAfterDate}
+            onSelectDate={onAddCreatedBeforeDate}
             createdBeforeDate={this.props.createdBeforeDate}
             />
         }

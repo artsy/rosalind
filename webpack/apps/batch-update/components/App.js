@@ -39,6 +39,8 @@ class App extends React.Component {
     this.onClearFair = this.onClearFair.bind(this)
     this.onAddCreatedAfterDate = this.onAddCreatedAfterDate.bind(this)
     this.onClearCreatedAfterDate = this.onClearCreatedAfterDate.bind(this)
+    this.onAddCreatedBeforeDate = this.onAddCreatedBeforeDate.bind(this)
+    this.onClearCreatedBeforeDate = this.onClearCreatedBeforeDate.bind(this)
 
     this.onSetPublishedFilter = this.onSetPublishedFilter.bind(this)
     this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
@@ -70,6 +72,7 @@ class App extends React.Component {
   shouldComponentUpdate (prevState) {
     return (
       (this.state.createdAfterDate !== prevState.createdAfterDate) ||
+      (this.state.createdBeforeDate !== prevState.createdBeforeDate) ||
       (this.state.deletedFilter !== prevState.deletedFilter) ||
       (this.state.fair !== prevState.fair) ||
       (this.state.genes !== prevState.genes) ||
@@ -81,6 +84,7 @@ class App extends React.Component {
   }
 
   fetchArtworks () {
+    // TODO: Add created before and format multi line
     const { createdAfterDate, genes, tags, partner, fair } = this.state
     if ((genes.length === 0) &&
       (tags.length === 0) &&
@@ -90,6 +94,7 @@ class App extends React.Component {
     } else {
       const { publishedFilter, deletedFilter, genomedFilter, size } = this.state
 
+      // TODO: Add created before and fix query
       const query = buildElasticsearchQuery({
         createdAfterDate,
         deletedFilter,
@@ -114,6 +119,7 @@ class App extends React.Component {
   fetchMoreArtworks () {
     const {
       createdAfterDate,
+      // TODO: created before
       deletedFilter,
       fair,
       genes,
@@ -129,6 +135,7 @@ class App extends React.Component {
 
     const query = buildElasticsearchQuery({
       createdAfterDate,
+      // TODO: created before
       deletedFilter,
       fair,
       from,
@@ -197,6 +204,14 @@ class App extends React.Component {
 
   onClearCreatedAfterDate () {
     this.setState({ createdAfterDate: null })
+  }
+
+  onAddCreatedBeforeDate (createdBeforeDate) {
+    this.setState({ createdBeforeDate })
+  }
+
+  onClearCreatedBeforeDate () {
+    this.setState({ createdBeforeDate: null })
   }
 
   onSetPublishedFilter (filterValue) {
@@ -283,9 +298,11 @@ class App extends React.Component {
             genes={genes}
             genomedFilter={this.state.genomedFilter}
             onAddCreatedAfterDate={this.onAddCreatedAfterDate}
+            onAddCreatedBeforeDate={this.onAddCreatedBeforeDate}
             onAddGene={this.onAddGene}
             onAddTag={this.onAddTag}
             onClearCreatedAfterDate={this.onClearCreatedAfterDate}
+            onClearCreatedBeforeDate={this.onClearCreatedBeforeDate}
             onClearFair={this.onClearFair}
             onClearPartner={this.onClearPartner}
             onRemoveGene={this.onRemoveGene}
