@@ -3,27 +3,6 @@ exports[`test renders nothing if there are no selected criteria 1`] = `
   className="PSSoP" />
 `;
 
-exports[`test renders the created after date 1`] = `
-<div
-  className="PSSoP">
-  <div>
-    <h2>
-      Created After
-    </h2>
-    <div
-      className="crrNnH">
-      January 1st 2020, 7:00:00 am
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}>
-        ✕
-      </a>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`test renders the selected fair 1`] = `
 <div
   className="PSSoP">

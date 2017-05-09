@@ -1,6 +1,6 @@
 import React from 'react'
 import chrono from 'chrono-node'
-import moment from 'moment'
+import dateFormats from 'lib/date-formats'
 import { RETURN } from 'lib/keycodes'
 
 class DateInput extends React.Component {
@@ -32,9 +32,9 @@ class DateInput extends React.Component {
     event.preventDefault()
     if (this.state.suggestion !== null) {
       const date = new Date(this.state.suggestion)
-      this.props.onSelectDate(moment(date).format())
+      this.props.onSelectDate(dateFormats.default(date))
       this.setState({
-        input: this.formatDate(date),
+        input: dateFormats.long(date),
         suggestion: null
       })
     }
@@ -48,7 +48,7 @@ class DateInput extends React.Component {
 
   formatDate (date) {
     if (date !== null) {
-      return moment(new Date(date)).format('MMMM Do YYYY, h:mm:ss a')
+      return dateFormats.long(date)
     }
   }
 

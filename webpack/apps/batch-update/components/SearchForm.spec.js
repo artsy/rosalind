@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { mount } from 'enzyme'
 import moment from 'moment'
 import SearchForm from './SearchForm'
 
@@ -55,19 +56,27 @@ it('does not render fair autosuggest if fair is already selected', () => {
 })
 
 it('does not render createdAfterDate input if createdAfterDate is already entered', () => {
-  const createdAfterDate = moment('2020-01-01T12:00:00-00:00').utc()
+  const createdAfterDate = moment('2020-01-01T12:00:00-00:00').utc().format()
   Object.assign(props, { createdAfterDate })
-  const rendered = renderer.create(<SearchForm {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+
+  const searchForm = mount(<SearchForm {...props} />)
+  const currentCreatedAfterDate = searchForm.find('CurrentCreatedAfterDate')
+  const createdAfterDateInput = searchForm.find('CreatedAfterDateInput')
+
+  expect(currentCreatedAfterDate.length).toEqual(1)
+  expect(createdAfterDateInput.length).toEqual(0)
 })
 
 it('does not render createdBeforeDate input if createdBeforeDate is already entered', () => {
-  const createdBeforeDate = moment('2020-01-01T12:00:00-00:00').utc()
+  const createdBeforeDate = moment('2020-01-01T12:00:00-00:00').utc().format()
   Object.assign(props, { createdBeforeDate })
-  const rendered = renderer.create(<SearchForm {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+
+  const searchForm = mount(<SearchForm {...props} />)
+  const currentCreatedBeforeDate = searchForm.find('CurrentCreatedBeforeDate')
+  const createdBeforeDateInput = searchForm.find('CreatedBeforeDateInput')
+
+  expect(currentCreatedBeforeDate.length).toEqual(1)
+  expect(createdBeforeDateInput.length).toEqual(0)
 })
 
 it('uses the correct utcOffset', () => {

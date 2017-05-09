@@ -1,5 +1,5 @@
 import React from 'react'
-import moment from 'moment'
+import dateFormats from 'lib/date-formats'
 
 class SelectedCreatedBeforeDate extends React.Component {
   constructor (props) {
@@ -17,7 +17,7 @@ class SelectedCreatedBeforeDate extends React.Component {
     if (createdBeforeDate !== null) {
       return (
         <div className={className}>
-          {moment(createdBeforeDate).format('MMMM Do YYYY, h:mm:ss a')}
+          {dateFormats.long(createdBeforeDate)}
           <a href='#' className='remove'
             onClick={this.handleRemove}>✕</a>
         </div>
