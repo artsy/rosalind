@@ -40,4 +40,16 @@ describe('dateFormats', () => {
       expect(formatted.length).toEqual(2)
     })
   })
+
+  describe('when the input is a weird string', () => {
+    it('.long returns an error', () => {
+      const formatted = dateFormats.long('fake date')
+      expect(formatted).toEqual('Invalid date')
+    })
+
+    it('.default returns an error', () => {
+      const formatted = dateFormats.default('fake date')
+      expect(formatted).toEqual('Invalid date')
+    })
+  })
 })
