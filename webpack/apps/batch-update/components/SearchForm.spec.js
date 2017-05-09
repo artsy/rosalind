@@ -1,31 +1,33 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import moment from 'moment'
 import SearchForm from './SearchForm'
 
 let props
 
 beforeEach(() => {
   props = {
-    genes: [],
-    tags: [],
-    partner: null,
-    fair: null,
     artworksCount: 0,
-    selectedArtworksCount: 0,
-    onRemoveGene: jest.fn(),
-    onAddGene: jest.fn(),
-    onRemoveTag: jest.fn(),
-    onAddTag: jest.fn(),
-    onSetPartner: jest.fn(),
-    onClearPartner: jest.fn(),
-    onSetFair: jest.fn(),
-    onClearFair: jest.fn(),
-    publishedFilter: 'SHOW_ALL',
-    onSetPublishedFilter: jest.fn(),
+    createdAfterDate: null,
     deletedFilter: 'SHOW_ALL',
-    onSetDeletedFilter: jest.fn(),
+    fair: null,
+    genes: [],
     genomedFilter: 'SHOW_ALL',
-    onSetGenomedFilter: jest.fn()
+    onAddGene: jest.fn(),
+    onAddTag: jest.fn(),
+    onClearFair: jest.fn(),
+    onClearPartner: jest.fn(),
+    onRemoveGene: jest.fn(),
+    onRemoveTag: jest.fn(),
+    onSetDeletedFilter: jest.fn(),
+    onSetFair: jest.fn(),
+    onSetGenomedFilter: jest.fn(),
+    onSetPartner: jest.fn(),
+    onSetPublishedFilter: jest.fn(),
+    partner: null,
+    publishedFilter: 'SHOW_ALL',
+    selectedArtworksCount: 0,
+    tags: []
   }
 })
 
@@ -49,6 +51,18 @@ it('does not render fair autosuggest if fair is already selected', () => {
   const rendered = renderer.create(<SearchForm {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
+})
+
+it('does not render createdAfterDate input if createdAfterDate is already entered', () => {
+  const createdAfterDate = moment('2020-01-01T12:00:00-00:00').utc()
+  Object.assign(props, { createdAfterDate })
+  const rendered = renderer.create(<SearchForm {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('uses the correct utcOffset', () => {
+  expect(moment().utc().utcOffset()).toEqual(0)
 })
 
 describe('"edit artworks" button', () => {

@@ -6,14 +6,15 @@ let props
 
 beforeEach(() => {
   props = {
-    genes: [],
-    tags: [],
-    partner: null,
+    createdAfterDate: null,
     fair: null,
+    genes: [],
+    onClearFair: jest.fn(),
+    onClearPartner: jest.fn(),
     onRemoveGene: jest.fn(),
     onRemoveTag: jest.fn(),
-    onClearPartner: jest.fn(),
-    onClearFair: jest.fn()
+    partner: null,
+    tags: []
   }
 })
 

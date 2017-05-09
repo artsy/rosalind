@@ -108,6 +108,21 @@ exports[`test renders correctly 1`] = `
         </div>
       </div>
       <div
+        className="iFTuzH">
+        <input
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          placeholder="Created after date"
+          type="text"
+          value="" />
+        <div
+          className="parsed">
+          <a
+            href="#"
+            onClick={[Function]} />
+        </div>
+      </div>
+      <div
         className="gxGcSj">
         <div
           className="filter">
@@ -182,6 +197,11 @@ exports[`test renders correctly 1`] = `
           </a>
         </div>
       </div>
+      <button
+        className="dsgyEb"
+        disabled={true}>
+        Edit Artworks
+      </button>
     </div>
   </div>
   <div

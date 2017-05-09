@@ -1,17 +1,47 @@
 import React from 'react'
+import SelectedCreatedAfterDate from './SelectedCreatedAfterDate'
 import SelectedGene from './SelectedGene'
 import SelectedTag from './SelectedTag'
 import SelectedPartner from './SelectedPartner'
 import SelectedFair from './SelectedFair'
 
 function CurrentCriteria (props) {
-  const {className, genes, tags, partner, fair, onRemoveGene, onRemoveTag, onClearPartner, onClearFair} = props
+  const {
+    className,
+    createdAfterDate,
+    fair,
+    genes,
+    onClearCreatedAfterDate,
+    onClearFair,
+    onClearPartner,
+    onRemoveGene,
+    onRemoveTag,
+    partner,
+    tags
+  } = props
+
   return (
     <div className={className}>
-      <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />
-      <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />
-      <CurrentPartner partner={partner} onClearPartner={onClearPartner} />
-      <CurrentFair fair={fair} onClearFair={onClearFair} />
+      <CurrentGenes
+        genes={genes}
+        onRemoveGene={onRemoveGene}
+      />
+      <CurrentTags
+        tags={tags}
+        onRemoveTag={onRemoveTag}
+      />
+      <CurrentPartner
+        partner={partner}
+        onClearPartner={onClearPartner}
+      />
+      <CurrentFair
+        fair={fair}
+        onClearFair={onClearFair}
+      />
+      <CurrentCreatedAfterDate
+        createdAfterDate={createdAfterDate}
+        onClearCreatedAfterDate={onClearCreatedAfterDate}
+      />
     </div>
   )
 }
@@ -76,6 +106,23 @@ function CurrentFair (props) {
       <div>
         <h2>Fair</h2>
         <SelectedFair fair={fair} onClearFair={onClearFair} />
+      </div>
+    )
+  } else {
+    return null
+  }
+}
+
+function CurrentCreatedAfterDate (props) {
+  const { createdAfterDate, onClearCreatedAfterDate } = props
+  if (createdAfterDate !== null) {
+    return (
+      <div>
+        <h2>Created After</h2>
+        <SelectedCreatedAfterDate
+          createdAfterDate={createdAfterDate}
+          onClearCreatedAfterDate={onClearCreatedAfterDate}
+        />
       </div>
     )
   } else {

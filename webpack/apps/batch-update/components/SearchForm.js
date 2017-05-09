@@ -1,6 +1,12 @@
 import React from 'react'
 import CurrentCriteria from './CurrentCriteria'
-import { GeneAutosuggest, TagAutosuggest, PartnerAutosuggest, FairAutosuggest } from './Autosuggest'
+import CreatedAfterDateInput from './DateInput/CreatedAfterDateInput'
+import {
+  FairAutosuggest,
+  GeneAutosuggest,
+  PartnerAutosuggest,
+  TagAutosuggest
+} from './Autosuggest'
 import FilterOptions from './FilterOptions'
 import { Button } from './Buttons'
 
@@ -22,35 +28,71 @@ class SearchForm extends React.Component {
   }
 
   render () {
-    const { genes, tags, partner, fair, onRemoveGene, onRemoveTag, onClearPartner, onClearFair } = this.props
-    const { onAddGene, onAddTag, onSetPartner, onSetFair } = this.props
-    const { publishedFilter, deletedFilter, genomedFilter, onSetPublishedFilter, onSetDeletedFilter, onSetGenomedFilter } = this.props
+    const {
+      createdAfterDate,
+      fair,
+      genes,
+      onClearCreatedAfterDate,
+      onClearFair,
+      onClearPartner,
+      onRemoveGene,
+      onRemoveTag,
+      partner,
+      tags
+    } = this.props
+
+    const {
+      onAddCreatedAfterDate,
+      onAddGene,
+      onAddTag,
+      onSetFair,
+      onSetPartner
+    } = this.props
+
+    const {
+      deletedFilter,
+      genomedFilter,
+      onSetDeletedFilter,
+      onSetGenomedFilter,
+      onSetPublishedFilter,
+      publishedFilter
+    } = this.props
+
     return (
       <div className={this.props.className}>
         <CurrentCriteria
-          genes={genes}
-          tags={tags}
-          partner={partner}
+          createdAfterDate={createdAfterDate}
           fair={fair}
+          genes={genes}
+          onClearCreatedAfterDate={onClearCreatedAfterDate}
+          onClearFair={onClearFair}
+          onClearPartner={onClearPartner}
           onRemoveGene={onRemoveGene}
           onRemoveTag={onRemoveTag}
-          onClearPartner={onClearPartner}
-          onClearFair={onClearFair}
-        />
+          partner={partner}
+          tags={tags}
+          />
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />
         <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
         {partner === null && <PartnerAutosuggest onSelectPartner={onSetPartner} />}
         {fair === null && <FairAutosuggest onSelectFair={onSetFair} />}
+        {
+          createdAfterDate === null &&
+          <CreatedAfterDateInput
+            onSelectDate={onAddCreatedAfterDate}
+            createdAfterDate={this.props.createdAfterDate}
+            />
+        }
 
         <FilterOptions
-          publishedFilter={publishedFilter}
           deletedFilter={deletedFilter}
           genomedFilter={genomedFilter}
-          onSetPublishedFilter={onSetPublishedFilter}
           onSetDeletedFilter={onSetDeletedFilter}
           onSetGenomedFilter={onSetGenomedFilter}
-        />
+          onSetPublishedFilter={onSetPublishedFilter}
+          publishedFilter={publishedFilter}
+          />
 
         { this.maybeRenderEditButton() }
       </div>

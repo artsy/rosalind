@@ -42,7 +42,6 @@ export const matchFairs = function (term) {
 
 export const matchArtworks = function (esQuery) {
   const queryJSON = JSON.stringify(esQuery)
-  // console.log(`fetching: ${queryJSON}`)
   const uri = `/match/artworks?query=${encodeURIComponent(queryJSON)}`
   return window.fetch(uri, { credentials: 'include' })
     .then(resp => resp.json())
