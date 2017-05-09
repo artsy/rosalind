@@ -34,7 +34,7 @@ class DateInput extends React.Component {
       const date = new Date(this.state.suggestion)
       this.props.onSelectDate(moment(date).format())
       this.setState({
-        input: moment(date).format('MMMM Do YYYY, h:mm:ss a'),
+        input: this.formatDate(date),
         suggestion: null
       })
     }
