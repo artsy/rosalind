@@ -84,8 +84,15 @@ class App extends React.Component {
   }
 
   fetchArtworks () {
-    // TODO: Add created before and format multi line
-    const { createdAfterDate, genes, tags, partner, fair } = this.state
+    const {
+      createdAfterDate,
+      createdBeforeDate,
+      genes,
+      tags,
+      partner,
+      fair
+    } = this.state
+
     if ((genes.length === 0) &&
       (tags.length === 0) &&
       (partner === null) && (fair === null)
@@ -94,9 +101,9 @@ class App extends React.Component {
     } else {
       const { publishedFilter, deletedFilter, genomedFilter, size } = this.state
 
-      // TODO: Add created before and fix query
       const query = buildElasticsearchQuery({
         createdAfterDate,
+        createdBeforeDate,
         deletedFilter,
         fair,
         genes,
@@ -119,7 +126,7 @@ class App extends React.Component {
   fetchMoreArtworks () {
     const {
       createdAfterDate,
-      // TODO: created before
+      createdBeforeDate,
       deletedFilter,
       fair,
       genes,
@@ -135,7 +142,7 @@ class App extends React.Component {
 
     const query = buildElasticsearchQuery({
       createdAfterDate,
-      // TODO: created before
+      createdBeforeDate,
       deletedFilter,
       fair,
       from,
