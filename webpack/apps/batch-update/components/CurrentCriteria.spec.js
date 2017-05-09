@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import moment from 'moment'
 import CurrentCriteria from './CurrentCriteria'
 
 let props
@@ -53,6 +54,13 @@ it('renders the selected partner', () => {
 
 it('renders the selected fair', () => {
   props.fair = {id: 'foo', name: 'FooFair'}
+  const rendered = renderer.create(<CurrentCriteria {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders the created after date', () => {
+  props.createdAfterDate = moment('2020-01-01T12:00:00-00:00').utc()
   const rendered = renderer.create(<CurrentCriteria {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
