@@ -1,5 +1,5 @@
 import React from 'react'
-import SelectedCreatedAfterDate from './SelectedCreatedAfterDate'
+import { SelectedCreatedAfterDate } from './Selected'
 import SelectedCreatedBeforeDate from './SelectedCreatedBeforeDate'
 import SelectedGene from './SelectedGene'
 import SelectedTag from './SelectedTag'
@@ -122,19 +122,21 @@ function CurrentFair (props) {
 
 function CurrentCreatedAfterDate (props) {
   const { createdAfterDate, onClearCreatedAfterDate } = props
-  if (createdAfterDate !== null) {
-    return (
-      <div>
-        <h2>Created After</h2>
-        <SelectedCreatedAfterDate
-          createdAfterDate={createdAfterDate}
-          onClearCreatedAfterDate={onClearCreatedAfterDate}
-        />
-      </div>
-    )
-  } else {
+
+  if (!createdAfterDate) {
     return null
   }
+
+  return (
+    <div>
+      <h2>Created After</h2>
+      <SelectedCreatedAfterDate
+        text='Created After'
+        name={createdAfterDate}
+        onRemove={onClearCreatedAfterDate}
+      />
+    </div>
+  )
 }
 
 function CurrentCreatedBeforeDate (props) {
