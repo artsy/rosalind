@@ -1,14 +1,14 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
-import SelectedTag from './SelectedTag'
+import { SelectedTag } from './SelectedTag'
 
 let props
 
 beforeEach(() => {
   props = {
     name: 'Clown',
-    onRemoveTag: jest.fn()
+    onRemove: jest.fn()
   }
 })
 
@@ -22,5 +22,5 @@ it('fires the remove handler on click', () => {
   const wrapper = mount(<SelectedTag {...props} />)
   const mockClickEvent = { preventDefault: jest.fn() }
   wrapper.find('a').simulate('click', mockClickEvent)
-  expect(props.onRemoveTag.mock.calls.length).toEqual(1)
+  expect(props.onRemove.mock.calls.length).toEqual(1)
 })

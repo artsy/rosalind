@@ -2,9 +2,9 @@ import React from 'react'
 import {
   SelectedCreatedAfterDate,
   SelectedCreatedBeforeDate,
-  SelectedGene
+  SelectedGene,
+  SelectedTag
 } from './Selected'
-import SelectedTag from './SelectedTag'
 import SelectedPartner from './SelectedPartner'
 import SelectedFair from './SelectedFair'
 
@@ -68,30 +68,32 @@ CurrentCriteria.propTypes = {
 
 function CurrentGenes (props) {
   const { genes, onRemoveGene } = props
-  if (genes.length > 0) {
-    return (
-      <div>
-        <h2>Genes</h2>
-        {genes.map(g => <SelectedGene key={g.id} name={g.name} onRemove={onRemoveGene} />)}
-      </div>
-    )
-  } else {
+
+  if (genes.length < 1) {
     return null
   }
+
+  return (
+    <div>
+      <h2>Genes</h2>
+      {genes.map(g => <SelectedGene key={g.id} name={g.name} onRemove={onRemoveGene} />)}
+    </div>
+  )
 }
 
 function CurrentTags (props) {
   const { tags, onRemoveTag } = props
-  if (tags.length > 0) {
-    return (
-      <div>
-        <h2>Tags</h2>
-        {tags.map(t => <SelectedTag key={t.id} name={t.name} onRemoveTag={onRemoveTag} />)}
-      </div>
-    )
-  } else {
+
+  if (tags.length < 1) {
     return null
   }
+
+  return (
+    <div>
+      <h2>Tags</h2>
+      {tags.map(t => <SelectedTag key={t.id} name={t.name} onRemove={onRemoveTag} />)}
+    </div>
+  )
 }
 
 function CurrentPartner (props) {
