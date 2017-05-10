@@ -8,7 +8,7 @@ class SelectedComponent extends React.Component {
 
   handleRemove (e) {
     e.preventDefault()
-    this.props.onRemove()
+    this.props.onRemove(this.props.name)
   }
 
   render () {
@@ -28,7 +28,7 @@ class SelectedComponent extends React.Component {
 
 import styled from 'styled-components'
 
-const StyledSelectedTag = styled(SelectedComponent)`
+const StyledSelectedComponent = styled(SelectedComponent)`
   font-weight: bold;
   margin: 0.25em 0;
 
@@ -50,4 +50,4 @@ const StyledSelectedTag = styled(SelectedComponent)`
   }
 `
 
-export { StyledSelectedTag as default, SelectedComponent}
+export { StyledSelectedComponent as default, SelectedComponent }
