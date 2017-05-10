@@ -1,0 +1,12 @@
+exports[`test renders correctly 1`] = `
+<div
+  className={undefined}>
+  Foo Name
+  <a
+    className="remove"
+    href="#"
+    onClick={[Function]}>
+    ✕
+  </a>
+</div>
+`;

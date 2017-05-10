@@ -1,18 +1,18 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { SelectedGene } from './SelectedGene'
+import { SelectedCreatedAfterDate } from './SelectedCreatedAfterDate'
 
 let props
 
 beforeEach(() => {
   props = {
-    name: 'Kawaii',
+    name: 'Some date',
     onRemove: jest.fn()
   }
 })
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<SelectedGene {...props} />)
+  const rendered = renderer.create(<SelectedCreatedAfterDate {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
