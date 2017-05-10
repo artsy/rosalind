@@ -3,10 +3,10 @@ import {
   SelectedCreatedAfterDate,
   SelectedCreatedBeforeDate,
   SelectedGene,
-  SelectedTag
+  SelectedTag,
+  SelectedPartner,
+  SelectedFair
 } from './Selected'
-import SelectedPartner from './SelectedPartner'
-import SelectedFair from './SelectedFair'
 
 function CurrentCriteria (props) {
   const {
@@ -98,30 +98,38 @@ function CurrentTags (props) {
 
 function CurrentPartner (props) {
   const { partner, onClearPartner } = props
-  if (partner !== null) {
-    return (
-      <div>
-        <h2>Partner</h2>
-        <SelectedPartner partner={partner} onClearPartner={onClearPartner} />
-      </div>
-    )
-  } else {
+
+  if (!partner) {
     return null
   }
+
+  return (
+    <div>
+      <h2>Partner</h2>
+      <SelectedPartner
+        name={partner.name}
+        onRemove={onClearPartner}
+      />
+    </div>
+  )
 }
 
 function CurrentFair (props) {
   const { fair, onClearFair } = props
-  if (fair !== null) {
-    return (
-      <div>
-        <h2>Fair</h2>
-        <SelectedFair fair={fair} onClearFair={onClearFair} />
-      </div>
-    )
-  } else {
+
+  if (!fair) {
     return null
   }
+
+  return (
+    <div>
+      <h2>Fair</h2>
+      <SelectedFair
+        name={fair.name}
+        onRemove={onClearFair}
+      />
+    </div>
+  )
 }
 
 function CurrentCreatedAfterDate (props) {
