@@ -1,9 +1,9 @@
 import React from 'react'
 import {
   SelectedCreatedAfterDate,
-  SelectedCreatedBeforeDate
+  SelectedCreatedBeforeDate,
+  SelectedGene
 } from './Selected'
-import SelectedGene from './SelectedGene'
 import SelectedTag from './SelectedTag'
 import SelectedPartner from './SelectedPartner'
 import SelectedFair from './SelectedFair'
@@ -72,7 +72,7 @@ function CurrentGenes (props) {
     return (
       <div>
         <h2>Genes</h2>
-        {genes.map(g => <SelectedGene key={g.id} name={g.name} onRemoveGene={onRemoveGene} />)}
+        {genes.map(g => <SelectedGene key={g.id} name={g.name} onRemove={onRemoveGene} />)}
       </div>
     )
   } else {
@@ -133,7 +133,6 @@ function CurrentCreatedAfterDate (props) {
     <div>
       <h2>Created After</h2>
       <SelectedCreatedAfterDate
-        text='Created After'
         name={createdAfterDate}
         onRemove={onClearCreatedAfterDate}
       />

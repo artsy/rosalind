@@ -1,14 +1,14 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
-import SelectedGene from './SelectedGene'
+import { SelectedGene } from './SelectedGene'
 
 let props
 
 beforeEach(() => {
   props = {
     name: 'Kawaii',
-    onRemoveGene: jest.fn()
+    onRemove: jest.fn()
   }
 })
 
@@ -22,5 +22,5 @@ it('fires the remove handler on click', () => {
   const wrapper = mount(<SelectedGene {...props} />)
   const mockClickEvent = { preventDefault: jest.fn() }
   wrapper.find('a').simulate('click', mockClickEvent)
-  expect(props.onRemoveGene.mock.calls.length).toEqual(1)
+  expect(props.onRemove.mock.calls.length).toEqual(1)
 })
