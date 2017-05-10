@@ -1,5 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { mount } from 'enzyme'
+import moment from 'moment'
 import CurrentCriteria from './CurrentCriteria'
 
 let props
@@ -7,6 +9,7 @@ let props
 beforeEach(() => {
   props = {
     createdAfterDate: null,
+    createdBeforeDate: null,
     fair: null,
     genes: [],
     onClearFair: jest.fn(),
@@ -56,4 +59,13 @@ it('renders the selected fair', () => {
   const rendered = renderer.create(<CurrentCriteria {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
+})
+
+it('renders the created after date', () => {
+  props.createdAfterDate = moment('2020-01-01T12:00:00-00:00').utc().format()
+  const currentCriteria = mount(<CurrentCriteria {...props} />)
+
+  const selectedCreatedAfterDate = currentCriteria.find('SelectedCreatedAfterDate')
+
+  expect(selectedCreatedAfterDate.length).toEqual(1)
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import chrono from 'chrono-node'
-import moment from 'moment'
+import dateFormats from 'lib/date-formats'
 import { RETURN } from 'lib/keycodes'
 
 class DateInput extends React.Component {
@@ -10,6 +10,7 @@ class DateInput extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.submitDate = this.submitDate.bind(this)
 
     this.state = {
       input: '',
@@ -30,25 +31,29 @@ class DateInput extends React.Component {
 
   handleClick (event) {
     event.preventDefault()
+    this.submitDate()
+  }
+
+  handleKeyPress (event) {
+    if (event.charCode === RETURN) {
+      this.submitDate()
+    }
+  }
+
+  submitDate () {
     if (this.state.suggestion !== null) {
       const date = new Date(this.state.suggestion)
-      this.props.onSelectDate(moment(date).format())
+      this.props.onSelectDate(dateFormats.default(date))
       this.setState({
-        input: moment(date).format('MMMM Do YYYY, h:mm:ss a'),
+        input: dateFormats.long(date),
         suggestion: null
       })
     }
   }
 
-  handleKeyPress (event) {
-    if (event.charCode === RETURN) {
-      this.handleClick(event)
-    }
-  }
-
   formatDate (date) {
     if (date !== null) {
-      return moment(new Date(date)).format('MMMM Do YYYY, h:mm:ss a')
+      return dateFormats.long(date)
     }
   }
 

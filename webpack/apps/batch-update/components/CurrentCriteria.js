@@ -1,5 +1,6 @@
 import React from 'react'
 import SelectedCreatedAfterDate from './SelectedCreatedAfterDate'
+import SelectedCreatedBeforeDate from './SelectedCreatedBeforeDate'
 import SelectedGene from './SelectedGene'
 import SelectedTag from './SelectedTag'
 import SelectedPartner from './SelectedPartner'
@@ -9,9 +10,11 @@ function CurrentCriteria (props) {
   const {
     className,
     createdAfterDate,
+    createdBeforeDate,
     fair,
     genes,
     onClearCreatedAfterDate,
+    onClearCreatedBeforeDate,
     onClearFair,
     onClearPartner,
     onRemoveGene,
@@ -41,6 +44,10 @@ function CurrentCriteria (props) {
       <CurrentCreatedAfterDate
         createdAfterDate={createdAfterDate}
         onClearCreatedAfterDate={onClearCreatedAfterDate}
+      />
+      <CurrentCreatedBeforeDate
+        createdBeforeDate={createdBeforeDate}
+        onClearCreatedBeforeDate={onClearCreatedBeforeDate}
       />
     </div>
   )
@@ -122,6 +129,23 @@ function CurrentCreatedAfterDate (props) {
         <SelectedCreatedAfterDate
           createdAfterDate={createdAfterDate}
           onClearCreatedAfterDate={onClearCreatedAfterDate}
+        />
+      </div>
+    )
+  } else {
+    return null
+  }
+}
+
+function CurrentCreatedBeforeDate (props) {
+  const { createdBeforeDate, onClearCreatedBeforeDate } = props
+  if (createdBeforeDate !== null) {
+    return (
+      <div>
+        <h2>Created Before</h2>
+        <SelectedCreatedBeforeDate
+          createdBeforeDate={createdBeforeDate}
+          onClearCreatedBeforeDate={onClearCreatedBeforeDate}
         />
       </div>
     )

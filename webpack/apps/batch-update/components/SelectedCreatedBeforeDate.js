@@ -1,7 +1,7 @@
 import React from 'react'
 import dateFormats from 'lib/date-formats'
 
-class SelectedCreatedAfterDate extends React.Component {
+class SelectedCreatedBeforeDate extends React.Component {
   constructor (props) {
     super(props)
     this.handleRemove = this.handleRemove.bind(this)
@@ -9,15 +9,15 @@ class SelectedCreatedAfterDate extends React.Component {
 
   handleRemove (e) {
     e.preventDefault()
-    this.props.onClearCreatedAfterDate()
+    this.props.onClearCreatedBeforeDate()
   }
 
   render () {
-    const { className, createdAfterDate } = this.props
-    if (createdAfterDate !== null) {
+    const { className, createdBeforeDate } = this.props
+    if (createdBeforeDate !== null) {
       return (
         <div className={className}>
-          {dateFormats.long(createdAfterDate)}
+          {dateFormats.long(createdBeforeDate)}
           <a href='#' className='remove'
             onClick={this.handleRemove}>✕</a>
         </div>
@@ -31,7 +31,7 @@ class SelectedCreatedAfterDate extends React.Component {
 
 import styled from 'styled-components'
 
-const StyledSelectedCreatedAfterDate = styled(SelectedCreatedAfterDate)`
+const StyledSelectedCreatedBeforeDate = styled(SelectedCreatedBeforeDate)`
   font-weight: bold;
   margin: 0.25em 0;
 
@@ -53,4 +53,4 @@ const StyledSelectedCreatedAfterDate = styled(SelectedCreatedAfterDate)`
   }
 `
 
-export default StyledSelectedCreatedAfterDate
+export default StyledSelectedCreatedBeforeDate

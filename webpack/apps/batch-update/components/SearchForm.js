@@ -1,6 +1,9 @@
 import React from 'react'
 import CurrentCriteria from './CurrentCriteria'
-import CreatedAfterDateInput from './DateInput/CreatedAfterDateInput'
+import {
+  CreatedAfterDateInput,
+  CreatedBeforeDateInput
+} from './DateInput'
 import {
   FairAutosuggest,
   GeneAutosuggest,
@@ -30,9 +33,11 @@ class SearchForm extends React.Component {
   render () {
     const {
       createdAfterDate,
+      createdBeforeDate,
       fair,
       genes,
       onClearCreatedAfterDate,
+      onClearCreatedBeforeDate,
       onClearFair,
       onClearPartner,
       onRemoveGene,
@@ -43,6 +48,7 @@ class SearchForm extends React.Component {
 
     const {
       onAddCreatedAfterDate,
+      onAddCreatedBeforeDate,
       onAddGene,
       onAddTag,
       onSetFair,
@@ -62,9 +68,11 @@ class SearchForm extends React.Component {
       <div className={this.props.className}>
         <CurrentCriteria
           createdAfterDate={createdAfterDate}
+          createdBeforeDate={createdBeforeDate}
           fair={fair}
           genes={genes}
           onClearCreatedAfterDate={onClearCreatedAfterDate}
+          onClearCreatedBeforeDate={onClearCreatedBeforeDate}
           onClearFair={onClearFair}
           onClearPartner={onClearPartner}
           onRemoveGene={onRemoveGene}
@@ -82,6 +90,13 @@ class SearchForm extends React.Component {
           <CreatedAfterDateInput
             onSelectDate={onAddCreatedAfterDate}
             createdAfterDate={this.props.createdAfterDate}
+            />
+        }
+        {
+          createdBeforeDate === null &&
+          <CreatedBeforeDateInput
+            onSelectDate={onAddCreatedBeforeDate}
+            createdBeforeDate={this.props.createdBeforeDate}
             />
         }
 

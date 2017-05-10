@@ -13,6 +13,7 @@ class App extends React.Component {
     this.state = {
       artworks: [],
       createdAfterDate: null,
+      createdBeforeDate: null,
       deletedFilter: 'SHOW_ALL',
       fair: null,
       genes: [],
@@ -38,6 +39,8 @@ class App extends React.Component {
     this.onClearFair = this.onClearFair.bind(this)
     this.onAddCreatedAfterDate = this.onAddCreatedAfterDate.bind(this)
     this.onClearCreatedAfterDate = this.onClearCreatedAfterDate.bind(this)
+    this.onAddCreatedBeforeDate = this.onAddCreatedBeforeDate.bind(this)
+    this.onClearCreatedBeforeDate = this.onClearCreatedBeforeDate.bind(this)
 
     this.onSetPublishedFilter = this.onSetPublishedFilter.bind(this)
     this.onSetDeletedFilter = this.onSetDeletedFilter.bind(this)
@@ -69,6 +72,7 @@ class App extends React.Component {
   shouldComponentUpdate (prevState) {
     return (
       (this.state.createdAfterDate !== prevState.createdAfterDate) ||
+      (this.state.createdBeforeDate !== prevState.createdBeforeDate) ||
       (this.state.deletedFilter !== prevState.deletedFilter) ||
       (this.state.fair !== prevState.fair) ||
       (this.state.genes !== prevState.genes) ||
@@ -80,7 +84,15 @@ class App extends React.Component {
   }
 
   fetchArtworks () {
-    const { createdAfterDate, genes, tags, partner, fair } = this.state
+    const {
+      createdAfterDate,
+      createdBeforeDate,
+      genes,
+      tags,
+      partner,
+      fair
+    } = this.state
+
     if ((genes.length === 0) &&
       (tags.length === 0) &&
       (partner === null) && (fair === null)
@@ -91,6 +103,7 @@ class App extends React.Component {
 
       const query = buildElasticsearchQuery({
         createdAfterDate,
+        createdBeforeDate,
         deletedFilter,
         fair,
         genes,
@@ -113,6 +126,7 @@ class App extends React.Component {
   fetchMoreArtworks () {
     const {
       createdAfterDate,
+      createdBeforeDate,
       deletedFilter,
       fair,
       genes,
@@ -128,6 +142,7 @@ class App extends React.Component {
 
     const query = buildElasticsearchQuery({
       createdAfterDate,
+      createdBeforeDate,
       deletedFilter,
       fair,
       from,
@@ -198,6 +213,14 @@ class App extends React.Component {
     this.setState({ createdAfterDate: null })
   }
 
+  onAddCreatedBeforeDate (createdBeforeDate) {
+    this.setState({ createdBeforeDate })
+  }
+
+  onClearCreatedBeforeDate () {
+    this.setState({ createdBeforeDate: null })
+  }
+
   onSetPublishedFilter (filterValue) {
     this.setState({ publishedFilter: filterValue })
   }
@@ -260,6 +283,7 @@ class App extends React.Component {
     const {
       artworks,
       createdAfterDate,
+      createdBeforeDate,
       fair,
       genes,
       isLoading,
@@ -275,14 +299,17 @@ class App extends React.Component {
         <Sidebar>
           <SearchForm
             createdAfterDate={createdAfterDate}
+            createdBeforeDate={createdBeforeDate}
             deletedFilter={this.state.deletedFilter}
             fair={fair}
             genes={genes}
             genomedFilter={this.state.genomedFilter}
             onAddCreatedAfterDate={this.onAddCreatedAfterDate}
+            onAddCreatedBeforeDate={this.onAddCreatedBeforeDate}
             onAddGene={this.onAddGene}
             onAddTag={this.onAddTag}
             onClearCreatedAfterDate={this.onClearCreatedAfterDate}
+            onClearCreatedBeforeDate={this.onClearCreatedBeforeDate}
             onClearFair={this.onClearFair}
             onClearPartner={this.onClearPartner}
             onRemoveGene={this.onRemoveGene}

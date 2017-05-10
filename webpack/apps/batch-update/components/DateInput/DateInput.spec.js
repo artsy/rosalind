@@ -28,17 +28,17 @@ describe('DateInput', () => {
     expect(dateInput.state().suggestion.length > 0).toBe(true)
   })
 
-  it('calls handleClick when the user enters a date and presses the Enter key', () => {
-    const dateInput = shallow(<DateInput />)
-    dateInput.instance().handleClick = jest.fn()
+  it('pressing the Enter key submits a date', () => {
+    const mockOnSelectDate = jest.fn()
+    const dateInput = mount(<DateInput onSelectDate={mockOnSelectDate} />)
 
     dateInput.find('input').simulate('change', { target: { value: 'today' } })
     dateInput.find('input').simulate('keypress', { charCode: 13 })
 
-    expect(dateInput.instance().handleClick.mock.calls.length).toBe(1)
+    expect(mockOnSelectDate.mock.calls.length).toBe(1)
   })
 
-  it('onClick calls props.onSelectDate', () => {
+  it('onClick submits a date', () => {
     const mockOnSelectDate = jest.fn()
     const dateInput = mount(<DateInput onSelectDate={mockOnSelectDate} />)
 
