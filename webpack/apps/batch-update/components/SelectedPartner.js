@@ -13,16 +13,13 @@ class SelectedPartner extends React.Component {
 
   render () {
     const { className, partner } = this.props
-    if (partner !== null) {
-      return (
-        <div className={className}>
-          {partner.name}
-          <a href='#' className='remove'
-            onClick={this.handleRemove}>✕</a>
-        </div>
-      )
-    }
-    return null
+    return (
+      <div className={className}>
+        {partner.name}
+        <a href='#' className='remove'
+          onClick={this.handleRemove}>✕</a>
+      </div>
+    )
   }
 }
 

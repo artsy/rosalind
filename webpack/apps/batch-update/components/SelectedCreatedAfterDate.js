@@ -14,16 +14,13 @@ class SelectedCreatedAfterDate extends React.Component {
 
   render () {
     const { className, createdAfterDate } = this.props
-    if (createdAfterDate !== null) {
-      return (
-        <div className={className}>
-          {dateFormats.long(createdAfterDate)}
-          <a href='#' className='remove'
-            onClick={this.handleRemove}>✕</a>
-        </div>
-      )
-    }
-    return null
+    return (
+      <div className={className}>
+        {dateFormats.long(createdAfterDate)}
+        <a href='#' className='remove'
+          onClick={this.handleRemove}>✕</a>
+      </div>
+    )
   }
 }
 

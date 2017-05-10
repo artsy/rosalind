@@ -13,16 +13,13 @@ class SelectedFair extends React.Component {
 
   render () {
     const { className, fair } = this.props
-    if (fair !== null) {
-      return (
-        <div className={className}>
-          {fair.name}
-          <a href='#' className='remove'
-            onClick={this.handleRemove}>✕</a>
-        </div>
-      )
-    }
-    return null
+    return (
+      <div className={className}>
+        {fair.name}
+        <a href='#' className='remove'
+          onClick={this.handleRemove}>✕</a>
+      </div>
+    )
   }
 }
 
