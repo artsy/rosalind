@@ -3,10 +3,13 @@ import SelectedComponent from './SelectedComponent'
 
 const SelectedPartner = (props) => {
   return (
-    <SelectedComponent
-      name={props.name}
-      onRemove={props.onRemove}
-    />
+    <div>
+      <h2>Partner</h2>
+      <SelectedComponent
+        name={props.name}
+        onRemove={props.onRemove}
+      />
+    </div>
   )
 }
 

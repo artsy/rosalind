@@ -35,22 +35,12 @@ function CurrentCriteria (props) {
         tags={tags}
         onRemoveTag={onRemoveTag}
       />
-      <CurrentPartner
-        partner={partner}
-        onClearPartner={onClearPartner}
-      />
-      <CurrentFair
-        fair={fair}
-        onClearFair={onClearFair}
-      />
-      <CurrentCreatedAfterDate
-        createdAfterDate={createdAfterDate}
-        onClearCreatedAfterDate={onClearCreatedAfterDate}
-      />
-      <CurrentCreatedBeforeDate
-        createdBeforeDate={createdBeforeDate}
-        onClearCreatedBeforeDate={onClearCreatedBeforeDate}
-      />
+
+      {partner && <SelectedPartner name={partner.name} onRemove={onClearPartner} />}
+      {fair && <SelectedFair name={fair.name} onRemove={onClearFair} />}
+      {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} onRemove={onClearCreatedAfterDate} />}
+      {createdBeforeDate && <SelectedCreatedBeforeDate name={createdBeforeDate} onRemove={onClearCreatedBeforeDate} />}
+
     </div>
   )
 }
@@ -92,78 +82,6 @@ function CurrentTags (props) {
     <div>
       <h2>Tags</h2>
       {tags.map(t => <SelectedTag key={t.id} name={t.name} onRemove={onRemoveTag} />)}
-    </div>
-  )
-}
-
-function CurrentPartner (props) {
-  const { partner, onClearPartner } = props
-
-  if (!partner) {
-    return null
-  }
-
-  return (
-    <div>
-      <h2>Partner</h2>
-      <SelectedPartner
-        name={partner.name}
-        onRemove={onClearPartner}
-      />
-    </div>
-  )
-}
-
-function CurrentFair (props) {
-  const { fair, onClearFair } = props
-
-  if (!fair) {
-    return null
-  }
-
-  return (
-    <div>
-      <h2>Fair</h2>
-      <SelectedFair
-        name={fair.name}
-        onRemove={onClearFair}
-      />
-    </div>
-  )
-}
-
-function CurrentCreatedAfterDate (props) {
-  const { createdAfterDate, onClearCreatedAfterDate } = props
-
-  if (!createdAfterDate) {
-    return null
-  }
-
-  return (
-    <div>
-      <h2>Created After</h2>
-      <SelectedCreatedAfterDate
-        name={createdAfterDate}
-        onRemove={onClearCreatedAfterDate}
-      />
-    </div>
-  )
-}
-
-function CurrentCreatedBeforeDate (props) {
-  const { createdBeforeDate, onClearCreatedBeforeDate } = props
-
-  if (!createdBeforeDate) {
-    return null
-  }
-
-  return (
-    <div>
-      <h2>Created Before</h2>
-      <SelectedCreatedBeforeDate
-        name={createdBeforeDate}
-        onRemove={onClearCreatedBeforeDate}
-      />
     </div>
   )
 }

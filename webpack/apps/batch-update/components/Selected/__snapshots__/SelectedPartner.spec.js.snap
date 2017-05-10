@@ -1,12 +1,17 @@
 exports[`test renders correctly 1`] = `
-<div
-  className="crrNnH">
-  Gagosian
-  <a
-    className="remove"
-    href="#"
-    onClick={[Function]}>
-    ✕
-  </a>
+<div>
+  <h2>
+    Partner
+  </h2>
+  <div
+    className="crrNnH">
+    Gagosian
+    <a
+      className="remove"
+      href="#"
+      onClick={[Function]}>
+      ✕
+    </a>
+  </div>
 </div>
 `;
