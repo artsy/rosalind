@@ -79,10 +79,6 @@ it('does not render createdBeforeDate input if createdBeforeDate is already ente
   expect(createdBeforeDateInput.length).toEqual(0)
 })
 
-it('uses the correct utcOffset', () => {
-  expect(moment().utc().utcOffset()).toEqual(0)
-})
-
 describe('"edit artworks" button', () => {
   it('does not render an edit button if there are no artworks', () => {
     Object.assign(props, { artworksCount: 0 })

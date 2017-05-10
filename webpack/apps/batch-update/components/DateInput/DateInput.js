@@ -10,6 +10,7 @@ class DateInput extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.submitDate = this.submitDate.bind(this)
 
     this.state = {
       input: '',
@@ -30,6 +31,16 @@ class DateInput extends React.Component {
 
   handleClick (event) {
     event.preventDefault()
+    this.submitDate()
+  }
+
+  handleKeyPress (event) {
+    if (event.charCode === RETURN) {
+      this.submitDate()
+    }
+  }
+
+  submitDate () {
     if (this.state.suggestion !== null) {
       const date = new Date(this.state.suggestion)
       this.props.onSelectDate(dateFormats.default(date))
@@ -37,12 +48,6 @@ class DateInput extends React.Component {
         input: dateFormats.long(date),
         suggestion: null
       })
-    }
-  }
-
-  handleKeyPress (event) {
-    if (event.charCode === RETURN) {
-      this.handleClick(event)
     }
   }
 
