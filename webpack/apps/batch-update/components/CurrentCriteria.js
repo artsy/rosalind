@@ -27,20 +27,12 @@ function CurrentCriteria (props) {
 
   return (
     <div className={className}>
-      <CurrentGenes
-        genes={genes}
-        onRemoveGene={onRemoveGene}
-      />
-      <CurrentTags
-        tags={tags}
-        onRemoveTag={onRemoveTag}
-      />
-
+      {genes.length > 1 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
+      {tags.length > 1 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
       {partner && <SelectedPartner name={partner.name} onRemove={onClearPartner} />}
       {fair && <SelectedFair name={fair.name} onRemove={onClearFair} />}
       {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} onRemove={onClearCreatedAfterDate} />}
       {createdBeforeDate && <SelectedCreatedBeforeDate name={createdBeforeDate} onRemove={onClearCreatedBeforeDate} />}
-
     </div>
   )
 }
@@ -58,11 +50,6 @@ CurrentCriteria.propTypes = {
 
 function CurrentGenes (props) {
   const { genes, onRemoveGene } = props
-
-  if (genes.length < 1) {
-    return null
-  }
-
   return (
     <div>
       <h2>Genes</h2>
@@ -73,11 +60,6 @@ function CurrentGenes (props) {
 
 function CurrentTags (props) {
   const { tags, onRemoveTag } = props
-
-  if (tags.length < 1) {
-    return null
-  }
-
   return (
     <div>
       <h2>Tags</h2>
