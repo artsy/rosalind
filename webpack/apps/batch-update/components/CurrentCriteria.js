@@ -1,10 +1,12 @@
 import React from 'react'
-import SelectedCreatedAfterDate from './SelectedCreatedAfterDate'
-import SelectedCreatedBeforeDate from './SelectedCreatedBeforeDate'
-import SelectedGene from './SelectedGene'
-import SelectedTag from './SelectedTag'
-import SelectedPartner from './SelectedPartner'
-import SelectedFair from './SelectedFair'
+import {
+  SelectedCreatedAfterDate,
+  SelectedCreatedBeforeDate,
+  SelectedGene,
+  SelectedTag,
+  SelectedPartner,
+  SelectedFair
+} from './Selected'
 
 function CurrentCriteria (props) {
   const {
@@ -25,30 +27,12 @@ function CurrentCriteria (props) {
 
   return (
     <div className={className}>
-      <CurrentGenes
-        genes={genes}
-        onRemoveGene={onRemoveGene}
-      />
-      <CurrentTags
-        tags={tags}
-        onRemoveTag={onRemoveTag}
-      />
-      <CurrentPartner
-        partner={partner}
-        onClearPartner={onClearPartner}
-      />
-      <CurrentFair
-        fair={fair}
-        onClearFair={onClearFair}
-      />
-      <CurrentCreatedAfterDate
-        createdAfterDate={createdAfterDate}
-        onClearCreatedAfterDate={onClearCreatedAfterDate}
-      />
-      <CurrentCreatedBeforeDate
-        createdBeforeDate={createdBeforeDate}
-        onClearCreatedBeforeDate={onClearCreatedBeforeDate}
-      />
+      {genes.length > 1 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
+      {tags.length > 1 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
+      {partner && <SelectedPartner name={partner.name} onRemove={onClearPartner} />}
+      {fair && <SelectedFair name={fair.name} onRemove={onClearFair} />}
+      {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} onRemove={onClearCreatedAfterDate} />}
+      {createdBeforeDate && <SelectedCreatedBeforeDate name={createdBeforeDate} onRemove={onClearCreatedBeforeDate} />}
     </div>
   )
 }
@@ -66,92 +50,22 @@ CurrentCriteria.propTypes = {
 
 function CurrentGenes (props) {
   const { genes, onRemoveGene } = props
-  if (genes.length > 0) {
-    return (
-      <div>
-        <h2>Genes</h2>
-        {genes.map(g => <SelectedGene key={g.id} name={g.name} onRemoveGene={onRemoveGene} />)}
-      </div>
-    )
-  } else {
-    return null
-  }
+  return (
+    <div>
+      <h2>Genes</h2>
+      {genes.map(g => <SelectedGene key={g.id} name={g.name} onRemove={onRemoveGene} />)}
+    </div>
+  )
 }
 
 function CurrentTags (props) {
   const { tags, onRemoveTag } = props
-  if (tags.length > 0) {
-    return (
-      <div>
-        <h2>Tags</h2>
-        {tags.map(t => <SelectedTag key={t.id} name={t.name} onRemoveTag={onRemoveTag} />)}
-      </div>
-    )
-  } else {
-    return null
-  }
-}
-
-function CurrentPartner (props) {
-  const { partner, onClearPartner } = props
-  if (partner !== null) {
-    return (
-      <div>
-        <h2>Partner</h2>
-        <SelectedPartner partner={partner} onClearPartner={onClearPartner} />
-      </div>
-    )
-  } else {
-    return null
-  }
-}
-
-function CurrentFair (props) {
-  const { fair, onClearFair } = props
-  if (fair !== null) {
-    return (
-      <div>
-        <h2>Fair</h2>
-        <SelectedFair fair={fair} onClearFair={onClearFair} />
-      </div>
-    )
-  } else {
-    return null
-  }
-}
-
-function CurrentCreatedAfterDate (props) {
-  const { createdAfterDate, onClearCreatedAfterDate } = props
-  if (createdAfterDate !== null) {
-    return (
-      <div>
-        <h2>Created After</h2>
-        <SelectedCreatedAfterDate
-          createdAfterDate={createdAfterDate}
-          onClearCreatedAfterDate={onClearCreatedAfterDate}
-        />
-      </div>
-    )
-  } else {
-    return null
-  }
-}
-
-function CurrentCreatedBeforeDate (props) {
-  const { createdBeforeDate, onClearCreatedBeforeDate } = props
-  if (createdBeforeDate !== null) {
-    return (
-      <div>
-        <h2>Created Before</h2>
-        <SelectedCreatedBeforeDate
-          createdBeforeDate={createdBeforeDate}
-          onClearCreatedBeforeDate={onClearCreatedBeforeDate}
-        />
-      </div>
-    )
-  } else {
-    return null
-  }
+  return (
+    <div>
+      <h2>Tags</h2>
+      {tags.map(t => <SelectedTag key={t.id} name={t.name} onRemove={onRemoveTag} />)}
+    </div>
+  )
 }
 
 /* default styled component */

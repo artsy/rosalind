@@ -60,7 +60,7 @@ it('does not render createdAfterDate input if createdAfterDate is already entere
   Object.assign(props, { createdAfterDate })
 
   const searchForm = mount(<SearchForm {...props} />)
-  const currentCreatedAfterDate = searchForm.find('CurrentCreatedAfterDate')
+  const currentCreatedAfterDate = searchForm.find('SelectedCreatedAfterDate')
   const createdAfterDateInput = searchForm.find('CreatedAfterDateInput')
 
   expect(currentCreatedAfterDate.length).toEqual(1)
@@ -72,7 +72,7 @@ it('does not render createdBeforeDate input if createdBeforeDate is already ente
   Object.assign(props, { createdBeforeDate })
 
   const searchForm = mount(<SearchForm {...props} />)
-  const currentCreatedBeforeDate = searchForm.find('CurrentCreatedBeforeDate')
+  const currentCreatedBeforeDate = searchForm.find('SelectedCreatedBeforeDate')
   const createdBeforeDateInput = searchForm.find('CreatedBeforeDateInput')
 
   expect(currentCreatedBeforeDate.length).toEqual(1)
