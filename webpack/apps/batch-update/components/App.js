@@ -274,7 +274,7 @@ class App extends React.Component {
             deletedFilter={deletedFilter}
             fair={fair}
             genes={genes}
-            genomedFilter={this.state.genomedFilter}
+            genomedFilter={genomedFilter}
             onAddGene={this.onAddGene}
             onAddTag={this.onAddTag}
             onOpenBatchUpdate={this.onOpenBatchUpdate}

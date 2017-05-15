@@ -27,7 +27,7 @@ function FilterOption (props) {
 FilterOption.propTypes = {
   current: React.PropTypes.string.isRequired,
   name: React.PropTypes.string.isRequired,
-  updateState: React.PropTypes.func.isRequired
+  updateState: React.PropTypes.func
 }
 
 function Option (props) {
