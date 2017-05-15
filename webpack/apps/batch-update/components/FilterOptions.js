@@ -13,27 +13,27 @@ function FilterOptions (props) {
     <div className={className}>
       <PublishedFilter
         current={publishedFilter}
-        onSetPublishedFilter={updateState}
+        updateState={updateState}
         />
       <DeletedFilter
         current={deletedFilter}
-        onSetDeletedFilter={updateState}
+        updateState={updateState}
         />
       <GenomedFilter
         current={genomedFilter}
-        onSetGenomedFilter={updateState}
+        updateState={updateState}
         />
     </div>
   )
 }
 
 function PublishedFilter (props) {
-  const { current, onSetPublishedFilter } = props
+  const { current, updateState } = props
 
   const handleClick = (args, event) => {
     const [filter, action] = args
     event.preventDefault()
-    onSetPublishedFilter(filter, action)
+    updateState(filter, action)
   }
 
   return (
@@ -47,12 +47,12 @@ function PublishedFilter (props) {
 }
 
 function DeletedFilter (props) {
-  const { current, onSetDeletedFilter } = props
+  const { current, updateState } = props
 
   const handleClick = (args, event) => {
     const [filter, action] = args
     event.preventDefault()
-    onSetDeletedFilter(filter, action)
+    updateState(filter, action)
   }
 
   return (
@@ -66,12 +66,12 @@ function DeletedFilter (props) {
 }
 
 function GenomedFilter (props) {
-  const { current, onSetGenomedFilter } = props
+  const { current, updateState } = props
 
   const handleClick = (args, event) => {
     const [filter, action] = args
     event.preventDefault()
-    onSetGenomedFilter(filter, action)
+    updateState(filter, action)
   }
 
   return (
