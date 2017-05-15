@@ -27,8 +27,8 @@ function CurrentCriteria (props) {
 
   return (
     <div className={className}>
-      {genes.length > 1 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
-      {tags.length > 1 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
+      {genes.length > 0 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
+      {tags.length > 0 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
       {partner && <SelectedPartner name={partner.name} onRemove={onClearPartner} />}
       {fair && <SelectedFair name={fair.name} onRemove={onClearFair} />}
       {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} onRemove={onClearCreatedAfterDate} />}
