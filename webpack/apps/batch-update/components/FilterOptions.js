@@ -13,22 +13,22 @@ function FilterOptions (props) {
   return (
     <div className={className}>
       <FilterOption
-        filter='publishedFilter'
         current={publishedFilter}
+        filter='publishedFilter'
+        name='published'
         updateState={updateState}
-        text='Published'
         />
       <FilterOption
-        filter='deletedFilter'
         current={deletedFilter}
+        filter='deletedFilter'
+        name='deleted'
         updateState={updateState}
-        text='Deleted'
         />
       <FilterOption
-        filter='genomedFilter'
         current={genomedFilter}
+        filter='genomedFilter'
+        name='genomed'
         updateState={updateState}
-        text='Genomed'
         />
     </div>
   )

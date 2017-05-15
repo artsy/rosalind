@@ -4,13 +4,45 @@ export default function FilterOption (props) {
   const {
     current,
     filter,
-    text,
+    name,
     updateState
   } = props
 
-  const handleClick = (action, event) => {
+  const suffix = name.toUpperCase()
+
+  return (
+    <div className='filter'>
+      <div>
+        {`${capitalize(name)}?`}
+      </div>
+
+      <OptionLink updateState={updateState} option='SHOW_ALL' filter={filter} current={current}>
+        All
+      </OptionLink>
+
+      <OptionLink updateState={updateState} option={`SHOW_${suffix}`} filter={filter} current={current}>
+        {capitalize(name)}
+      </OptionLink>
+
+      <OptionLink updateState={updateState} option={`SHOW_NOT_${suffix}`} filter={filter} current={current}>
+        {`Not ${name}`}
+      </OptionLink>
+    </div>
+  )
+}
+
+function OptionLink (props) {
+  const {
+    current,
+    children,
+    filter,
+    option,
+    updateState
+  } = props
+
+  const handleClick = (option, event) => {
     event.preventDefault()
-    updateState(filter, action)
+    updateState(filter, option)
   }
 
   const active = (condition) => {
@@ -21,22 +53,16 @@ export default function FilterOption (props) {
     }
   }
 
-  const suffix = text.toUpperCase()
-
   return (
-    <div className='filter'>
-      <div>
-        {`${text}?`}
-      </div>
-      <a href='#' className={active(current === 'SHOW_ALL')} onClick={handleClick.bind(null, 'SHOW_ALL')}>
-        All
-      </a>
-      <a href='#' className={active(current === `SHOW_${suffix}`)} onClick={handleClick.bind(null, `SHOW_${suffix}`)}>
-        {text}
-      </a>
-      <a href='#' className={active(current === `SHOW_NOT_${suffix}`)} onClick={handleClick.bind(null, `SHOW_NOT_${suffix}`)}>
-        {`Not ${text}`}
-      </a>
-    </div>
+    <a href='#'
+      className={active(current === option)}
+      onClick={handleClick.bind(null, option)}
+      >
+      {children}
+    </a>
   )
+}
+
+function capitalize (str) {
+  return str.substring(0, 1).toUpperCase() + str.substring(1)
 }
