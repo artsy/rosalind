@@ -29,36 +29,57 @@ function FilterOptions (props) {
 
 function PublishedFilter (props) {
   const { current, onSetPublishedFilter } = props
+
+  const handleClick = (args, event) => {
+    const [filter, action] = args
+    event.preventDefault()
+    onSetPublishedFilter(filter, action)
+  }
+
   return (
     <div className='filter'>
       <div>Published?</div>
-      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetPublishedFilter('publishedFilter', 'SHOW_ALL') }}>All</a>
-      <a href='#' className={current === 'SHOW_PUBLISHED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetPublishedFilter('publishedFilter', 'SHOW_PUBLISHED') }}>Published</a>
-      <a href='#' className={current === 'SHOW_NOT_PUBLISHED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetPublishedFilter('publishedFilter', 'SHOW_NOT_PUBLISHED') }}>Not published</a>
+      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={handleClick.bind(null, ['publishedFilter', 'SHOW_ALL'])}>All</a>
+      <a href='#' className={current === 'SHOW_PUBLISHED' ? 'active' : null} onClick={handleClick.bind(null, ['publishedFilter', 'SHOW_PUBLISHED'])}>Published</a>
+      <a href='#' className={current === 'SHOW_NOT_PUBLISHED' ? 'active' : null} onClick={handleClick.bind(null, ['publishedFilter', 'SHOW_NOT_PUBLISHED'])}>Not published</a>
     </div>
   )
 }
 
 function DeletedFilter (props) {
   const { current, onSetDeletedFilter } = props
+
+  const handleClick = (args, event) => {
+    const [filter, action] = args
+    event.preventDefault()
+    onSetDeletedFilter(filter, action)
+  }
+
   return (
     <div className='filter'>
       <div>Deleted?</div>
-      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetDeletedFilter('deletedFilter', 'SHOW_ALL') }}>All</a>
-      <a href='#' className={current === 'SHOW_DELETED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetDeletedFilter('deletedFilter', 'SHOW_DELETED') }}>Deleted</a>
-      <a href='#' className={current === 'SHOW_NOT_DELETED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetDeletedFilter('deletedFilter', 'SHOW_NOT_DELETED') }}>Not deleted</a>
+      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={handleClick.bind(null, ['deletedFilter', 'SHOW_ALL'])}>All</a>
+      <a href='#' className={current === 'SHOW_DELETED' ? 'active' : null} onClick={handleClick.bind(null, ['deletedFilter', 'SHOW_DELETED'])}>Deleted</a>
+      <a href='#' className={current === 'SHOW_NOT_DELETED' ? 'active' : null} onClick={handleClick.bind(null, ['deletedFilter', 'SHOW_NOT_DELETED'])}>Not deleted</a>
     </div>
   )
 }
 
 function GenomedFilter (props) {
   const { current, onSetGenomedFilter } = props
+
+  const handleClick = (args, event) => {
+    const [filter, action] = args
+    event.preventDefault()
+    onSetGenomedFilter(filter, action)
+  }
+
   return (
     <div className='filter'>
       <div>Genomed?</div>
-      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetGenomedFilter('genomedFilter', 'SHOW_ALL') }}>All</a>
-      <a href='#' className={current === 'SHOW_GENOMED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetGenomedFilter('genomedFilter', 'SHOW_GENOMED') }}>Genomed</a>
-      <a href='#' className={current === 'SHOW_NOT_GENOMED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetGenomedFilter('genomedFilter', 'SHOW_NOT_GENOMED') }}>Not genomed</a>
+      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={handleClick.bind(null, ['genomedFilter', 'SHOW_ALL'])}>All</a>
+      <a href='#' className={current === 'SHOW_GENOMED' ? 'active' : null} onClick={handleClick.bind(null, ['genomedFilter', 'SHOW_GENOMED'])}>Genomed</a>
+      <a href='#' className={current === 'SHOW_NOT_GENOMED' ? 'active' : null} onClick={handleClick.bind(null, ['genomedFilter', 'SHOW_NOT_GENOMED'])}>Not genomed</a>
     </div>
   )
 }
