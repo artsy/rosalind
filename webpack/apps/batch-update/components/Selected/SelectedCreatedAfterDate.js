@@ -7,8 +7,9 @@ const SelectedCreatedAfterDate = (props) => {
     <div>
       <h2>Created After</h2>
       <SelectedComponent
+        stateKey='createdAfterDate'
         name={dateFormats.long(props.name)}
-        onRemove={props.onRemove}
+        onRemove={props.clearState}
       />
     </div>
   )

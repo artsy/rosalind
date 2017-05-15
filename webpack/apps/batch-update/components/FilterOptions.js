@@ -6,8 +6,6 @@ function FilterOptions (props) {
     publishedFilter,
     deletedFilter,
     genomedFilter,
-    onSetDeletedFilter,
-    onSetGenomedFilter,
     updateState
   } = props
 

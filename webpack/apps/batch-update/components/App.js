@@ -35,12 +35,9 @@ class App extends React.Component {
     this.onAddGene = this.onAddGene.bind(this)
     this.onRemoveTag = this.onRemoveTag.bind(this)
     this.onAddTag = this.onAddTag.bind(this)
-    this.onClearPartner = this.onClearPartner.bind(this)
-    this.onClearFair = this.onClearFair.bind(this)
-    this.onClearCreatedAfterDate = this.onClearCreatedAfterDate.bind(this)
-    this.onClearCreatedBeforeDate = this.onClearCreatedBeforeDate.bind(this)
 
     this.updateStateFor = this.updateStateFor.bind(this)
+    this.clearStateFor = this.clearStateFor.bind(this)
 
     this.onToggleArtwork = this.onToggleArtwork.bind(this)
     this.onSelectAllArtworks = this.onSelectAllArtworks.bind(this)
@@ -160,7 +157,7 @@ class App extends React.Component {
     })
   }
 
-  onRemoveGene (geneName) {
+  onRemoveGene (geneName, _key) {
     const { genes } = this.state
     this.setState({
       genes: genes.filter(g => g.name !== geneName)
@@ -174,7 +171,7 @@ class App extends React.Component {
     })
   }
 
-  onRemoveTag (tagName) {
+  onRemoveTag (tagName, _key) {
     const { tags } = this.state
     this.setState({
       tags: tags.filter(t => t.name !== tagName)
@@ -188,28 +185,12 @@ class App extends React.Component {
     })
   }
 
+  clearStateFor (_name, key) {
+    this.setState({[key]: null})
+  }
+
   updateStateFor (key, newState) {
     this.setState({[key]: newState})
-  }
-
-  // clearStateFor (key) {
-  //   this.setState({[key]: null})
-  // }
-
-  onClearPartner () {
-    this.setState({ partner: null })
-  }
-
-  onClearFair () {
-    this.setState({ fair: null })
-  }
-
-  onClearCreatedAfterDate () {
-    this.setState({ createdAfterDate: null })
-  }
-
-  onClearCreatedBeforeDate () {
-    this.setState({ createdBeforeDate: null })
   }
 
   onToggleArtwork (artwork) {
@@ -287,6 +268,7 @@ class App extends React.Component {
       <Wrapper>
         <Sidebar>
           <SearchForm
+            clearState={this.clearStateFor}
             createdAfterDate={createdAfterDate}
             createdBeforeDate={createdBeforeDate}
             deletedFilter={deletedFilter}
@@ -295,10 +277,6 @@ class App extends React.Component {
             genomedFilter={this.state.genomedFilter}
             onAddGene={this.onAddGene}
             onAddTag={this.onAddTag}
-            onClearCreatedAfterDate={this.onClearCreatedAfterDate}
-            onClearCreatedBeforeDate={this.onClearCreatedBeforeDate}
-            onClearFair={this.onClearFair}
-            onClearPartner={this.onClearPartner}
             onOpenBatchUpdate={this.onOpenBatchUpdate}
             onRemoveGene={this.onRemoveGene}
             onRemoveTag={this.onRemoveTag}
@@ -306,7 +284,6 @@ class App extends React.Component {
             publishedFilter={publishedFilter}
             selectedArtworksCount={selectedArtworkIds.length}
             tags={tags}
-
             updateState={this.updateStateFor}
           />
         </Sidebar>

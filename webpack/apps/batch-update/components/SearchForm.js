@@ -32,14 +32,11 @@ class SearchForm extends React.Component {
 
   render () {
     const {
+      clearState,
       createdAfterDate,
       createdBeforeDate,
       fair,
       genes,
-      onClearCreatedAfterDate,
-      onClearCreatedBeforeDate,
-      onClearFair,
-      onClearPartner,
       onRemoveGene,
       onRemoveTag,
       partner,
@@ -61,18 +58,16 @@ class SearchForm extends React.Component {
     return (
       <div className={this.props.className}>
         <CurrentCriteria
+          clearState={clearState}
           createdAfterDate={createdAfterDate}
           createdBeforeDate={createdBeforeDate}
           fair={fair}
           genes={genes}
-          onClearCreatedAfterDate={onClearCreatedAfterDate}
-          onClearCreatedBeforeDate={onClearCreatedBeforeDate}
-          onClearFair={onClearFair}
-          onClearPartner={onClearPartner}
           onRemoveGene={onRemoveGene}
           onRemoveTag={onRemoveTag}
           partner={partner}
           tags={tags}
+          updateState={updateState}
           />
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />

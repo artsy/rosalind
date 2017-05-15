@@ -11,14 +11,11 @@ import {
 function CurrentCriteria (props) {
   const {
     className,
+    clearState,
     createdAfterDate,
     createdBeforeDate,
     fair,
     genes,
-    onClearCreatedAfterDate,
-    onClearCreatedBeforeDate,
-    onClearFair,
-    onClearPartner,
     onRemoveGene,
     onRemoveTag,
     partner,
@@ -29,10 +26,10 @@ function CurrentCriteria (props) {
     <div className={className}>
       {genes.length > 0 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
       {tags.length > 0 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
-      {partner && <SelectedPartner name={partner.name} onRemove={onClearPartner} />}
-      {fair && <SelectedFair name={fair.name} onRemove={onClearFair} />}
-      {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} onRemove={onClearCreatedAfterDate} />}
-      {createdBeforeDate && <SelectedCreatedBeforeDate name={createdBeforeDate} onRemove={onClearCreatedBeforeDate} />}
+      {partner && <SelectedPartner name={partner.name} clearState={clearState} />}
+      {fair && <SelectedFair name={fair.name} clearState={clearState} />}
+      {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} clearState={clearState} />}
+      {createdBeforeDate && <SelectedCreatedBeforeDate name={createdBeforeDate} clearState={clearState} />}
     </div>
   )
 }
@@ -44,8 +41,7 @@ CurrentCriteria.propTypes = {
   fair: React.PropTypes.object,
   onRemoveGene: React.PropTypes.func.isRequired,
   onRemoveTag: React.PropTypes.func.isRequired,
-  onClearPartner: React.PropTypes.func.isRequired,
-  onClearFair: React.PropTypes.func.isRequired
+  clearState: React.PropTypes.func
 }
 
 function CurrentGenes (props) {
