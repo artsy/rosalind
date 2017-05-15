@@ -4,6 +4,7 @@ import SearchResults from './SearchResults'
 import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
 import { Wrapper, Sidebar, Content } from './Layout'
+import FullScreenModal from './FullScreenModal'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 
@@ -19,6 +20,7 @@ class App extends React.Component {
       genes: [],
       genomedFilter: 'SHOW_ALL',
       isLoading: false,
+      isSpecifyingBatchUpdate: false,
       partner: null,
       previewedArtwork: null,
       publishedFilter: 'SHOW_ALL',
@@ -55,6 +57,9 @@ class App extends React.Component {
 
     this.fetchArtworks = this.fetchArtworks.bind(this)
     this.fetchMoreArtworks = this.fetchMoreArtworks.bind(this)
+
+    this.onOpenBatchUpdate = this.onOpenBatchUpdate.bind(this)
+    this.onDismissBatchUpdate = this.onDismissBatchUpdate.bind(this)
   }
 
   componentWillMount () {
@@ -236,12 +241,10 @@ class App extends React.Component {
   onToggleArtwork (artwork) {
     const { selectedArtworkIds } = this.state
     if (selectedArtworkIds.indexOf(artwork.id) > -1) {
-      console.log('filtering')
       this.setState({
         selectedArtworkIds: selectedArtworkIds.filter(id => id !== artwork.id)
       })
     } else {
-      console.log('pushing')
       this.setState({
         selectedArtworkIds: [...selectedArtworkIds, artwork.id]
       })
@@ -279,16 +282,28 @@ class App extends React.Component {
     this.setState({ previewedArtwork: artwork })
   }
 
+  onOpenBatchUpdate () {
+    this.setState({ isSpecifyingBatchUpdate: true })
+  }
+
+  onDismissBatchUpdate () {
+    this.setState({ isSpecifyingBatchUpdate: false })
+  }
+
   render () {
     const {
       artworks,
       createdAfterDate,
       createdBeforeDate,
+      deletedFilter,
       fair,
       genes,
+      genomedFilter,
       isLoading,
+      isSpecifyingBatchUpdate,
       partner,
       previewedArtwork,
+      publishedFilter,
       selectedArtworkIds,
       tags,
       totalHits
@@ -300,10 +315,10 @@ class App extends React.Component {
           <SearchForm
             createdAfterDate={createdAfterDate}
             createdBeforeDate={createdBeforeDate}
-            deletedFilter={this.state.deletedFilter}
+            deletedFilter={deletedFilter}
             fair={fair}
             genes={genes}
-            genomedFilter={this.state.genomedFilter}
+            genomedFilter={genomedFilter}
             onAddCreatedAfterDate={this.onAddCreatedAfterDate}
             onAddCreatedBeforeDate={this.onAddCreatedBeforeDate}
             onAddGene={this.onAddGene}
@@ -312,6 +327,7 @@ class App extends React.Component {
             onClearCreatedBeforeDate={this.onClearCreatedBeforeDate}
             onClearFair={this.onClearFair}
             onClearPartner={this.onClearPartner}
+            onOpenBatchUpdate={this.onOpenBatchUpdate}
             onRemoveGene={this.onRemoveGene}
             onRemoveTag={this.onRemoveTag}
             onSetDeletedFilter={this.onSetDeletedFilter}
@@ -320,7 +336,7 @@ class App extends React.Component {
             onSetPartner={this.onSetPartner}
             onSetPublishedFilter={this.onSetPublishedFilter}
             partner={partner}
-            publishedFilter={this.state.publishedFilter}
+            publishedFilter={publishedFilter}
             selectedArtworksCount={selectedArtworkIds.length}
             tags={tags}
           />
@@ -342,6 +358,11 @@ class App extends React.Component {
             onLoadMore={this.fetchMoreArtworks}
           />
         </Content>
+
+        <FullScreenModal isOpen={isSpecifyingBatchUpdate} onDismiss={this.onDismissBatchUpdate}>
+          <p>{selectedArtworkIds.length} works selected</p>
+          <a href='#' onClick={this.onDismissBatchUpdate}>cancel</a>
+        </FullScreenModal>
       </Wrapper>
     )
   }
