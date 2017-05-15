@@ -4,7 +4,8 @@ import DateInput from './DateInput'
 const CreatedAfterDateInput = (props) => {
   return (
     <DateInput
-      onSelectDate={props.onSelectDate}
+      stateKey='createdAfterDate'
+      onSelectDate={props.updateState}
       date={props.createdAfterDate}
       placeholder='Created after date'
     />

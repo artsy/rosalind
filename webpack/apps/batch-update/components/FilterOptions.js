@@ -1,17 +1,29 @@
 import React from 'react'
 
 function FilterOptions (props) {
-  const { className, publishedFilter, deletedFilter, genomedFilter, onSetPublishedFilter, onSetDeletedFilter, onSetGenomedFilter } = props
+  const {
+    className,
+    publishedFilter,
+    deletedFilter,
+    genomedFilter,
+    onSetDeletedFilter,
+    onSetGenomedFilter,
+    updateState
+  } = props
+
   return (
     <div className={className}>
-      <PublishedFilter current={publishedFilter}
-        onSetPublishedFilter={onSetPublishedFilter}
+      <PublishedFilter
+        current={publishedFilter}
+        onSetPublishedFilter={updateState}
         />
-      <DeletedFilter current={deletedFilter}
-        onSetDeletedFilter={onSetDeletedFilter}
+      <DeletedFilter
+        current={deletedFilter}
+        onSetDeletedFilter={updateState}
         />
-      <GenomedFilter current={genomedFilter}
-        onSetGenomedFilter={onSetGenomedFilter}
+      <GenomedFilter
+        current={genomedFilter}
+        onSetGenomedFilter={updateState}
         />
     </div>
   )
@@ -22,9 +34,9 @@ function PublishedFilter (props) {
   return (
     <div className='filter'>
       <div>Published?</div>
-      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetPublishedFilter('SHOW_ALL') }}>All</a>
-      <a href='#' className={current === 'SHOW_PUBLISHED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetPublishedFilter('SHOW_PUBLISHED') }}>Published</a>
-      <a href='#' className={current === 'SHOW_NOT_PUBLISHED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetPublishedFilter('SHOW_NOT_PUBLISHED') }}>Not published</a>
+      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetPublishedFilter('publishedFilter', 'SHOW_ALL') }}>All</a>
+      <a href='#' className={current === 'SHOW_PUBLISHED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetPublishedFilter('publishedFilter', 'SHOW_PUBLISHED') }}>Published</a>
+      <a href='#' className={current === 'SHOW_NOT_PUBLISHED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetPublishedFilter('publishedFilter', 'SHOW_NOT_PUBLISHED') }}>Not published</a>
     </div>
   )
 }
@@ -34,9 +46,9 @@ function DeletedFilter (props) {
   return (
     <div className='filter'>
       <div>Deleted?</div>
-      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetDeletedFilter('SHOW_ALL') }}>All</a>
-      <a href='#' className={current === 'SHOW_DELETED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetDeletedFilter('SHOW_DELETED') }}>Deleted</a>
-      <a href='#' className={current === 'SHOW_NOT_DELETED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetDeletedFilter('SHOW_NOT_DELETED') }}>Not deleted</a>
+      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetDeletedFilter('deletedFilter', 'SHOW_ALL') }}>All</a>
+      <a href='#' className={current === 'SHOW_DELETED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetDeletedFilter('deletedFilter', 'SHOW_DELETED') }}>Deleted</a>
+      <a href='#' className={current === 'SHOW_NOT_DELETED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetDeletedFilter('deletedFilter', 'SHOW_NOT_DELETED') }}>Not deleted</a>
     </div>
   )
 }
@@ -46,9 +58,9 @@ function GenomedFilter (props) {
   return (
     <div className='filter'>
       <div>Genomed?</div>
-      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetGenomedFilter('SHOW_ALL') }}>All</a>
-      <a href='#' className={current === 'SHOW_GENOMED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetGenomedFilter('SHOW_GENOMED') }}>Genomed</a>
-      <a href='#' className={current === 'SHOW_NOT_GENOMED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetGenomedFilter('SHOW_NOT_GENOMED') }}>Not genomed</a>
+      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetGenomedFilter('genomedFilter', 'SHOW_ALL') }}>All</a>
+      <a href='#' className={current === 'SHOW_GENOMED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetGenomedFilter('genomedFilter', 'SHOW_GENOMED') }}>Genomed</a>
+      <a href='#' className={current === 'SHOW_NOT_GENOMED' ? 'active' : null} onClick={(e) => { e.preventDefault(); onSetGenomedFilter('genomedFilter', 'SHOW_NOT_GENOMED') }}>Not genomed</a>
     </div>
   )
 }

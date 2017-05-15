@@ -47,20 +47,14 @@ class SearchForm extends React.Component {
     } = this.props
 
     const {
-      onAddCreatedAfterDate,
-      onAddCreatedBeforeDate,
       onAddGene,
       onAddTag,
-      onSetFair,
-      onSetPartner
+      updateState
     } = this.props
 
     const {
       deletedFilter,
       genomedFilter,
-      onSetDeletedFilter,
-      onSetGenomedFilter,
-      onSetPublishedFilter,
       publishedFilter
     } = this.props
 
@@ -83,30 +77,28 @@ class SearchForm extends React.Component {
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />
         <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
-        {partner === null && <PartnerAutosuggest onSelectPartner={onSetPartner} />}
-        {fair === null && <FairAutosuggest onSelectFair={onSetFair} />}
+        {partner === null && <PartnerAutosuggest updateState={updateState} />}
+        {fair === null && <FairAutosuggest updateState={updateState} />}
         {
           createdAfterDate === null &&
           <CreatedAfterDateInput
-            onSelectDate={onAddCreatedAfterDate}
-            createdAfterDate={this.props.createdAfterDate}
+            updateState={updateState}
+            createdAfterDate={createdAfterDate}
             />
         }
         {
           createdBeforeDate === null &&
           <CreatedBeforeDateInput
-            onSelectDate={onAddCreatedBeforeDate}
-            createdBeforeDate={this.props.createdBeforeDate}
+            updateState={updateState}
+            createdBeforeDate={createdBeforeDate}
             />
         }
 
         <FilterOptions
           deletedFilter={deletedFilter}
           genomedFilter={genomedFilter}
-          onSetDeletedFilter={onSetDeletedFilter}
-          onSetGenomedFilter={onSetGenomedFilter}
-          onSetPublishedFilter={onSetPublishedFilter}
           publishedFilter={publishedFilter}
+          updateState={updateState}
           />
 
         {this.maybeRenderEditButton()}
