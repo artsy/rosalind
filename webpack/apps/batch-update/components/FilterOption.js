@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function FilterOption (props) {
+function FilterOption (props) {
   const suffix = props.name.toUpperCase()
 
   return (
@@ -22,6 +22,12 @@ export default function FilterOption (props) {
       </Option>
     </div>
   )
+}
+
+FilterOption.propTypes = {
+  current: React.PropTypes.string.isRequired,
+  name: React.PropTypes.string.isRequired,
+  updateState: React.PropTypes.func.isRequired
 }
 
 function Option (props) {
@@ -56,3 +62,5 @@ function Option (props) {
 function capitalize (str) {
   return str.substring(0, 1).toUpperCase() + str.substring(1)
 }
+
+export default FilterOption
