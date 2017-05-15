@@ -17,7 +17,7 @@ function PartnerAutosuggest (props) {
 }
 
 PartnerAutosuggest.propTypes = {
-  updateState: React.PropTypes.func.isRequired
+  updateState: React.PropTypes.func
 }
 
 PartnerAutosuggest.defaultProps = {

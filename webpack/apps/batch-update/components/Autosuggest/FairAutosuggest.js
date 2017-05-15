@@ -17,7 +17,7 @@ function FairAutosuggest (props) {
 }
 
 FairAutosuggest.propTypes = {
-  updateState: React.PropTypes.func.isRequired
+  updateState: React.PropTypes.func
 }
 
 FairAutosuggest.defaultProps = {
