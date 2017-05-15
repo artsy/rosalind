@@ -1,56 +1,46 @@
 import React from 'react'
 
 export default function FilterOption (props) {
-  const {
-    current,
-    filter,
-    name,
-    updateState
-  } = props
-
-  const suffix = name.toUpperCase()
+  const suffix = props.name.toUpperCase()
 
   return (
     <div className='filter'>
       <div>
-        {`${capitalize(name)}?`}
+        {`${capitalize(props.name)}?`}
       </div>
 
-      <OptionLink updateState={updateState} option='SHOW_ALL' filter={filter} current={current}>
+      <Option option='SHOW_ALL' {...props}>
         All
-      </OptionLink>
+      </Option>
 
-      <OptionLink updateState={updateState} option={`SHOW_${suffix}`} filter={filter} current={current}>
-        {capitalize(name)}
-      </OptionLink>
+      <Option option={`SHOW_${suffix}`} {...props}>
+        {capitalize(props.name)}
+      </Option>
 
-      <OptionLink updateState={updateState} option={`SHOW_NOT_${suffix}`} filter={filter} current={current}>
-        {`Not ${name}`}
-      </OptionLink>
+      <Option option={`SHOW_NOT_${suffix}`} {...props}>
+        {`Not ${props.name}`}
+      </Option>
     </div>
   )
 }
 
-function OptionLink (props) {
+function Option (props) {
   const {
     current,
     children,
-    filter,
+    name,
     option,
     updateState
   } = props
 
   const handleClick = (option, event) => {
     event.preventDefault()
+    const filter = `${name}Filter`
     updateState(filter, option)
   }
 
   const active = (condition) => {
-    if (condition) {
-      return 'active'
-    } else {
-      return null
-    }
+    return condition ? 'active' : null
   }
 
   return (

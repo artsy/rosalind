@@ -14,19 +14,16 @@ function FilterOptions (props) {
     <div className={className}>
       <FilterOption
         current={publishedFilter}
-        filter='publishedFilter'
         name='published'
         updateState={updateState}
         />
       <FilterOption
         current={deletedFilter}
-        filter='deletedFilter'
         name='deleted'
         updateState={updateState}
         />
       <FilterOption
         current={genomedFilter}
-        filter='genomedFilter'
         name='genomed'
         updateState={updateState}
         />
