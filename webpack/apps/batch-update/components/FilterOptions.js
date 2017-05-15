@@ -1,4 +1,5 @@
 import React from 'react'
+import FilterOption from './FilterOption'
 
 function FilterOptions (props) {
   const {
@@ -11,75 +12,24 @@ function FilterOptions (props) {
 
   return (
     <div className={className}>
-      <PublishedFilter
+      <FilterOption
+        filter='publishedFilter'
         current={publishedFilter}
         updateState={updateState}
+        text='Published'
         />
-      <DeletedFilter
+      <FilterOption
+        filter='deletedFilter'
         current={deletedFilter}
         updateState={updateState}
+        text='Deleted'
         />
-      <GenomedFilter
+      <FilterOption
+        filter='genomedFilter'
         current={genomedFilter}
         updateState={updateState}
+        text='Genomed'
         />
-    </div>
-  )
-}
-
-function PublishedFilter (props) {
-  const { current, updateState } = props
-
-  const handleClick = (args, event) => {
-    const [filter, action] = args
-    event.preventDefault()
-    updateState(filter, action)
-  }
-
-  return (
-    <div className='filter'>
-      <div>Published?</div>
-      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={handleClick.bind(null, ['publishedFilter', 'SHOW_ALL'])}>All</a>
-      <a href='#' className={current === 'SHOW_PUBLISHED' ? 'active' : null} onClick={handleClick.bind(null, ['publishedFilter', 'SHOW_PUBLISHED'])}>Published</a>
-      <a href='#' className={current === 'SHOW_NOT_PUBLISHED' ? 'active' : null} onClick={handleClick.bind(null, ['publishedFilter', 'SHOW_NOT_PUBLISHED'])}>Not published</a>
-    </div>
-  )
-}
-
-function DeletedFilter (props) {
-  const { current, updateState } = props
-
-  const handleClick = (args, event) => {
-    const [filter, action] = args
-    event.preventDefault()
-    updateState(filter, action)
-  }
-
-  return (
-    <div className='filter'>
-      <div>Deleted?</div>
-      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={handleClick.bind(null, ['deletedFilter', 'SHOW_ALL'])}>All</a>
-      <a href='#' className={current === 'SHOW_DELETED' ? 'active' : null} onClick={handleClick.bind(null, ['deletedFilter', 'SHOW_DELETED'])}>Deleted</a>
-      <a href='#' className={current === 'SHOW_NOT_DELETED' ? 'active' : null} onClick={handleClick.bind(null, ['deletedFilter', 'SHOW_NOT_DELETED'])}>Not deleted</a>
-    </div>
-  )
-}
-
-function GenomedFilter (props) {
-  const { current, updateState } = props
-
-  const handleClick = (args, event) => {
-    const [filter, action] = args
-    event.preventDefault()
-    updateState(filter, action)
-  }
-
-  return (
-    <div className='filter'>
-      <div>Genomed?</div>
-      <a href='#' className={current === 'SHOW_ALL' ? 'active' : null} onClick={handleClick.bind(null, ['genomedFilter', 'SHOW_ALL'])}>All</a>
-      <a href='#' className={current === 'SHOW_GENOMED' ? 'active' : null} onClick={handleClick.bind(null, ['genomedFilter', 'SHOW_GENOMED'])}>Genomed</a>
-      <a href='#' className={current === 'SHOW_NOT_GENOMED' ? 'active' : null} onClick={handleClick.bind(null, ['genomedFilter', 'SHOW_NOT_GENOMED'])}>Not genomed</a>
     </div>
   )
 }
