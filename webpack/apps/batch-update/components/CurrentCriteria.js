@@ -35,13 +35,13 @@ function CurrentCriteria (props) {
 }
 
 CurrentCriteria.propTypes = {
-  genes: React.PropTypes.arrayOf(React.PropTypes.object),
-  tags: React.PropTypes.arrayOf(React.PropTypes.object),
-  partner: React.PropTypes.object,
+  clearState: React.PropTypes.func,
   fair: React.PropTypes.object,
+  genes: React.PropTypes.arrayOf(React.PropTypes.object),
   onRemoveGene: React.PropTypes.func.isRequired,
   onRemoveTag: React.PropTypes.func.isRequired,
-  clearState: React.PropTypes.func
+  partner: React.PropTypes.object,
+  tags: React.PropTypes.arrayOf(React.PropTypes.object)
 }
 
 function CurrentGenes (props) {
@@ -71,13 +71,13 @@ import { avantGarde } from './Layout'
 
 const StyledCurrentCriteria = styled(CurrentCriteria)`
   h2 {
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     ${avantGarde}
+    color: #999;
     font-size: 0.75em;
     font-weight: 400;
+    letter-spacing: 0.1em;
     margin-top: 1.5em;
+    text-transform: uppercase;
   }
 `
 

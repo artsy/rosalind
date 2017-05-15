@@ -83,10 +83,10 @@ class App extends React.Component {
     const {
       createdAfterDate,
       createdBeforeDate,
+      fair,
       genes,
-      tags,
       partner,
-      fair
+      tags
     } = this.state
 
     if ((genes.length === 0) &&

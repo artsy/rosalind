@@ -2,7 +2,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 <div
   className="foqgVb">
   <div
-    className="PSSoP" />
+    className="cMTqqq" />
   <div
     className="GenericAutosuggest">
     <div
@@ -215,7 +215,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 <div
   className="foqgVb">
   <div
-    className="PSSoP" />
+    className="cMTqqq" />
   <div
     className="GenericAutosuggest">
     <div
@@ -433,7 +433,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 <div
   className="foqgVb">
   <div
-    className="PSSoP" />
+    className="cMTqqq" />
   <div
     className="GenericAutosuggest">
     <div
@@ -651,7 +651,7 @@ exports[`test does not render fair autosuggest if fair is already selected 1`] =
 <div
   className="foqgVb">
   <div
-    className="PSSoP">
+    className="cMTqqq">
     <div>
       <h2>
         Fair
@@ -855,7 +855,7 @@ exports[`test does not render partner autosuggest if partner is already selected
 <div
   className="foqgVb">
   <div
-    className="PSSoP">
+    className="cMTqqq">
     <div>
       <h2>
         Partner
@@ -1059,7 +1059,7 @@ exports[`test renders correctly 1`] = `
 <div
   className="foqgVb">
   <div
-    className="PSSoP" />
+    className="cMTqqq" />
   <div
     className="GenericAutosuggest">
     <div
