@@ -8,7 +8,7 @@ class SelectedComponent extends React.Component {
 
   handleRemove (e) {
     e.preventDefault()
-    this.props.onRemove(this.props.name)
+    this.props.onRemove(this.props.name, this.props.stateKey)
   }
 
   render () {

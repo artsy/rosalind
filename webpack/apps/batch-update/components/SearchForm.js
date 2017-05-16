@@ -32,14 +32,11 @@ class SearchForm extends React.Component {
 
   render () {
     const {
+      clearState,
       createdAfterDate,
       createdBeforeDate,
       fair,
       genes,
-      onClearCreatedAfterDate,
-      onClearCreatedBeforeDate,
-      onClearFair,
-      onClearPartner,
       onRemoveGene,
       onRemoveTag,
       partner,
@@ -47,66 +44,56 @@ class SearchForm extends React.Component {
     } = this.props
 
     const {
-      onAddCreatedAfterDate,
-      onAddCreatedBeforeDate,
       onAddGene,
       onAddTag,
-      onSetFair,
-      onSetPartner
+      updateState
     } = this.props
 
     const {
       deletedFilter,
       genomedFilter,
-      onSetDeletedFilter,
-      onSetGenomedFilter,
-      onSetPublishedFilter,
       publishedFilter
     } = this.props
 
     return (
       <div className={this.props.className}>
         <CurrentCriteria
+          clearState={clearState}
           createdAfterDate={createdAfterDate}
           createdBeforeDate={createdBeforeDate}
           fair={fair}
           genes={genes}
-          onClearCreatedAfterDate={onClearCreatedAfterDate}
-          onClearCreatedBeforeDate={onClearCreatedBeforeDate}
-          onClearFair={onClearFair}
-          onClearPartner={onClearPartner}
           onRemoveGene={onRemoveGene}
           onRemoveTag={onRemoveTag}
           partner={partner}
           tags={tags}
+          updateState={updateState}
           />
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />
         <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
-        {partner === null && <PartnerAutosuggest onSelectPartner={onSetPartner} />}
-        {fair === null && <FairAutosuggest onSelectFair={onSetFair} />}
+        {partner === null && <PartnerAutosuggest updateState={updateState} />}
+        {fair === null && <FairAutosuggest updateState={updateState} />}
         {
           createdAfterDate === null &&
           <CreatedAfterDateInput
-            onSelectDate={onAddCreatedAfterDate}
-            createdAfterDate={this.props.createdAfterDate}
+            updateState={updateState}
+            createdAfterDate={createdAfterDate}
             />
         }
         {
           createdBeforeDate === null &&
           <CreatedBeforeDateInput
-            onSelectDate={onAddCreatedBeforeDate}
-            createdBeforeDate={this.props.createdBeforeDate}
+            updateState={updateState}
+            createdBeforeDate={createdBeforeDate}
             />
         }
 
         <FilterOptions
           deletedFilter={deletedFilter}
           genomedFilter={genomedFilter}
-          onSetDeletedFilter={onSetDeletedFilter}
-          onSetGenomedFilter={onSetGenomedFilter}
-          onSetPublishedFilter={onSetPublishedFilter}
           publishedFilter={publishedFilter}
+          updateState={updateState}
           />
 
         {this.maybeRenderEditButton()}

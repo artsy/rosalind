@@ -43,7 +43,11 @@ class DateInput extends React.Component {
   submitDate () {
     if (this.state.suggestion !== null) {
       const date = new Date(this.state.suggestion)
-      this.props.onSelectDate(dateFormats.default(date))
+      this.props.onSelectDate(
+        this.props.stateKey,
+        dateFormats.default(date)
+      )
+
       this.setState({
         input: dateFormats.long(date),
         suggestion: null

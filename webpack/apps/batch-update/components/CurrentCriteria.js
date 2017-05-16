@@ -11,14 +11,11 @@ import {
 function CurrentCriteria (props) {
   const {
     className,
+    clearState,
     createdAfterDate,
     createdBeforeDate,
     fair,
     genes,
-    onClearCreatedAfterDate,
-    onClearCreatedBeforeDate,
-    onClearFair,
-    onClearPartner,
     onRemoveGene,
     onRemoveTag,
     partner,
@@ -27,25 +24,24 @@ function CurrentCriteria (props) {
 
   return (
     <div className={className}>
-      {genes.length > 1 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
-      {tags.length > 1 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
-      {partner && <SelectedPartner name={partner.name} onRemove={onClearPartner} />}
-      {fair && <SelectedFair name={fair.name} onRemove={onClearFair} />}
-      {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} onRemove={onClearCreatedAfterDate} />}
-      {createdBeforeDate && <SelectedCreatedBeforeDate name={createdBeforeDate} onRemove={onClearCreatedBeforeDate} />}
+      {genes.length > 0 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
+      {tags.length > 0 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
+      {partner && <SelectedPartner name={partner.name} clearState={clearState} />}
+      {fair && <SelectedFair name={fair.name} clearState={clearState} />}
+      {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} clearState={clearState} />}
+      {createdBeforeDate && <SelectedCreatedBeforeDate name={createdBeforeDate} clearState={clearState} />}
     </div>
   )
 }
 
 CurrentCriteria.propTypes = {
-  genes: React.PropTypes.arrayOf(React.PropTypes.object),
-  tags: React.PropTypes.arrayOf(React.PropTypes.object),
-  partner: React.PropTypes.object,
+  clearState: React.PropTypes.func,
   fair: React.PropTypes.object,
+  genes: React.PropTypes.arrayOf(React.PropTypes.object),
   onRemoveGene: React.PropTypes.func.isRequired,
   onRemoveTag: React.PropTypes.func.isRequired,
-  onClearPartner: React.PropTypes.func.isRequired,
-  onClearFair: React.PropTypes.func.isRequired
+  partner: React.PropTypes.object,
+  tags: React.PropTypes.arrayOf(React.PropTypes.object)
 }
 
 function CurrentGenes (props) {
@@ -75,13 +71,13 @@ import { avantGarde } from './Layout'
 
 const StyledCurrentCriteria = styled(CurrentCriteria)`
   h2 {
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     ${avantGarde}
+    color: #999;
     font-size: 0.75em;
     font-weight: 400;
+    letter-spacing: 0.1em;
     margin-top: 1.5em;
+    text-transform: uppercase;
   }
 `
 

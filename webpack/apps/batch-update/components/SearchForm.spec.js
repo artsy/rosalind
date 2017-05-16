@@ -21,15 +21,11 @@ beforeEach(() => {
     onClearPartner: jest.fn(),
     onRemoveGene: jest.fn(),
     onRemoveTag: jest.fn(),
-    onSetDeletedFilter: jest.fn(),
-    onSetFair: jest.fn(),
-    onSetGenomedFilter: jest.fn(),
-    onSetPartner: jest.fn(),
-    onSetPublishedFilter: jest.fn(),
     partner: null,
     publishedFilter: 'SHOW_ALL',
     selectedArtworksCount: 0,
-    tags: []
+    tags: [],
+    updateStateFor: jest.fn()
   }
 })
 

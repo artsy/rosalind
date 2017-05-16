@@ -6,8 +6,9 @@ const SelectedFair = (props) => {
     <div>
       <h2>Fair</h2>
       <SelectedComponent
+        stateKey='fair'
         name={props.name}
-        onRemove={props.onRemove}
+        onRemove={props.clearState}
       />
     </div>
   )

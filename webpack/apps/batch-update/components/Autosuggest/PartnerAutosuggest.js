@@ -11,13 +11,13 @@ function PartnerAutosuggest (props) {
       fetchSuggestions={matchPartners}
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
-      selectSuggestion={partner => { props.onSelectPartner(partner) }}
+      selectSuggestion={partner => { props.updateState('partner', partner) }}
       />
   )
 }
 
 PartnerAutosuggest.propTypes = {
-  onSelectPartner: React.PropTypes.func.isRequired
+  updateState: React.PropTypes.func
 }
 
 PartnerAutosuggest.defaultProps = {
