@@ -21,7 +21,9 @@
     "react-addons-test-utils": "^15.4.2",
     "react-autosuggest": "^8.0.0",
     "react-dom": "^15.4.1",
+    "react-redux": "^5.0.4",
     "react-test-renderer": "^15.4.2",
+    "redux": "^3.6.0",
     "standard": "^8.6.0",
     "standard-loader": "^5.0.0",
     "stats-webpack-plugin": "^0.2.1",
@@ -31,8 +33,7 @@
     "webpack-dev-server": "^1.9.0",
     "whatwg-fetch": "^2.0.3"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/webpack/__mocks__/fileMock.js",
