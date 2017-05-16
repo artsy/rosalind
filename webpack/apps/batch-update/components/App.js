@@ -157,7 +157,7 @@ class App extends React.Component {
     })
   }
 
-  onRemoveGene (geneName, _key) {
+  onRemoveGene (geneName, key = null) {
     const { genes } = this.state
     this.setState({
       genes: genes.filter(g => g.name !== geneName)
@@ -171,7 +171,7 @@ class App extends React.Component {
     })
   }
 
-  onRemoveTag (tagName, _key) {
+  onRemoveTag (tagName, key = null) {
     const { tags } = this.state
     this.setState({
       tags: tags.filter(t => t.name !== tagName)
@@ -185,7 +185,7 @@ class App extends React.Component {
     })
   }
 
-  clearStateFor (_name, key) {
+  clearStateFor (name = null, key) {
     this.setState({[key]: null})
   }
 
