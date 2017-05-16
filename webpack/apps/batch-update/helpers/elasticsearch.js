@@ -4,7 +4,6 @@ export function buildElasticsearchQuery (args) {
   const {
     createdAfterDate,
     createdBeforeDate,
-    deletedFilter,
     fair,
     from,
     genes,
@@ -17,7 +16,7 @@ export function buildElasticsearchQuery (args) {
 
   const geneMatches = genes.map(g => { return { 'match': { 'genes': g.name } } })
   const tagMatches = tags.map(t => { return { 'match': { 'tags': t.name } } })
-  const filterMatches = buildFilterMatches({ publishedFilter, deletedFilter, genomedFilter })
+  const filterMatches = buildFilterMatches({ publishedFilter, genomedFilter })
   const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
   const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
   const createdDateRange = buildCreatedDateRange({createdAfterDate, createdBeforeDate})
@@ -66,10 +65,9 @@ const buildCreatedDateRange = ({createdAfterDate, createdBeforeDate}) => {
   return query
 }
 
-const buildFilterMatches = ({ publishedFilter, deletedFilter, genomedFilter }) => (
+const buildFilterMatches = ({ publishedFilter, genomedFilter }) => (
   [
     publishedMatcher(publishedFilter),
-    deletedMatcher(deletedFilter),
     genomedMatcher(genomedFilter)
   ]
 )
@@ -80,17 +78,6 @@ const publishedMatcher = (publishedFilter) => {
       return { 'match': { 'published': true } }
     case 'SHOW_NOT_PUBLISHED':
       return { 'match': { 'published': false } }
-    default:
-      return null
-  }
-}
-
-const deletedMatcher = (deletedFilter) => {
-  switch (deletedFilter) {
-    case 'SHOW_DELETED':
-      return { 'match': { 'deleted': true } }
-    case 'SHOW_NOT_DELETED':
-      return { 'match': { 'deleted': false } }
     default:
       return null
   }
