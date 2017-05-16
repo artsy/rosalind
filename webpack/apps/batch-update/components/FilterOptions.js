@@ -5,7 +5,6 @@ function FilterOptions (props) {
   const {
     className,
     publishedFilter,
-    deletedFilter,
     genomedFilter,
     updateState
   } = props
@@ -15,11 +14,6 @@ function FilterOptions (props) {
       <FilterOption
         current={publishedFilter}
         name='published'
-        updateState={updateState}
-        />
-      <FilterOption
-        current={deletedFilter}
-        name='deleted'
         updateState={updateState}
         />
       <FilterOption

@@ -15,7 +15,6 @@ class App extends React.Component {
       artworks: [],
       createdAfterDate: null,
       createdBeforeDate: null,
-      deletedFilter: 'SHOW_ALL',
       fair: null,
       genes: [],
       genomedFilter: 'SHOW_ALL',
@@ -69,7 +68,6 @@ class App extends React.Component {
     return (
       (this.state.createdAfterDate !== prevState.createdAfterDate) ||
       (this.state.createdBeforeDate !== prevState.createdBeforeDate) ||
-      (this.state.deletedFilter !== prevState.deletedFilter) ||
       (this.state.fair !== prevState.fair) ||
       (this.state.genes !== prevState.genes) ||
       (this.state.genomedFilter !== prevState.genomedFilter) ||
@@ -95,12 +93,11 @@ class App extends React.Component {
     ) {
       this.setState({ artworks: [], totalHits: 0 })
     } else {
-      const { publishedFilter, deletedFilter, genomedFilter, size } = this.state
+      const { publishedFilter, genomedFilter, size } = this.state
 
       const query = buildElasticsearchQuery({
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,
@@ -123,7 +120,6 @@ class App extends React.Component {
     const {
       createdAfterDate,
       createdBeforeDate,
-      deletedFilter,
       fair,
       genes,
       genomedFilter,
@@ -139,7 +135,6 @@ class App extends React.Component {
     const query = buildElasticsearchQuery({
       createdAfterDate,
       createdBeforeDate,
-      deletedFilter,
       fair,
       from,
       genes,
@@ -250,7 +245,6 @@ class App extends React.Component {
       artworks,
       createdAfterDate,
       createdBeforeDate,
-      deletedFilter,
       fair,
       genes,
       genomedFilter,
@@ -271,7 +265,6 @@ class App extends React.Component {
             clearState={this.clearStateFor}
             createdAfterDate={createdAfterDate}
             createdBeforeDate={createdBeforeDate}
-            deletedFilter={deletedFilter}
             fair={fair}
             genes={genes}
             genomedFilter={genomedFilter}

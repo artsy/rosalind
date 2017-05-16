@@ -8,7 +8,6 @@ describe('buildElasticsearchQuery', () => {
     partner,
     fair,
     publishedFilter,
-    deletedFilter,
     genomedFilter
 
   beforeEach(() => {
@@ -19,7 +18,6 @@ describe('buildElasticsearchQuery', () => {
     partner = null
     fair = null
     publishedFilter = null
-    deletedFilter = null
     genomedFilter = null
   })
 
@@ -46,7 +44,6 @@ describe('buildElasticsearchQuery', () => {
       const params = {
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,
@@ -80,7 +77,6 @@ describe('buildElasticsearchQuery', () => {
       const params = {
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,
@@ -109,7 +105,6 @@ describe('buildElasticsearchQuery', () => {
       const params = {
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,
@@ -138,7 +133,6 @@ describe('buildElasticsearchQuery', () => {
       const params = {
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,
@@ -165,7 +159,7 @@ describe('buildElasticsearchQuery', () => {
       }
       genes = [{id: 'gene1', name: 'Gene 1'}]
       const size = 11
-      const actualQuery = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, size })
+      const actualQuery = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, genomedFilter, size })
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -184,7 +178,7 @@ describe('buildElasticsearchQuery', () => {
       }
       genes = [{id: 'gene1', name: 'Gene 1'}]
       const from = 111
-      const actualQuery = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, from })
+      const actualQuery = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, genomedFilter, from })
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -213,7 +207,6 @@ describe('buildElasticsearchQuery', () => {
       const params = {
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,
@@ -251,7 +244,6 @@ describe('buildElasticsearchQuery', () => {
       const params = {
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,
@@ -291,7 +283,6 @@ describe('buildElasticsearchQuery', () => {
       const params = {
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,
@@ -328,37 +319,6 @@ describe('buildElasticsearchQuery', () => {
       const params = {
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
-        fair,
-        genes,
-        genomedFilter,
-        partner,
-        publishedFilter,
-        tags
-      }
-      const actualQuery = buildElasticsearchQuery(params)
-      expect(actualQuery).toEqual(expectedQuery)
-    })
-
-    it('modifies a query with the value of the "deleted" filter', () => {
-      const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'genes': 'Gene 1'}},
-              {'match': {'deleted': true}}
-            ]
-          }
-        },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
-      }
-      deletedFilter = 'SHOW_DELETED'
-      const params = {
-        createdAfterDate,
-        createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,
@@ -388,7 +348,6 @@ describe('buildElasticsearchQuery', () => {
       const params = {
         createdAfterDate,
         createdBeforeDate,
-        deletedFilter,
         fair,
         genes,
         genomedFilter,

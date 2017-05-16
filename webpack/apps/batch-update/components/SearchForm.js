@@ -50,7 +50,6 @@ class SearchForm extends React.Component {
     } = this.props
 
     const {
-      deletedFilter,
       genomedFilter,
       publishedFilter
     } = this.props
@@ -90,7 +89,6 @@ class SearchForm extends React.Component {
         }
 
         <FilterOptions
-          deletedFilter={deletedFilter}
           genomedFilter={genomedFilter}
           publishedFilter={publishedFilter}
           updateState={updateState}
