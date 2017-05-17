@@ -1,10 +1,10 @@
 import React from 'react'
-import SearchForm from './SearchForm'
-import SearchResults from './SearchResults'
+import SearchForm from '../components/SearchForm'
+import SearchResults from '../components/SearchResults'
 import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
-import { Wrapper, Sidebar, Content } from './Layout'
-import FullScreenModal from './FullScreenModal'
+import { Wrapper, Sidebar, Content } from '../components/Layout'
+import FullScreenModal from '../components/FullScreenModal'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 
