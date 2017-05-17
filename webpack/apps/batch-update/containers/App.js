@@ -6,6 +6,9 @@ import { matchArtworks } from 'lib/rosalind-api'
 import { Wrapper, Sidebar, Content } from '../components/Layout'
 import FullScreenModal from '../components/FullScreenModal'
 
+import { connect } from 'react-redux'
+import { requestToast } from '../actions'
+
 const findByName = (items, item) => items.find(i => i.name === item.name)
 
 class App extends React.Component {
@@ -343,6 +346,7 @@ class App extends React.Component {
         </Sidebar>
 
         <Content>
+          <StyledToast tags={tags} dispatch={this.props.dispatch} />
           <SearchResults
             artworks={artworks}
             selectedArtworkIds={selectedArtworkIds}
@@ -368,4 +372,58 @@ class App extends React.Component {
   }
 }
 
-export default App
+import styled from 'styled-components'
+
+const ToastControl = ({tags, dispatch, className}) => {
+  const toppings = ['avocado', 'paprika', 'spiralina']
+
+  const show = tags.length > 0 && tags[0].id === 'toast'
+
+  if (!show) {
+    return null
+  }
+
+  return (
+    <a
+      className={className}
+      href='#'
+      onClick={
+        (e) => {
+          e.preventDefault()
+          const toast = dispatch(requestToast(toppings))
+          window.alert(`Your toast now includes ${toast.toppings}`)
+        }
+      }>
+      Add Toppings
+      <img height='32px' src='http://icons.veryicon.com/png/Food%20&%20Drinks/Breakfast%201/Toast.png' />
+
+    </a>
+  )
+}
+
+const StyledToast = styled(ToastControl)`
+  font-size: 24px;
+  background-color: white;
+  color: #333;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #333;
+  text-decoration: none;
+
+  img {
+    padding-left: 0.5em
+    margin-bottom: -8px
+  }
+`
+
+const getToppings = ({toppings}) => {
+  return {toppings: toppings}
+}
+
+const mapStateToProps = state => {
+  return {
+    toast: getToppings(state.toast)
+  }
+}
+
+export default connect(mapStateToProps)(App)
