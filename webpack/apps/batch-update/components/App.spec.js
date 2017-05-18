@@ -56,12 +56,12 @@ describe('state mutations', () => {
     test('partners can be set and cleared', () => {
       const partner = { id: 'the-gallery', name: 'The Gallery' }
 
-      app.onSetPartner(partner)
+      app.updateStateFor('partner', partner)
       expect(app.state).toMatchObject({
         partner: partner
       })
 
-      app.onClearPartner('The Gallery')
+      app.clearStateFor(null, 'partner')
       expect(app.state).toMatchObject({
         partner: null
       })
@@ -70,12 +70,12 @@ describe('state mutations', () => {
     test('fairs can be set and cleared', () => {
       const fair = { id: 'frieze', name: 'Frieze' }
 
-      app.onSetFair(fair)
+      app.updateStateFor('fair', fair)
       expect(app.state).toMatchObject({
         fair: fair
       })
 
-      app.onClearFair('Frieze')
+      app.clearStateFor(null, 'fair')
       expect(app.state).toMatchObject({
         fair: null
       })
@@ -84,7 +84,7 @@ describe('state mutations', () => {
     test('published filter can be set', () => {
       const publishedStatuses = ['SHOW_ALL', 'SHOW_PUBLISHED', 'SHOW_NOT_PUBLISHED']
       publishedStatuses.forEach((status) => {
-        app.onSetPublishedFilter(status)
+        app.updateStateFor('publishedFilter', status)
         expect(app.state).toMatchObject({
           publishedFilter: status
         })
@@ -94,7 +94,7 @@ describe('state mutations', () => {
     test('genomed filter can be set', () => {
       const genomedStatuses = ['SHOW_ALL', 'SHOW_GENOMED', 'SHOW_NOT_GENOMED']
       genomedStatuses.forEach((status) => {
-        app.onSetGenomedFilter(status)
+        app.updateStateFor('genomedFilter', status)
         expect(app.state).toMatchObject({
           genomedFilter: status
         })
@@ -104,7 +104,7 @@ describe('state mutations', () => {
     test('deleted filter can be set', () => {
       const deletedStatuses = ['SHOW_ALL', 'SHOW_DELETED', 'SHOW_NOT_DELETED']
       deletedStatuses.forEach((status) => {
-        app.onSetDeletedFilter(status)
+        app.updateStateFor('deletedFilter', status)
         expect(app.state).toMatchObject({
           deletedFilter: status
         })
