@@ -18,21 +18,23 @@ export const avantGarde = css`
 
 export const colors = {
   grayLightest: '#F8F8F8',
-  grayLight: '#E5E5E5',
   grayLighter: '#E5E5E5',
+  grayLight: '#DBDBDB',
   gray: '#cccccc',
   grayDark: '#999999',
   grayDarker: '#666666',
   grayDarkest: '#333333',
+  purpleLightest: '#F7F3FF',
   purpleLight: '#E2D2FF',
   purple: '#6E1FFF',
-  red: '#F7625A',
+  redLightest: '#FFF8F8',
   redLight: '#F7625A',
+  red: '#F7625A',
   yellowLight: '#FDEFD1',
-  yellowDark: '#F1AF1B',
   yellow: '#FCE1A8',
-  green: '#0EDA83',
+  yellowDark: '#F1AF1B',
   greenLight: '#0EDA83',
+  green: '#0EDA83',
   white: '#ffffff',
   black: '#000000'
 }
