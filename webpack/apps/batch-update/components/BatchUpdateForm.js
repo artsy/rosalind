@@ -4,6 +4,7 @@ import { Link } from './Links'
 import { LinkButton } from './Buttons'
 import { colors } from './Layout'
 import GeneInput from './GeneInput'
+import { GeneAutosuggest } from './Autosuggest'
 
 class BatchUpdateForm extends React.Component {
   constructor (props) {
@@ -12,11 +13,19 @@ class BatchUpdateForm extends React.Component {
       geneValues: {}
     }
     this.handleCancelClick = this.handleCancelClick.bind(this)
+    this.onAddGene = this.onAddGene.bind(this)
   }
 
   handleCancelClick (e) {
     e.preventDefault()
     this.props.onCancel()
+  }
+
+  onAddGene ({name}) {
+    const { geneValues } = this.state
+    this.setState({
+      geneValues: Object.assign(geneValues, { [name]: null })
+    })
   }
 
   render () {
@@ -31,9 +40,12 @@ class BatchUpdateForm extends React.Component {
           <div>{selectedArtworksCount} works selected</div>
           <LinkButton onClick={e => console.log('TODO')}>Queue changes</LinkButton>
         </Controls>
+
         <Genes>
           { geneNames.map(name => <GeneInput key={name} name={name} value={geneValues[name]} />) }
         </Genes>
+
+        <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.onAddGene} />
       </Wrapper>
     )
   }

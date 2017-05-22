@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
 import BatchUpdateForm from './BatchUpdateForm'
 import GeneInput from './GeneInput'
+import { GeneAutosuggest } from './Autosuggest'
 
 let props, dismissHandler
 
@@ -27,20 +28,19 @@ it('can be dismissed via the "cancel" link', () => {
   expect(dismissHandler.mock.calls.length).toEqual(1)
 })
 
-it('renders the current gene names/values', () => {
+it('renders the current genes', () => {
   const wrapper = mount(<BatchUpdateForm {...props} />)
   const component = wrapper.instance()
-  component.setState({
-    geneValues: {
-      'Kawaii': 70,
-      'Animals': 100
-    }
-  })
-  const geneInputs = wrapper.find(GeneInput)
-  expect(geneInputs.length).toEqual(2)
-  const text = wrapper.text()
-  expect(text).toMatch('Kawaii: 70')
-  expect(text).toMatch('Animals: 100')
+  component.onAddGene({ id: 'kawaii', name: 'Kawaii' })
+  component.onAddGene({ id: 'animals', name: 'Animals' })
+  expect(wrapper.find(GeneInput).length).toEqual(2)
+  expect(wrapper.text()).toMatch('Kawaii')
+  expect(wrapper.text()).toMatch('Animals')
+})
+
+it('includes a gene autocomplete widget', () => {
+  const wrapper = mount(<BatchUpdateForm {...props} />)
+  expect(wrapper.find(GeneAutosuggest).length).toEqual(1)
 })
 
 it('can submit the batch update via the "queue" button')
