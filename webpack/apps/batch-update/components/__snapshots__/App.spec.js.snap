@@ -210,7 +210,7 @@ exports[`test renders correctly 1`] = `
       <div
         className="YrORm">
         <a
-          className="cancel jVLXiT"
+          className="cancel gHceZM"
           href="#"
           onClick={[Function]}>
           Cancel
