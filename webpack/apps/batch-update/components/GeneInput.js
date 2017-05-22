@@ -20,6 +20,7 @@ class GeneInput extends React.Component {
       <Square value={value}>
         <Name value={value}>
           {name}
+          <Bar value={value} />
         </Name>
         <Value
           type='number'
@@ -86,6 +87,7 @@ const Name = styled.div`
   flex-basis: 100px;
   padding: 0.5em 1em;
   overflow: hidden;
+  position: relative;
 `
 Name.displayName = 'Name'
 
@@ -98,5 +100,20 @@ const Value = styled.input`
   }
 `
 Value.displayName = 'Value'
+
+const Bar = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: hsla(261, 100%, 85%, 0.15);
+  transition: height 0.15s;
+  ${props => {
+    return `
+      height: ${props.value}%;
+    `
+  }}
+`
+Bar.displayName = 'Bar'
 
 export default GeneInput

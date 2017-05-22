@@ -3,9 +3,12 @@ exports[`test renders a null gene correctly 1`] = `
   className="dDtKEb"
   value={null}>
   <div
-    className="bVvAPb"
+    className="iXxpJJ"
     value={null}>
     Kawaii
+    <div
+      className="gjNVml"
+      value={null} />
   </div>
   <input
     className="kjtXRk"
@@ -23,9 +26,12 @@ exports[`test renders a positive-valued gene correctly 1`] = `
   className="eJIUEQ"
   value={70}>
   <div
-    className="hUpxnK"
+    className="eaagZv"
     value={70}>
     Kawaii
+    <div
+      className="kHxQBi"
+      value={70} />
   </div>
   <input
     className="kjtXRk"
@@ -43,9 +49,12 @@ exports[`test renders a zero-valued gene correctly 1`] = `
   className="inyXqK"
   value={0}>
   <div
-    className="idNmxk"
+    className="cXizAY"
     value={0}>
     Kawaii
+    <div
+      className="kdkQr"
+      value={0} />
   </div>
   <input
     className="kjtXRk"
