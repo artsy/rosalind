@@ -3,7 +3,7 @@ exports[`test renders a null gene correctly 1`] = `
   className="dDtKEb"
   value={null}>
   <div
-    className="iXxpJJ"
+    className="bVvAPb"
     value={null}>
     Kawaii
   </div>
@@ -23,7 +23,7 @@ exports[`test renders a positive-valued gene correctly 1`] = `
   className="eJIUEQ"
   value={70}>
   <div
-    className="eaagZv"
+    className="hUpxnK"
     value={70}>
     Kawaii
   </div>
@@ -43,7 +43,7 @@ exports[`test renders a zero-valued gene correctly 1`] = `
   className="inyXqK"
   value={0}>
   <div
-    className="cXizAY"
+    className="idNmxk"
     value={0}>
     Kawaii
   </div>
