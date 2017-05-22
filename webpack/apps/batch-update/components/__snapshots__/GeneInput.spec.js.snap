@@ -1,9 +1,9 @@
 exports[`test renders a null gene correctly 1`] = `
 <div
-  className="bnTrtW"
+  className="dDtKEb"
   value={null}>
   <div
-    className="iRdkPQ"
+    className="iXxpJJ"
     value={null}>
     Kawaii
   </div>
@@ -14,5 +14,43 @@ exports[`test renders a null gene correctly 1`] = `
     step="10"
     type="number"
     value="" />
+</div>
+`;
+
+exports[`test renders a positive-valued gene correctly 1`] = `
+<div
+  className="eJIUEQ"
+  value={70}>
+  <div
+    className="eaagZv"
+    value={70}>
+    Kawaii
+  </div>
+  <input
+    className="kjtXRk"
+    max="100"
+    min="0"
+    step="10"
+    type="number"
+    value={70} />
+</div>
+`;
+
+exports[`test renders a zero-valued gene correctly 1`] = `
+<div
+  className="inyXqK"
+  value={0}>
+  <div
+    className="cXizAY"
+    value={0}>
+    Kawaii
+  </div>
+  <input
+    className="kjtXRk"
+    max="100"
+    min="0"
+    step="10"
+    type="number"
+    value={0} />
 </div>
 `;

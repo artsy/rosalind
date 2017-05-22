@@ -8,3 +8,15 @@ it('renders a null gene correctly', () => {
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+it('renders a zero-valued gene correctly', () => {
+  const rendered = renderer.create(<GeneInput name='Kawaii' value={0} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders a positive-valued gene correctly', () => {
+  const rendered = renderer.create(<GeneInput name='Kawaii' value={70} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})

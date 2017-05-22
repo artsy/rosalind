@@ -3,10 +3,6 @@ import styled from 'styled-components'
 import { colors } from './Layout'
 
 class GeneInput extends React.Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     const { name, value } = this.props
     return (
@@ -14,7 +10,7 @@ class GeneInput extends React.Component {
         <Name value={value}>
           {name}
         </Name>
-        <Value type='number' min='0' max='100' step='10' value={value || ''} />
+        <Value type='number' min='0' max='100' step='10' value={value === null ? '' : value} />
       </Square>
     )
   }
@@ -26,7 +22,21 @@ GeneInput.propTypes = {
 }
 
 const Square = styled.div`
-  border: solid 1px ${colors.grayLighter};
+  ${props => {
+    if (parseInt(props.value) === 0) {
+      return `
+        border: solid 1px ${colors.red};
+      `
+    } else if (props.value) {
+      return `
+        border: solid 1px ${colors.purple};
+      `
+    } else {
+      return `
+        border: solid 1px ${colors.grayLighter};
+      `
+    }
+  }}
   width: 140px;
   height: 140px;
   margin-right: 20px;
@@ -37,8 +47,24 @@ const Square = styled.div`
 Square.displayName = 'Square'
 
 const Name = styled.div`
-  background: ${colors.grayLightest};
-  border-bottom: solid 1px ${colors.grayLighter};
+  ${props => {
+    if (parseInt(props.value) === 0) {
+      return `
+        background: ${colors.redLightest};
+        border-bottom: solid 1px ${colors.red};
+      `
+    } else if (props.value) {
+      return `
+        background: ${colors.purpleLightest};
+        border-bottom: solid 1px ${colors.purple};
+      `
+    } else {
+      return `
+        background: ${colors.grayLightest};
+        border-bottom: solid 1px ${colors.grayLighter};
+      `
+    }
+  }}
   flex-basis: 100px;
   padding: 0.5em 1em;
   overflow: hidden;
