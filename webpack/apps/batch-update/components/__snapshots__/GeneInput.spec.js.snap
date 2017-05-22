@@ -1,0 +1,18 @@
+exports[`test renders a null gene correctly 1`] = `
+<div
+  className="bnTrtW"
+  value={null}>
+  <div
+    className="iRdkPQ"
+    value={null}>
+    Kawaii
+  </div>
+  <input
+    className="kjtXRk"
+    max="100"
+    min="0"
+    step="10"
+    type="number"
+    value="" />
+</div>
+`;
