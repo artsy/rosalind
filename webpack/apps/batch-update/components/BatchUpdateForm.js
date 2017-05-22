@@ -14,6 +14,7 @@ class BatchUpdateForm extends React.Component {
     }
     this.handleCancelClick = this.handleCancelClick.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
+    this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
   }
 
   handleCancelClick (e) {
@@ -25,6 +26,14 @@ class BatchUpdateForm extends React.Component {
     const { geneValues } = this.state
     this.setState({
       geneValues: Object.assign(geneValues, { [name]: null })
+    })
+  }
+
+  onChangeGeneValue ({name, value}) {
+    const { geneValues } = this.state
+    const parsedValue = (value === '' ? null : parseInt(value))
+    this.setState({
+      geneValues: Object.assign(geneValues, { [name]: parsedValue })
     })
   }
 
@@ -42,7 +51,7 @@ class BatchUpdateForm extends React.Component {
         </Controls>
 
         <Genes>
-          { geneNames.map(name => <GeneInput key={name} name={name} value={geneValues[name]} />) }
+          { geneNames.map(name => <GeneInput key={name} name={name} value={geneValues[name]} onChangeValue={this.onChangeGeneValue} />) }
         </Genes>
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.onAddGene} />

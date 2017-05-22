@@ -28,19 +28,62 @@ it('can be dismissed via the "cancel" link', () => {
   expect(dismissHandler.mock.calls.length).toEqual(1)
 })
 
-it('renders the current genes', () => {
+it('submits the batch update via the "queue" button')
+
+it('adds genes', () => {
   const wrapper = mount(<BatchUpdateForm {...props} />)
   const component = wrapper.instance()
   component.onAddGene({ id: 'kawaii', name: 'Kawaii' })
-  component.onAddGene({ id: 'animals', name: 'Animals' })
-  expect(wrapper.find(GeneInput).length).toEqual(2)
-  expect(wrapper.text()).toMatch('Kawaii')
-  expect(wrapper.text()).toMatch('Animals')
+  expect(component.state).toMatchObject({
+    geneValues: {
+      'Kawaii': null
+    }
+  })
+})
+
+describe('with currently added genes', () => {
+  let wrapper, component
+
+  beforeEach(() => {
+    wrapper = mount(<BatchUpdateForm {...props} />)
+    component = wrapper.instance()
+    component.setState({
+      geneValues: {
+        'Kawaii': 0,
+        'Animals': 100
+      }
+    })
+  })
+
+  it('renders the current genes', () => {
+    expect(wrapper.find(GeneInput).length).toEqual(2)
+    expect(wrapper.text()).toMatch('Kawaii')
+    expect(wrapper.text()).toMatch('Animals')
+  })
+
+  it('updates gene values from integers', () => {
+    component.onChangeGeneValue({ name: 'Kawaii', value: 70 })
+    expect(component.state['geneValues']).toMatchObject({
+      'Kawaii': 70
+    })
+  })
+
+  it('updates gene values from number-ish strings', () => {
+    component.onChangeGeneValue({ name: 'Kawaii', value: '70' })
+    expect(component.state['geneValues']).toMatchObject({
+      'Kawaii': 70
+    })
+  })
+
+  it('nulls gene values from empty strings', () => {
+    component.onChangeGeneValue({ name: 'Kawaii', value: '' })
+    expect(component.state['geneValues']).toMatchObject({
+      'Kawaii': null
+    })
+  })
 })
 
 it('includes a gene autocomplete widget', () => {
   const wrapper = mount(<BatchUpdateForm {...props} />)
   expect(wrapper.find(GeneAutosuggest).length).toEqual(1)
 })
-
-it('can submit the batch update via the "queue" button')

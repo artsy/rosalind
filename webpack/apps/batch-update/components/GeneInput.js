@@ -3,6 +3,17 @@ import styled from 'styled-components'
 import { colors } from './Layout'
 
 class GeneInput extends React.Component {
+  constructor (props) {
+    super(props)
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange (e) {
+    const { onChangeValue, name } = this.props
+    const value = e.target.value
+    onChangeValue({ name, value })
+  }
+
   render () {
     const { name, value } = this.props
     return (
@@ -10,7 +21,14 @@ class GeneInput extends React.Component {
         <Name value={value}>
           {name}
         </Name>
-        <Value type='number' min='0' max='100' step='10' value={value === null ? '' : value} />
+        <Value
+          type='number'
+          min='0'
+          max='100'
+          step='10'
+          value={value === null ? '' : value}
+          onChange={this.handleChange}
+        />
       </Square>
     )
   }
