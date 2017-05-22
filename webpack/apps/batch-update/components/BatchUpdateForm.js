@@ -19,6 +19,9 @@ class BatchUpdateForm extends React.Component {
 
   handleCancelClick (e) {
     e.preventDefault()
+    this.setState({
+      geneValues: {}
+    })
     this.props.onCancel()
   }
 

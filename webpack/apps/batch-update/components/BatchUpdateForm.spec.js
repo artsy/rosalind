@@ -28,6 +28,18 @@ it('can be dismissed via the "cancel" link', () => {
   expect(dismissHandler.mock.calls.length).toEqual(1)
 })
 
+it('resets the form state when canceling', () => {
+  const wrapper = mount(<BatchUpdateForm {...props} />)
+  wrapper.setState({
+    geneValues: {
+      'Kawaii': 70
+    }
+  })
+  const mockClickEvent = { preventDefault: jest.fn() }
+  wrapper.find('a.cancel').simulate('click', mockClickEvent)
+  expect(wrapper.state('geneValues')).toEqual({})
+})
+
 it('submits the batch update via the "queue" button')
 
 it('adds genes', () => {
