@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
+import BatchUpdateForm from './BatchUpdateForm'
 import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
 import { Wrapper, Sidebar, Content } from './Layout'
@@ -299,8 +300,7 @@ class App extends React.Component {
         </Content>
 
         <FullScreenModal isOpen={isSpecifyingBatchUpdate} onDismiss={this.onDismissBatchUpdate}>
-          <p>{selectedArtworkIds.length} works selected</p>
-          <a href='#' onClick={this.onDismissBatchUpdate}>cancel</a>
+          <BatchUpdateForm onCancel={this.onDismissBatchUpdate} selectedArtworkIds={selectedArtworkIds} />
         </FullScreenModal>
       </Wrapper>
     )
