@@ -19,7 +19,7 @@ class GeneInput extends React.Component {
     return (
       <Square value={value}>
         <Name value={value}>
-          {name}
+          { value === 0 ? <del>{name}</del> : name }
           <Bar value={value} />
         </Name>
         <Value
@@ -27,6 +27,7 @@ class GeneInput extends React.Component {
           min='0'
           max='100'
           step='10'
+          placeholder='Multiple'
           value={value === null ? '' : value}
           onChange={this.handleChange}
         />

@@ -15,6 +15,7 @@ exports[`test renders a null gene correctly 1`] = `
     max="100"
     min="0"
     onChange={[Function]}
+    placeholder="Multiple"
     step="10"
     type="number"
     value="" />
@@ -38,6 +39,7 @@ exports[`test renders a positive-valued gene correctly 1`] = `
     max="100"
     min="0"
     onChange={[Function]}
+    placeholder="Multiple"
     step="10"
     type="number"
     value={70} />
@@ -51,7 +53,9 @@ exports[`test renders a zero-valued gene correctly 1`] = `
   <div
     className="cXizAY"
     value={0}>
-    Kawaii
+    <del>
+      Kawaii
+    </del>
     <div
       className="kdkQr"
       value={0} />
@@ -61,6 +65,7 @@ exports[`test renders a zero-valued gene correctly 1`] = `
     max="100"
     min="0"
     onChange={[Function]}
+    placeholder="Multiple"
     step="10"
     type="number"
     value={0} />
