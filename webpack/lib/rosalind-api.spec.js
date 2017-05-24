@@ -1,5 +1,12 @@
 import 'whatwg-fetch'
-import { matchGenes, matchTags, matchPartners, matchFairs, matchArtworks } from './rosalind-api'
+import {
+  matchGenes,
+  matchTags,
+  matchPartners,
+  matchFairs,
+  matchArtworks,
+  submitBatchUpdate
+} from './rosalind-api'
 
 beforeEach(() => {
   const p = new Promise(() => {})
@@ -59,5 +66,39 @@ describe('matchArtworks', () => {
 
     const fetchedURI = window.fetch.mock.calls[0][0]
     expect(fetchedURI).toMatch(`/match/artworks?query=${encodedQuery}`)
+  })
+})
+
+describe('submitBatchUpdate', () => {
+  let artworkIds, geneValues
+
+  beforeEach(() => {
+    artworkIds = [ 'a', 'b', 'c' ]
+    geneValues = { 'Kawaii': 70, 'Animals': 0 }
+
+    submitBatchUpdate(artworkIds, geneValues)
+  })
+
+  it('fetches the expected url', () => {
+    const fetchedURI = window.fetch.mock.calls[0][0]
+    expect(fetchedURI).toMatch('/batch_updates')
+  })
+
+  it('makes a POST request', () => {
+    const fetchOptions = window.fetch.mock.calls[0][1]
+    const method = fetchOptions.method
+    expect(method).toMatch(/post/i)
+  })
+
+  it('sends the expected payload', () => {
+    const expectedPayload = JSON.stringify({
+      batch_update: {
+        artworks: artworkIds,
+        genes: geneValues
+      }
+    })
+    const fetchOptions = window.fetch.mock.calls[0][1]
+    const actualPayload = fetchOptions.body
+    expect(actualPayload).toEqual(expectedPayload)
   })
 })

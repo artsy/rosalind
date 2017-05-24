@@ -52,3 +52,22 @@ export const matchArtworks = function (esQuery) {
       console.error(err)
     })
 }
+
+export const submitBatchUpdate = function (artworkIds, genes) {
+  const uri = '/batch_updates'
+  const payload = JSON.stringify({
+    batch_update: {
+      artworks: artworkIds,
+      genes: genes
+    }
+  })
+  const options = {
+    method: 'POST',
+    body: payload
+  }
+  return window.fetch(uri, options)
+    .then(resp => console.log(resp))
+    .catch((err) => {
+      console.error(err)
+    })
+}
