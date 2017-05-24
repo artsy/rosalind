@@ -70,13 +70,14 @@ describe('matchArtworks', () => {
 })
 
 describe('submitBatchUpdate', () => {
-  let artworkIds, geneValues
+  let artworkIds, geneValues, csrfToken
 
   beforeEach(() => {
     artworkIds = [ 'a', 'b', 'c' ]
     geneValues = { 'Kawaii': 70, 'Animals': 0 }
+    csrfToken = 'SECRET is a funny looking word after you stare at it for a while'
 
-    submitBatchUpdate(artworkIds, geneValues)
+    submitBatchUpdate(artworkIds, geneValues, csrfToken)
   })
 
   it('fetches the expected url', () => {
@@ -100,5 +101,21 @@ describe('submitBatchUpdate', () => {
     const fetchOptions = window.fetch.mock.calls[0][1]
     const actualPayload = fetchOptions.body
     expect(actualPayload).toEqual(expectedPayload)
+  })
+
+  it('sends the payload as json', () => {
+    const fetchOptions = window.fetch.mock.calls[0][1]
+    const headers = fetchOptions.headers
+    expect(headers).toMatchObject({
+      'Content-Type': 'application/json'
+    })
+  })
+
+  it('includes a forgery token header', () => {
+    const fetchOptions = window.fetch.mock.calls[0][1]
+    const headers = fetchOptions.headers
+    expect(headers).toMatchObject({
+      'X-CSRF-Token': csrfToken
+    })
   })
 })
