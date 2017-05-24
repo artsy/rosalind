@@ -205,15 +205,54 @@ exports[`test renders correctly 1`] = `
   </div>
   <div
     className="eGgltq">
-    <p>
-      0
-       works selected
-    </p>
-    <a
-      href="#"
-      onClick={[Function]}>
-      cancel
-    </a>
+    <div
+      className="igHpwR">
+      <div
+        className="YrORm">
+        <a
+          className="cancel gHceZM"
+          href="#"
+          onClick={[Function]}>
+          Cancel
+        </a>
+        <div>
+          0
+           works selected
+        </div>
+        <a
+          className="bMOQzN"
+          onClick={[Function]}>
+          Queue changes
+        </a>
+      </div>
+      <div
+        className="hfTCBQ" />
+      <div
+        className="GenericAutosuggest">
+        <div
+          className="react-autosuggest__container">
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
+            aria-owns="react-autowhatever-gene-autosuggest"
+            autoComplete="off"
+            className="react-autosuggest__input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Add a gene"
+            role="combobox"
+            type="text"
+            value="" />
+          <div
+            className="react-autosuggest__suggestions-container"
+            id="react-autowhatever-gene-autosuggest" />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
