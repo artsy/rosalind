@@ -24,6 +24,8 @@ class BatchUpdateForm extends React.Component {
     this.dismissConfirmation = this.dismissConfirmation.bind(this)
     this.submit = this.submit.bind(this)
     this.handleSuccess = this.handleSuccess.bind(this)
+    this.handleFailure = this.handleFailure.bind(this)
+    this.handleError = this.handleError.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
     this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
   }
@@ -55,11 +57,16 @@ class BatchUpdateForm extends React.Component {
     const { geneValues } = this.state
     const csrfToken = document.querySelector('meta[name=csrf-token]').content
     submitBatchUpdate(selectedArtworkIds, geneValues, csrfToken)
-      .then(response => {
-        if (response.ok) {
-          this.handleSuccess()
-        }
-      })
+       .then(response => {
+         if (response.ok) {
+           this.handleSuccess()
+         } else {
+           this.handleFailure(response)
+         }
+       })
+       .catch(error => {
+         this.handleError(error)
+       })
   }
 
   handleSuccess () {
@@ -69,6 +76,18 @@ class BatchUpdateForm extends React.Component {
     console.log('Success:', JSON.stringify(geneValues), selectedArtworkIds)
     window.alert('Batch update was successfully queued')
     this.close()
+  }
+
+  handleFailure (response) {
+    response.json().then(json => {
+      console.log('Failure:', json)
+      window.alert(`Batch update could not be submitted: ${json.error_message}`)
+    })
+  }
+
+  handleError (error) {
+    console.error('Unexpected error:', error)
+    window.alert(`There was an unexpected error: ${error}`)
   }
 
   onAddGene ({name}) {
