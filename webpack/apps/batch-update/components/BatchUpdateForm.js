@@ -101,12 +101,12 @@ const Wrapper = styled.div`
 Wrapper.displayName = 'Wrapper'
 
 const Controls = styled.div`
-  display: flex
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20px;
-  border-bottom: solid 1px ${colors.grayLight}
+  border-bottom: solid 1px ${colors.grayLight};
 `
 Controls.displayName = 'Controls'
 
