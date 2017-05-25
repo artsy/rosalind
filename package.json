@@ -52,6 +52,7 @@
   "standard": {
     "globals": [
       "beforeEach",
+      "beforeAll",
       "describe",
       "expect",
       "it",
