@@ -7,6 +7,7 @@ import GeneInput from './GeneInput'
 import { GeneAutosuggest } from './Autosuggest'
 import Overlay from './Overlay'
 import ConfirmationModal from './ConfirmationModal'
+import { submitBatchUpdate } from 'lib/rosalind-api'
 
 const initialState = () => ({
   geneValues: {},
@@ -22,6 +23,7 @@ class BatchUpdateForm extends React.Component {
     this.dismissConfirmation = this.dismissConfirmation.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
     this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
+    this.submit = this.submit.bind(this)
   }
 
   handleCancelClick (e) {
@@ -40,6 +42,13 @@ class BatchUpdateForm extends React.Component {
     this.setState({
       isConfirming: false
     })
+  }
+
+  submit () {
+    const { selectedArtworkIds } = this.props
+    const { geneValues } = this.state
+    const csrfToken = document.querySelector('meta[name=csrf-token]').content
+    submitBatchUpdate(selectedArtworkIds, geneValues, csrfToken)
   }
 
   onAddGene ({name}) {
@@ -77,7 +86,7 @@ class BatchUpdateForm extends React.Component {
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.onAddGene} />
 
         { isConfirming && <Overlay /> }
-        <ConfirmationModal isOpen={isConfirming} onDismiss={this.dismissConfirmation} onAccept={e => window.alert('TODO')}>
+        <ConfirmationModal isOpen={isConfirming} onDismiss={this.dismissConfirmation} onAccept={this.submit}>
           <h1>Are you sure you want to queue these changes?</h1>
           <section>
             <p>

@@ -5,6 +5,7 @@ import BatchUpdateForm from './BatchUpdateForm'
 import GeneInput from './GeneInput'
 import { GeneAutosuggest } from './Autosuggest'
 import ConfirmationModal from './ConfirmationModal'
+import * as rosalindApi from 'lib/rosalind-api'
 
 let props, dismissHandler
 
@@ -49,6 +50,45 @@ describe('when the "Queue" button is clicked', () => {
     const mockClickEvent = { preventDefault: jest.fn() }
     wrapper.find('a.queue').simulate('click', mockClickEvent)
     expect(wrapper.find(ConfirmationModal).hasClass('modal-open')).toBe(true)
+  })
+})
+
+describe('when the confirmation modal is accepted', () => {
+  beforeAll(() => {
+    // https://github.com/facebook/jest/issues/2297
+    Object.defineProperty(document, 'querySelector', {
+      value: () => { return { content: 'very secret csrf token' } },
+    });
+  })
+
+  beforeEach(() => {
+    rosalindApi.submitBatchUpdate = jest.fn()
+
+    const wrapper = mount(
+      <BatchUpdateForm {...props} />
+    )
+    wrapper.setState({
+      geneValues: {
+        'Awesome': 100
+      }
+    })
+
+    const mockClickEvent = { preventDefault: jest.fn() }
+    wrapper.find('a.queue').simulate('click', mockClickEvent)
+    wrapper.find(ConfirmationModal).find('a.accept').simulate('click', mockClickEvent)
+  })
+
+  it('submits the form', () => {
+    expect(rosalindApi.submitBatchUpdate.mock.calls.length).toEqual(1)
+  })
+
+  it('sends the genes and artworks', () => {
+    expect(rosalindApi.submitBatchUpdate.mock.calls[0][0]).toEqual(props.selectedArtworkIds)
+    expect(rosalindApi.submitBatchUpdate.mock.calls[0][1]).toEqual({'Awesome': 100})
+  })
+
+  it('includes the forgery token from the html document', () => {
+    expect(rosalindApi.submitBatchUpdate.mock.calls[0][2]).toEqual('very secret csrf token')
   })
 })
 
