@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
@@ -8,6 +9,11 @@ import { Wrapper, Sidebar, Content } from './Layout'
 import FullScreenModal from './FullScreenModal'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
+
+const commonGenesToIgnore = [
+  'Art',
+  'Career Stage Gene'
+]
 
 class App extends React.Component {
   constructor (props) {
@@ -39,6 +45,7 @@ class App extends React.Component {
     this.updateStateFor = this.updateStateFor.bind(this)
     this.clearStateFor = this.clearStateFor.bind(this)
 
+    this.getCommonGenes = this.getCommonGenes.bind(this)
     this.onToggleArtwork = this.onToggleArtwork.bind(this)
     this.onSelectAllArtworks = this.onSelectAllArtworks.bind(this)
     this.onDeselectAllArtworks = this.onDeselectAllArtworks.bind(this)
@@ -61,6 +68,9 @@ class App extends React.Component {
 
   componentDidUpdate (_prevProps, prevState) {
     if (this.shouldComponentUpdate(prevState)) {
+      this.setState({
+        selectedArtworkIds: []
+      })
       this.fetchArtworks()
     }
   }
@@ -215,6 +225,16 @@ class App extends React.Component {
     })
   }
 
+  getCommonGenes () {
+    const { selectedArtworkIds, artworks } = this.state
+    const geneArraysForSelectedArtworks = artworks
+      .filter(artwork => selectedArtworkIds.indexOf(artwork.id) > -1)
+      .map(artwork => artwork.genes)
+    const commonGenes = _.intersection(...geneArraysForSelectedArtworks)
+      .filter(g => commonGenesToIgnore.indexOf(g) === -1)
+    return commonGenes
+  }
+
   onPreviewArtwork (artwork) {
     this.setState({ previewedArtwork: artwork })
   }
@@ -300,7 +320,7 @@ class App extends React.Component {
         </Content>
 
         <FullScreenModal isOpen={isSpecifyingBatchUpdate} onDismiss={this.onDismissBatchUpdate}>
-          <BatchUpdateForm onCancel={this.onDismissBatchUpdate} selectedArtworkIds={selectedArtworkIds} />
+          <BatchUpdateForm onCancel={this.onDismissBatchUpdate} selectedArtworkIds={selectedArtworkIds} getCommonGenes={this.getCommonGenes} />
         </FullScreenModal>
       </Wrapper>
     )

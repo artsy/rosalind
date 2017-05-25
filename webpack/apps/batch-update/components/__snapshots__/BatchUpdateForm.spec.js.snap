@@ -21,6 +21,10 @@ exports[`test renders correctly 1`] = `
     </a>
   </div>
   <div
+    className="kXtoxa">
+    There aren’t any genes that describe all of your selected works
+  </div>
+  <div
     className="hfTCBQ" />
   <div
     className="GenericAutosuggest">

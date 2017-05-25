@@ -13,7 +13,8 @@ beforeEach(() => {
   dismissHandler = jest.fn()
   props = {
     onCancel: dismissHandler,
-    selectedArtworkIds: ['one', 'two', 'three']
+    selectedArtworkIds: ['one', 'two', 'three'],
+    getCommonGenes: jest.fn()
   }
 })
 
@@ -21,6 +22,18 @@ it('renders correctly', () => {
   const rendered = renderer.create(<BatchUpdateForm {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
+})
+
+it('renders the common genes for the current artwork selection', () => {
+  props.getCommonGenes.mockReturnValueOnce(['Art', 'Painting'])
+  const wrapper = mount(<BatchUpdateForm {...props} />)
+  expect(wrapper.state().geneValues).toEqual({})
+  wrapper.setProps() // triggers componentWillReceiveProps()
+  expect(wrapper.state().geneValues).toMatchObject({
+    'Art': null,
+    'Painting': null
+  })
+  expect(wrapper.find(GeneInput).length).toEqual(2)
 })
 
 describe('when the "Cancel" link is clicked', () => {

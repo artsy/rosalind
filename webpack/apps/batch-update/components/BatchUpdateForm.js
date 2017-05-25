@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from './Links'
@@ -29,6 +30,19 @@ class BatchUpdateForm extends React.Component {
     this.handleError = this.handleError.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
     this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
+  }
+
+  componentWillReceiveProps () {
+    this.initializeGeneValues()
+  }
+
+  initializeGeneValues () {
+    const commonGeneNames = this.props.getCommonGenes()
+    const nulls = Array(commonGeneNames.length).fill(null)
+    const initialGeneValues = _.zipObject(commonGeneNames, nulls)
+    this.setState({
+      geneValues: initialGeneValues
+    })
   }
 
   handleCancelClick (e) {
@@ -128,8 +142,16 @@ class BatchUpdateForm extends React.Component {
         </Controls>
 
         <Genes>
-          { geneNames.map(name => <GeneInput key={name} name={name} value={geneValues[name]} onChangeValue={this.onChangeGeneValue} />) }
+          { geneNames.map(name =>
+            <GeneInput key={name} name={name} value={geneValues[name]} onChangeValue={this.onChangeGeneValue} />
+          )}
         </Genes>
+
+        { (geneNames.length === 0) &&
+          <EmptyGenesMessage>
+            There aren’t any genes that describe all of your selected works
+          </EmptyGenesMessage>
+        }
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.onAddGene} />
 
@@ -173,5 +195,11 @@ const Genes = styled.div`
   padding: 30px 0;
 `
 Genes.displayName = 'Genes'
+
+const EmptyGenesMessage = styled.div`
+  align-self: center;
+  text-align: center;
+`
+EmptyGenesMessage.displayName = 'EmptyGenesMessage'
 
 export default BatchUpdateForm
