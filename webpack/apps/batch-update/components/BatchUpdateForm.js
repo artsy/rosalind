@@ -22,6 +22,7 @@ class BatchUpdateForm extends React.Component {
     this.close = this.close.bind(this)
     this.showConfirmation = this.showConfirmation.bind(this)
     this.dismissConfirmation = this.dismissConfirmation.bind(this)
+    this.isValid = this.isValid.bind(this)
     this.submit = this.submit.bind(this)
     this.handleSuccess = this.handleSuccess.bind(this)
     this.handleFailure = this.handleFailure.bind(this)
@@ -50,6 +51,14 @@ class BatchUpdateForm extends React.Component {
     this.setState({
       isConfirming: false
     })
+  }
+
+  isValid () {
+    const selectedArtworksCount = this.props.selectedArtworkIds.length
+    const { geneValues } = this.state
+    const names = Object.keys(geneValues)
+    const validGeneValues = names.map(name => geneValues[name]).filter(value => value !== null)
+    return (selectedArtworksCount > 0) && (validGeneValues.length > 0)
   }
 
   submit () {
@@ -115,7 +124,7 @@ class BatchUpdateForm extends React.Component {
         <Controls>
           <Link href='#' onClick={this.handleCancelClick} className='cancel'>Cancel</Link>
           <div>{selectedArtworksCount} works selected</div>
-          <LinkButton className='queue' onClick={this.showConfirmation}>Queue changes</LinkButton>
+          <LinkButton className='queue' onClick={this.showConfirmation} disabled={!this.isValid()}>Queue changes</LinkButton>
         </Controls>
 
         <Genes>

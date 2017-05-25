@@ -44,69 +44,6 @@ describe('when the "Cancel" link is clicked', () => {
   })
 })
 
-describe('when the "Queue" button is clicked', () => {
-  it('it opens a confirmation modal', () => {
-    const wrapper = mount(<BatchUpdateForm {...props} />)
-    const mockClickEvent = { preventDefault: jest.fn() }
-    wrapper.find('a.queue').simulate('click', mockClickEvent)
-    expect(wrapper.find(ConfirmationModal).hasClass('modal-open')).toBe(true)
-  })
-})
-
-describe('when the confirmation modal is accepted', () => {
-  let wrapper
-
-  beforeAll(() => {
-    // We assume the existence of a <meta> tag containing the
-    // Rails-generated CSRF token. This is how we mock access to
-    // that tag.
-    // https://github.com/facebook/jest/issues/2297
-    Object.defineProperty(document, 'querySelector', {
-      value: () => { return { content: 'very secret csrf token' } },
-    });
-  })
-
-  beforeEach(() => {
-    // mock the function that submits the request to the backend and returns
-    // window.fetch's promise, to be handled by the client
-    rosalindApi.submitBatchUpdate = jest.fn((artworks, genes, token) => {
-      return new Promise((resolve, reject) => {
-        resolve({ ok: true })
-      })
-    })
-
-    // suppress log output in test run output
-    console.log = jest.fn()
-    console.error = jest.fn()
-
-    wrapper = mount(
-      <BatchUpdateForm {...props} />
-    )
-    wrapper.setState({
-      geneValues: {
-        'Awesome': 100
-      }
-    })
-
-    const mockClickEvent = { preventDefault: jest.fn() }
-    wrapper.find('a.queue').simulate('click', mockClickEvent)
-    wrapper.find(ConfirmationModal).find('a.accept').simulate('click', mockClickEvent)
-  })
-
-  it('submits the form', () => {
-    expect(rosalindApi.submitBatchUpdate.mock.calls.length).toEqual(1)
-  })
-
-  it('sends the genes and artworks', () => {
-    expect(rosalindApi.submitBatchUpdate.mock.calls[0][0]).toEqual(props.selectedArtworkIds)
-    expect(rosalindApi.submitBatchUpdate.mock.calls[0][1]).toEqual({'Awesome': 100})
-  })
-
-  it('includes the forgery token from the html document', () => {
-    expect(rosalindApi.submitBatchUpdate.mock.calls[0][2]).toEqual('very secret csrf token')
-  })
-})
-
 it('adds genes', () => {
   const wrapper = mount(<BatchUpdateForm {...props} />)
   const component = wrapper.instance()
@@ -115,6 +52,38 @@ it('adds genes', () => {
     geneValues: {
       'Kawaii': null
     }
+  })
+})
+
+describe('with no currently added genes', () => {
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = mount(<BatchUpdateForm {...props} />)
+    wrapper.setState({
+      geneValues: {}
+    })
+  })
+
+  it('disables the "Queue" button', () => {
+    expect(wrapper.find('a.queue').props().disabled).toEqual(true)
+  })
+})
+
+describe('with only null genes', () => {
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = mount(<BatchUpdateForm {...props} />)
+    wrapper.setState({
+      geneValues: {
+        'Kawaii': null
+      }
+    })
+  })
+
+  it('disables the "Queue" button', () => {
+    expect(wrapper.find('a.queue').props().disabled).toEqual(true)
   })
 })
 
@@ -130,6 +99,10 @@ describe('with currently added genes', () => {
         'Animals': 100
       }
     })
+  })
+
+  it('enables the "Queue" button', () => {
+    expect(wrapper.find('a.queue').props().disabled).toEqual(false)
   })
 
   it('renders the current genes', () => {
@@ -156,6 +129,57 @@ describe('with currently added genes', () => {
     component.onChangeGeneValue({ name: 'Kawaii', value: '' })
     expect(component.state['geneValues']).toMatchObject({
       'Kawaii': null
+    })
+  })
+
+  describe('when the "Queue" button is clicked', () => {
+    it('opens a confirmation modal', () => {
+      const mockClickEvent = { preventDefault: jest.fn() }
+      wrapper.find('a.queue').simulate('click', mockClickEvent)
+      expect(wrapper.find(ConfirmationModal).hasClass('modal-open')).toBe(true)
+    })
+
+    describe('when the confirmation modal is accepted', () => {
+      beforeAll(() => {
+        // We assume the existence of a <meta> tag containing the
+        // Rails-generated CSRF token. This is how we mock access to
+        // that tag.
+        // https://github.com/facebook/jest/issues/2297
+        Object.defineProperty(document, 'querySelector', {
+          value: () => { return { content: 'very secret csrf token' } }
+        })
+      })
+
+      beforeEach(() => {
+        // mock the function that submits the request to the backend and returns
+        // window.fetch's promise, to be handled by the client
+        rosalindApi.submitBatchUpdate = jest.fn((artworks, genes, token) => {
+          return new Promise((resolve, reject) => {
+            resolve({ ok: true })
+          })
+        })
+
+        // suppress log output in test run output
+        console.log = jest.fn()
+        console.error = jest.fn()
+
+        const mockClickEvent = { preventDefault: jest.fn() }
+        wrapper.find('a.queue').simulate('click', mockClickEvent)
+        wrapper.find(ConfirmationModal).find('a.accept').simulate('click', mockClickEvent)
+      })
+
+      it('submits the form', () => {
+        expect(rosalindApi.submitBatchUpdate.mock.calls.length).toEqual(1)
+      })
+
+      it('sends the genes and artworks', () => {
+        expect(rosalindApi.submitBatchUpdate.mock.calls[0][0]).toEqual(props.selectedArtworkIds)
+        expect(rosalindApi.submitBatchUpdate.mock.calls[0][1]).toEqual({'Animals': 100, 'Kawaii': 0})
+      })
+
+      it('includes the forgery token from the html document', () => {
+        expect(rosalindApi.submitBatchUpdate.mock.calls[0][2]).toEqual('very secret csrf token')
+      })
     })
   })
 })
