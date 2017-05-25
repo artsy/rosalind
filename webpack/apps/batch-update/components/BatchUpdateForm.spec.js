@@ -4,6 +4,7 @@ import { mount } from 'enzyme'
 import BatchUpdateForm from './BatchUpdateForm'
 import GeneInput from './GeneInput'
 import { GeneAutosuggest } from './Autosuggest'
+import ConfirmationModal from './ConfirmationModal'
 
 let props, dismissHandler
 
@@ -21,26 +22,35 @@ it('renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
-it('can be dismissed via the "cancel" link', () => {
-  const wrapper = mount(<BatchUpdateForm {...props} />)
-  const mockClickEvent = { preventDefault: jest.fn() }
-  wrapper.find('a.cancel').simulate('click', mockClickEvent)
-  expect(dismissHandler.mock.calls.length).toEqual(1)
-})
-
-it('resets the form state when canceling', () => {
-  const wrapper = mount(<BatchUpdateForm {...props} />)
-  wrapper.setState({
-    geneValues: {
-      'Kawaii': 70
-    }
+describe('when the "Cancel" link is clicked', () => {
+  it('calls the correct handler', () => {
+    const wrapper = mount(<BatchUpdateForm {...props} />)
+    const mockClickEvent = { preventDefault: jest.fn() }
+    wrapper.find('a.cancel').simulate('click', mockClickEvent)
+    expect(dismissHandler.mock.calls.length).toEqual(1)
   })
-  const mockClickEvent = { preventDefault: jest.fn() }
-  wrapper.find('a.cancel').simulate('click', mockClickEvent)
-  expect(wrapper.state('geneValues')).toEqual({})
+
+  it('resets the form state', () => {
+    const wrapper = mount(<BatchUpdateForm {...props} />)
+    wrapper.setState({
+      geneValues: {
+        'Kawaii': 70
+      }
+    })
+    const mockClickEvent = { preventDefault: jest.fn() }
+    wrapper.find('a.cancel').simulate('click', mockClickEvent)
+    expect(wrapper.state('geneValues')).toEqual({})
+  })
 })
 
-it('submits the batch update via the "queue" button')
+describe('when the "Queue" button is clicked', () => {
+  it('it opens a confirmation modal', () => {
+    const wrapper = mount(<BatchUpdateForm {...props} />)
+    const mockClickEvent = { preventDefault: jest.fn() }
+    wrapper.find('a.queue').simulate('click', mockClickEvent)
+    expect(wrapper.find(ConfirmationModal).hasClass('modal-open')).toBe(true)
+  })
+})
 
 it('adds genes', () => {
   const wrapper = mount(<BatchUpdateForm {...props} />)

@@ -5,24 +5,41 @@ import { LinkButton } from './Buttons'
 import { colors } from './Layout'
 import GeneInput from './GeneInput'
 import { GeneAutosuggest } from './Autosuggest'
+import Overlay from './Overlay'
+import ConfirmationModal from './ConfirmationModal'
+
+const initialState = () => ({
+  geneValues: {},
+  isConfirming: false
+})
 
 class BatchUpdateForm extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      geneValues: {}
-    }
+    this.state = initialState()
     this.handleCancelClick = this.handleCancelClick.bind(this)
+    this.showConfirmation = this.showConfirmation.bind(this)
+    this.dismissConfirmation = this.dismissConfirmation.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
     this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
   }
 
   handleCancelClick (e) {
     e.preventDefault()
-    this.setState({
-      geneValues: {}
-    })
+    this.setState(initialState())
     this.props.onCancel()
+  }
+
+  showConfirmation () {
+    this.setState({
+      isConfirming: true
+    })
+  }
+
+  dismissConfirmation () {
+    this.setState({
+      isConfirming: false
+    })
   }
 
   onAddGene ({name}) {
@@ -43,14 +60,14 @@ class BatchUpdateForm extends React.Component {
   render () {
     const { selectedArtworkIds } = this.props
     const selectedArtworksCount = selectedArtworkIds.length
-    const { geneValues } = this.state
+    const { geneValues, isConfirming } = this.state
     const geneNames = Object.keys(geneValues).sort()
     return (
       <Wrapper>
         <Controls>
           <Link href='#' onClick={this.handleCancelClick} className='cancel'>Cancel</Link>
           <div>{selectedArtworksCount} works selected</div>
-          <LinkButton onClick={e => console.log('TODO')}>Queue changes</LinkButton>
+          <LinkButton className='queue' onClick={this.showConfirmation}>Queue changes</LinkButton>
         </Controls>
 
         <Genes>
@@ -58,6 +75,16 @@ class BatchUpdateForm extends React.Component {
         </Genes>
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.onAddGene} />
+
+        { isConfirming && <Overlay /> }
+        <ConfirmationModal isOpen={isConfirming} onDismiss={this.dismissConfirmation} onAccept={e => window.alert('TODO')}>
+          <h1>Are you sure you want to queue these changes?</h1>
+          <section>
+            <p>
+              You will be changing the genome of {selectedArtworkIds.length} works
+            </p>
+          </section>
+        </ConfirmationModal>
       </Wrapper>
     )
   }
