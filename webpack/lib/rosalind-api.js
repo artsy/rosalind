@@ -72,8 +72,4 @@ export const submitBatchUpdate = function (artworkIds, genes, csrfToken) {
     credentials: 'same-origin'
   }
   return window.fetch(uri, options)
-    .then(resp => console.log(resp))
-    .catch((err) => {
-      console.error(err)
-    })
 }
