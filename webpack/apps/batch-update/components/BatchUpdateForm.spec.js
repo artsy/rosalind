@@ -54,7 +54,12 @@ describe('when the "Queue" button is clicked', () => {
 })
 
 describe('when the confirmation modal is accepted', () => {
+  let wrapper
+
   beforeAll(() => {
+    // We assume the existence of a <meta> tag containing the
+    // Rails-generated CSRF token. This is how we mock access to
+    // that tag.
     // https://github.com/facebook/jest/issues/2297
     Object.defineProperty(document, 'querySelector', {
       value: () => { return { content: 'very secret csrf token' } },
@@ -62,9 +67,19 @@ describe('when the confirmation modal is accepted', () => {
   })
 
   beforeEach(() => {
-    rosalindApi.submitBatchUpdate = jest.fn()
+    // mock the function that submits the request to the backend and returns
+    // window.fetch's promise, to be handled by the client
+    rosalindApi.submitBatchUpdate = jest.fn((artworks, genes, token) => {
+      return new Promise((resolve, reject) => {
+        resolve({ ok: true })
+      })
+    })
 
-    const wrapper = mount(
+    // suppress log output in test run output
+    console.log = jest.fn()
+    console.error = jest.fn()
+
+    wrapper = mount(
       <BatchUpdateForm {...props} />
     )
     wrapper.setState({

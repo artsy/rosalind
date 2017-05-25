@@ -19,15 +19,21 @@ class BatchUpdateForm extends React.Component {
     super(props)
     this.state = initialState()
     this.handleCancelClick = this.handleCancelClick.bind(this)
+    this.close = this.close.bind(this)
     this.showConfirmation = this.showConfirmation.bind(this)
     this.dismissConfirmation = this.dismissConfirmation.bind(this)
+    this.submit = this.submit.bind(this)
+    this.handleSuccess = this.handleSuccess.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
     this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
-    this.submit = this.submit.bind(this)
   }
 
   handleCancelClick (e) {
     e.preventDefault()
+    this.close()
+  }
+
+  close () {
     this.setState(initialState())
     this.props.onCancel()
   }
@@ -49,6 +55,20 @@ class BatchUpdateForm extends React.Component {
     const { geneValues } = this.state
     const csrfToken = document.querySelector('meta[name=csrf-token]').content
     submitBatchUpdate(selectedArtworkIds, geneValues, csrfToken)
+      .then(response => {
+        if (response.ok) {
+          this.handleSuccess()
+        }
+      })
+  }
+
+  handleSuccess () {
+    const { selectedArtworkIds } = this.props
+    const { geneValues } = this.state
+    this.setState(initialState())
+    console.log('Success:', JSON.stringify(geneValues), selectedArtworkIds)
+    window.alert('Batch update was successfully queued')
+    this.close()
   }
 
   onAddGene ({name}) {
