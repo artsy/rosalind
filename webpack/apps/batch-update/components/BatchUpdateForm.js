@@ -2,7 +2,7 @@ import _ from 'lodash'
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from './Links'
-import { LinkButton } from './Buttons'
+import { Button } from './Buttons'
 import { colors } from './Layout'
 import GeneInput from './GeneInput'
 import { GeneAutosuggest } from './Autosuggest'
@@ -138,7 +138,7 @@ class BatchUpdateForm extends React.Component {
         <Controls>
           <Link href='#' onClick={this.handleCancelClick} className='cancel'>Cancel</Link>
           <div>{selectedArtworksCount} works selected</div>
-          <LinkButton className='queue' onClick={this.showConfirmation} disabled={!this.isValid()}>Queue changes</LinkButton>
+          <Button className='queue' onClick={this.showConfirmation} disabled={!this.isValid()}>Queue changes</Button>
         </Controls>
 
         <Genes>
