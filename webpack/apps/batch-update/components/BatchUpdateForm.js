@@ -78,8 +78,9 @@ class BatchUpdateForm extends React.Component {
   submit () {
     const { selectedArtworkIds } = this.props
     const { geneValues } = this.state
+    const validGenes = _.pickBy(geneValues, (value, _key) => value !== null)
     const csrfToken = document.querySelector('meta[name=csrf-token]').content
-    submitBatchUpdate(selectedArtworkIds, geneValues, csrfToken)
+    submitBatchUpdate(selectedArtworkIds, validGenes, csrfToken)
        .then(response => {
          if (response.ok) {
            this.handleSuccess()
