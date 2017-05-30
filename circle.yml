@@ -4,6 +4,9 @@ machine:
 dependencies:
   pre:
     - gem install bundler --version 1.13.6
+    - wget https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
+    - unzip chromedriver_linux64.zip
+    - sudo cp chromedriver /usr/local/bin/chromedriver
 test:
   pre:
     - bundle exec rubocop --rails
