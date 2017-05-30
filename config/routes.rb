@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+require 'admin_constraint'
+
 Rails.application.routes.draw do
   root to: 'pages#batch_update'
 
@@ -9,4 +12,6 @@ Rails.application.routes.draw do
   get 'match/tags'
   get 'match/fairs'
   get 'match/partners'
+
+  mount Sidekiq::Web => '/sidekiq', :constraints => AdminConstraint.new
 end
