@@ -57,3 +57,11 @@ RSpec.configure do |config|
     ActiveJob::Base.queue_adapter.performed_jobs = []
   end
 end
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome).tap do |driver|
+    driver.browser.manage.window.size = Selenium::WebDriver::Dimension.new(1200, 800)
+  end
+end
+
+Capybara.javascript_driver = :selenium
