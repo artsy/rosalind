@@ -4,8 +4,10 @@ class BatchUpdatesController < ApplicationController
   expose(:batch_update)
 
   def create
-    batch_update.save
+    batch_update.save!
     ProcessBatchUpdateJob.perform_later batch_update.id
+  rescue StandardError => e
+    render json: { error_message: e.message }, status: :unprocessable_entity
   end
 
   private

@@ -2,7 +2,7 @@ exports[`test renders correctly 1`] = `
 <div
   className="igHpwR">
   <div
-    className="YrORm">
+    className="gnEZXA">
     <a
       className="cancel gHceZM"
       href="#"
@@ -14,7 +14,8 @@ exports[`test renders correctly 1`] = `
        works selected
     </div>
     <a
-      className="bMOQzN"
+      className="queue bqDpOh"
+      disabled={true}
       onClick={[Function]}>
       Queue changes
     </a>
@@ -44,6 +45,34 @@ exports[`test renders correctly 1`] = `
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-gene-autosuggest" />
+    </div>
+  </div>
+  <div
+    className="gungoz">
+    <h1>
+      Are you sure you want to queue these changes?
+    </h1>
+    <section>
+      <p>
+        You will be changing the genome of 
+        3
+         works
+      </p>
+    </section>
+    <div
+      className="kriMBh">
+      <a
+        className="dismiss jRkNFJ"
+        href="#"
+        onClick={[Function]}>
+        Go back
+      </a>
+      <a
+        className="accept jhxkip"
+        href="#"
+        onClick={[Function]}>
+        Continue
+      </a>
     </div>
   </div>
 </div>
