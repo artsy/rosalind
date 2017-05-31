@@ -21,12 +21,41 @@ describe('buildElasticsearchQuery', () => {
     genomedFilter = null
   })
 
+  it('queries only for non-deleted works', () => {
+    const expectedQuery = {
+      'query': {
+        'bool': {
+          'must': [
+            {'match': {'deleted': false}}
+          ]
+        }
+      },
+      'from': 0,
+      'size': 100,
+      'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+    }
+
+    const params = {
+      createdAfterDate,
+      createdBeforeDate,
+      fair,
+      genes,
+      genomedFilter,
+      partner,
+      publishedFilter,
+      tags
+    }
+    const actualQuery = buildElasticsearchQuery(params)
+    expect(actualQuery).toEqual(expectedQuery)
+  })
+
   describe('main search criteria', () => {
     it('builds a query from the supplied genes', () => {
       const expectedQuery = {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {'match': {'genes': 'Gene 1'}},
               {'match': {'genes': 'Gene 2'}}
             ]
@@ -60,6 +89,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {'match': {'tags': 'Tag 1'}},
               {'match': {'tags': 'Tag 2'}}
             ]
@@ -93,6 +123,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {'match': {'partner_id': 'some-partner'}}
             ]
           }
@@ -121,6 +152,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {'match': {'fair_ids': 'some-fair'}}
             ]
           }
@@ -149,6 +181,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {'match': {'genes': 'Gene 1'}}
             ]
           }
@@ -168,6 +201,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {'match': {'genes': 'Gene 1'}}
             ]
           }
@@ -189,6 +223,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {
                 'range': {
                   'created_at': {
@@ -226,6 +261,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {
                 'range': {
                   'created_at': {
@@ -264,6 +300,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {
                 'range': {
                   'created_at': {
@@ -306,6 +343,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {'match': {'genes': 'Gene 1'}},
               {'match': {'published': true}}
             ]
@@ -335,6 +373,7 @@ describe('buildElasticsearchQuery', () => {
         'query': {
           'bool': {
             'must': [
+              {'match': {'deleted': false}},
               {'match': {'genes': 'Gene 1'}},
               {'match': {'genomed': true}}
             ]

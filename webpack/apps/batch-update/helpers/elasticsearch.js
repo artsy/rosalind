@@ -25,6 +25,7 @@ export function buildElasticsearchQuery (args) {
     'query': {
       'bool': {
         'must': [
+          { 'match': { 'deleted': false } },
           ...geneMatches,
           ...tagMatches,
           ...filterMatches,
