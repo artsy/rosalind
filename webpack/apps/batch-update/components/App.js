@@ -6,6 +6,7 @@ import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
 import { Wrapper, Sidebar, Content } from './Layout'
 import FullScreenModal from './FullScreenModal'
+import { Notices, Notice } from './Notices'
 import intersection from 'lodash.intersection'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
@@ -32,6 +33,7 @@ class App extends React.Component {
       publishedFilter: 'SHOW_ALL',
       selectedArtworkIds: [],
       size: 100,
+      notices: [],
       tags: [],
       totalHits: null
     }
@@ -58,6 +60,9 @@ class App extends React.Component {
 
     this.onOpenBatchUpdate = this.onOpenBatchUpdate.bind(this)
     this.onDismissBatchUpdate = this.onDismissBatchUpdate.bind(this)
+
+    this.addNotice = this.addNotice.bind(this)
+    this.removeNotice = this.removeNotice.bind(this)
   }
 
   componentWillMount () {
@@ -261,6 +266,24 @@ class App extends React.Component {
     this.setState({ isSpecifyingBatchUpdate: false })
   }
 
+  addNotice (message, options) {
+    const defaults = { isError: false }
+    const { isError } = _.defaults(options, defaults)
+    const newNotice = {
+      id: `${Date.now()}—${message}`,
+      message,
+      isError
+    }
+    this.setState({
+      notices: [ ...this.state.notices, newNotice ]
+    })
+  }
+
+  removeNotice (id) {
+    const notices = this.state.notices.filter(n => n.id !== id)
+    this.setState({ notices })
+  }
+
   render () {
     const {
       artworks,
@@ -320,8 +343,23 @@ class App extends React.Component {
         </Content>
 
         <FullScreenModal isOpen={isSpecifyingBatchUpdate} onDismiss={this.onDismissBatchUpdate}>
-          <BatchUpdateForm onCancel={this.onDismissBatchUpdate} selectedArtworkIds={selectedArtworkIds} getCommonGenes={this.getCommonGenes} />
+          <BatchUpdateForm
+            getCommonGenes={this.getCommonGenes}
+            onCancel={this.onDismissBatchUpdate}
+            selectedArtworkIds={selectedArtworkIds}
+            updateState={this.updateStateFor}
+            onAddNotice={this.addNotice}
+            onRemoveNotice={this.removeNotice}
+          />
         </FullScreenModal>
+
+        <Notices>
+          {
+            this.state.notices.map(({id, message, isError}) => {
+              return (<Notice key={id} id={id} isError={isError} onDismiss={this.removeNotice}>{message}</Notice>)
+            })
+          }
+        </Notices>
       </Wrapper>
     )
   }

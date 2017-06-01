@@ -14,7 +14,8 @@ beforeEach(() => {
   props = {
     onCancel: dismissHandler,
     selectedArtworkIds: ['one', 'two', 'three'],
-    getCommonGenes: jest.fn().mockReturnValueOnce(['Art', 'Painting'])
+    getCommonGenes: jest.fn().mockReturnValueOnce(['Art', 'Painting']),
+    onAddNotice: jest.fn()
   }
 })
 

@@ -100,23 +100,21 @@ class BatchUpdateForm extends React.Component {
   handleSuccess () {
     const { selectedArtworkIds } = this.props
     const { geneValues } = this.state
-    this.dismissConfirmation()
-    this.initializeGeneValues()
     console.log('Success:', JSON.stringify(geneValues), selectedArtworkIds)
-    window.alert('Batch update was successfully queued')
+    this.props.onAddNotice('Batch update was successfully queued')
     this.close()
   }
 
   handleFailure (response) {
     response.json().then(json => {
       console.log('Failure:', json)
-      window.alert(`Batch update could not be submitted: ${json.error_message}`)
+      this.props.onAddNotice(`Batch update could not be submitted: ${json.error_message}`, { isError: true })
     })
   }
 
   handleError (error) {
     console.error('Unexpected error:', error)
-    window.alert(`There was an unexpected error: ${error}`)
+    this.props.onAddNotice(`There was an unexpected error: ${error}`, { isError: true })
   }
 
   onAddGene ({name}) {
