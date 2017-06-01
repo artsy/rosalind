@@ -14,7 +14,7 @@ beforeEach(() => {
   props = {
     onCancel: dismissHandler,
     selectedArtworkIds: ['one', 'two', 'three'],
-    getCommonGenes: jest.fn()
+    getCommonGenes: jest.fn().mockReturnValueOnce(['Art', 'Painting'])
   }
 })
 
@@ -25,7 +25,6 @@ it('renders correctly', () => {
 })
 
 it('renders the common genes for each new artwork selection', () => {
-  props.getCommonGenes.mockReturnValueOnce(['Art', 'Painting'])
   const wrapper = mount(<BatchUpdateForm {...props} />)
   expect(wrapper.state().geneValues).toEqual({})
   wrapper.setProps({
@@ -55,7 +54,10 @@ describe('when the "Cancel" link is clicked', () => {
     })
     const mockClickEvent = { preventDefault: jest.fn() }
     wrapper.find('a.cancel').simulate('click', mockClickEvent)
-    expect(wrapper.state('geneValues')).toEqual({})
+    expect(wrapper.state('geneValues')).toEqual({
+      'Art': null,
+      'Painting': null
+    })
   })
 })
 
