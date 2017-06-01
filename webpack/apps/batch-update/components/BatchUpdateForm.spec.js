@@ -24,11 +24,13 @@ it('renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
-it('renders the common genes for the current artwork selection', () => {
+it('renders the common genes for each new artwork selection', () => {
   props.getCommonGenes.mockReturnValueOnce(['Art', 'Painting'])
   const wrapper = mount(<BatchUpdateForm {...props} />)
   expect(wrapper.state().geneValues).toEqual({})
-  wrapper.setProps() // triggers componentWillReceiveProps()
+  wrapper.setProps({
+    selectedArtworkIds: ['one', 'two', 'three', 'four']
+  }) // triggers componentWillReceiveProps()
   expect(wrapper.state().geneValues).toMatchObject({
     'Art': null,
     'Painting': null

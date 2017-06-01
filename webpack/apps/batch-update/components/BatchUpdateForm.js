@@ -10,15 +10,13 @@ import Overlay from './Overlay'
 import ConfirmationModal from './ConfirmationModal'
 import { submitBatchUpdate } from 'lib/rosalind-api'
 
-const initialState = () => ({
-  geneValues: {},
-  isConfirming: false
-})
-
 class BatchUpdateForm extends React.Component {
   constructor (props) {
     super(props)
-    this.state = initialState()
+    this.state = {
+      geneValues: {},
+      isConfirming: false
+    }
     this.handleCancelClick = this.handleCancelClick.bind(this)
     this.close = this.close.bind(this)
     this.showConfirmation = this.showConfirmation.bind(this)
@@ -32,8 +30,12 @@ class BatchUpdateForm extends React.Component {
     this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
   }
 
-  componentWillReceiveProps () {
-    this.initializeGeneValues()
+  componentWillReceiveProps (nextProps) {
+    const currentArtworks = this.props.selectedArtworkIds
+    const nextArtworks = nextProps.selectedArtworkIds
+    if (nextArtworks !== currentArtworks) {
+      this.initializeGeneValues()
+    }
   }
 
   initializeGeneValues () {
@@ -51,7 +53,8 @@ class BatchUpdateForm extends React.Component {
   }
 
   close () {
-    this.setState(initialState())
+    this.dismissConfirmation()
+    this.initializeGeneValues()
     this.props.onCancel()
   }
 
@@ -96,7 +99,8 @@ class BatchUpdateForm extends React.Component {
   handleSuccess () {
     const { selectedArtworkIds } = this.props
     const { geneValues } = this.state
-    this.setState(initialState())
+    this.dismissConfirmation()
+    this.initializeGeneValues()
     console.log('Success:', JSON.stringify(geneValues), selectedArtworkIds)
     window.alert('Batch update was successfully queued')
     this.close()
