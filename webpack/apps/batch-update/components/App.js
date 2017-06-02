@@ -268,8 +268,8 @@ class App extends React.Component {
   }
 
   addNotice (message, options) {
-    const defaults = { isError: false }
-    const { isError } = defaults(options, defaults)
+    const optionsWithDefaults = defaults(options, { isError: false })
+    const { isError } = optionsWithDefaults
     const newNotice = {
       id: `${Date.now()}—${message}`,
       message,
