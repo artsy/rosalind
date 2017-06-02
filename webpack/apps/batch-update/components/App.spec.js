@@ -131,3 +131,47 @@ describe('state mutations', () => {
     })
   })
 })
+
+describe('getCommonGenes', () => {
+  let commonGenes
+
+  beforeEach(() => {
+    app.setState({
+      artworks: [
+        {
+          id: 'gold-sculpture',
+          genes: [
+            'Art',
+            'Sculpture',
+            'Gold'
+          ]
+        }, {
+          id: 'silver-sculpture',
+          genes: [
+            'Art',
+            'Sculpture',
+            'Silver'
+          ]
+        }, {
+          id: 'gold-jewelry',
+          genes: [
+            'Art',
+            'Jewelry',
+            'Gold'
+          ]
+        }
+      ],
+      selectedArtworkIds: [ 'gold-sculpture', 'silver-sculpture' ]
+    })
+
+    commonGenes = app.getCommonGenes()
+  })
+
+  it('returns genes shared by all selected artworks', () => {
+    expect(commonGenes).toEqual(['Sculpture'])
+  })
+
+  it('excludes some overly common genes', () => {
+    expect(commonGenes).not.toContain('Art')
+  })
+})

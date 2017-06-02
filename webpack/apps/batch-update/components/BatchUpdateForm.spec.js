@@ -13,7 +13,8 @@ beforeEach(() => {
   dismissHandler = jest.fn()
   props = {
     onCancel: dismissHandler,
-    selectedArtworkIds: ['one', 'two', 'three']
+    selectedArtworkIds: ['one', 'two', 'three'],
+    getCommonGenes: jest.fn().mockReturnValueOnce(['Art', 'Painting'])
   }
 })
 
@@ -21,6 +22,19 @@ it('renders correctly', () => {
   const rendered = renderer.create(<BatchUpdateForm {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
+})
+
+it('renders the common genes for each new artwork selection', () => {
+  const wrapper = mount(<BatchUpdateForm {...props} />)
+  expect(wrapper.state().geneValues).toEqual({})
+  wrapper.setProps({
+    selectedArtworkIds: ['one', 'two', 'three', 'four']
+  }) // triggers componentWillReceiveProps()
+  expect(wrapper.state().geneValues).toMatchObject({
+    'Art': null,
+    'Painting': null
+  })
+  expect(wrapper.find(GeneInput).length).toEqual(2)
 })
 
 describe('when the "Cancel" link is clicked', () => {
@@ -40,7 +54,10 @@ describe('when the "Cancel" link is clicked', () => {
     })
     const mockClickEvent = { preventDefault: jest.fn() }
     wrapper.find('a.cancel').simulate('click', mockClickEvent)
-    expect(wrapper.state('geneValues')).toEqual({})
+    expect(wrapper.state('geneValues')).toEqual({
+      'Art': null,
+      'Painting': null
+    })
   })
 })
 
@@ -66,7 +83,7 @@ describe('with no currently added genes', () => {
   })
 
   it('disables the "Queue" button', () => {
-    expect(wrapper.find('a.queue').props().disabled).toEqual(true)
+    expect(wrapper.find('button.queue').props().disabled).toEqual(true)
   })
 })
 
@@ -83,7 +100,7 @@ describe('with only null genes', () => {
   })
 
   it('disables the "Queue" button', () => {
-    expect(wrapper.find('a.queue').props().disabled).toEqual(true)
+    expect(wrapper.find('button.queue').props().disabled).toEqual(true)
   })
 })
 
@@ -102,7 +119,7 @@ describe('with currently added genes', () => {
   })
 
   it('enables the "Queue" button', () => {
-    expect(wrapper.find('a.queue').props().disabled).toEqual(false)
+    expect(wrapper.find('button.queue').props().disabled).toEqual(false)
   })
 
   it('renders the current genes', () => {
@@ -135,7 +152,7 @@ describe('with currently added genes', () => {
   describe('when the "Queue" button is clicked', () => {
     it('opens a confirmation modal', () => {
       const mockClickEvent = { preventDefault: jest.fn() }
-      wrapper.find('a.queue').simulate('click', mockClickEvent)
+      wrapper.find('button.queue').simulate('click', mockClickEvent)
       expect(wrapper.find(ConfirmationModal).hasClass('modal-open')).toBe(true)
     })
 
@@ -164,7 +181,7 @@ describe('with currently added genes', () => {
         console.error = jest.fn()
 
         const mockClickEvent = { preventDefault: jest.fn() }
-        wrapper.find('a.queue').simulate('click', mockClickEvent)
+        wrapper.find('button.queue').simulate('click', mockClickEvent)
         wrapper.find(ConfirmationModal).find('a.accept').simulate('click', mockClickEvent)
       })
 

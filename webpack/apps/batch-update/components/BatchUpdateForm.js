@@ -1,23 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from './Links'
-import { LinkButton } from './Buttons'
+import { Button } from './Buttons'
 import { colors } from './Layout'
 import GeneInput from './GeneInput'
 import { GeneAutosuggest } from './Autosuggest'
 import Overlay from './Overlay'
 import ConfirmationModal from './ConfirmationModal'
 import { submitBatchUpdate } from 'lib/rosalind-api'
-
-const initialState = () => ({
-  geneValues: {},
-  isConfirming: false
-})
+import zipObject from 'lodash.zipobject'
+import pickBy from 'lodash.pickby'
 
 class BatchUpdateForm extends React.Component {
   constructor (props) {
     super(props)
-    this.state = initialState()
+    this.state = {
+      geneValues: {},
+      isConfirming: false
+    }
     this.handleCancelClick = this.handleCancelClick.bind(this)
     this.close = this.close.bind(this)
     this.showConfirmation = this.showConfirmation.bind(this)
@@ -31,13 +31,31 @@ class BatchUpdateForm extends React.Component {
     this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
   }
 
+  componentWillReceiveProps (nextProps) {
+    const currentArtworks = this.props.selectedArtworkIds
+    const nextArtworks = nextProps.selectedArtworkIds
+    if (nextArtworks !== currentArtworks) {
+      this.initializeGeneValues()
+    }
+  }
+
+  initializeGeneValues () {
+    const commonGeneNames = this.props.getCommonGenes()
+    const nulls = Array(commonGeneNames.length).fill(null)
+    const initialGeneValues = zipObject(commonGeneNames, nulls)
+    this.setState({
+      geneValues: initialGeneValues
+    })
+  }
+
   handleCancelClick (e) {
     e.preventDefault()
     this.close()
   }
 
   close () {
-    this.setState(initialState())
+    this.dismissConfirmation()
+    this.initializeGeneValues()
     this.props.onCancel()
   }
 
@@ -64,8 +82,9 @@ class BatchUpdateForm extends React.Component {
   submit () {
     const { selectedArtworkIds } = this.props
     const { geneValues } = this.state
+    const validGenes = pickBy(geneValues, (value, _key) => value !== null)
     const csrfToken = document.querySelector('meta[name=csrf-token]').content
-    submitBatchUpdate(selectedArtworkIds, geneValues, csrfToken)
+    submitBatchUpdate(selectedArtworkIds, validGenes, csrfToken)
        .then(response => {
          if (response.ok) {
            this.handleSuccess()
@@ -81,7 +100,8 @@ class BatchUpdateForm extends React.Component {
   handleSuccess () {
     const { selectedArtworkIds } = this.props
     const { geneValues } = this.state
-    this.setState(initialState())
+    this.dismissConfirmation()
+    this.initializeGeneValues()
     console.log('Success:', JSON.stringify(geneValues), selectedArtworkIds)
     window.alert('Batch update was successfully queued')
     this.close()
@@ -124,12 +144,20 @@ class BatchUpdateForm extends React.Component {
         <Controls>
           <Link href='#' onClick={this.handleCancelClick} className='cancel'>Cancel</Link>
           <div>{selectedArtworksCount} works selected</div>
-          <LinkButton className='queue' onClick={this.showConfirmation} disabled={!this.isValid()}>Queue changes</LinkButton>
+          <Button className='queue' onClick={this.showConfirmation} disabled={!this.isValid()}>Queue changes</Button>
         </Controls>
 
         <Genes>
-          { geneNames.map(name => <GeneInput key={name} name={name} value={geneValues[name]} onChangeValue={this.onChangeGeneValue} />) }
+          { geneNames.map(name =>
+            <GeneInput key={name} name={name} value={geneValues[name]} onChangeValue={this.onChangeGeneValue} />
+          )}
         </Genes>
+
+        { (geneNames.length === 0) &&
+          <EmptyGenesMessage>
+            There aren’t any genes that describe all of your selected works
+          </EmptyGenesMessage>
+        }
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.onAddGene} />
 
@@ -173,5 +201,11 @@ const Genes = styled.div`
   padding: 30px 0;
 `
 Genes.displayName = 'Genes'
+
+const EmptyGenesMessage = styled.div`
+  align-self: center;
+  text-align: center;
+`
+EmptyGenesMessage.displayName = 'EmptyGenesMessage'
 
 export default BatchUpdateForm

@@ -13,15 +13,19 @@ exports[`test renders correctly 1`] = `
       3
        works selected
     </div>
-    <a
-      className="queue bqDpOh"
+    <button
+      className="queue feplCa"
       disabled={true}
       onClick={[Function]}>
       Queue changes
-    </a>
+    </button>
   </div>
   <div
     className="hfTCBQ" />
+  <div
+    className="kXtoxa">
+    There aren’t any genes that describe all of your selected works
+  </div>
   <div
     className="GenericAutosuggest">
     <div
