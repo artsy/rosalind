@@ -16,6 +16,7 @@
     "file-loader": "^0.9.0",
     "jest": "^18.1.0",
     "json-loader": "^0.5.4",
+    "lodash.defaults": "^4.2.0",
     "lodash.intersection": "^4.4.0",
     "lodash.pickby": "^4.6.0",
     "lodash.zipobject": "^4.1.3",
