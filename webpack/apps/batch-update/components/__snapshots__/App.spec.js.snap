@@ -145,13 +145,13 @@ exports[`test renders correctly 1`] = `
             Published?
           </div>
           <a
-            className="active"
+            className={null}
             href="#"
             onClick={[Function]}>
             All
           </a>
           <a
-            className={null}
+            className="active"
             href="#"
             onClick={[Function]}>
             Published

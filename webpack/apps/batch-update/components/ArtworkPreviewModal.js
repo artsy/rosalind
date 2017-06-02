@@ -53,13 +53,13 @@ class ArtworkPreviewModal extends React.Component {
             </p>
             <p className='links'>
               View artwork in:
-              <a href={`https://helix.artsy.net/genome/artworks?artwork_ids=${id}`}>Helix</a>|
-              <a href={`https://cms.artsy.net/artworks/${id}/edit?current_partner_id=${partnerId}`}>CMS</a>|
-              <a href={`https://www.artsy.net/artwork/${id}`}>Artsy.net</a>
+              <a target='_blank' href={`https://helix.artsy.net/genome/artworks?artwork_ids=${id}`}>Helix</a>|
+              <a target='_blank' href={`https://cms.artsy.net/artworks/${id}/edit?current_partner_id=${partnerId}`}>CMS</a>|
+              <a target='_blank' href={`https://www.artsy.net/artwork/${id}`}>Artsy.net</a>
             </p>
             <p className='links'>
               View artist in:
-              <a href={`https://helix.artsy.net/genome/artist?search[genome_artist_id]=${artistId}`}>Helix</a>
+              <a target='_blank' href={`https://helix.artsy.net/genome/artist?search[genome_artist_id]=${artistId}`}>Helix</a>
             </p>
           </div>
         </div>
