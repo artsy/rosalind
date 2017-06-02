@@ -1,15 +1,38 @@
 const defaultPageSize = 100
 
-export function buildElasticsearchQuery ({ genes, tags, partner, fair, publishedFilter, deletedFilter, genomedFilter, from, size }) {
+export function buildElasticsearchQuery (args) {
+  const {
+    createdAfterDate,
+    createdBeforeDate,
+    fair,
+    from,
+    genes,
+    genomedFilter,
+    partner,
+    publishedFilter,
+    size,
+    tags
+  } = args
+
   const geneMatches = genes.map(g => { return { 'match': { 'genes': g.name } } })
   const tagMatches = tags.map(t => { return { 'match': { 'tags': t.name } } })
-  const filterMatches = buildFilterMatches({ publishedFilter, deletedFilter, genomedFilter })
+  const filterMatches = buildFilterMatches({ publishedFilter, genomedFilter })
   const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
   const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
+  const createdDateRange = buildCreatedDateRange({createdAfterDate, createdBeforeDate})
+
   return {
     'query': {
       'bool': {
-        'must': [...geneMatches, ...tagMatches, ...filterMatches, partnerMatch, fairMatch].filter(m => m !== null)
+        'must': [
+          { 'match': { 'deleted': false } },
+          ...geneMatches,
+          ...tagMatches,
+          ...filterMatches,
+          partnerMatch,
+          fairMatch,
+          createdDateRange
+        ].filter(m => m !== null)
       }
     },
     'sort': [
@@ -21,10 +44,31 @@ export function buildElasticsearchQuery ({ genes, tags, partner, fair, published
   }
 }
 
-const buildFilterMatches = ({ publishedFilter, deletedFilter, genomedFilter }) => (
+const buildCreatedDateRange = ({createdAfterDate, createdBeforeDate}) => {
+  if (!createdAfterDate && !createdBeforeDate) {
+    return null
+  }
+
+  const query = {
+    'range': {
+      'created_at': { }
+    }
+  }
+
+  if (createdBeforeDate) {
+    query.range.created_at.lte = createdBeforeDate
+  }
+
+  if (createdAfterDate) {
+    query.range.created_at.gte = createdAfterDate
+  }
+
+  return query
+}
+
+const buildFilterMatches = ({ publishedFilter, genomedFilter }) => (
   [
     publishedMatcher(publishedFilter),
-    deletedMatcher(deletedFilter),
     genomedMatcher(genomedFilter)
   ]
 )
@@ -35,17 +79,6 @@ const publishedMatcher = (publishedFilter) => {
       return { 'match': { 'published': true } }
     case 'SHOW_NOT_PUBLISHED':
       return { 'match': { 'published': false } }
-    default:
-      return null
-  }
-}
-
-const deletedMatcher = (deletedFilter) => {
-  switch (deletedFilter) {
-    case 'SHOW_DELETED':
-      return { 'match': { 'deleted': true } }
-    case 'SHOW_NOT_DELETED':
-      return { 'match': { 'deleted': false } }
     default:
       return null
   }

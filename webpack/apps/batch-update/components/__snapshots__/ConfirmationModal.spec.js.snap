@@ -1,0 +1,43 @@
+exports[`test renders correctly when closed 1`] = `
+<div
+  className="gungoz">
+  I am closed
+  <div
+    className="kriMBh">
+    <a
+      className="dismiss jRkNFJ"
+      href="#"
+      onClick={[Function]}>
+      Go back
+    </a>
+    <a
+      className="accept jhxkip"
+      href="#"
+      onClick={[Function]}>
+      Continue
+    </a>
+  </div>
+</div>
+`;
+
+exports[`test renders correctly when open 1`] = `
+<div
+  className="modal-open gungoz">
+  I am open
+  <div
+    className="kriMBh">
+    <a
+      className="dismiss jRkNFJ"
+      href="#"
+      onClick={[Function]}>
+      Go back
+    </a>
+    <a
+      className="accept jhxkip"
+      href="#"
+      onClick={[Function]}>
+      Continue
+    </a>
+  </div>
+</div>
+`;

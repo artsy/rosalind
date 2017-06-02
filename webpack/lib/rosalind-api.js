@@ -42,7 +42,6 @@ export const matchFairs = function (term) {
 
 export const matchArtworks = function (esQuery) {
   const queryJSON = JSON.stringify(esQuery)
-  // console.log(`fetching: ${queryJSON}`)
   const uri = `/match/artworks?query=${encodeURIComponent(queryJSON)}`
   return window.fetch(uri, { credentials: 'include' })
     .then(resp => resp.json())
@@ -52,4 +51,25 @@ export const matchArtworks = function (esQuery) {
     .catch((err) => {
       console.error(err)
     })
+}
+
+export const submitBatchUpdate = function (artworkIds, genes, csrfToken) {
+  const uri = '/batch_updates'
+  const payload = JSON.stringify({
+    batch_update: {
+      artworks: artworkIds,
+      genes: genes
+    }
+  })
+  const headers = {
+    'X-CSRF-Token': csrfToken,
+    'Content-Type': 'application/json'
+  }
+  const options = {
+    method: 'POST',
+    headers: headers,
+    body: payload,
+    credentials: 'same-origin'
+  }
+  return window.fetch(uri, options)
 }

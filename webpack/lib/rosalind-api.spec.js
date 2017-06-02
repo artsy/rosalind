@@ -1,5 +1,12 @@
 import 'whatwg-fetch'
-import { matchGenes, matchTags, matchPartners, matchFairs, matchArtworks } from './rosalind-api'
+import {
+  matchGenes,
+  matchTags,
+  matchPartners,
+  matchFairs,
+  matchArtworks,
+  submitBatchUpdate
+} from './rosalind-api'
 
 beforeEach(() => {
   const p = new Promise(() => {})
@@ -59,5 +66,56 @@ describe('matchArtworks', () => {
 
     const fetchedURI = window.fetch.mock.calls[0][0]
     expect(fetchedURI).toMatch(`/match/artworks?query=${encodedQuery}`)
+  })
+})
+
+describe('submitBatchUpdate', () => {
+  let artworkIds, geneValues, csrfToken
+
+  beforeEach(() => {
+    artworkIds = [ 'a', 'b', 'c' ]
+    geneValues = { 'Kawaii': 70, 'Animals': 0 }
+    csrfToken = 'SECRET is a funny looking word after you stare at it for a while'
+
+    submitBatchUpdate(artworkIds, geneValues, csrfToken)
+  })
+
+  it('fetches the expected url', () => {
+    const fetchedURI = window.fetch.mock.calls[0][0]
+    expect(fetchedURI).toMatch('/batch_updates')
+  })
+
+  it('makes a POST request', () => {
+    const fetchOptions = window.fetch.mock.calls[0][1]
+    const method = fetchOptions.method
+    expect(method).toMatch(/post/i)
+  })
+
+  it('sends the expected payload', () => {
+    const expectedPayload = JSON.stringify({
+      batch_update: {
+        artworks: artworkIds,
+        genes: geneValues
+      }
+    })
+    const fetchOptions = window.fetch.mock.calls[0][1]
+    const actualPayload = fetchOptions.body
+    expect(actualPayload).toEqual(expectedPayload)
+  })
+
+  it('sends the payload as json', () => {
+    const fetchOptions = window.fetch.mock.calls[0][1]
+    const headers = fetchOptions.headers
+    expect(headers).toMatchObject({
+      'Content-Type': 'application/json'
+    })
+  })
+
+  it('includes a forgery token header', () => {
+    const fetchOptions = window.fetch.mock.calls[0][1]
+    const headers = fetchOptions.headers
+    expect(headers).toMatchObject({
+      'X-CSRF-Token': csrfToken
+    })
   })
 })

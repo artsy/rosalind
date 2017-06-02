@@ -11,13 +11,13 @@ function FairAutosuggest (props) {
       fetchSuggestions={matchFairs}
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
-      selectSuggestion={fair => { props.onSelectFair(fair) }}
+      selectSuggestion={fair => { props.updateState('fair', fair) }}
       />
   )
 }
 
 FairAutosuggest.propTypes = {
-  onSelectFair: React.PropTypes.func.isRequired
+  updateState: React.PropTypes.func
 }
 
 FairAutosuggest.defaultProps = {

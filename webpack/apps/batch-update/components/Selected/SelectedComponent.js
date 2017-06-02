@@ -1,6 +1,6 @@
 import React from 'react'
 
-class SelectedGene extends React.Component {
+class SelectedComponent extends React.Component {
   constructor (props) {
     super(props)
     this.handleRemove = this.handleRemove.bind(this)
@@ -8,11 +8,12 @@ class SelectedGene extends React.Component {
 
   handleRemove (e) {
     e.preventDefault()
-    this.props.onRemoveGene(this.props.name)
+    this.props.onRemove(this.props.name, this.props.stateKey)
   }
 
   render () {
     const { className, name } = this.props
+
     return (
       <div className={className}>
         {name}
@@ -23,16 +24,11 @@ class SelectedGene extends React.Component {
   }
 }
 
-SelectedGene.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  onRemoveGene: React.PropTypes.func.isRequired
-}
-
 /* default styled component */
 
 import styled from 'styled-components'
 
-const StyledSelectedGene = styled(SelectedGene)`
+const StyledSelectedComponent = styled(SelectedComponent)`
   font-weight: bold;
   margin: 0.25em 0;
 
@@ -54,4 +50,4 @@ const StyledSelectedGene = styled(SelectedGene)`
   }
 `
 
-export default StyledSelectedGene
+export { StyledSelectedComponent as default, SelectedComponent }

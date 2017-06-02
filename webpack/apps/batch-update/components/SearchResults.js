@@ -1,8 +1,9 @@
 import React from 'react'
-import missingImage from 'file-loader!./missing_image.png'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
+import ArtworkSearchResult from './ArtworkSearchResult'
 import Spinner from './Spinner'
 import { Button } from './Buttons'
+import { Link } from './Links'
 
 class SearchResults extends React.Component {
   maybeRenderSpinner () {
@@ -28,10 +29,15 @@ class SearchResults extends React.Component {
     }
   }
 
-  maybeRenderCounts () {
-    const { artworks, totalHits } = this.props
+  maybeRenderControls () {
+    const { artworks, totalHits, onSelectAllArtworks, onDeselectAllArtworks } = this.props
     if (totalHits && artworks && artworks.length > 0) {
-      return <Counts displayed={artworks.length} total={totalHits} />
+      return <Controls
+        displayed={artworks.length}
+        total={totalHits}
+        onSelectAllArtworks={onSelectAllArtworks}
+        onDeselectAllArtworks={onDeselectAllArtworks}
+      />
     } else {
       return null
     }
@@ -47,13 +53,19 @@ class SearchResults extends React.Component {
   }
 
   render () {
-    const { className, artworks, onPreviewArtwork } = this.props
+    const { className, artworks, selectedArtworkIds, onPreviewArtwork, onToggleArtwork } = this.props
     return (
       <div className={className}>
         {this.maybeRenderSpinner()}
         {this.maybeRenderModal()}
-        {this.maybeRenderCounts()}
-        <ArtworkResultList artworks={artworks} onPreviewArtwork={onPreviewArtwork} />
+        {this.maybeRenderControls()}
+        <ArtworkResultList
+          artworks={artworks}
+          selectedArtworkIds={selectedArtworkIds}
+          onPreviewArtwork={onPreviewArtwork}
+          onToggleArtwork={onToggleArtwork}
+        />
+        {this.maybeRenderControls()}
         {this.maybeRenderMoreButton()}
       </div>
     )
@@ -69,26 +81,35 @@ SearchResults.propTypes = {
   onPreviewNext: React.PropTypes.func
 }
 
-const Counts = ({displayed, total}) => (
-  <div className='counts'>
-    Displaying {displayed.toLocaleString()} of {total.toLocaleString()} matching artworks
+const Controls = ({displayed, total, onSelectAllArtworks, onDeselectAllArtworks}) => (
+  <div>
+    <div className='counts'>
+      Displaying {displayed.toLocaleString()} of {total.toLocaleString()} matching artworks
+    </div>
+    <div className='select'>
+      Select:
+      <Link href='#' onClick={(e) => { e.preventDefault(); onSelectAllArtworks() }}>
+        all
+      </Link>
+      /
+      <Link href='#' onClick={(e) => { e.preventDefault(); onDeselectAllArtworks() }}>
+        none
+      </Link>
+    </div>
   </div>
 )
 
-const ArtworkResultList = ({artworks, onPreviewArtwork}) => {
+const ArtworkResultList = ({artworks, selectedArtworkIds, onPreviewArtwork, onToggleArtwork}) => {
   return (
     <div className='results'>
-      {artworks.map(artwork => <ArtworkResult key={artwork.id} artwork={artwork} onPreviewArtwork={onPreviewArtwork} />)}
-    </div>
-  )
-}
-
-const ArtworkResult = ({artwork, onPreviewArtwork}) => {
-  const { name, image_url: imageUrl } = artwork
-  return (
-    <div className='result' onClick={() => { onPreviewArtwork(artwork) }}>
-      <img src={imageUrl || missingImage} alt={name} />
-      <figcaption>{name}</figcaption>
+      {artworks.map(artwork =>
+        <ArtworkSearchResult key={artwork.id}
+          artwork={artwork}
+          onPreviewArtwork={onPreviewArtwork}
+          onToggleArtwork={onToggleArtwork}
+          selected={selectedArtworkIds.indexOf(artwork.id) > -1}
+        />
+      )}
     </div>
   )
 }
@@ -108,31 +129,25 @@ const StyledSearchResults = styled(SearchResults)`
   flex-direction: column;
 
   .counts {
+    display: inline-block;
+    width: 75%;
     padding: 0.75em;
+  }
+
+  .select {
+    display: inline-block;
+    width: 25%;
+    padding: 0.75em;
+    text-align: right;
+
+    a {
+      margin: 0 0.25em;
+    }
   }
 
   .results {
     display: flex;
     flex-flow: row wrap;
-
-    .result {
-      min-width: 115px;
-      max-width: calc(20% - 1.5em);
-      margin: 0.75em;
-      flex: 1 1 calc(20% - 1.5em);
-
-      img {
-        width: 100%;
-      }
-
-      figcaption {
-        position: relative;
-        font-size: 80%;
-        max-height: 3.75em;
-        line-height: 1.25em;
-        overflow: hidden;
-      }
-    }
   }
 `
 
