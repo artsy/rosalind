@@ -31,7 +31,7 @@ class App extends React.Component {
       isSpecifyingBatchUpdate: false,
       partner: null,
       previewedArtwork: null,
-      publishedFilter: 'SHOW_ALL',
+      publishedFilter: 'SHOW_PUBLISHED',
       selectedArtworkIds: [],
       size: 100,
       notices: [],
