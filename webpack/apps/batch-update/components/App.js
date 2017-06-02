@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React from 'react'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
@@ -7,6 +6,7 @@ import { buildElasticsearchQuery } from '../helpers/elasticsearch'
 import { matchArtworks } from 'lib/rosalind-api'
 import { Wrapper, Sidebar, Content } from './Layout'
 import FullScreenModal from './FullScreenModal'
+import intersection from 'lodash.intersection'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 
@@ -230,7 +230,7 @@ class App extends React.Component {
     const geneArraysForSelectedArtworks = artworks
       .filter(artwork => selectedArtworkIds.indexOf(artwork.id) > -1)
       .map(artwork => artwork.genes)
-    const commonGenes = _.intersection(...geneArraysForSelectedArtworks)
+    const commonGenes = intersection(...geneArraysForSelectedArtworks)
       .filter(g => commonGenesToIgnore.indexOf(g) === -1)
     return commonGenes
   }

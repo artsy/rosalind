@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from './Links'
@@ -9,6 +8,8 @@ import { GeneAutosuggest } from './Autosuggest'
 import Overlay from './Overlay'
 import ConfirmationModal from './ConfirmationModal'
 import { submitBatchUpdate } from 'lib/rosalind-api'
+import zipObject from 'lodash.zipobject'
+import pickBy from 'lodash.pickby'
 
 class BatchUpdateForm extends React.Component {
   constructor (props) {
@@ -41,7 +42,7 @@ class BatchUpdateForm extends React.Component {
   initializeGeneValues () {
     const commonGeneNames = this.props.getCommonGenes()
     const nulls = Array(commonGeneNames.length).fill(null)
-    const initialGeneValues = _.zipObject(commonGeneNames, nulls)
+    const initialGeneValues = zipObject(commonGeneNames, nulls)
     this.setState({
       geneValues: initialGeneValues
     })
@@ -81,7 +82,7 @@ class BatchUpdateForm extends React.Component {
   submit () {
     const { selectedArtworkIds } = this.props
     const { geneValues } = this.state
-    const validGenes = _.pickBy(geneValues, (value, _key) => value !== null)
+    const validGenes = pickBy(geneValues, (value, _key) => value !== null)
     const csrfToken = document.querySelector('meta[name=csrf-token]').content
     submitBatchUpdate(selectedArtworkIds, validGenes, csrfToken)
        .then(response => {
