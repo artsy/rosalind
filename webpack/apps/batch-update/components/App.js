@@ -25,7 +25,7 @@ class App extends React.Component {
       createdAfterDate: null,
       createdBeforeDate: null,
       fair: null,
-      genes: [],
+      genes: [{id:'kawaii',name:'Kawaii'}],
       genomedFilter: 'SHOW_ALL',
       isLoading: false,
       isSpecifyingBatchUpdate: false,
@@ -58,6 +58,7 @@ class App extends React.Component {
 
     this.fetchArtworks = this.fetchArtworks.bind(this)
     this.fetchMoreArtworks = this.fetchMoreArtworks.bind(this)
+    this.refresh = this.refresh.bind(this)
 
     this.onOpenBatchUpdate = this.onOpenBatchUpdate.bind(this)
     this.onDismissBatchUpdate = this.onDismissBatchUpdate.bind(this)
@@ -167,6 +168,10 @@ class App extends React.Component {
       const moreArtworks = hits.hits.map(hit => hit._source)
       this.setState({ artworks: [...artworks, ...moreArtworks], totalHits })
     })
+  }
+
+  refresh () {
+    this.fetchArtworks()
   }
 
   onRemoveGene (geneName, key = null) {
