@@ -16,11 +16,9 @@ test:
 deployment:
   staging:
     branch: master
-    owner: artsy
-    heroku:
-      appname: rosalind-staging
+    commands:
+      - './scripts/heroku_deploy rosalind-staging'
   production:
     branch: release
-    owner: artsy
-    heroku:
-      appname: rosalind-production
+    commands:
+      - './scripts/heroku_deploy rosalind-production'
