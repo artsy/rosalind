@@ -1,4 +1,6 @@
 import React from 'react'
+import intersection from 'lodash.intersection'
+import defaults from 'lodash.defaults'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import BatchUpdateForm from './BatchUpdateForm'
@@ -7,7 +9,6 @@ import { matchArtworks } from 'lib/rosalind-api'
 import { Wrapper, Sidebar, Content } from './Layout'
 import FullScreenModal from './FullScreenModal'
 import { Notices, Notice } from './Notices'
-import intersection from 'lodash.intersection'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 
@@ -268,7 +269,7 @@ class App extends React.Component {
 
   addNotice (message, options) {
     const defaults = { isError: false }
-    const { isError } = _.defaults(options, defaults)
+    const { isError } = defaults(options, defaults)
     const newNotice = {
       id: `${Date.now()}—${message}`,
       message,

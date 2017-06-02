@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import zipObject from 'lodash.zipobject'
+import pickBy from 'lodash.pickby'
 import { Link } from './Links'
 import { Button } from './Buttons'
 import { colors } from './Layout'
@@ -8,8 +10,6 @@ import { GeneAutosuggest } from './Autosuggest'
 import Overlay from './Overlay'
 import ConfirmationModal from './ConfirmationModal'
 import { submitBatchUpdate } from 'lib/rosalind-api'
-import zipObject from 'lodash.zipobject'
-import pickBy from 'lodash.pickby'
 
 class BatchUpdateForm extends React.Component {
   constructor (props) {
