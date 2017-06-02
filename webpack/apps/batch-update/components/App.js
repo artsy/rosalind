@@ -59,6 +59,7 @@ class App extends React.Component {
     this.fetchArtworks = this.fetchArtworks.bind(this)
     this.fetchMoreArtworks = this.fetchMoreArtworks.bind(this)
     this.refresh = this.refresh.bind(this)
+    this.handleKeyup = this.handleKeyup.bind(this)
 
     this.onOpenBatchUpdate = this.onOpenBatchUpdate.bind(this)
     this.onDismissBatchUpdate = this.onDismissBatchUpdate.bind(this)
@@ -67,11 +68,17 @@ class App extends React.Component {
     this.removeNotice = this.removeNotice.bind(this)
   }
 
-  componentWillMount () {
+  componentDidMount () {
     if (this.state.genes.length || this.state.tags.length) {
       this.fetchArtworks()
     }
+    window.addEventListener('keyup', this.handleKeyup)
   }
+
+  componentWillUnmount () {
+    window.removeEventListener('keyup', this.handleKeyup)
+  }
+
 
   componentDidUpdate (_prevProps, prevState) {
     if (this.shouldComponentUpdate(prevState)) {
@@ -172,6 +179,12 @@ class App extends React.Component {
 
   refresh () {
     this.fetchArtworks()
+  }
+
+  handleKeyup (e) {
+    if (e.code === 'KeyR' && e.target.tagName === 'BODY') {
+      this.refresh()
+    }
   }
 
   onRemoveGene (geneName, key = null) {
