@@ -3,7 +3,7 @@ machine:
     version: 2.4.1
 dependencies:
   pre:
-    - gem install bundler --version 1.13.6
+    - gem install bundler
 test:
   pre:
     - bundle exec rubocop --rails
