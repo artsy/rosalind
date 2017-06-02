@@ -5,6 +5,9 @@ dependencies:
   pre:
     - gem install bundler
     - scripts/install_chrome
+compile:
+  pre:
+    - bundle exec rake webpack:compile
 test:
   pre:
     - bundle exec rubocop --rails
