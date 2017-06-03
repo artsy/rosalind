@@ -31,7 +31,7 @@ class App extends React.Component {
       isSpecifyingBatchUpdate: false,
       partner: null,
       previewedArtwork: null,
-      publishedFilter: 'SHOW_ALL',
+      publishedFilter: 'SHOW_PUBLISHED',
       selectedArtworkIds: [],
       size: 100,
       notices: [],
@@ -58,6 +58,10 @@ class App extends React.Component {
 
     this.fetchArtworks = this.fetchArtworks.bind(this)
     this.fetchMoreArtworks = this.fetchMoreArtworks.bind(this)
+    this.hasSearchCriteriaChanged = this.hasSearchCriteriaChanged.bind(this)
+    this.canSearch = this.canSearch.bind(this)
+    this.refresh = this.refresh.bind(this)
+    this.handleKeyup = this.handleKeyup.bind(this)
 
     this.onOpenBatchUpdate = this.onOpenBatchUpdate.bind(this)
     this.onDismissBatchUpdate = this.onDismissBatchUpdate.bind(this)
@@ -66,22 +70,28 @@ class App extends React.Component {
     this.removeNotice = this.removeNotice.bind(this)
   }
 
-  componentWillMount () {
-    if (this.state.genes.length || this.state.tags.length) {
+  componentDidMount () {
+    if (this.canSearch()) {
       this.fetchArtworks()
     }
+    window.addEventListener('keyup', this.handleKeyup)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('keyup', this.handleKeyup)
   }
 
   componentDidUpdate (_prevProps, prevState) {
     if (this.shouldComponentUpdate(prevState)) {
-      this.setState({
-        selectedArtworkIds: []
-      })
       this.fetchArtworks()
     }
   }
 
   shouldComponentUpdate (prevState) {
+    return this.hasSearchCriteriaChanged(prevState)
+  }
+
+  hasSearchCriteriaChanged (prevState) {
     return (
       (this.state.createdAfterDate !== prevState.createdAfterDate) ||
       (this.state.createdBeforeDate !== prevState.createdBeforeDate) ||
@@ -94,24 +104,35 @@ class App extends React.Component {
     )
   }
 
+  canSearch () {
+    return (
+      (this.state.fair !== null) ||
+      (this.state.genes.length !== 0) ||
+      (this.state.partner !== null) ||
+      (this.state.tags.length !== 0)
+    )
+  }
+
   fetchArtworks () {
     const {
       createdAfterDate,
       createdBeforeDate,
       fair,
       genes,
+      genomedFilter,
       partner,
+      publishedFilter,
+      size,
       tags
     } = this.state
 
-    if ((genes.length === 0) &&
-      (tags.length === 0) &&
-      (partner === null) && (fair === null)
-    ) {
-      this.setState({ artworks: [], totalHits: 0 })
+    if (this.canSearch() === false) {
+      this.setState({
+        artworks: [],
+        selectedArtworkIds: [],
+        totalHits: 0
+      })
     } else {
-      const { publishedFilter, genomedFilter, size } = this.state
-
       const query = buildElasticsearchQuery({
         createdAfterDate,
         createdBeforeDate,
@@ -128,7 +149,12 @@ class App extends React.Component {
       matchArtworks(query).then(hits => {
         const totalHits = hits.total
         const artworks = hits.hits.map(hit => hit._source)
-        this.setState({ artworks, totalHits, isLoading: false })
+        this.setState({
+          artworks,
+          selectedArtworkIds: [],
+          totalHits,
+          isLoading: false
+        })
       })
     }
   }
@@ -167,6 +193,16 @@ class App extends React.Component {
       const moreArtworks = hits.hits.map(hit => hit._source)
       this.setState({ artworks: [...artworks, ...moreArtworks], totalHits })
     })
+  }
+
+  refresh () {
+    this.fetchArtworks()
+  }
+
+  handleKeyup (e) {
+    if (e.code === 'KeyR' && e.target.tagName === 'BODY') {
+      this.refresh()
+    }
   }
 
   onRemoveGene (geneName, key = null) {
