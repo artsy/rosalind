@@ -45,7 +45,33 @@ $ yarn run lint
 $ yarn run test
 ```
 
-Note: the default rake task (e.g. `bundle exec rake`) is setup to run all linting and tests.
+Note: the default rake task (e.g. `bundle exec rake`) is setup to run all
+linting and tests.
+
+### Acceptance Tests
+
+In order to improve our confidence that the Ruby and Javascript parts of this
+project work together, we've added acceptance tests that run in Chrome. It is
+assumed that while developing, you'll have `foreman` running (see next section),
+which means you'll have a webpack dev server running. If you see an error like
+this:
+
+```
+     ActionView::Template::Error:
+       Could not load manifest from webpack-dev-server at http://localhost:3808/webpack/manifest.json - is it running, and is stats-webpack-plugin loaded? (original error Failed to open TCP connection to localhost:3808 (Connection refused - connect(2) for "localhost" port 3808))
+```
+
+That probably means you just don't have that webpack dev server running.
+
+One final tip - if you want to run acceptance tests like Circle does, try this:
+
+```
+$ bundle exec rake webpack:compile
+$ CI=true bundle exec rake
+```
+
+This will compile all those Javascript assets and turn off the webpack dev
+server.
 
 ## Starting Server
 
