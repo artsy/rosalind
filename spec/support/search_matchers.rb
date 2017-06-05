@@ -32,7 +32,7 @@ end
 
 RSpec::Matchers.define :have_autosuggest do |placeholder|
   match do |page|
-    expect(page).to have_xpath("//input[@placeholder='#{placeholder}']")
+    expect(page).to have_css("input[placeholder='#{placeholder}']")
   end
 end
 
