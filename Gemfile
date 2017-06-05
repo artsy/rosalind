@@ -37,7 +37,9 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'fabrication'
+  gem 'selenium-webdriver'
   gem 'webmock'
 end
