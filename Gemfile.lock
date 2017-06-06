@@ -288,6 +288,8 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    sentry-raven (2.5.2)
+      faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.9.0)
     sidekiq (5.0.0)
       concurrent-ruby (~> 1.0)
@@ -365,6 +367,7 @@ DEPENDENCIES
   rubocop
   sass-rails
   selenium-webdriver
+  sentry-raven
   sidekiq
   spring
   spring-watcher-listen
