@@ -15,6 +15,7 @@ gem 'decent_exposure'
 gem 'haml-rails'
 gem 'jbuilder'
 gem 'sass-rails'
+gem 'sentry-raven'
 gem 'sidekiq'
 gem 'typhoeus'
 gem 'uglifier'
@@ -37,7 +38,9 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'fabrication'
+  gem 'selenium-webdriver'
   gem 'webmock'
 end
