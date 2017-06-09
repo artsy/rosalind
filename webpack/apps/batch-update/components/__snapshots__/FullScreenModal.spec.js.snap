@@ -1,13 +1,13 @@
 exports[`test renders correctly when closed 1`] = `
 <div
-  className="eGgltq">
+  className="jOkOCo">
   I am closed
 </div>
 `;
 
 exports[`test renders correctly when open 1`] = `
 <div
-  className="modal-open eGgltq">
+  className="modal-open jOkOCo">
   I am open
 </div>
 `;
