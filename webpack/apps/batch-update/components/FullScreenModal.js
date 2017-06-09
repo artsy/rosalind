@@ -1,6 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 import { ESC } from 'lib/keycodes.js'
+
+injectGlobal`
+  body.FullScreenModal--open {
+    overflow: hidden;
+  }
+`
 
 const Modal = styled.div`
   position: fixed;
@@ -39,10 +45,12 @@ class FullScreenModal extends React.Component {
     if (!isOpen && willBeOpen) {
       // modal is opening
       window.addEventListener('keyup', this.handleKeyup)
+      document.body.classList.add('FullScreenModal--open')
     }
     if (isOpen && !willBeOpen) {
       // modal is closing
       window.removeEventListener('keyup', this.handleKeyup)
+      document.body.classList.remove('FullScreenModal--open')
     }
   }
 
