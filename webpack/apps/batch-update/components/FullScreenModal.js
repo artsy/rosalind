@@ -9,6 +9,7 @@ const Modal = styled.div`
   right: 0px;
   bottom: 0px;
   background: white;
+  overflow: scroll;
 
   // modal is closed
   visibility: hidden;
