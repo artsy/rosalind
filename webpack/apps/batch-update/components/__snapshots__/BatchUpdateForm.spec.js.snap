@@ -52,6 +52,8 @@ exports[`test renders correctly 1`] = `
     </div>
   </div>
   <div
+    className="mluQ" />
+  <div
     className="gungoz">
     <h1>
       Are you sure you want to queue these changes?

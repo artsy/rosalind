@@ -158,6 +158,7 @@ class BatchUpdateForm extends React.Component {
         }
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.onAddGene} />
+        <Spacer />
 
         { isConfirming && <Overlay /> }
         <ConfirmationModal isOpen={isConfirming} onDismiss={this.dismissConfirmation} onAccept={this.submit}>
@@ -205,5 +206,10 @@ const EmptyGenesMessage = styled.div`
   text-align: center;
 `
 EmptyGenesMessage.displayName = 'EmptyGenesMessage'
+
+const Spacer = styled.div`
+  height: 5em;
+`
+Spacer.displayName = 'Spacer'
 
 export default BatchUpdateForm
