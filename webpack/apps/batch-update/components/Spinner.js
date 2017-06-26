@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 
 const spinning = keyframes`
@@ -33,7 +34,7 @@ const AnimatedLine = styled.div`
 `
 
 AnimatedLine.propTypes = {
-  color: React.PropTypes.string
+  color: PropTypes.string
 }
 
 AnimatedLine.defaultProps = {

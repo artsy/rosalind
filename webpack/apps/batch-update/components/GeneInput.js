@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors } from './Layout'
 
@@ -37,8 +38,9 @@ class GeneInput extends React.Component {
 }
 
 GeneInput.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  value: React.PropTypes.number
+  name: PropTypes.string.isRequired,
+  value: PropTypes.number,
+  onChangeValue: PropTypes.func
 }
 
 const Square = styled.div`

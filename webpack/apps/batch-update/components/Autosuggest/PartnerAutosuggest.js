@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import GenericAutosuggest from './GenericAutosuggest'
 import { matchPartners } from 'lib/rosalind-api'
 import { getSuggestionValue, renderSuggestion } from './helpers'
@@ -17,7 +18,7 @@ function PartnerAutosuggest (props) {
 }
 
 PartnerAutosuggest.propTypes = {
-  updateState: React.PropTypes.func
+  updateState: PropTypes.func
 }
 
 PartnerAutosuggest.defaultProps = {

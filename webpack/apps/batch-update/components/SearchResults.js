@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
 import ArtworkSearchResult from './ArtworkSearchResult'
 import Spinner from './Spinner'
@@ -73,12 +74,18 @@ class SearchResults extends React.Component {
 }
 
 SearchResults.propTypes = {
-  artworks: React.PropTypes.array.isRequired,
-  isLoading: React.PropTypes.bool,
-  previewedArtwork: React.PropTypes.object,
-  onPreviewArtwork: React.PropTypes.func,
-  onPreviewPrevious: React.PropTypes.func,
-  onPreviewNext: React.PropTypes.func
+  artworks: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool,
+  onDeselectAllArtworks: PropTypes.func,
+  onLoadMore: PropTypes.func,
+  onPreviewArtwork: PropTypes.func,
+  onPreviewNext: PropTypes.func,
+  onPreviewPrevious: PropTypes.func,
+  onSelectAllArtworks: PropTypes.func,
+  onToggleArtwork: PropTypes.func,
+  previewedArtwork: PropTypes.object,
+  selectedArtworkIds: PropTypes.arrayOf(PropTypes.string),
+  totalHits: PropTypes.number
 }
 
 const Controls = ({displayed, total, onSelectAllArtworks, onDeselectAllArtworks}) => (
