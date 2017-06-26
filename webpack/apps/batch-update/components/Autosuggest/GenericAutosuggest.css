@@ -24,7 +24,7 @@
   background: white;
 }
 
-.GenericAutosuggest li.react-autosuggest__suggestion--focused {
+.GenericAutosuggest li.react-autosuggest__suggestion--highlighted {
   background: purple;
   color: white;
 }
