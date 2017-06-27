@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors } from './Layout'
 import { ESC } from 'lib/keycodes.js'
@@ -113,8 +114,9 @@ class ConfirmationModal extends React.Component {
 }
 
 ConfirmationModal.propTypes = {
-  onDismiss: React.PropTypes.func.isRequired,
-  onAccept: React.PropTypes.func.isRequired
+  isOpen: PropTypes.bool,
+  onDismiss: PropTypes.func.isRequired,
+  onAccept: PropTypes.func.isRequired
 }
 
 export default ConfirmationModal

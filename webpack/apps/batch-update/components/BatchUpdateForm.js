@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import zipObject from 'lodash.zipobject'
 import pickBy from 'lodash.pickby'
@@ -175,8 +176,11 @@ class BatchUpdateForm extends React.Component {
 }
 
 BatchUpdateForm.propTypes = {
-  onCancel: React.PropTypes.func.isRequired,
-  selectedArtworkIds: React.PropTypes.array.isRequired
+  getCommonGenes: PropTypes.func,
+  onAddNotice: PropTypes.func,
+  onCancel: PropTypes.func.isRequired,
+  selectedArtworkIds: PropTypes.array.isRequired
+
 }
 
 const Wrapper = styled.div`

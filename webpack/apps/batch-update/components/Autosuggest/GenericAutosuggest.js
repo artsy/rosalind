@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Autosuggest from 'react-autosuggest'
 import './GenericAutosuggest.css'
 
@@ -63,10 +64,10 @@ export default class GenericAutosuggest extends React.Component {
 }
 
 GenericAutosuggest.propTypes = {
-  id: React.PropTypes.string,
-  placeholder: React.PropTypes.string,
-  fetchSuggestions: React.PropTypes.func.isRequired,   // searchTerm => listOfMatchingSuggestionObjects
-  getSuggestionValue: React.PropTypes.func.isRequired, // suggestionObject => displayName
-  renderSuggestion: React.PropTypes.func.isRequired,   // suggestionObject => stringOrMarkupForSuggestionList
-  selectSuggestion: React.PropTypes.func.isRequired     // suggestionObject => { handlerFunction(suggestionObject) }
+  id: PropTypes.string,
+  placeholder: PropTypes.string,
+  fetchSuggestions: PropTypes.func.isRequired,   // searchTerm => listOfMatchingSuggestionObjects
+  getSuggestionValue: PropTypes.func.isRequired, // suggestionObject => displayName
+  renderSuggestion: PropTypes.func.isRequired,   // suggestionObject => stringOrMarkupForSuggestionList
+  selectSuggestion: PropTypes.func.isRequired     // suggestionObject => { handlerFunction(suggestionObject) }
 }

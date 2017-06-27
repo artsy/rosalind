@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import missingImage from 'file-loader!./missing_image.png'
 
 class ArtworkSearchResult extends React.Component {
@@ -29,8 +30,9 @@ class ArtworkSearchResult extends React.Component {
 }
 
 ArtworkSearchResult.propTypes = {
-  artwork: React.PropTypes.object.isRequired,
-  onPreviewArtwork: React.PropTypes.func
+  artwork: PropTypes.object.isRequired,
+  onPreviewArtwork: PropTypes.func,
+  onToggleArtwork: PropTypes.func
 }
 
 /* default styled component */

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import GenericAutosuggest from './GenericAutosuggest'
 import { matchFairs } from 'lib/rosalind-api'
 import { getSuggestionValue, renderSuggestion } from './helpers'
@@ -17,7 +18,7 @@ function FairAutosuggest (props) {
 }
 
 FairAutosuggest.propTypes = {
-  updateState: React.PropTypes.func
+  updateState: PropTypes.func
 }
 
 FairAutosuggest.defaultProps = {

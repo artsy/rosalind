@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import GenericAutosuggest from './GenericAutosuggest'
 import { matchTags } from 'lib/rosalind-api'
 import { getSuggestionValue, renderSuggestion } from './helpers'
@@ -17,7 +18,7 @@ function TagAutosuggest (props) {
 }
 
 TagAutosuggest.propTypes = {
-  onSelectTag: React.PropTypes.func.isRequired
+  onSelectTag: PropTypes.func.isRequired
 }
 
 TagAutosuggest.defaultProps = {

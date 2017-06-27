@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import missingImage from 'file-loader!./missing_image.png'
 import { ESC, LEFT, RIGHT } from 'lib/keycodes'
 import Overlay from './Overlay'
@@ -69,10 +70,10 @@ class ArtworkPreviewModal extends React.Component {
 }
 
 ArtworkPreviewModal.propTypes = {
-  artwork: React.PropTypes.object.isRequired,
-  onPreviewArtwork: React.PropTypes.func,
-  onPreviewPrevious: React.PropTypes.func,
-  onPreviewNext: React.PropTypes.func
+  artwork: PropTypes.object.isRequired,
+  onPreviewArtwork: PropTypes.func,
+  onPreviewPrevious: PropTypes.func,
+  onPreviewNext: PropTypes.func
 }
 
 /* default styled component */

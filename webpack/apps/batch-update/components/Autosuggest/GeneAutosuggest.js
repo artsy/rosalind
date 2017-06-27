@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import GenericAutosuggest from './GenericAutosuggest'
 import { matchGenes } from 'lib/rosalind-api'
 import { getSuggestionValue, renderSuggestion } from './helpers'
@@ -17,7 +18,7 @@ function GeneAutosuggest (props) {
 }
 
 GeneAutosuggest.propTypes = {
-  onSelectGene: React.PropTypes.func.isRequired
+  onSelectGene: PropTypes.func.isRequired
 }
 
 GeneAutosuggest.defaultProps = {
