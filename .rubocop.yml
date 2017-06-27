@@ -8,13 +8,13 @@ Style/BlockComments:
 Style/Documentation:
   Enabled: false
 
-Style/FirstParameterIndentation:
+Layout/FirstParameterIndentation:
   EnforcedStyle: consistent
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/IndentArray:
+Layout/IndentArray:
   EnforcedStyle: consistent
 
 Style/FileName:

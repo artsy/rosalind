@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function FilterOption (props) {
   const suffix = props.name.toUpperCase()
@@ -25,9 +26,9 @@ function FilterOption (props) {
 }
 
 FilterOption.propTypes = {
-  current: React.PropTypes.string.isRequired,
-  name: React.PropTypes.string.isRequired,
-  updateState: React.PropTypes.func
+  current: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  updateState: PropTypes.func
 }
 
 function Option (props) {

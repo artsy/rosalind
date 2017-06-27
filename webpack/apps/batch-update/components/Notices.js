@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors } from './Layout'
 
@@ -51,9 +52,9 @@ class Notice extends React.Component {
 }
 
 Notice.propTypes = {
-  id: React.PropTypes.string.isRequired,
-  isError: React.PropTypes.bool,
-  onDismiss: React.PropTypes.func.isRequired
+  id: PropTypes.string.isRequired,
+  isError: PropTypes.bool,
+  onDismiss: PropTypes.func.isRequired
 }
 
 const StyledNotice = styled(Notice)`

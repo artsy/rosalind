@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
   SelectedCreatedAfterDate,
   SelectedCreatedBeforeDate,
@@ -35,13 +36,15 @@ function CurrentCriteria (props) {
 }
 
 CurrentCriteria.propTypes = {
-  clearState: React.PropTypes.func,
-  fair: React.PropTypes.object,
-  genes: React.PropTypes.arrayOf(React.PropTypes.object),
-  onRemoveGene: React.PropTypes.func.isRequired,
-  onRemoveTag: React.PropTypes.func.isRequired,
-  partner: React.PropTypes.object,
-  tags: React.PropTypes.arrayOf(React.PropTypes.object)
+  clearState: PropTypes.func,
+  createdAfterDate: PropTypes.string,
+  createdBeforeDate: PropTypes.string,
+  fair: PropTypes.object,
+  genes: PropTypes.arrayOf(PropTypes.object),
+  onRemoveGene: PropTypes.func.isRequired,
+  onRemoveTag: PropTypes.func.isRequired,
+  partner: PropTypes.object,
+  tags: PropTypes.arrayOf(PropTypes.object)
 }
 
 function CurrentGenes (props) {
