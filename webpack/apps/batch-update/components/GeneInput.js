@@ -20,7 +20,7 @@ class GeneInput extends React.Component {
     return (
       <Square value={value}>
         <Name value={value}>
-          { value === 0 ? <del>{name}</del> : name }
+          {value === 0 ? <del>{name}</del> : name}
           <Bar value={value} />
         </Name>
         <Value

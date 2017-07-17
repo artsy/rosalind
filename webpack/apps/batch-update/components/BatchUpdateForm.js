@@ -147,12 +147,12 @@ class BatchUpdateForm extends React.Component {
         </Controls>
 
         <Genes>
-          { geneNames.map(name =>
+          {geneNames.map(name =>
             <GeneInput key={name} name={name} value={geneValues[name]} onChangeValue={this.onChangeGeneValue} />
           )}
         </Genes>
 
-        { (geneNames.length === 0) &&
+        {(geneNames.length === 0) &&
           <EmptyGenesMessage>
             There aren’t any genes that describe all of your selected works
           </EmptyGenesMessage>
@@ -161,7 +161,7 @@ class BatchUpdateForm extends React.Component {
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={this.onAddGene} />
         <Spacer />
 
-        { isConfirming && <Overlay /> }
+        {isConfirming && <Overlay />}
         <ConfirmationModal isOpen={isConfirming} onDismiss={this.dismissConfirmation} onAccept={this.submit}>
           <h1>Are you sure you want to queue these changes?</h1>
           <section>
