@@ -21,7 +21,7 @@ feature 'User searches artworks', js: true do
         '_source' => {
           'id' => '5678',
           'name' => 'Jigglypuff',
-          'image_url' => 'https://d32dm0rphc51dk.cloudfront.net/JLFgGc6WgP3Nx-4h9Jh1Xw/square.jpg'
+          'image_url' => 'https://d32dm0rphc51dk.cloudfront.net/s8oMXsCa4LFVnsBc7sQluA/square.jpg'
         }
       }
     ]

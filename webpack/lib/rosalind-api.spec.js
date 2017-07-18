@@ -20,7 +20,7 @@ describe('matchGenes', () => {
     matchGenes(term)
 
     const fetchedURI = window.fetch.mock.calls[0][0]
-    expect(fetchedURI).toMatch(`/match/genes?term=kawaii`)
+    expect(fetchedURI).toMatch('/match/genes?term=kawaii')
   })
 })
 
@@ -31,7 +31,7 @@ describe('matchTags', () => {
     matchTags(term)
 
     const fetchedURI = window.fetch.mock.calls[0][0]
-    expect(fetchedURI).toMatch(`/match/tags?term=animal`)
+    expect(fetchedURI).toMatch('/match/tags?term=animal')
   })
 })
 
@@ -42,7 +42,7 @@ describe('matchPartners', () => {
     matchPartners(term)
 
     const fetchedURI = window.fetch.mock.calls[0][0]
-    expect(fetchedURI).toMatch(`/match/partners?term=gagosian`)
+    expect(fetchedURI).toMatch('/match/partners?term=gagosian')
   })
 })
 
@@ -53,7 +53,7 @@ describe('matchFairs', () => {
     matchFairs(term)
 
     const fetchedURI = window.fetch.mock.calls[0][0]
-    expect(fetchedURI).toMatch(`/match/fairs?term=frieze`)
+    expect(fetchedURI).toMatch('/match/fairs?term=frieze')
   })
 })
 
