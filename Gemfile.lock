@@ -290,7 +290,7 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
-    selenium-webdriver (3.4.4)
+    selenium-webdriver (3.4.3)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
     sentry-raven (2.6.0)
@@ -370,7 +370,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sass-rails
-  selenium-webdriver
+  selenium-webdriver (= 3.4.3)
   sentry-raven
   sidekiq
   spring
