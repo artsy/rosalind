@@ -1,0 +1,41 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/rosalind
+    docker:
+      - image: circleci/ruby:2.4.1-node-browsers
+        environment:
+          RAILS_ENV: test
+      - image: circleci/postgres:9.6.2-alpine
+    steps:
+      - checkout
+
+      - type: cache-restore
+        key: rosalind-bundler-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - type: cache-save
+        key: rosalind-bundler-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+      - run: yarn install
+
+      - run: mv config/database{.circle,}.yml
+      - run: bundle exec rake db:create db:migrate
+
+      - run: bundle exec rake webpack:compile
+
+      - run: bundle exec rubocop --rails
+      - run: yarn run lint
+      - run: bundle exec rspec
+      - run: yarn run test -- --runInBand
+
+      - run: bundle exec danger
+
+      - run: bash .circleci/heroku_setup
+      - add_ssh_keys:
+          fingerprints:
+            - "d1:68:35:96:47:c2:de:36:dd:9f:e4:90:84:be:2e:63"
+      - deploy:
+          name: Deploy
+          command: .circleci/heroku_deploy
