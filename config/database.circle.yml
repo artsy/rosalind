@@ -1,0 +1,7 @@
+test:
+  adapter: postgresql
+  database: rosalind_test
+  encoding: unicode
+  host: localhost
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  user: postgres

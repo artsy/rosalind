@@ -41,6 +41,6 @@ group :test do
   gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'fabrication'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '3.4.3'
   gem 'webmock'
 end
