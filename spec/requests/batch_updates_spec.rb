@@ -5,7 +5,7 @@ describe 'POST /batch_updates' do
     allow_any_instance_of(BatchUpdatesController).to receive(:find_current_user)
     allow_any_instance_of(BatchUpdatesController).to receive(:is_admin?).and_return(true)
     allow_any_instance_of(BatchUpdatesController).to receive(:is_genomer?).and_return(true)
-    current_user = double(:current_user, id: 123)
+    current_user = double(:current_user, id: 'def456')
     allow_any_instance_of(BatchUpdatesController).to receive(:current_user).and_return(current_user)
   end
 
@@ -26,6 +26,7 @@ describe 'POST /batch_updates' do
       post '/batch_updates', params: payload
 
       expect(BatchUpdate.count).to eq 1
+      expect(BatchUpdate.first.user_id).to eq 'def456'
       jobs = ActiveJob::Base.queue_adapter.enqueued_jobs
       expect(jobs.count).to eq 1
     end
