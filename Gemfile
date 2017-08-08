@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.1'
 
-gem 'rails', '5.1.2'
+gem 'rails', '5.1.3'
 gem 'pg'
 gem 'puma'
 
@@ -41,6 +41,6 @@ group :test do
   gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'fabrication'
-  gem 'selenium-webdriver', '3.4.3'
+  gem 'selenium-webdriver'
   gem 'webmock'
 end
