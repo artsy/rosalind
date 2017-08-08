@@ -1,10 +1,6 @@
 #! /bin/bash -e
 
-if [ "${CIRCLE_BRANCH}" == "master" ]; then
-  app_name=rosalind-staging
-elif [ "${CIRCLE_BRANCH}" == "release" ]; then
-  app_name=rosalind-production
-else
+if git remote | grep -v heroku; then
   exit 0
 fi
 
