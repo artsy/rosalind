@@ -75,17 +75,17 @@ class SearchForm extends React.Component {
         {fair === null && <FairAutosuggest updateState={updateState} />}
         {
           createdAfterDate === null &&
-          <CreatedAfterDateInput
-            updateState={updateState}
-            createdAfterDate={createdAfterDate}
-            />
+            <CreatedAfterDateInput
+              updateState={updateState}
+              createdAfterDate={createdAfterDate}
+              />
         }
         {
           createdBeforeDate === null &&
-          <CreatedBeforeDateInput
-            updateState={updateState}
-            createdBeforeDate={createdBeforeDate}
-            />
+            <CreatedBeforeDateInput
+              updateState={updateState}
+              createdBeforeDate={createdBeforeDate}
+              />
         }
 
         <FilterOptions
