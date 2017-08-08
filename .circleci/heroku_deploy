@@ -1,5 +1,9 @@
 #! /bin/bash -e
 
+if git remote | grep -v heroku; then
+  exit 0
+fi
+
 git fetch heroku
 heroku pg:backups:capture
 git push --force heroku $CIRCLE_SHA1:master
