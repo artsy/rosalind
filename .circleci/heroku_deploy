@@ -1,11 +1,12 @@
 #! /bin/bash -e
 
-if git remote | grep -v heroku; then
+if git remote | grep heroku > /dev/null; then
+  git fetch heroku
+  heroku pg:backups:capture
+  git push --force heroku $CIRCLE_SHA1:master
+  heroku run --exit-code rake db:migrate
+  heroku restart
+else
   exit 0
 fi
 
-git fetch heroku
-heroku pg:backups:capture
-git push --force heroku $CIRCLE_SHA1:master
-heroku run --exit-code rake db:migrate
-heroku restart
