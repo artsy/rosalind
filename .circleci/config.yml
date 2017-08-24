@@ -32,10 +32,11 @@ jobs:
 
       - run: bundle exec danger
 
-      - run: bash .circleci/heroku_setup
       - add_ssh_keys:
           fingerprints:
             - "d1:68:35:96:47:c2:de:36:dd:9f:e4:90:84:be:2e:63"
       - deploy:
           name: Deploy
-          command: .circleci/heroku_deploy
+          command: |
+            .circleci/heroku_setup
+            .circleci/heroku_deploy
