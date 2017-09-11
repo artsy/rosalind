@@ -1,24 +1,32 @@
-exports[`test does not render a modal when not previewing 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`does not render a modal when not previewing 1`] = `
 <div
-  className="bdWhDJ">
+  className="bdWhDJ"
+>
   <div
-    className="results">
+    className="results"
+  >
     <div
       className="bkfdwK"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <img
         alt="Soup Can"
-        src="can.jpg" />
+        src="can.jpg"
+      />
       <figcaption>
         Soup Can
       </figcaption>
     </div>
     <div
       className="bkfdwK"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <img
         alt="Shark"
-        src="shark.jpg" />
+        src="shark.jpg"
+      />
       <figcaption>
         Shark
       </figcaption>
@@ -27,27 +35,33 @@ exports[`test does not render a modal when not previewing 1`] = `
 </div>
 `;
 
-exports[`test renders a collection of artworks 1`] = `
+exports[`renders a collection of artworks 1`] = `
 <div
-  className="bdWhDJ">
+  className="bdWhDJ"
+>
   <div
-    className="results">
+    className="results"
+  >
     <div
       className="bkfdwK"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <img
         alt="Soup Can"
-        src="can.jpg" />
+        src="can.jpg"
+      />
       <figcaption>
         Soup Can
       </figcaption>
     </div>
     <div
       className="bkfdwK"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <img
         alt="Shark"
-        src="shark.jpg" />
+        src="shark.jpg"
+      />
       <figcaption>
         Shark
       </figcaption>
@@ -56,30 +70,38 @@ exports[`test renders a collection of artworks 1`] = `
 </div>
 `;
 
-exports[`test renders a modal when previewing 1`] = `
+exports[`renders a modal when previewing 1`] = `
 <div
-  className="bdWhDJ">
+  className="bdWhDJ"
+>
   <div
     className="dsEsVK"
     onClick={[Function]}
-    z={1}>
+    z={1}
+  >
     <div
       className="dQjxAA"
-      onClickCapture={[Function]}>
+      onClickCapture={[Function]}
+    >
       <div
-        className="image">
+        className="image"
+      >
         <img
           alt="Soup Can"
-          src="can.jpg" />
+          src="can.jpg"
+        />
       </div>
       <div
-        className="details">
+        className="details"
+      >
         <p
-          className="name">
+          className="name"
+        >
           Soup Can
         </p>
         <p
-          className="status">
+          className="status"
+        >
           Deleted: 
           false
            
@@ -92,32 +114,38 @@ exports[`test renders a modal when previewing 1`] = `
           true
         </p>
         <p
-          className="links">
+          className="links"
+        >
           View artwork in:
           <a
             href="https://helix.artsy.net/genome/artworks?artwork_ids=can"
-            target="_blank">
+            target="_blank"
+          >
             Helix
           </a>
           |
           <a
             href="https://cms.artsy.net/artworks/can/edit?current_partner_id=undefined"
-            target="_blank">
+            target="_blank"
+          >
             CMS
           </a>
           |
           <a
             href="https://www.artsy.net/artwork/can"
-            target="_blank">
+            target="_blank"
+          >
             Artsy.net
           </a>
         </p>
         <p
-          className="links">
+          className="links"
+        >
           View artist in:
           <a
             href="https://helix.artsy.net/genome/artist?search[genome_artist_id]=undefined"
-            target="_blank">
+            target="_blank"
+          >
             Helix
           </a>
         </p>
@@ -125,23 +153,28 @@ exports[`test renders a modal when previewing 1`] = `
     </div>
   </div>
   <div
-    className="results">
+    className="results"
+  >
     <div
       className="bkfdwK"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <img
         alt="Soup Can"
-        src="can.jpg" />
+        src="can.jpg"
+      />
       <figcaption>
         Soup Can
       </figcaption>
     </div>
     <div
       className="bkfdwK"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <img
         alt="Shark"
-        src="shark.jpg" />
+        src="shark.jpg"
+      />
       <figcaption>
         Shark
       </figcaption>
@@ -150,33 +183,41 @@ exports[`test renders a modal when previewing 1`] = `
 </div>
 `;
 
-exports[`test renders a spinner while fetching artworks 1`] = `
+exports[`renders a spinner while fetching artworks 1`] = `
 <div
-  className="bdWhDJ">
+  className="bdWhDJ"
+>
   <div
-    className="lnzNIy">
+    className="lnzNIy"
+  >
     <div
       className="eWOvlO"
-      color="black" />
+      color="black"
+    />
   </div>
   <div
-    className="results">
+    className="results"
+  >
     <div
       className="bkfdwK"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <img
         alt="Soup Can"
-        src="can.jpg" />
+        src="can.jpg"
+      />
       <figcaption>
         Soup Can
       </figcaption>
     </div>
     <div
       className="bkfdwK"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <img
         alt="Shark"
-        src="shark.jpg" />
+        src="shark.jpg"
+      />
       <figcaption>
         Shark
       </figcaption>

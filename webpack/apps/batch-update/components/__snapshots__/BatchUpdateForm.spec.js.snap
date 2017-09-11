@@ -1,12 +1,17 @@
-exports[`test renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
 <div
-  className="igHpwR">
+  className="igHpwR"
+>
   <div
-    className="gnEZXA">
+    className="gnEZXA"
+  >
     <a
       className="cancel gHceZM"
       href="#"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Cancel
     </a>
     <div>
@@ -16,20 +21,25 @@ exports[`test renders correctly 1`] = `
     <button
       className="queue feplCa"
       disabled={true}
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Queue changes
     </button>
   </div>
   <div
-    className="hfTCBQ" />
+    className="hfTCBQ"
+  />
   <div
-    className="kXtoxa">
+    className="kXtoxa"
+  >
     There aren’t any genes that describe all of your selected works
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -45,16 +55,20 @@ exports[`test renders correctly 1`] = `
         placeholder="Add a gene"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-gene-autosuggest" />
+        id="react-autowhatever-gene-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="mluQ" />
+    className="mluQ"
+  />
   <div
-    className="gungoz">
+    className="gungoz"
+  >
     <h1>
       Are you sure you want to queue these changes?
     </h1>
@@ -66,17 +80,20 @@ exports[`test renders correctly 1`] = `
       </p>
     </section>
     <div
-      className="kriMBh">
+      className="kriMBh"
+    >
       <a
         className="dismiss jRkNFJ"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Go back
       </a>
       <a
         className="accept jhxkip"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Continue
       </a>
     </div>

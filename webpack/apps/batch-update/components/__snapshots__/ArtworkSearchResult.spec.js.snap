@@ -1,23 +1,29 @@
-exports[`test renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
 <div
   className="bkfdwK"
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   <img
     alt="Soup Can"
-    src="can.jpg" />
+    src="can.jpg"
+  />
   <figcaption>
     Soup Can
   </figcaption>
 </div>
 `;
 
-exports[`test renders in the selected state 1`] = `
+exports[`renders in the selected state 1`] = `
 <div
   className="CbrRL"
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   <img
     alt="Soup Can"
-    src="can.jpg" />
+    src="can.jpg"
+  />
   <figcaption>
     Soup Can
   </figcaption>

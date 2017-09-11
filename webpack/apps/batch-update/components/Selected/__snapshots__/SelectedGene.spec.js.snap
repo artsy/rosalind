@@ -1,11 +1,15 @@
-exports[`test renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
 <div
-  className="crrNnH">
+  className="crrNnH"
+>
   Kawaii
   <a
     className="remove"
     href="#"
-    onClick={[Function]}>
+    onClick={[Function]}
+  >
     ✕
   </a>
 </div>

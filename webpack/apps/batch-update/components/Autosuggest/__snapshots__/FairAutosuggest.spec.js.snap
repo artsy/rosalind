@@ -1,8 +1,12 @@
-exports[`test renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
 <div
-  className="GenericAutosuggest">
+  className="GenericAutosuggest"
+>
   <div
-    className="react-autosuggest__container">
+    className="react-autosuggest__container"
+  >
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -18,10 +22,12 @@ exports[`test renders correctly 1`] = `
       placeholder="Select a fair"
       role="combobox"
       type="text"
-      value="" />
+      value=""
+    />
     <div
       className="react-autosuggest__suggestions-container"
-      id="react-autowhatever-fair-autosuggest" />
+      id="react-autowhatever-fair-autosuggest"
+    />
   </div>
 </div>
 `;
