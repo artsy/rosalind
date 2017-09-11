@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import missingImage from 'file-loader!./missing_image.png'
+import styled from 'styled-components'
+import missingImage from './missing_image.png'
 import { ESC, LEFT, RIGHT } from 'lib/keycodes'
 import Overlay from './Overlay'
 
@@ -77,8 +78,6 @@ ArtworkPreviewModal.propTypes = {
 }
 
 /* default styled component */
-
-import styled from 'styled-components'
 
 const StyledArtworkPreviewModal = styled(ArtworkPreviewModal)`
   box-sizing: border-box;

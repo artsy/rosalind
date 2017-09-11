@@ -52,4 +52,3 @@ it('fires the preview handler on command-click', () => {
   wrapper.find('div').simulate('click', mockClickEvent)
   expect(props.onPreviewArtwork.mock.calls.length).toEqual(1)
 })
-
