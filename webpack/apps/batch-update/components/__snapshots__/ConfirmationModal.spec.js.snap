@@ -1,41 +1,51 @@
-exports[`test renders correctly when closed 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when closed 1`] = `
 <div
-  className="gungoz">
+  className="gungoz"
+>
   I am closed
   <div
-    className="kriMBh">
+    className="kriMBh"
+  >
     <a
       className="dismiss jRkNFJ"
       href="#"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Go back
     </a>
     <a
       className="accept jhxkip"
       href="#"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Continue
     </a>
   </div>
 </div>
 `;
 
-exports[`test renders correctly when open 1`] = `
+exports[`renders correctly when open 1`] = `
 <div
-  className="modal-open gungoz">
+  className="modal-open gungoz"
+>
   I am open
   <div
-    className="kriMBh">
+    className="kriMBh"
+  >
     <a
       className="dismiss jRkNFJ"
       href="#"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Go back
     </a>
     <a
       className="accept jhxkip"
       href="#"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       Continue
     </a>
   </div>

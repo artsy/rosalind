@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { avantGarde } from './Layout'
 import {
   SelectedCreatedAfterDate,
   SelectedCreatedBeforeDate,
@@ -68,9 +70,6 @@ function CurrentTags (props) {
 }
 
 /* default styled component */
-
-import styled from 'styled-components'
-import { avantGarde } from './Layout'
 
 const StyledCurrentCriteria = styled(CurrentCriteria)`
   h2 {

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
 import ArtworkSearchResult from './ArtworkSearchResult'
 import Spinner from './Spinner'
@@ -128,8 +129,6 @@ const LoadMore = ({onLoadMore}) => (
 )
 
 /* default styled component */
-
-import styled from 'styled-components'
 
 const StyledSearchResults = styled(SearchResults)`
   display: flex;

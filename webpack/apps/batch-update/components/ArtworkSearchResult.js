@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import missingImage from 'file-loader!./missing_image.png'
+import styled, { css } from 'styled-components'
+import { colors } from './Layout'
+import missingImage from './missing_image.png'
 
 class ArtworkSearchResult extends React.Component {
   constructor (props) {
@@ -36,9 +38,6 @@ ArtworkSearchResult.propTypes = {
 }
 
 /* default styled component */
-
-import styled, { css } from 'styled-components'
-import { colors } from './Layout'
 
 const StyledArtworkSearchResult = styled(ArtworkSearchResult)`
   min-width: 115px;

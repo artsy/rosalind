@@ -1,12 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`"edit artworks" button does not render an edit button if there are no artworks 1`] = `
 <div
-  className="foqgVb">
+  className="foqgVb"
+>
   <div
-    className="cMTqqq" />
+    className="cMTqqq"
+  />
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -22,16 +28,20 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         placeholder="Add a gene"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-gene-autosuggest" />
+        id="react-autowhatever-gene-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -47,16 +57,20 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         placeholder="Add a tag"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-tag-autosuggest" />
+        id="react-autowhatever-tag-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -72,16 +86,20 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         placeholder="Select a partner"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-partner-autosuggest" />
+        id="react-autowhatever-partner-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -97,89 +115,108 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         placeholder="Select a fair"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-fair-autosuggest" />
+        id="react-autowhatever-fair-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created before date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="gxGcSj">
+    className="gxGcSj"
+  >
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Published?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Published
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not published
       </a>
     </div>
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Genomed?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Genomed
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not genomed
       </a>
     </div>
@@ -189,13 +226,17 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 
 exports[`"edit artworks" button renders a disabled edit button if there are artworks, but none selected 1`] = `
 <div
-  className="foqgVb">
+  className="foqgVb"
+>
   <div
-    className="cMTqqq" />
+    className="cMTqqq"
+  />
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -211,16 +252,20 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         placeholder="Add a gene"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-gene-autosuggest" />
+        id="react-autowhatever-gene-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -236,16 +281,20 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         placeholder="Add a tag"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-tag-autosuggest" />
+        id="react-autowhatever-tag-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -261,16 +310,20 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         placeholder="Select a partner"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-partner-autosuggest" />
+        id="react-autowhatever-partner-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -286,96 +339,116 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         placeholder="Select a fair"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-fair-autosuggest" />
+        id="react-autowhatever-fair-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created before date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="gxGcSj">
+    className="gxGcSj"
+  >
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Published?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Published
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not published
       </a>
     </div>
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Genomed?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Genomed
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not genomed
       </a>
     </div>
   </div>
   <button
     className="dsgyEb"
-    disabled={true}>
+    disabled={true}
+  >
     Edit Artworks
   </button>
 </div>
@@ -383,13 +456,17 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 
 exports[`"edit artworks" button renders an enabled edit button if there are selected artworks 1`] = `
 <div
-  className="foqgVb">
+  className="foqgVb"
+>
   <div
-    className="cMTqqq" />
+    className="cMTqqq"
+  />
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -405,16 +482,20 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         placeholder="Add a gene"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-gene-autosuggest" />
+        id="react-autowhatever-gene-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -430,16 +511,20 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         placeholder="Add a tag"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-tag-autosuggest" />
+        id="react-autowhatever-tag-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -455,16 +540,20 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         placeholder="Select a partner"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-partner-autosuggest" />
+        id="react-autowhatever-partner-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -480,126 +569,152 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         placeholder="Select a fair"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-fair-autosuggest" />
+        id="react-autowhatever-fair-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created before date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="gxGcSj">
+    className="gxGcSj"
+  >
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Published?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Published
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not published
       </a>
     </div>
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Genomed?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Genomed
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not genomed
       </a>
     </div>
   </div>
   <button
     className="iAICvi"
-    onClick={undefined}>
+    onClick={undefined}
+  >
      Edit Artworks 
   </button>
 </div>
 `;
 
-exports[`test does not render fair autosuggest if fair is already selected 1`] = `
+exports[`does not render fair autosuggest if fair is already selected 1`] = `
 <div
-  className="foqgVb">
+  className="foqgVb"
+>
   <div
-    className="cMTqqq">
+    className="cMTqqq"
+  >
     <div>
       <h2>
         Fair
       </h2>
       <div
-        className="crrNnH">
+        className="crrNnH"
+      >
         Nice Fair
         <a
           className="remove"
           href="#"
-          onClick={[Function]}>
+          onClick={[Function]}
+        >
           ✕
         </a>
       </div>
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -615,16 +730,20 @@ exports[`test does not render fair autosuggest if fair is already selected 1`] =
         placeholder="Add a gene"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-gene-autosuggest" />
+        id="react-autowhatever-gene-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -640,16 +759,20 @@ exports[`test does not render fair autosuggest if fair is already selected 1`] =
         placeholder="Add a tag"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-tag-autosuggest" />
+        id="react-autowhatever-tag-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -665,89 +788,108 @@ exports[`test does not render fair autosuggest if fair is already selected 1`] =
         placeholder="Select a partner"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-partner-autosuggest" />
+        id="react-autowhatever-partner-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created before date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="gxGcSj">
+    className="gxGcSj"
+  >
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Published?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Published
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not published
       </a>
     </div>
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Genomed?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Genomed
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not genomed
       </a>
     </div>
@@ -755,31 +897,37 @@ exports[`test does not render fair autosuggest if fair is already selected 1`] =
 </div>
 `;
 
-exports[`test does not render partner autosuggest if partner is already selected 1`] = `
+exports[`does not render partner autosuggest if partner is already selected 1`] = `
 <div
-  className="foqgVb">
+  className="foqgVb"
+>
   <div
-    className="cMTqqq">
+    className="cMTqqq"
+  >
     <div>
       <h2>
         Partner
       </h2>
       <div
-        className="crrNnH">
+        className="crrNnH"
+      >
         Nice Gallery
         <a
           className="remove"
           href="#"
-          onClick={[Function]}>
+          onClick={[Function]}
+        >
           ✕
         </a>
       </div>
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -795,16 +943,20 @@ exports[`test does not render partner autosuggest if partner is already selected
         placeholder="Add a gene"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-gene-autosuggest" />
+        id="react-autowhatever-gene-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -820,16 +972,20 @@ exports[`test does not render partner autosuggest if partner is already selected
         placeholder="Add a tag"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-tag-autosuggest" />
+        id="react-autowhatever-tag-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -845,89 +1001,108 @@ exports[`test does not render partner autosuggest if partner is already selected
         placeholder="Select a fair"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-fair-autosuggest" />
+        id="react-autowhatever-fair-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created before date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="gxGcSj">
+    className="gxGcSj"
+  >
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Published?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Published
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not published
       </a>
     </div>
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Genomed?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Genomed
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not genomed
       </a>
     </div>
@@ -935,15 +1110,19 @@ exports[`test does not render partner autosuggest if partner is already selected
 </div>
 `;
 
-exports[`test renders correctly 1`] = `
+exports[`renders correctly 1`] = `
 <div
-  className="foqgVb">
+  className="foqgVb"
+>
   <div
-    className="cMTqqq" />
+    className="cMTqqq"
+  />
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -959,16 +1138,20 @@ exports[`test renders correctly 1`] = `
         placeholder="Add a gene"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-gene-autosuggest" />
+        id="react-autowhatever-gene-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -984,16 +1167,20 @@ exports[`test renders correctly 1`] = `
         placeholder="Add a tag"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-tag-autosuggest" />
+        id="react-autowhatever-tag-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -1009,16 +1196,20 @@ exports[`test renders correctly 1`] = `
         placeholder="Select a partner"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-partner-autosuggest" />
+        id="react-autowhatever-partner-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="GenericAutosuggest">
+    className="GenericAutosuggest"
+  >
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -1034,89 +1225,108 @@ exports[`test renders correctly 1`] = `
         placeholder="Select a fair"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-fair-autosuggest" />
+        id="react-autowhatever-fair-autosuggest"
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created after date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="iFTuzH">
+    className="iFTuzH"
+  >
     <input
       onChange={[Function]}
       onKeyPress={[Function]}
       placeholder="Created before date"
       type="text"
-      value="" />
+      value=""
+    />
     <div
-      className="parsed">
+      className="parsed"
+    >
       <a
         href="#"
-        onClick={[Function]} />
+        onClick={[Function]}
+      />
     </div>
   </div>
   <div
-    className="gxGcSj">
+    className="gxGcSj"
+  >
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Published?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Published
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not published
       </a>
     </div>
     <div
-      className="filter">
+      className="filter"
+    >
       <div>
         Genomed?
       </div>
       <a
         className="active"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         All
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Genomed
       </a>
       <a
         className={null}
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Not genomed
       </a>
     </div>

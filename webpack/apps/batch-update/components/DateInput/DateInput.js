@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import chrono from 'chrono-node'
 import dateFormats from 'lib/date-formats'
 import { RETURN } from 'lib/keycodes'
@@ -91,8 +92,6 @@ function parseDate (raw) {
 }
 
 /* default styled component */
-
-import styled from 'styled-components'
 
 const StyledDateInput = styled(DateInput)`
   input {
