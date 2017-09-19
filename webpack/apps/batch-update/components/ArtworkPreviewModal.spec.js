@@ -28,4 +28,3 @@ it('renders correctly', () => {
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
-

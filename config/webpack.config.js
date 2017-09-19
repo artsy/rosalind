@@ -52,6 +52,11 @@ var config = {
         test: /\.css$/,
         loader: 'style-loader!css-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: 'file-loader',
+        exclude: /node_modules/
       }
     ]
   },

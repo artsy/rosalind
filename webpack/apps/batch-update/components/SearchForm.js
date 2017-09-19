@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import CurrentCriteria from './CurrentCriteria'
 import {
   CreatedAfterDateInput,
@@ -101,8 +102,6 @@ class SearchForm extends React.Component {
 }
 
 /* default styled component */
-
-import styled from 'styled-components'
 
 const StyledSearchForm = styled(SearchForm)`
 `

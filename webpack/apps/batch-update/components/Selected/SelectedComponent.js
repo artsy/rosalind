@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 class SelectedComponent extends React.Component {
   constructor (props) {
@@ -25,8 +26,6 @@ class SelectedComponent extends React.Component {
 }
 
 /* default styled component */
-
-import styled from 'styled-components'
 
 const StyledSelectedComponent = styled(SelectedComponent)`
   font-weight: bold;

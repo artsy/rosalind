@@ -1,17 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`DateInput renders correctly 1`] = `
 <div
-  className="iFTuzH">
+  className="iFTuzH"
+>
   <input
     onChange={[Function]}
     onKeyPress={[Function]}
     placeholder="Select a date"
     type="text"
-    value="" />
+    value=""
+  />
   <div
-    className="parsed">
+    className="parsed"
+  >
     <a
       href="#"
-      onClick={[Function]} />
+      onClick={[Function]}
+    />
   </div>
 </div>
 `;

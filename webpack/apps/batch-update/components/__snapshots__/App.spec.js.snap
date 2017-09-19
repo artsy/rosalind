@@ -1,16 +1,24 @@
-exports[`test renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
 <div
-  className="gVLdMb">
+  className="gVLdMb"
+>
   <div
-    className="kPSTEV">
+    className="kPSTEV"
+  >
     <div
-      className="foqgVb">
+      className="foqgVb"
+    >
       <div
-        className="cMTqqq" />
+        className="cMTqqq"
+      />
       <div
-        className="GenericAutosuggest">
+        className="GenericAutosuggest"
+      >
         <div
-          className="react-autosuggest__container">
+          className="react-autosuggest__container"
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -26,16 +34,20 @@ exports[`test renders correctly 1`] = `
             placeholder="Add a gene"
             role="combobox"
             type="text"
-            value="" />
+            value=""
+          />
           <div
             className="react-autosuggest__suggestions-container"
-            id="react-autowhatever-gene-autosuggest" />
+            id="react-autowhatever-gene-autosuggest"
+          />
         </div>
       </div>
       <div
-        className="GenericAutosuggest">
+        className="GenericAutosuggest"
+      >
         <div
-          className="react-autosuggest__container">
+          className="react-autosuggest__container"
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -51,16 +63,20 @@ exports[`test renders correctly 1`] = `
             placeholder="Add a tag"
             role="combobox"
             type="text"
-            value="" />
+            value=""
+          />
           <div
             className="react-autosuggest__suggestions-container"
-            id="react-autowhatever-tag-autosuggest" />
+            id="react-autowhatever-tag-autosuggest"
+          />
         </div>
       </div>
       <div
-        className="GenericAutosuggest">
+        className="GenericAutosuggest"
+      >
         <div
-          className="react-autosuggest__container">
+          className="react-autosuggest__container"
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -76,16 +92,20 @@ exports[`test renders correctly 1`] = `
             placeholder="Select a partner"
             role="combobox"
             type="text"
-            value="" />
+            value=""
+          />
           <div
             className="react-autosuggest__suggestions-container"
-            id="react-autowhatever-partner-autosuggest" />
+            id="react-autowhatever-partner-autosuggest"
+          />
         </div>
       </div>
       <div
-        className="GenericAutosuggest">
+        className="GenericAutosuggest"
+      >
         <div
-          className="react-autosuggest__container">
+          className="react-autosuggest__container"
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -101,118 +121,145 @@ exports[`test renders correctly 1`] = `
             placeholder="Select a fair"
             role="combobox"
             type="text"
-            value="" />
+            value=""
+          />
           <div
             className="react-autosuggest__suggestions-container"
-            id="react-autowhatever-fair-autosuggest" />
+            id="react-autowhatever-fair-autosuggest"
+          />
         </div>
       </div>
       <div
-        className="iFTuzH">
+        className="iFTuzH"
+      >
         <input
           onChange={[Function]}
           onKeyPress={[Function]}
           placeholder="Created after date"
           type="text"
-          value="" />
+          value=""
+        />
         <div
-          className="parsed">
+          className="parsed"
+        >
           <a
             href="#"
-            onClick={[Function]} />
+            onClick={[Function]}
+          />
         </div>
       </div>
       <div
-        className="iFTuzH">
+        className="iFTuzH"
+      >
         <input
           onChange={[Function]}
           onKeyPress={[Function]}
           placeholder="Created before date"
           type="text"
-          value="" />
+          value=""
+        />
         <div
-          className="parsed">
+          className="parsed"
+        >
           <a
             href="#"
-            onClick={[Function]} />
+            onClick={[Function]}
+          />
         </div>
       </div>
       <div
-        className="gxGcSj">
+        className="gxGcSj"
+      >
         <div
-          className="filter">
+          className="filter"
+        >
           <div>
             Published?
           </div>
           <a
             className="active"
             href="#"
-            onClick={[Function]}>
+            onClick={[Function]}
+          >
             All
           </a>
           <a
             className={null}
             href="#"
-            onClick={[Function]}>
+            onClick={[Function]}
+          >
             Published
           </a>
           <a
             className={null}
             href="#"
-            onClick={[Function]}>
+            onClick={[Function]}
+          >
             Not published
           </a>
         </div>
         <div
-          className="filter">
+          className="filter"
+        >
           <div>
             Genomed?
           </div>
           <a
             className="active"
             href="#"
-            onClick={[Function]}>
+            onClick={[Function]}
+          >
             All
           </a>
           <a
             className={null}
             href="#"
-            onClick={[Function]}>
+            onClick={[Function]}
+          >
             Genomed
           </a>
           <a
             className={null}
             href="#"
-            onClick={[Function]}>
+            onClick={[Function]}
+          >
             Not genomed
           </a>
         </div>
       </div>
       <button
         className="dsgyEb"
-        disabled={true}>
+        disabled={true}
+      >
         Edit Artworks
       </button>
     </div>
   </div>
   <div
-    className="iJVxYF">
+    className="iJVxYF"
+  >
     <div
-      className="bdWhDJ">
+      className="bdWhDJ"
+    >
       <div
-        className="results" />
+        className="results"
+      />
     </div>
   </div>
   <div
-    className="jOkOCo">
+    className="jOkOCo"
+  >
     <div
-      className="igHpwR">
+      className="igHpwR"
+    >
       <div
-        className="gnEZXA">
+        className="gnEZXA"
+      >
         <a
           className="cancel gHceZM"
           href="#"
-          onClick={[Function]}>
+          onClick={[Function]}
+        >
           Cancel
         </a>
         <div>
@@ -222,20 +269,25 @@ exports[`test renders correctly 1`] = `
         <button
           className="queue feplCa"
           disabled={true}
-          onClick={[Function]}>
+          onClick={[Function]}
+        >
           Queue changes
         </button>
       </div>
       <div
-        className="hfTCBQ" />
+        className="hfTCBQ"
+      />
       <div
-        className="kXtoxa">
+        className="kXtoxa"
+      >
         There aren’t any genes that describe all of your selected works
       </div>
       <div
-        className="GenericAutosuggest">
+        className="GenericAutosuggest"
+      >
         <div
-          className="react-autosuggest__container">
+          className="react-autosuggest__container"
+        >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
@@ -251,16 +303,20 @@ exports[`test renders correctly 1`] = `
             placeholder="Add a gene"
             role="combobox"
             type="text"
-            value="" />
+            value=""
+          />
           <div
             className="react-autosuggest__suggestions-container"
-            id="react-autowhatever-gene-autosuggest" />
+            id="react-autowhatever-gene-autosuggest"
+          />
         </div>
       </div>
       <div
-        className="mluQ" />
+        className="mluQ"
+      />
       <div
-        className="gungoz">
+        className="gungoz"
+      >
         <h1>
           Are you sure you want to queue these changes?
         </h1>
@@ -272,17 +328,20 @@ exports[`test renders correctly 1`] = `
           </p>
         </section>
         <div
-          className="kriMBh">
+          className="kriMBh"
+        >
           <a
             className="dismiss jRkNFJ"
             href="#"
-            onClick={[Function]}>
+            onClick={[Function]}
+          >
             Go back
           </a>
           <a
             className="accept jhxkip"
             href="#"
-            onClick={[Function]}>
+            onClick={[Function]}
+          >
             Continue
           </a>
         </div>
@@ -290,6 +349,7 @@ exports[`test renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="beFtKA" />
+    className="beFtKA"
+  />
 </div>
 `;

@@ -1,22 +1,28 @@
-exports[`test renders nothing if there are no selected criteria 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders nothing if there are no selected criteria 1`] = `
 <div
-  className="cMTqqq" />
+  className="cMTqqq"
+/>
 `;
 
-exports[`test renders the selected fair 1`] = `
+exports[`renders the selected fair 1`] = `
 <div
-  className="cMTqqq">
+  className="cMTqqq"
+>
   <div>
     <h2>
       Fair
     </h2>
     <div
-      className="crrNnH">
+      className="crrNnH"
+    >
       FooFair
       <a
         className="remove"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         ✕
       </a>
     </div>
@@ -24,30 +30,35 @@ exports[`test renders the selected fair 1`] = `
 </div>
 `;
 
-exports[`test renders the selected genes 1`] = `
+exports[`renders the selected genes 1`] = `
 <div
-  className="cMTqqq">
+  className="cMTqqq"
+>
   <div>
     <h2>
       Genes
     </h2>
     <div
-      className="crrNnH">
+      className="crrNnH"
+    >
       Foo
       <a
         className="remove"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         ✕
       </a>
     </div>
     <div
-      className="crrNnH">
+      className="crrNnH"
+    >
       Bar
       <a
         className="remove"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         ✕
       </a>
     </div>
@@ -55,20 +66,23 @@ exports[`test renders the selected genes 1`] = `
 </div>
 `;
 
-exports[`test renders the selected partner 1`] = `
+exports[`renders the selected partner 1`] = `
 <div
-  className="cMTqqq">
+  className="cMTqqq"
+>
   <div>
     <h2>
       Partner
     </h2>
     <div
-      className="crrNnH">
+      className="crrNnH"
+    >
       Gallery Foo
       <a
         className="remove"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         ✕
       </a>
     </div>
@@ -76,30 +90,35 @@ exports[`test renders the selected partner 1`] = `
 </div>
 `;
 
-exports[`test renders the selected tags 1`] = `
+exports[`renders the selected tags 1`] = `
 <div
-  className="cMTqqq">
+  className="cMTqqq"
+>
   <div>
     <h2>
       Tags
     </h2>
     <div
-      className="crrNnH">
+      className="crrNnH"
+    >
       Foo
       <a
         className="remove"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         ✕
       </a>
     </div>
     <div
-      className="crrNnH">
+      className="crrNnH"
+    >
       Bar
       <a
         className="remove"
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         ✕
       </a>
     </div>

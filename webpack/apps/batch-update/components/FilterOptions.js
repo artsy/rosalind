@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import FilterOption from './FilterOption'
 
 function FilterOptions (props) {
@@ -26,8 +27,6 @@ function FilterOptions (props) {
 }
 
 /* default styled component */
-
-import styled from 'styled-components'
 
 const StyledFilterOptions = styled(FilterOptions)`
   font-size: 80%;
