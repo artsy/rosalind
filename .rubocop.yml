@@ -17,7 +17,7 @@ Style/FrozenStringLiteralComment:
 Layout/IndentArray:
   EnforcedStyle: consistent
 
-Style/FileName:
+Naming/FileName:
   Exclude:
     - Dangerfile
 
