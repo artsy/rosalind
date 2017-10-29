@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import 'jest-styled-components'
 import moment from 'moment'
 import StyledDateInput, { DateInput } from './DateInput'
 import { shallow, mount } from 'enzyme'
