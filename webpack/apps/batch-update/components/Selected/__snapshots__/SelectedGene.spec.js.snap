@@ -1,8 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
+.c0 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c0 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  text-decoration: none;
+}
+
+.c0 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
 <div
-  className="crrNnH"
+  className="c0"
 >
   Kawaii
   <a

@@ -1,21 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders nothing if there are no selected criteria 1`] = `
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
 <div
-  className="cMTqqq"
+  className="c0"
 />
 `;
 
 exports[`renders the selected fair 1`] = `
+.c1 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c1 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  text-decoration: none;
+}
+
+.c1 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
 <div
-  className="cMTqqq"
+  className="c0"
 >
   <div>
     <h2>
       Fair
     </h2>
     <div
-      className="crrNnH"
+      className="c1"
     >
       FooFair
       <a
@@ -31,15 +80,51 @@ exports[`renders the selected fair 1`] = `
 `;
 
 exports[`renders the selected genes 1`] = `
+.c1 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c1 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  text-decoration: none;
+}
+
+.c1 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
 <div
-  className="cMTqqq"
+  className="c0"
 >
   <div>
     <h2>
       Genes
     </h2>
     <div
-      className="crrNnH"
+      className="c1"
     >
       Foo
       <a
@@ -51,7 +136,7 @@ exports[`renders the selected genes 1`] = `
       </a>
     </div>
     <div
-      className="crrNnH"
+      className="c1"
     >
       Bar
       <a
@@ -67,15 +152,51 @@ exports[`renders the selected genes 1`] = `
 `;
 
 exports[`renders the selected partner 1`] = `
+.c1 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c1 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  text-decoration: none;
+}
+
+.c1 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
 <div
-  className="cMTqqq"
+  className="c0"
 >
   <div>
     <h2>
       Partner
     </h2>
     <div
-      className="crrNnH"
+      className="c1"
     >
       Gallery Foo
       <a
@@ -91,15 +212,51 @@ exports[`renders the selected partner 1`] = `
 `;
 
 exports[`renders the selected tags 1`] = `
+.c1 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c1 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  text-decoration: none;
+}
+
+.c1 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
 <div
-  className="cMTqqq"
+  className="c0"
 >
   <div>
     <h2>
       Tags
     </h2>
     <div
-      className="crrNnH"
+      className="c1"
     >
       Foo
       <a
@@ -111,7 +268,7 @@ exports[`renders the selected tags 1`] = `
       </a>
     </div>
     <div
-      className="crrNnH"
+      className="c1"
     >
       Bar
       <a

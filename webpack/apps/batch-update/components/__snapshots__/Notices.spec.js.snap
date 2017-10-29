@@ -1,7 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Notices renders correctly 1`] = `
+.c0 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 25%;
+  min-width: 20em;
+  padding: 1em;
+  font-size: 0.9em;
+}
+
 <div
-  className="beFtKA"
+  className="c0"
 />
 `;

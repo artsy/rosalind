@@ -1,8 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
+.c0 {
+  min-width: 115px;
+  max-width: calc(20% - 1.5em);
+  margin: 0.75em;
+  -webkit-flex: 1 1 calc(20% - 1.5em);
+  -ms-flex: 1 1 calc(20% - 1.5em);
+  flex: 1 1 calc(20% - 1.5em);
+}
+
+.c0 img {
+  width: 100%;
+}
+
+.c0 figcaption {
+  position: relative;
+  font-size: 80%;
+  max-height: 3.75em;
+  line-height: 1.25em;
+  overflow: hidden;
+}
+
 <div
-  className="bkfdwK"
+  className="c0"
   onClick={[Function]}
 >
   <img
@@ -16,8 +37,32 @@ exports[`renders correctly 1`] = `
 `;
 
 exports[`renders in the selected state 1`] = `
+.c0 {
+  min-width: 115px;
+  max-width: calc(20% - 1.5em);
+  margin: 0.75em;
+  -webkit-flex: 1 1 calc(20% - 1.5em);
+  -ms-flex: 1 1 calc(20% - 1.5em);
+  flex: 1 1 calc(20% - 1.5em);
+  background: #6E1FFF;
+  outline: solid 5px #6E1FFF;
+  color: white;
+}
+
+.c0 img {
+  width: 100%;
+}
+
+.c0 figcaption {
+  position: relative;
+  font-size: 80%;
+  max-height: 3.75em;
+  line-height: 1.25em;
+  overflow: hidden;
+}
+
 <div
-  className="CbrRL"
+  className="c0"
   onClick={[Function]}
 >
   <img

@@ -1,16 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly when closed 1`] = `
+.c0 {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: white;
+  overflow: scroll;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.c0.modal-open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all 0.125s;
+  transition: all 0.125s;
+}
+
 <div
-  className="jOkOCo"
+  className="c0"
 >
   I am closed
 </div>
 `;
 
 exports[`renders correctly when open 1`] = `
+.c0 {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: white;
+  overflow: scroll;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.c0.modal-open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all 0.125s;
+  transition: all 0.125s;
+}
+
 <div
-  className="modal-open jOkOCo"
+  className="modal-open c0"
 >
   I am open
 </div>

@@ -1,22 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders a null gene correctly 1`] = `
+.c0 {
+  border: solid 1px #E5E5E5;
+  width: 140px;
+  height: 140px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  background: #F8F8F8;
+  border-bottom: solid 1px #E5E5E5;
+  -webkit-flex-basis: 100px;
+  -ms-flex-basis: 100px;
+  flex-basis: 100px;
+  padding: 0.5em 1em;
+  overflow: hidden;
+  position: relative;
+}
+
+.c3 {
+  -webkit-flex-basis: 40px;
+  -ms-flex-basis: 40px;
+  flex-basis: 40px;
+  border-color: transparent;
+  padding: 1em;
+}
+
+.c3:focus {
+  outline: solid 1px #cccccc;
+}
+
+.c2 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: hsla(261,100%,85%,0.15);
+  -webkit-transition: height 0.15s;
+  transition: height 0.15s;
+  height: null%;
+}
+
 <div
-  className="dDtKEb"
+  className="c0"
   value={null}
 >
   <div
-    className="iXxpJJ"
+    className="c1"
     value={null}
   >
     Kawaii
     <div
-      className="gjNVml"
+      className="c2"
       value={null}
     />
   </div>
   <input
-    className="kjtXRk"
+    className="c3"
     max="100"
     min="0"
     onChange={[Function]}
@@ -29,22 +78,71 @@ exports[`renders a null gene correctly 1`] = `
 `;
 
 exports[`renders a positive-valued gene correctly 1`] = `
+.c0 {
+  border: solid 1px #6E1FFF;
+  width: 140px;
+  height: 140px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  background: #F7F3FF;
+  border-bottom: solid 1px #6E1FFF;
+  -webkit-flex-basis: 100px;
+  -ms-flex-basis: 100px;
+  flex-basis: 100px;
+  padding: 0.5em 1em;
+  overflow: hidden;
+  position: relative;
+}
+
+.c3 {
+  -webkit-flex-basis: 40px;
+  -ms-flex-basis: 40px;
+  flex-basis: 40px;
+  border-color: transparent;
+  padding: 1em;
+}
+
+.c3:focus {
+  outline: solid 1px #cccccc;
+}
+
+.c2 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: hsla(261,100%,85%,0.15);
+  -webkit-transition: height 0.15s;
+  transition: height 0.15s;
+  height: 70%;
+}
+
 <div
-  className="eJIUEQ"
+  className="c0"
   value={70}
 >
   <div
-    className="eaagZv"
+    className="c1"
     value={70}
   >
     Kawaii
     <div
-      className="kHxQBi"
+      className="c2"
       value={70}
     />
   </div>
   <input
-    className="kjtXRk"
+    className="c3"
     max="100"
     min="0"
     onChange={[Function]}
@@ -57,24 +155,73 @@ exports[`renders a positive-valued gene correctly 1`] = `
 `;
 
 exports[`renders a zero-valued gene correctly 1`] = `
+.c0 {
+  border: solid 1px #F7625A;
+  width: 140px;
+  height: 140px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  background: #FFF8F8;
+  border-bottom: solid 1px #F7625A;
+  -webkit-flex-basis: 100px;
+  -ms-flex-basis: 100px;
+  flex-basis: 100px;
+  padding: 0.5em 1em;
+  overflow: hidden;
+  position: relative;
+}
+
+.c3 {
+  -webkit-flex-basis: 40px;
+  -ms-flex-basis: 40px;
+  flex-basis: 40px;
+  border-color: transparent;
+  padding: 1em;
+}
+
+.c3:focus {
+  outline: solid 1px #cccccc;
+}
+
+.c2 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: hsla(261,100%,85%,0.15);
+  -webkit-transition: height 0.15s;
+  transition: height 0.15s;
+  height: 0%;
+}
+
 <div
-  className="inyXqK"
+  className="c0"
   value={0}
 >
   <div
-    className="cXizAY"
+    className="c1"
     value={0}
   >
     <del>
       Kawaii
     </del>
     <div
-      className="kdkQr"
+      className="c2"
       value={0}
     />
   </div>
   <input
-    className="kjtXRk"
+    className="c3"
     max="100"
     min="0"
     onChange={[Function]}
