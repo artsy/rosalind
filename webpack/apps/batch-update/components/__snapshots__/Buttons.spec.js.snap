@@ -1,48 +1,188 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button renders a basic button 1`] = `
+.c0 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #000000;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <button
-  className="cPyjKp"
+  className="c0"
 >
   Click me
 </button>
 `;
 
 exports[`Button renders a full width button 1`] = `
+.c0 {
+  display: block;
+  width: 100%;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #000000;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <button
-  className="kTrUEX"
+  className="c0"
 >
   Click me
 </button>
 `;
 
 exports[`Button renders a full width button 2`] = `
+.c0 {
+  display: block;
+  width: 100%;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #000000;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <a
-  className="jpUmnI"
+  className="c0"
 >
   Click me
 </a>
 `;
 
 exports[`Button renders a primary button 1`] = `
+.c0 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #000000;
+  color: #ffffff;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <button
-  className="hwoZit"
+  className="c0"
 >
   Click me
 </button>
 `;
 
 exports[`Button renders a secondary button 1`] = `
+.c0 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #ffffff;
+  color: #000000;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <button
-  className="hggFYC"
+  className="c0"
 >
   Click me
 </button>
 `;
 
 exports[`Button when "disabled" prop is supplied renders a disabled button 1`] = `
+.c0 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #cccccc;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition: none;
+  transition: none;
+  cursor: not-allowed;
+}
+
 <button
-  className="feplCa"
+  className="c0"
   disabled={true}
 >
   Click me
@@ -50,16 +190,60 @@ exports[`Button when "disabled" prop is supplied renders a disabled button 1`] =
 `;
 
 exports[`LinkButton renders a basic link button 1`] = `
+.c0 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #000000;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <a
-  className="bMOQzN"
+  className="c0"
 >
   Click me
 </a>
 `;
 
 exports[`LinkButton renders a disabled link button 1`] = `
+.c0 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #cccccc;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition: none;
+  transition: none;
+  cursor: not-allowed;
+  text-decoration: none;
+  text-align: center;
+}
+
 <a
-  className="bqDpOh"
+  className="c0"
   disabled={true}
 >
   Click me
@@ -67,32 +251,138 @@ exports[`LinkButton renders a disabled link button 1`] = `
 `;
 
 exports[`LinkButton renders a full width link button 1`] = `
+.c0 {
+  display: block;
+  width: 100%;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #000000;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <a
-  className="jpUmnI"
+  className="c0"
 >
   Click me
 </a>
 `;
 
 exports[`LinkButton renders a full width link button 2`] = `
+.c0 {
+  display: block;
+  width: 100%;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #000000;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <a
-  className="jpUmnI"
+  className="c0"
 >
   Click me
 </a>
 `;
 
 exports[`LinkButton renders a primary link button 1`] = `
+.c0 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #000000;
+  color: #ffffff;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <a
-  className="jhxkip"
+  className="c0"
 >
   Click me
 </a>
 `;
 
 exports[`LinkButton renders a secondary link button 1`] = `
+.c0 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #ffffff;
+  color: #000000;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c0:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <a
-  className="jRkNFJ"
+  className="c0"
 >
   Click me
 </a>

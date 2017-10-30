@@ -1,14 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`does not render a modal when not previewing 1`] = `
+.c1 {
+  min-width: 115px;
+  max-width: calc(20% - 1.5em);
+  margin: 0.75em;
+  -webkit-flex: 1 1 calc(20% - 1.5em);
+  -ms-flex: 1 1 calc(20% - 1.5em);
+  flex: 1 1 calc(20% - 1.5em);
+}
+
+.c1 img {
+  width: 100%;
+}
+
+.c1 figcaption {
+  position: relative;
+  font-size: 80%;
+  max-height: 3.75em;
+  line-height: 1.25em;
+  overflow: hidden;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 .counts {
+  display: inline-block;
+  width: 75%;
+  padding: 0.75em;
+}
+
+.c0 .select {
+  display: inline-block;
+  width: 25%;
+  padding: 0.75em;
+  text-align: right;
+}
+
+.c0 .select a {
+  margin: 0 0.25em;
+}
+
+.c0 .results {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
 <div
-  className="bdWhDJ"
+  className="c0"
 >
   <div
     className="results"
   >
     <div
-      className="bkfdwK"
+      className="c1"
       onClick={[Function]}
     >
       <img
@@ -20,7 +78,7 @@ exports[`does not render a modal when not previewing 1`] = `
       </figcaption>
     </div>
     <div
-      className="bkfdwK"
+      className="c1"
       onClick={[Function]}
     >
       <img
@@ -36,14 +94,72 @@ exports[`does not render a modal when not previewing 1`] = `
 `;
 
 exports[`renders a collection of artworks 1`] = `
+.c1 {
+  min-width: 115px;
+  max-width: calc(20% - 1.5em);
+  margin: 0.75em;
+  -webkit-flex: 1 1 calc(20% - 1.5em);
+  -ms-flex: 1 1 calc(20% - 1.5em);
+  flex: 1 1 calc(20% - 1.5em);
+}
+
+.c1 img {
+  width: 100%;
+}
+
+.c1 figcaption {
+  position: relative;
+  font-size: 80%;
+  max-height: 3.75em;
+  line-height: 1.25em;
+  overflow: hidden;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 .counts {
+  display: inline-block;
+  width: 75%;
+  padding: 0.75em;
+}
+
+.c0 .select {
+  display: inline-block;
+  width: 25%;
+  padding: 0.75em;
+  text-align: right;
+}
+
+.c0 .select a {
+  margin: 0 0.25em;
+}
+
+.c0 .results {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
 <div
-  className="bdWhDJ"
+  className="c0"
 >
   <div
     className="results"
   >
     <div
-      className="bkfdwK"
+      className="c1"
       onClick={[Function]}
     >
       <img
@@ -55,7 +171,7 @@ exports[`renders a collection of artworks 1`] = `
       </figcaption>
     </div>
     <div
-      className="bkfdwK"
+      className="c1"
       onClick={[Function]}
     >
       <img
@@ -71,16 +187,147 @@ exports[`renders a collection of artworks 1`] = `
 `;
 
 exports[`renders a modal when previewing 1`] = `
+.c1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: hsla(0,0%,0%,0.5);
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  box-sizing: border-box;
+  padding: 2em;
+  max-height: 90%;
+  z-index: 2;
+  background: white;
+  box-shadow: 0 0 20px hsla(0,0%,0%,0.5);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 .image {
+  -webkit-flex: 0 1 40%;
+  -ms-flex: 0 1 40%;
+  flex: 0 1 40%;
+}
+
+.c2 .details {
+  max-width: 20em;
+  margin-left: 1em;
+  -webkit-flex: 0 1 60%;
+  -ms-flex: 0 1 60%;
+  flex: 0 1 60%;
+}
+
+.c2 .name {
+  font-weight: bold;
+}
+
+.c2 .status {
+  font-size: 0.9em;
+  line-height: 125%;
+  margin: 1em 0;
+}
+
+.c2 .links a {
+  margin: 0 0.25em;
+}
+
+.c3 {
+  min-width: 115px;
+  max-width: calc(20% - 1.5em);
+  margin: 0.75em;
+  -webkit-flex: 1 1 calc(20% - 1.5em);
+  -ms-flex: 1 1 calc(20% - 1.5em);
+  flex: 1 1 calc(20% - 1.5em);
+}
+
+.c3 img {
+  width: 100%;
+}
+
+.c3 figcaption {
+  position: relative;
+  font-size: 80%;
+  max-height: 3.75em;
+  line-height: 1.25em;
+  overflow: hidden;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 .counts {
+  display: inline-block;
+  width: 75%;
+  padding: 0.75em;
+}
+
+.c0 .select {
+  display: inline-block;
+  width: 25%;
+  padding: 0.75em;
+  text-align: right;
+}
+
+.c0 .select a {
+  margin: 0 0.25em;
+}
+
+.c0 .results {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
 <div
-  className="bdWhDJ"
+  className="c0"
 >
   <div
-    className="dsEsVK"
+    className="c1"
     onClick={[Function]}
     z={1}
   >
     <div
-      className="dQjxAA"
+      className="c2"
       onClickCapture={[Function]}
     >
       <div
@@ -156,7 +403,7 @@ exports[`renders a modal when previewing 1`] = `
     className="results"
   >
     <div
-      className="bkfdwK"
+      className="c3"
       onClick={[Function]}
     >
       <img
@@ -168,7 +415,7 @@ exports[`renders a modal when previewing 1`] = `
       </figcaption>
     </div>
     <div
-      className="bkfdwK"
+      className="c3"
       onClick={[Function]}
     >
       <img
@@ -184,14 +431,105 @@ exports[`renders a modal when previewing 1`] = `
 `;
 
 exports[`renders a spinner while fetching artworks 1`] = `
+.c3 {
+  min-width: 115px;
+  max-width: calc(20% - 1.5em);
+  margin: 0.75em;
+  -webkit-flex: 1 1 calc(20% - 1.5em);
+  -ms-flex: 1 1 calc(20% - 1.5em);
+  flex: 1 1 calc(20% - 1.5em);
+}
+
+.c3 img {
+  width: 100%;
+}
+
+.c3 figcaption {
+  position: relative;
+  font-size: 80%;
+  max-height: 3.75em;
+  line-height: 1.25em;
+  overflow: hidden;
+}
+
+.c1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: calc(100vh - 50px);
+  background: hsla(0,0%,100%,0.90);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.c2 {
+  width: 12%;
+  height: 1%;
+  background: black;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  z-index: 2;
+  -webkit-animation: MQNGw 2s linear infinite;
+  animation: MQNGw 2s linear infinite;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 .counts {
+  display: inline-block;
+  width: 75%;
+  padding: 0.75em;
+}
+
+.c0 .select {
+  display: inline-block;
+  width: 25%;
+  padding: 0.75em;
+  text-align: right;
+}
+
+.c0 .select a {
+  margin: 0 0.25em;
+}
+
+.c0 .results {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
 <div
-  className="bdWhDJ"
+  className="c0"
 >
   <div
-    className="lnzNIy"
+    className="c1"
   >
     <div
-      className="eWOvlO"
+      className="c2"
       color="black"
     />
   </div>
@@ -199,7 +537,7 @@ exports[`renders a spinner while fetching artworks 1`] = `
     className="results"
   >
     <div
-      className="bkfdwK"
+      className="c3"
       onClick={[Function]}
     >
       <img
@@ -211,7 +549,7 @@ exports[`renders a spinner while fetching artworks 1`] = `
       </figcaption>
     </div>
     <div
-      className="bkfdwK"
+      className="c3"
       onClick={[Function]}
     >
       <img

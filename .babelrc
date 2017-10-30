@@ -1,11 +1,21 @@
 {
-  "presets" : ["es2015", "react"],
+  "presets": ["es2015", "react"],
   "plugins": [
-    ["module-resolver", {
-      "root": ["./webpack"],
-      "alias": {
-        "components": "./webpack/components"
+    [
+      "module-resolver",
+      {
+        "root": ["./webpack"],
+        "alias": {
+          "components": "./webpack/components"
+        }
       }
-    }]
+    ],
+    [
+      "babel-plugin-styled-components",
+      {
+        "displayName": true,
+        "minify": true
+      }
+    ]
   ]
 }

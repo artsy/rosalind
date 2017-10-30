@@ -1,11 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
+.c0 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: calc(100vh - 50px);
+  background: hsla(0,0%,100%,0.90);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.c1 {
+  width: 12%;
+  height: 1%;
+  background: black;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  z-index: 2;
+  -webkit-animation: MQNGw 2s linear infinite;
+  animation: MQNGw 2s linear infinite;
+}
+
 <div
-  className="lnzNIy"
+  className="c0"
 >
   <div
-    className="eWOvlO"
+    className="c1"
     color="black"
   />
 </div>

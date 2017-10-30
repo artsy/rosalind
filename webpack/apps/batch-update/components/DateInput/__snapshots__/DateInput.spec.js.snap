@@ -1,8 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateInput renders correctly 1`] = `
+.c0 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c0 input:focus {
+  outline: none;
+}
+
 <div
-  className="iFTuzH"
+  className="c0"
 >
   <input
     onChange={[Function]}
