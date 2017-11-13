@@ -1,5 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import 'jest-styled-components'
 import { FairAutosuggest } from './FairAutosuggest'
 
 const mockHandler = jest.fn()

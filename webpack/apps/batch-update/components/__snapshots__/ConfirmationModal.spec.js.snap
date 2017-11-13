@@ -1,22 +1,140 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly when closed 1`] = `
+.c2 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #ffffff;
+  color: #000000;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c2:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
+.c3 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #000000;
+  color: #ffffff;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c3:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
+.c0 {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  width: 600px;
+  height: auto;
+  background: white;
+  z-index: 2;
+  padding: 20px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.95) translate(-50%,-50%);
+  -ms-transform: scale(0.95) translate(-50%,-50%);
+  transform: scale(0.95) translate(-50%,-50%);
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.c0.modal-open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1) translate(-50%,-50%);
+  -ms-transform: scale(1) translate(-50%,-50%);
+  transform: scale(1) translate(-50%,-50%);
+  -webkit-transition: all 0.125s;
+  transition: all 0.125s;
+}
+
+.c0 h1 {
+  font-weight: normal;
+  font-size: 1.5em;
+  color: #666666;
+}
+
+.c0 section {
+  color: #333333;
+  border-top: solid 1px #E5E5E5;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+
+.c0 section p {
+  margin-bottom: 1em;
+}
+
+.c1 {
+  border-top: solid 1px #E5E5E5;
+  margin-top: 1em;
+  padding-top: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c1 a {
+  margin-left: 1em;
+}
+
 <div
-  className="gungoz"
+  className="c0"
 >
   I am closed
   <div
-    className="kriMBh"
+    className="c1"
   >
     <a
-      className="dismiss jRkNFJ"
+      className="dismiss c2"
       href="#"
       onClick={[Function]}
     >
       Go back
     </a>
     <a
-      className="accept jhxkip"
+      className="accept c3"
       href="#"
       onClick={[Function]}
     >
@@ -27,22 +145,140 @@ exports[`renders correctly when closed 1`] = `
 `;
 
 exports[`renders correctly when open 1`] = `
+.c2 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #ffffff;
+  color: #000000;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c2:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
+.c3 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #000000;
+  color: #ffffff;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c3:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
+.c0 {
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  width: 600px;
+  height: auto;
+  background: white;
+  z-index: 2;
+  padding: 20px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.95) translate(-50%,-50%);
+  -ms-transform: scale(0.95) translate(-50%,-50%);
+  transform: scale(0.95) translate(-50%,-50%);
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.c0.modal-open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1) translate(-50%,-50%);
+  -ms-transform: scale(1) translate(-50%,-50%);
+  transform: scale(1) translate(-50%,-50%);
+  -webkit-transition: all 0.125s;
+  transition: all 0.125s;
+}
+
+.c0 h1 {
+  font-weight: normal;
+  font-size: 1.5em;
+  color: #666666;
+}
+
+.c0 section {
+  color: #333333;
+  border-top: solid 1px #E5E5E5;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+
+.c0 section p {
+  margin-bottom: 1em;
+}
+
+.c1 {
+  border-top: solid 1px #E5E5E5;
+  margin-top: 1em;
+  padding-top: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c1 a {
+  margin-left: 1em;
+}
+
 <div
-  className="modal-open gungoz"
+  className="modal-open c0"
 >
   I am open
   <div
-    className="kriMBh"
+    className="c1"
   >
     <a
-      className="dismiss jRkNFJ"
+      className="dismiss c2"
       href="#"
       onClick={[Function]}
     >
       Go back
     </a>
     <a
-      className="accept jhxkip"
+      className="accept c3"
       href="#"
       onClick={[Function]}
     >

@@ -58,10 +58,21 @@ RSpec.configure do |config|
   end
 end
 
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome).tap do |driver|
-    driver.browser.manage.window.size = Selenium::WebDriver::Dimension.new(1200, 800)
-  end
+# default driver for headless testing
+Capybara.register_driver :headless_chrome do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w[headless disable-gpu] }
+  )
+
+  Capybara::Selenium::Driver.new(app,
+                                 browser: :chrome,
+                                 desired_capabilities: capabilities)
 end
 
-Capybara.javascript_driver = :selenium
+# optional driver for launching a real windowed browser
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+# change this to :chrome to observe tests in a real browser
+Capybara.javascript_driver = :headless_chrome

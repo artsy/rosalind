@@ -1,11 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`"edit artworks" button does not render an edit button if there are no artworks 1`] = `
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+.c1 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c1 input:focus {
+  outline: none;
+}
+
+.c2 {
+  font-size: 80%;
+  color: #999;
+  line-height: 140%;
+  margin: 2em 0;
+  opacity: 0.25;
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+
+.c2:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.c2 .filter {
+  margin-top: 1em;
+}
+
+.c2 .filter a {
+  color: #ccc;
+  margin-right: 0.5em;
+}
+
+.c2 .filter a.active {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+}
+
 <div
-  className="foqgVb"
+  className=""
 >
   <div
-    className="cMTqqq"
+    className="c0"
   />
   <div
     className="GenericAutosuggest"
@@ -124,7 +183,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c1"
   >
     <input
       onChange={[Function]}
@@ -143,7 +202,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c1"
   >
     <input
       onChange={[Function]}
@@ -162,7 +221,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     </div>
   </div>
   <div
-    className="gxGcSj"
+    className="c2"
   >
     <div
       className="filter"
@@ -225,11 +284,87 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 `;
 
 exports[`"edit artworks" button renders a disabled edit button if there are artworks, but none selected 1`] = `
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+.c1 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c1 input:focus {
+  outline: none;
+}
+
+.c2 {
+  font-size: 80%;
+  color: #999;
+  line-height: 140%;
+  margin: 2em 0;
+  opacity: 0.25;
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+
+.c2:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.c2 .filter {
+  margin-top: 1em;
+}
+
+.c2 .filter a {
+  color: #ccc;
+  margin-right: 0.5em;
+}
+
+.c2 .filter a.active {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+}
+
+.c3 {
+  display: block;
+  width: 100%;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #cccccc;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition: none;
+  transition: none;
+  cursor: not-allowed;
+}
+
 <div
-  className="foqgVb"
+  className=""
 >
   <div
-    className="cMTqqq"
+    className="c0"
   />
   <div
     className="GenericAutosuggest"
@@ -348,7 +483,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c1"
   >
     <input
       onChange={[Function]}
@@ -367,7 +502,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c1"
   >
     <input
       onChange={[Function]}
@@ -386,7 +521,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <div
-    className="gxGcSj"
+    className="c2"
   >
     <div
       className="filter"
@@ -446,7 +581,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <button
-    className="dsgyEb"
+    className="c3"
     disabled={true}
   >
     Edit Artworks
@@ -455,11 +590,95 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 `;
 
 exports[`"edit artworks" button renders an enabled edit button if there are selected artworks 1`] = `
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+.c1 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c1 input:focus {
+  outline: none;
+}
+
+.c2 {
+  font-size: 80%;
+  color: #999;
+  line-height: 140%;
+  margin: 2em 0;
+  opacity: 0.25;
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+
+.c2:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.c2 .filter {
+  margin-top: 1em;
+}
+
+.c2 .filter a {
+  color: #ccc;
+  margin-right: 0.5em;
+}
+
+.c2 .filter a.active {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+}
+
+.c3 {
+  display: block;
+  width: 100%;
+  padding: 18px 30px 15px 30px;
+  background: #000000;
+  color: #ffffff;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+
+.c3:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
 <div
-  className="foqgVb"
+  className=""
 >
   <div
-    className="cMTqqq"
+    className="c0"
   />
   <div
     className="GenericAutosuggest"
@@ -578,7 +797,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c1"
   >
     <input
       onChange={[Function]}
@@ -597,7 +816,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c1"
   >
     <input
       onChange={[Function]}
@@ -616,7 +835,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <div
-    className="gxGcSj"
+    className="c2"
   >
     <div
       className="filter"
@@ -676,7 +895,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <button
-    className="iAICvi"
+    className="c3"
     onClick={undefined}
   >
      Edit Artworks 
@@ -685,18 +904,100 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 `;
 
 exports[`does not render fair autosuggest if fair is already selected 1`] = `
+.c1 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c1 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  text-decoration: none;
+}
+
+.c1 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+.c2 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c2 input:focus {
+  outline: none;
+}
+
+.c3 {
+  font-size: 80%;
+  color: #999;
+  line-height: 140%;
+  margin: 2em 0;
+  opacity: 0.25;
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+
+.c3:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.c3 .filter {
+  margin-top: 1em;
+}
+
+.c3 .filter a {
+  color: #ccc;
+  margin-right: 0.5em;
+}
+
+.c3 .filter a.active {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+}
+
 <div
-  className="foqgVb"
+  className=""
 >
   <div
-    className="cMTqqq"
+    className="c0"
   >
     <div>
       <h2>
         Fair
       </h2>
       <div
-        className="crrNnH"
+        className="c1"
       >
         Nice Fair
         <a
@@ -797,7 +1098,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -816,7 +1117,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -835,7 +1136,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     </div>
   </div>
   <div
-    className="gxGcSj"
+    className="c3"
   >
     <div
       className="filter"
@@ -898,18 +1199,100 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
 `;
 
 exports[`does not render partner autosuggest if partner is already selected 1`] = `
+.c1 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c1 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  text-decoration: none;
+}
+
+.c1 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+.c2 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c2 input:focus {
+  outline: none;
+}
+
+.c3 {
+  font-size: 80%;
+  color: #999;
+  line-height: 140%;
+  margin: 2em 0;
+  opacity: 0.25;
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+
+.c3:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.c3 .filter {
+  margin-top: 1em;
+}
+
+.c3 .filter a {
+  color: #ccc;
+  margin-right: 0.5em;
+}
+
+.c3 .filter a.active {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+}
+
 <div
-  className="foqgVb"
+  className=""
 >
   <div
-    className="cMTqqq"
+    className="c0"
   >
     <div>
       <h2>
         Partner
       </h2>
       <div
-        className="crrNnH"
+        className="c1"
       >
         Nice Gallery
         <a
@@ -1010,7 +1393,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -1029,7 +1412,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -1048,7 +1431,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     </div>
   </div>
   <div
-    className="gxGcSj"
+    className="c3"
   >
     <div
       className="filter"
@@ -1111,11 +1494,70 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
 `;
 
 exports[`renders correctly 1`] = `
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+.c1 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c1 input:focus {
+  outline: none;
+}
+
+.c2 {
+  font-size: 80%;
+  color: #999;
+  line-height: 140%;
+  margin: 2em 0;
+  opacity: 0.25;
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+
+.c2:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.c2 .filter {
+  margin-top: 1em;
+}
+
+.c2 .filter a {
+  color: #ccc;
+  margin-right: 0.5em;
+}
+
+.c2 .filter a.active {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: default;
+}
+
 <div
-  className="foqgVb"
+  className=""
 >
   <div
-    className="cMTqqq"
+    className="c0"
   />
   <div
     className="GenericAutosuggest"
@@ -1234,7 +1676,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c1"
   >
     <input
       onChange={[Function]}
@@ -1253,7 +1695,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="iFTuzH"
+    className="c1"
   >
     <input
       onChange={[Function]}
@@ -1272,7 +1714,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="gxGcSj"
+    className="c2"
   >
     <div
       className="filter"
