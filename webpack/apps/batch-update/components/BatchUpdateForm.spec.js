@@ -118,6 +118,7 @@ describe('with currently added genes', () => {
         'Animals': 100
       }
     })
+    wrapper.update()
   })
 
   it('enables the "Queue" button', () => {
