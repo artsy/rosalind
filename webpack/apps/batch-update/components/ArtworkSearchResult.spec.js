@@ -26,7 +26,7 @@ it('requires an artwork', () => {
   expect(() => {
     renderer.create(<ArtworkSearchResult />)
   }).toThrow()
-  expect(console.error.mock.calls.length).toEqual(1)
+  expect(console.error.mock.calls[0][0]).toMatch(/warning: failed prop type/i)
 })
 
 it('renders correctly', () => {
