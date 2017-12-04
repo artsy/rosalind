@@ -118,6 +118,7 @@ describe('with currently added genes', () => {
         'Animals': 100
       }
     })
+    wrapper.update()
   })
 
   it('enables the "Queue" button', () => {
@@ -155,7 +156,7 @@ describe('with currently added genes', () => {
     it('opens a confirmation modal', () => {
       const mockClickEvent = { preventDefault: jest.fn() }
       wrapper.find('button.queue').simulate('click', mockClickEvent)
-      expect(wrapper.find(ConfirmationModal).hasClass('modal-open')).toBe(true)
+      expect(wrapper.find(ConfirmationModal).render().hasClass('modal-open')).toBe(true)
     })
 
     describe('when the confirmation modal is accepted', () => {

@@ -18,7 +18,7 @@ beforeEach(() => {
 describe('Notice', () => {
   it('animates upon entering the dom', () => {
     const notice = mount(<Notice {...props} />)
-    expect(notice.hasClass('entering')).toBe(true)
+    expect(notice.render().hasClass('entering')).toBe(true)
   })
 
   it('can be dismissed with a click', () => {
@@ -34,7 +34,7 @@ describe('Notice', () => {
   it('animates upon leaving the dom', () => {
     const notice = mount(<Notice {...props} />)
     notice.find('.dismiss').simulate('click')
-    expect(notice.hasClass('leaving')).toBe(true)
+    expect(notice.render().hasClass('leaving')).toBe(true)
   })
 })
 
