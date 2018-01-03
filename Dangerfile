@@ -1,8 +1,6 @@
 # PR Hygiene
 
-if github.pr_body.length < 5
-  messaging.fail 'Please provide a summary in the Pull Request description'
-end
+messaging.fail 'Please provide a summary in the Pull Request description' if github.pr_body.length < 5
 
 if git.commits.any? { |c| c.message =~ /^Merge branch 'master'/ }
   messaging.warn 'Please rebase to get rid of the merge commits in this PR'
@@ -16,9 +14,7 @@ def warn_if_adding(term:, files:)
     diff = git.diff_for_file(file)
     next unless diff
     added_lines = diff.patch.split(/\n/).select { |line| line =~ /^\+/ }
-    if added_lines.any? { |line| line =~ regexp }
-      warn "Please think twice before adding #{term} to the project 😱 (#{file})"
-    end
+    warn "Please think twice before adding #{term} to the project 😱 (#{file})" if added_lines.any? { |line| line =~ regexp }
   end
 end
 
