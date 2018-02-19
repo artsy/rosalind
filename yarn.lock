@@ -3124,8 +3124,8 @@ jest-snapshot@^21.2.1:
     pretty-format "^21.2.1"
 
 jest-styled-components@^4.9.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/jest-styled-components/-/jest-styled-components-4.9.0.tgz#459ccb37d0f5720007c8dba358bfff93c8cf4aed"
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/jest-styled-components/-/jest-styled-components-4.10.0.tgz#6fcd83208fefc4ceb87b79b55d44697a05d226a8"
   dependencies:
     css "^2.2.1"
 
