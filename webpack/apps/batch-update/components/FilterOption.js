@@ -54,7 +54,7 @@ function Option (props) {
     <a href='#'
       className={active(current === option)}
       onClick={handleClick.bind(null, option)}
-      >
+    >
       {children}
     </a>
   )

@@ -86,16 +86,16 @@ class BatchUpdateForm extends React.Component {
     const validGenes = pickBy(geneValues, (value, _key) => value !== null)
     const csrfToken = document.querySelector('meta[name=csrf-token]').content
     submitBatchUpdate(selectedArtworkIds, validGenes, csrfToken)
-       .then(response => {
-         if (response.ok) {
-           this.handleSuccess()
-         } else {
-           this.handleFailure(response)
-         }
-       })
-       .catch(error => {
-         this.handleError(error)
-       })
+      .then(response => {
+        if (response.ok) {
+          this.handleSuccess()
+        } else {
+          this.handleFailure(response)
+        }
+      })
+      .catch(error => {
+        this.handleError(error)
+      })
   }
 
   handleSuccess () {
