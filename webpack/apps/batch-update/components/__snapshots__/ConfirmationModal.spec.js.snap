@@ -17,6 +17,7 @@ exports[`renders correctly when closed 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -43,6 +44,7 @@ exports[`renders correctly when closed 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -161,6 +163,7 @@ exports[`renders correctly when open 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -187,6 +190,7 @@ exports[`renders correctly when open 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }

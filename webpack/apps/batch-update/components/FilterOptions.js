@@ -16,12 +16,12 @@ function FilterOptions (props) {
         current={publishedFilter}
         name='published'
         updateState={updateState}
-        />
+      />
       <FilterOption
         current={genomedFilter}
         name='genomed'
         updateState={updateState}
-        />
+      />
     </div>
   )
 }

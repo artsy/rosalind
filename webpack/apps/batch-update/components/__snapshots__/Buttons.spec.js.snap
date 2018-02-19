@@ -83,6 +83,7 @@ exports[`Button renders a full width button 2`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -206,6 +207,7 @@ exports[`LinkButton renders a basic link button 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -238,6 +240,7 @@ exports[`LinkButton renders a disabled link button 1`] = `
   -webkit-transition: none;
   transition: none;
   cursor: not-allowed;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -268,6 +271,7 @@ exports[`LinkButton renders a full width link button 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -303,6 +307,7 @@ exports[`LinkButton renders a full width link button 2`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -337,6 +342,7 @@ exports[`LinkButton renders a primary link button 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -371,6 +377,7 @@ exports[`LinkButton renders a secondary link button 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }

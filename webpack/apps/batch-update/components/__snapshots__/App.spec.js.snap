@@ -14,22 +14,24 @@ exports[`renders correctly 1`] = `
 }
 
 .c1 {
+  -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
-  -ms-flex-grow: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   -webkit-flex-basis: 150px;
-  -ms-flex-basis: 150px;
+  -ms-flex-preferred-size: 150px;
   flex-basis: 150px;
   border-bottom: solid 1px #eee;
   padding: 1em;
 }
 
 .c6 {
+  -webkit-box-flex: 5;
   -webkit-flex-grow: 5;
-  -ms-flex-grow: 5;
+  -ms-flex-positive: 5;
   flex-grow: 5;
   -webkit-flex-basis: 400px;
-  -ms-flex-basis: 400px;
+  -ms-flex-preferred-size: 400px;
   flex-basis: 400px;
   padding: 1em;
 }
@@ -89,6 +91,7 @@ exports[`renders correctly 1`] = `
 .c4 .filter a.active {
   color: #333;
   font-weight: bold;
+  -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
 }
@@ -142,6 +145,7 @@ exports[`renders correctly 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
@@ -168,6 +172,7 @@ exports[`renders correctly 1`] = `
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   cursor: pointer;
+  -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }

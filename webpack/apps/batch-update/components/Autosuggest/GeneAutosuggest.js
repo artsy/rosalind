@@ -13,7 +13,7 @@ function GeneAutosuggest (props) {
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
       selectSuggestion={gene => { props.onSelectGene(gene) }}
-      />
+    />
   )
 }
 

@@ -20,7 +20,7 @@ exports[`renders a null gene correctly 1`] = `
   background: #F8F8F8;
   border-bottom: solid 1px #E5E5E5;
   -webkit-flex-basis: 100px;
-  -ms-flex-basis: 100px;
+  -ms-flex-preferred-size: 100px;
   flex-basis: 100px;
   padding: 0.5em 1em;
   overflow: hidden;
@@ -29,7 +29,7 @@ exports[`renders a null gene correctly 1`] = `
 
 .c3 {
   -webkit-flex-basis: 40px;
-  -ms-flex-basis: 40px;
+  -ms-flex-preferred-size: 40px;
   flex-basis: 40px;
   border-color: transparent;
   padding: 1em;
@@ -97,7 +97,7 @@ exports[`renders a positive-valued gene correctly 1`] = `
   background: #F7F3FF;
   border-bottom: solid 1px #6E1FFF;
   -webkit-flex-basis: 100px;
-  -ms-flex-basis: 100px;
+  -ms-flex-preferred-size: 100px;
   flex-basis: 100px;
   padding: 0.5em 1em;
   overflow: hidden;
@@ -106,7 +106,7 @@ exports[`renders a positive-valued gene correctly 1`] = `
 
 .c3 {
   -webkit-flex-basis: 40px;
-  -ms-flex-basis: 40px;
+  -ms-flex-preferred-size: 40px;
   flex-basis: 40px;
   border-color: transparent;
   padding: 1em;
@@ -174,7 +174,7 @@ exports[`renders a zero-valued gene correctly 1`] = `
   background: #FFF8F8;
   border-bottom: solid 1px #F7625A;
   -webkit-flex-basis: 100px;
-  -ms-flex-basis: 100px;
+  -ms-flex-preferred-size: 100px;
   flex-basis: 100px;
   padding: 0.5em 1em;
   overflow: hidden;
@@ -183,7 +183,7 @@ exports[`renders a zero-valued gene correctly 1`] = `
 
 .c3 {
   -webkit-flex-basis: 40px;
-  -ms-flex-basis: 40px;
+  -ms-flex-preferred-size: 40px;
   flex-basis: 40px;
   border-color: transparent;
   padding: 1em;

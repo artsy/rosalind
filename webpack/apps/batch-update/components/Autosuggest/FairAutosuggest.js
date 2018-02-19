@@ -13,7 +13,7 @@ function FairAutosuggest (props) {
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
       selectSuggestion={fair => { props.updateState('fair', fair) }}
-      />
+    />
   )
 }
 

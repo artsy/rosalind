@@ -56,6 +56,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 .c2 .filter a.active {
   color: #333;
   font-weight: bold;
+  -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
 }
@@ -339,6 +340,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 .c2 .filter a.active {
   color: #333;
   font-weight: bold;
+  -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
 }
@@ -645,6 +647,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 .c2 .filter a.active {
   color: #333;
   font-weight: bold;
+  -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
 }
@@ -918,6 +921,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
   color: #ddd;
   margin-left: 0.5em;
   border-radius: 1em;
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -982,6 +986,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
 .c3 .filter a.active {
   color: #333;
   font-weight: bold;
+  -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
 }
@@ -1213,6 +1218,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
   color: #ddd;
   margin-left: 0.5em;
   border-radius: 1em;
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -1277,6 +1283,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
 .c3 .filter a.active {
   color: #333;
   font-weight: bold;
+  -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
 }
@@ -1549,6 +1556,7 @@ exports[`renders correctly 1`] = `
 .c2 .filter a.active {
   color: #333;
   font-weight: bold;
+  -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
 }
