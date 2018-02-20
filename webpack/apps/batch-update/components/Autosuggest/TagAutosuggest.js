@@ -13,7 +13,7 @@ function TagAutosuggest (props) {
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
       selectSuggestion={tag => { props.onSelectTag(tag) }}
-      />
+    />
   )
 }
 

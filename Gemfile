@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rails', '5.1.4'
-gem 'pg'
+gem 'rails', '5.1.5'
+gem 'pg', '0.21.0'
 gem 'puma'
 
 kinetic_gem_spec = { git: 'https://github.com/artsy/kinetic.git', branch: 'master' }

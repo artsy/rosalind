@@ -13,7 +13,7 @@ function PartnerAutosuggest (props) {
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
       selectSuggestion={partner => { props.updateState('partner', partner) }}
-      />
+    />
   )
 }
 

@@ -36,8 +36,8 @@ export function buildElasticsearchQuery (args) {
       }
     },
     'sort': [
-        { 'published_at': 'desc' },
-        { 'id': 'desc' }
+      { 'published_at': 'desc' },
+      { 'id': 'desc' }
     ],
     'from': from || 0,
     'size': size || defaultPageSize

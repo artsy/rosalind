@@ -68,7 +68,7 @@ class SearchForm extends React.Component {
           partner={partner}
           tags={tags}
           updateState={updateState}
-          />
+        />
 
         <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />
         <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
@@ -79,21 +79,21 @@ class SearchForm extends React.Component {
             <CreatedAfterDateInput
               updateState={updateState}
               createdAfterDate={createdAfterDate}
-              />
+            />
         }
         {
           createdBeforeDate === null &&
             <CreatedBeforeDateInput
               updateState={updateState}
               createdBeforeDate={createdBeforeDate}
-              />
+            />
         }
 
         <FilterOptions
           genomedFilter={genomedFilter}
           publishedFilter={publishedFilter}
           updateState={updateState}
-          />
+        />
 
         {this.maybeRenderEditButton()}
       </div>

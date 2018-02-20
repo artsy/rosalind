@@ -17,8 +17,8 @@ beforeEach(() => {
     placeholder: 'start typing',
     fetchSuggestions: mockSuggestionsFetcher, // searchTerm => listOfMatchingSuggestionObjects
     getSuggestionValue: jest.fn(), // suggestionObject => displayName
-    renderSuggestion: jest.fn(),   // suggestionObject => stringOrMarkupForSuggestionList
-    selectSuggestion: jest.fn()    // suggestionObject => { handlerFunction(suggestionObject) }
+    renderSuggestion: jest.fn(), // suggestionObject => stringOrMarkupForSuggestionList
+    selectSuggestion: jest.fn() // suggestionObject => { handlerFunction(suggestionObject) }
   }
 })
 

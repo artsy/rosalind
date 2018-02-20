@@ -15,6 +15,7 @@ exports[`renders correctly 1`] = `
   color: #ddd;
   margin-left: 0.5em;
   border-radius: 1em;
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
