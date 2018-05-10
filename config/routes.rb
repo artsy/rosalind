@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   get 'match/partners'
 
   mount Sidekiq::Web => '/sidekiq', :constraints => AdminConstraint.new
+
+  # temporary test page
+  get 'pages/test'
 end
