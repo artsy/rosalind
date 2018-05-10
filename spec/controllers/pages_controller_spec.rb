@@ -6,7 +6,7 @@ RSpec.describe PagesController, type: :controller do
 
     it 'does not allow access' do
       get :batch_update
-      expect(response).not_to have_http_status(:success)
+      expect(response).to have_http_status(302)
       expect(response).to redirect_to(Kinetic.config[:artsy_url])
     end
   end
@@ -17,7 +17,7 @@ RSpec.describe PagesController, type: :controller do
     describe 'GET #batch_update' do
       it 'allows access' do
         get :batch_update
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(200)
       end
     end
   end
