@@ -1,21 +1,18 @@
 {
-  "presets": ["es2015", "react"],
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": "> 1%",
+        "uglify": true
+      },
+      "useBuiltIns": true
+    }]
+  ],
+
   "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["./webpack"],
-        "alias": {
-          "components": "./webpack/components"
-        }
-      }
-    ],
-    [
-      "babel-plugin-styled-components",
-      {
-        "displayName": true,
-        "minify": true
-      }
-    ]
+    "syntax-dynamic-import",
+    "transform-object-rest-spread",
+    ["transform-class-properties", { "spec": true }]
   ]
 }

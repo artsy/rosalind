@@ -4,6 +4,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "3.4",
     "babel-core": "^6.26.0",
     "babel-jest": "^22",
     "babel-loader": "6",
@@ -35,7 +36,7 @@
     "style-loader": "^0.20",
     "styled-components": "^2.0",
     "webpack": "^1.9.11",
-    "webpack-dev-server": "^1.9.0",
+    "webpack-dev-server": "2.11.2",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
