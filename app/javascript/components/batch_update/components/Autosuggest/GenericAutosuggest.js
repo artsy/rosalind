@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Autosuggest from 'react-autosuggest'
-import './GenericAutosuggest.css'
 
 export default class GenericAutosuggest extends React.Component {
   constructor (props) {
