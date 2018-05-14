@@ -1,13 +1,31 @@
 {
-  "presets": ["es2015", "react"],
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": "> 1%",
+          "uglify": true
+        },
+        "useBuiltIns": true
+      }
+    ],
+    "react"
+  ],
   "plugins": [
+    "syntax-dynamic-import",
+    "transform-object-rest-spread",
+    [
+      "transform-class-properties",
+      {
+        "spec": true
+      }
+    ],
     [
       "module-resolver",
       {
-        "root": ["./webpack"],
-        "alias": {
-          "components": "./webpack/components"
-        }
+        "root": ["./app/javascript"]
       }
     ],
     [
@@ -17,5 +35,17 @@
         "minify": true
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": "commonjs"
+          }
+        ]
+      ]
+    }
+  }
 }

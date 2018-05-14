@@ -34,3 +34,5 @@ AllCops:
   Exclude:
     - Gemfile
     - vendor/**/*
+    - node_modules/**/*
+    - bin/webpack*
