@@ -48,6 +48,7 @@
       "\\.(css|less|scss)$": "<rootDir>/webpack/__mocks__/styleMock.js"
     },
     "testPathIgnorePatterns": [
+      "/config/",
       "/node_modules/",
       "/vendor/bundle/"
     ],
