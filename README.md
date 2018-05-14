@@ -51,27 +51,15 @@ linting and tests.
 ### Acceptance Tests
 
 In order to improve our confidence that the Ruby and Javascript parts of this
-project work together, we've added acceptance tests that run in Chrome. It is
-assumed that while developing, you'll have `foreman` running (see next section),
-which means you'll have a webpack dev server running. If you see an error like
-this:
+project work together, we've added acceptance tests that run in Chrome. 
 
-```
-     ActionView::Template::Error:
-       Could not load manifest from webpack-dev-server at http://localhost:3808/webpack/manifest.json - is it running, and is stats-webpack-plugin loaded? (original error Failed to open TCP connection to localhost:3808 (Connection refused - connect(2) for "localhost" port 3808))
+They will be run as part of the default RSpec run. Or you can invoke them directly with:
+
+```sh
+$ bundle exec rspec spec/features
 ```
 
-That probably means you just don't have that webpack dev server running.
-
-One final tip - if you want to run acceptance tests like Circle does, try this:
-
-```
-$ bundle exec rake webpack:compile
-$ CI=true bundle exec rake
-```
-
-This will compile all those Javascript assets and turn off the webpack dev
-server.
+In order to view the specs running in a real browser, you can change the `Capybara.javascript_driver` to `:chrome` in `spec/rails_helper.rb`.
 
 ## Starting Server
 
@@ -79,7 +67,7 @@ Foreman is used to manage the server configuration, so starting a server is as
 easy as `foreman start`, but you might want to use the development version
 instead:
 
-```
+```sh
 $ foreman start -f Procfile.dev
 ```
 
