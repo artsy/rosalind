@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User updates artworks', js: true do
+describe 'User updates artworks', js: true do
   let(:hits) do
     [
       {
