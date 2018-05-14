@@ -28,5 +28,17 @@
         "root": ["./app/javascript"]
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": "commonjs"
+          }
+        ]
+      ]
+    }
+  }
 }
