@@ -1,6 +1,5 @@
 Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
-  # config.webpack.dev_server.enabled = !ENV['CI']
   config.active_job.queue_adapter = :test
   # Settings specified here will take precedence over those in config/application.rb.
 
