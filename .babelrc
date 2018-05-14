@@ -27,6 +27,13 @@
       {
         "root": ["./app/javascript"]
       }
+    ],
+    [
+      "babel-plugin-styled-components",
+      {
+        "displayName": true,
+        "minify": true
+      }
     ]
   ],
   "env": {
