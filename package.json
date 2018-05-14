@@ -51,7 +51,7 @@
       "/node_modules/",
       "/vendor/bundle/"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/webpack/test/setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/app/javascript/test/setup.js"
   },
   "scripts": {
     "lint": "standard $(find config webpack -name *.js)",
