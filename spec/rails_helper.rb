@@ -18,23 +18,11 @@ RSpec.configure do |config|
     ActiveJob::Base.queue_adapter.enqueued_jobs = []
     ActiveJob::Base.queue_adapter.performed_jobs = []
   end
+
+  config.before(:each, type: :system) do
+    Capybara.server = :puma, { Silent: true }
+    driven_by :selenium_chrome_headless
+    # or launch a real windowed browser:
+    # driven_by :selenium_chrome
+  end
 end
-
-# default driver for headless testing
-Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w[headless disable-gpu] }
-  )
-
-  Capybara::Selenium::Driver.new(app,
-                                 browser: :chrome,
-                                 desired_capabilities: capabilities)
-end
-
-# optional driver for launching a real windowed browser
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
-# change this to :chrome to observe tests in a real browser
-Capybara.javascript_driver = :headless_chrome

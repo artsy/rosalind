@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby File.read('.ruby-version')
 
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.0'
 gem 'pg'
 gem 'puma'
 
@@ -19,7 +19,7 @@ gem 'sentry-raven'
 gem 'sidekiq'
 gem 'typhoeus'
 gem 'uglifier'
-gem 'webpack-rails'
+gem 'webpacker'
 
 group :development, :test do
   gem 'danger'
@@ -39,7 +39,6 @@ end
 group :test do
   gem 'capybara'
   gem 'chromedriver-helper'
-  gem 'database_cleaner'
   gem 'fabrication'
   gem 'selenium-webdriver'
   gem 'webmock'

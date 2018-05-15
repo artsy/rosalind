@@ -23,7 +23,7 @@ jobs:
       - run: mv config/database{.circle,}.yml
       - run: bundle exec rake db:create db:migrate
 
-      - run: bundle exec rake webpack:compile
+      - run: bundle exec rake webpacker:compile
 
       - run: bundle exec rubocop --rails
       - run: yarn run lint
