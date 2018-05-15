@@ -4,10 +4,10 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.4",
+    "@rails/webpacker": "3.5",
     "babel-core": "^6.26.0",
     "babel-jest": "^22",
-    "babel-loader": "6",
+    "babel-loader": "^7.1.4",
     "babel-plugin-module-resolver": "^3",
     "babel-plugin-styled-components": "^1.3.0",
     "babel-preset-es2015": "^6.18.0",
@@ -17,8 +17,8 @@
     "enzyme": "^3",
     "enzyme-adapter-react-16": "^1",
     "file-loader": "^1",
-    "jest-styled-components": "^4.9.0",
     "jest": "^22",
+    "jest-styled-components": "^5",
     "json-loader": "^0.5.7",
     "lodash.defaults": "^4.2.0",
     "lodash.intersection": "^4.4.0",
@@ -34,10 +34,9 @@
     "react-test-renderer": "^16.2",
     "standard": "^11",
     "standard-loader": "^6.0.1",
-    "stats-webpack-plugin": "^0.2.1",
-    "style-loader": "^0.20",
-    "styled-components": "^2.0",
-    "webpack-dev-server": "2.11.2",
+    "stats-webpack-plugin": "^0.6",
+    "style-loader": "^0.21",
+    "styled-components": "^3",
     "whatwg-fetch": "^2.0.3"
   },
   "jest": {
@@ -68,5 +67,8 @@
       "test",
       "jest"
     ]
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.11"
   }
 }
