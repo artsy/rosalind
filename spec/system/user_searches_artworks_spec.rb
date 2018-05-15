@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User searches artworks', js: true do
+describe 'User searches artworks', js: true do
   before do
     allow_any_instance_of(ApplicationController).to receive(:find_current_user)
     allow_any_instance_of(ApplicationController).to receive(:require_admin_or_genomer)

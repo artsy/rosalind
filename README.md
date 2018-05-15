@@ -51,15 +51,17 @@ linting and tests.
 ### Acceptance Tests
 
 In order to improve our confidence that the Ruby and Javascript parts of this
-project work together, we've added acceptance tests that run in Chrome. 
+project work together, we've added acceptance tests that run in Chrome.
 
-They will be run as part of the default RSpec run. Or you can invoke them directly with:
+They will be run as part of the default RSpec run. Or you can invoke them
+directly with:
 
 ```sh
-$ bundle exec rspec spec/features
+$ bundle exec rspec spec/system
 ```
 
-In order to view the specs running in a real browser, you can change the `Capybara.javascript_driver` to `:chrome` in `spec/rails_helper.rb`.
+In order to view the specs running in a real browser, you can change the
+`driven_by` config to `:selenium_chrome` in `spec/rails_helper.rb`.
 
 ## Starting Server
 
