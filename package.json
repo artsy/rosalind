@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.4",
+    "@rails/webpacker": "3.5",
     "babel-core": "^6.26.0",
     "babel-jest": "^22",
     "babel-loader": "6",
@@ -17,8 +17,8 @@
     "enzyme": "^3",
     "enzyme-adapter-react-16": "^1",
     "file-loader": "^1",
-    "jest-styled-components": "^4.9.0",
     "jest": "^22",
+    "jest-styled-components": "^4.9.0",
     "json-loader": "^0.5.7",
     "lodash.defaults": "^4.2.0",
     "lodash.intersection": "^4.4.0",
