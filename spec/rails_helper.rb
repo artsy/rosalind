@@ -22,5 +22,7 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     Capybara.server = :puma, { Silent: true }
     driven_by :selenium_chrome_headless
+    # or launch a real windowed browser:
+    # driven_by :selenium_chrome
   end
 end
