@@ -44,8 +44,8 @@ exports[`renders in the selected state 1`] = `
   -webkit-flex: 1 1 calc(20% - 1.5em);
   -ms-flex: 1 1 calc(20% - 1.5em);
   flex: 1 1 calc(20% - 1.5em);
-  background: #6E1FFF;
-  outline: solid 5px #6E1FFF;
+  background: #6e1fff;
+  outline: solid 5px #6e1fff;
   color: white;
 }
 
