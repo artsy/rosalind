@@ -78,6 +78,8 @@
     ]
   },
   "devDependencies": {
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^22.4.3",
     "webpack-dev-server": "^2.11"
   }
 }
