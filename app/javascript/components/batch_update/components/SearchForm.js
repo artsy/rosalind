@@ -12,7 +12,9 @@ import {
   TagAutosuggest
 } from './Autosuggest'
 import FilterOptions from './FilterOptions'
-import { Button } from './Buttons'
+import Buttons from '@artsy/reaction/dist/Components/Buttons'
+
+const { Button, InvertedButton } = Buttons
 
 class SearchForm extends React.Component {
   constructor (props) {
@@ -25,9 +27,17 @@ class SearchForm extends React.Component {
     if (artworksCount === 0) {
       return null
     } else if (selectedArtworksCount === 0) {
-      return <Button fullWidth disabled>Edit Artworks</Button>
+      return (
+        <Button disabled>
+          Edit Artworks
+        </Button>
+      )
     } else {
-      return <Button fullWidth primary onClick={onOpenBatchUpdate}> Edit Artworks </Button>
+      return (
+        <InvertedButton onClick={onOpenBatchUpdate}>
+          Edit Artworks
+        </InvertedButton>
+      )
     }
   }
 
