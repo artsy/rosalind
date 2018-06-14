@@ -12,6 +12,18 @@ import FilterOptions from './FilterOptions'
 import Button from '@artsy/reaction/dist/Components/Buttons/Default'
 import InvertedButton from '@artsy/reaction/dist/Components/Buttons/Inverted'
 
+const fullWidth = `
+  margin: 0;
+  width: 100%;
+`
+const FullWidthButton = styled(Button)`
+  ${fullWidth}
+`
+
+const FullWidthInvertedButton = styled(InvertedButton)`
+  ${fullWidth}
+`
+
 class SearchForm extends React.Component {
   constructor(props) {
     super(props)
@@ -27,12 +39,12 @@ class SearchForm extends React.Component {
     if (artworksCount === 0) {
       return null
     } else if (selectedArtworksCount === 0) {
-      return <Button disabled>Edit Artworks</Button>
+      return <FullWidthButton disabled>Edit Artworks</FullWidthButton>
     } else {
       return (
-        <InvertedButton onClick={onOpenBatchUpdate}>
+        <FullWidthInvertedButton onClick={onOpenBatchUpdate}>
           Edit Artworks
-        </InvertedButton>
+        </FullWidthInvertedButton>
       )
     }
   }
