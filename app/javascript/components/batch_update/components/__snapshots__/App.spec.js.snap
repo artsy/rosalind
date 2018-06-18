@@ -25,7 +25,7 @@ exports[`renders correctly 1`] = `
   padding: 1em;
 }
 
-.c6 {
+.c7 {
   -webkit-box-flex: 5;
   -webkit-flex-grow: 5;
   -ms-flex-positive: 5;
@@ -96,71 +96,81 @@ exports[`renders correctly 1`] = `
   cursor: default;
 }
 
-.c5 {
-  display: block;
-  width: 100%;
-  padding: 18px 30px 15px 30px;
-  background: #F8F8F8;
-  color: #cccccc;
-  border: solid 1px #F8F8F8;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
+.c6 {
+  font-family: 'ITC Avant Garde Gothic W04','AvantGardeGothicITCW01D 731075',AvantGardeGothicITCW01Dm,Helvetica,sans-serif;
+  -webkit-font-smoothing: antialiased;
   text-transform: uppercase;
-  -webkit-transition: none;
-  transition: none;
-  cursor: not-allowed;
-}
-
-.c12 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #F8F8F8;
-  color: #cccccc;
-  border: solid 1px #F8F8F8;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
   font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
-  -webkit-transition: none;
-  transition: none;
-  cursor: not-allowed;
-}
-
-.c18 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #ffffff;
-  color: #000000;
-  border: solid 1px #000000;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
-  -webkit-transition-property: background,border-color,color;
-  transition-property: background,border-color,color;
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-  cursor: pointer;
+  line-height: 1.65em;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  background: #e5e5e5;
+  color: rgba(0,0,0,0.5);
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 15px 30px;
+  line-height: 1;
+  outline: 0;
+  -webkit-transition: background-color 0.25s,color 0.25s;
+  transition: background-color 0.25s,color 0.25s;
+  margin: 10px;
+  border: none;
+  box-sizing: border-box;
   -webkit-text-decoration: none;
   text-decoration: none;
-  text-align: center;
+  border-radius: 2px;
 }
 
-.c18:hover {
-  background: #6E1FFF;
-  border-color: #6E1FFF;
-  color: #ffffff;
+.c6:hover:not(:disabled) {
+  cursor: pointer;
+  background: #cccccc;
+}
+
+.c5 {
+  margin: 0;
+  width: 100%;
+}
+
+.c13 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #F8F8F8;
+  color: #cccccc;
+  border: solid 1px #F8F8F8;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition: none;
+  transition: none;
+  cursor: not-allowed;
 }
 
 .c19 {
   display: inline-block;
   padding: 18px 30px 15px 30px;
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   border: solid 1px #000000;
   font-family: 'ITC Avant Garde Gothic W01';
   font-weight: normal;
@@ -183,11 +193,38 @@ exports[`renders correctly 1`] = `
   color: #ffffff;
 }
 
-.c11 {
+.c20 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #000000;
+  color: #ffffff;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c20:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
+.c12 {
   color: #666666;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -197,24 +234,24 @@ exports[`renders correctly 1`] = `
   flex-direction: column;
 }
 
-.c7 .counts {
+.c8 .counts {
   display: inline-block;
   width: 75%;
   padding: 0.75em;
 }
 
-.c7 .select {
+.c8 .select {
   display: inline-block;
   width: 25%;
   padding: 0.75em;
   text-align: right;
 }
 
-.c7 .select a {
+.c8 .select a {
   margin: 0 0.25em;
 }
 
-.c7 .results {
+.c8 .results {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -224,7 +261,7 @@ exports[`renders correctly 1`] = `
   flex-flow: row wrap;
 }
 
-.c16 {
+.c17 {
   position: fixed;
   left: 50%;
   top: 40%;
@@ -242,7 +279,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c16.modal-open {
+.c17.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1) translate(-50%,-50%);
@@ -252,24 +289,24 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c16 h1 {
+.c17 h1 {
   font-weight: normal;
   font-size: 1.5em;
   color: #666666;
 }
 
-.c16 section {
+.c17 section {
   color: #333333;
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
 }
 
-.c16 section p {
+.c17 section p {
   margin-bottom: 1em;
 }
 
-.c17 {
+.c18 {
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
@@ -286,15 +323,15 @@ exports[`renders correctly 1`] = `
   justify-content: flex-end;
 }
 
-.c17 a {
+.c18 a {
   margin-left: 1em;
 }
 
-.c9 {
+.c10 {
   padding: 18px 30px;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -314,7 +351,7 @@ exports[`renders correctly 1`] = `
   border-bottom: solid 1px #DBDBDB;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -325,18 +362,18 @@ exports[`renders correctly 1`] = `
   padding: 30px 0;
 }
 
-.c14 {
+.c15 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   text-align: center;
 }
 
-.c15 {
+.c16 {
   height: 5em;
 }
 
-.c8 {
+.c9 {
   position: fixed;
   left: 0px;
   top: 0px;
@@ -353,7 +390,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c8.modal-open {
+.c9.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1);
@@ -363,7 +400,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c20 {
+.c21 {
   position: fixed;
   top: 0;
   right: 0;
@@ -615,18 +652,20 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <button
-        className="c5"
+        className="c5 c6"
         disabled={true}
       >
-        Edit Artworks
+        <span>
+          Edit Artworks
+        </span>
       </button>
     </div>
   </div>
   <div
-    className="c6"
+    className="c7"
   >
     <div
-      className="c7"
+      className="c8"
     >
       <div
         className="results"
@@ -634,16 +673,16 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c8"
+    className="c9"
   >
     <div
-      className="c9"
+      className="c10"
     >
       <div
-        className="c10"
+        className="c11"
       >
         <a
-          className="cancel c11"
+          className="cancel c12"
           href="#"
           onClick={[Function]}
         >
@@ -654,7 +693,7 @@ exports[`renders correctly 1`] = `
            works selected
         </div>
         <button
-          className="queue c12"
+          className="queue c13"
           disabled={true}
           onClick={[Function]}
         >
@@ -662,10 +701,10 @@ exports[`renders correctly 1`] = `
         </button>
       </div>
       <div
-        className="c13"
+        className="c14"
       />
       <div
-        className="c14"
+        className="c15"
       >
         There aren’t any genes that describe all of your selected works
       </div>
@@ -699,10 +738,10 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c15"
+        className="c16"
       />
       <div
-        className="c16"
+        className="c17"
       >
         <h1>
           Are you sure you want to queue these changes?
@@ -715,17 +754,17 @@ exports[`renders correctly 1`] = `
           </p>
         </section>
         <div
-          className="c17"
+          className="c18"
         >
           <a
-            className="dismiss c18"
+            className="dismiss c19"
             href="#"
             onClick={[Function]}
           >
             Go back
           </a>
           <a
-            className="accept c19"
+            className="accept c20"
             href="#"
             onClick={[Function]}
           >
@@ -736,7 +775,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c20"
+    className="c21"
   />
 </div>
 `;
