@@ -4,7 +4,7 @@ class BatchUpdate < ApplicationRecord
   validates :user_id, presence: true
 
   def removes_genes?
-    genes.values.include? 0
+    genes.value?(0)
   end
 
   def increment_updated_artworks

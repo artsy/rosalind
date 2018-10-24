@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/rosalind
     docker:
-      - image: artsy/ruby:2.5.1-node-chrome
+      - image: artsy/ruby:2.5.3-node-chrome
         environment:
           RAILS_ENV: test
       - image: circleci/postgres:10.1-alpine
@@ -27,7 +27,6 @@ jobs:
 
       - run: bundle exec rubocop --rails
       - run: yarn run lint
-      - run: chromedriver-update 2.38
       - run: bundle exec rspec
       - run: yarn run test -- --runInBand
 
