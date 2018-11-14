@@ -31,6 +31,7 @@ class App extends React.Component {
       genomedFilter: 'SHOW_ALL',
       isLoading: false,
       isSpecifyingBatchUpdate: false,
+      keywords: [],
       notices: [],
       partner: null,
       previewedArtwork: null,
@@ -48,6 +49,8 @@ class App extends React.Component {
     this.onAddTag = this.onAddTag.bind(this)
     this.onRemoveArtist = this.onRemoveArtist.bind(this)
     this.onAddArtist = this.onAddArtist.bind(this)
+    this.onRemoveKeyword = this.onRemoveKeyword.bind(this)
+    this.onAddKeyword = this.onAddKeyword.bind(this)
 
     this.updateStateFor = this.updateStateFor.bind(this)
     this.clearStateFor = this.clearStateFor.bind(this)
@@ -254,6 +257,20 @@ class App extends React.Component {
     const { artists } = this.state
     findById(artists, artist) || this.setState({
       artists: artists.concat(artist)
+    })
+  }
+
+  onRemoveKeyword (keyword) {
+    const { keywords } = this.state
+    this.setState({
+      keywords: keywords.filter(k => k !== keyword)
+    })
+  }
+
+  onAddKeyword (keyword) {
+    const { keywords } = this.state
+    keywords.includes(keyword) || this.setState({
+      keywords: [...keywords, keyword]
     })
   }
 

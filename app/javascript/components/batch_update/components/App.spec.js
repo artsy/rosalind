@@ -70,6 +70,22 @@ describe('state mutations', () => {
       })
     })
 
+    test('keywords can be added and removed', () => {
+      const keyword1 = "foo"
+      const keyword2 = "bar"
+
+      app.onAddKeyword(keyword1)
+      app.onAddKeyword(keyword2)
+      expect(app.state).toMatchObject({
+        keywords: [ keyword1, keyword2 ]
+      })
+
+      app.onRemoveKeyword('foo')
+      expect(app.state).toMatchObject({
+        keywords: [ keyword2 ]
+      })
+    })
+
     test('arbitrary state keys can be set and cleared', () => {
       app.updateStateFor('foo', 'bar')
       expect(app.state).toMatchObject({
