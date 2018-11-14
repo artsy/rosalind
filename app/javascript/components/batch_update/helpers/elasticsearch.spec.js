@@ -5,6 +5,7 @@ describe('buildElasticsearchQuery', () => {
     createdAfterDate,
     createdBeforeDate,
     tags,
+    keywords,
     artists,
     partner,
     fair,
@@ -14,6 +15,7 @@ describe('buildElasticsearchQuery', () => {
   beforeEach(() => {
     createdAfterDate = null
     createdBeforeDate = null
+    keywords = []
     genes = []
     tags = []
     artists = []
@@ -44,6 +46,7 @@ describe('buildElasticsearchQuery', () => {
       fair,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       tags
@@ -80,6 +83,71 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
+        partner,
+        publishedFilter,
+        tags
+      }
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('builds a query from the supplied keywords', () => {
+      const expectedQuery = {
+        'query': {
+          'bool': {
+            'must': [
+              { 'match': {'deleted': false} },
+              {
+                'multi_match': {
+                  'type': 'most_fields',
+                  'fields': [
+                    'name.*',
+                    'genes.*^4',
+                    'tags.*^4',
+                    'auto_tags.*^2',
+                    'partner_name.*^2',
+                    'artist_name.*^2'
+                  ],
+                  'query': 'sherman',
+                  'operator': 'and'
+                }
+              },
+              {
+                'multi_match': {
+                  'type': 'most_fields',
+                  'fields': [
+                    'name.*',
+                    'genes.*^4',
+                    'tags.*^4',
+                    'auto_tags.*^2',
+                    'partner_name.*^2',
+                    'artist_name.*^2'
+                  ],
+                  'query': 'film still',
+                  'operator': 'and'
+                }
+              }
+            ]
+          }
+        },
+        'from': 0,
+        'size': 100,
+        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+      }
+      keywords = [
+        'sherman',
+        'film still'
+      ]
+
+      const params = {
+        artists,
+        createdAfterDate,
+        createdBeforeDate,
+        fair,
+        genes,
+        genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags
@@ -115,6 +183,7 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags
@@ -181,6 +250,7 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags
@@ -211,6 +281,7 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags
@@ -240,6 +311,7 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         size,
@@ -270,6 +342,7 @@ describe('buildElasticsearchQuery', () => {
         from,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags,
@@ -307,6 +380,7 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags
@@ -346,6 +420,7 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags
@@ -387,6 +462,7 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags
@@ -425,6 +501,7 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags
@@ -456,6 +533,7 @@ describe('buildElasticsearchQuery', () => {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         tags

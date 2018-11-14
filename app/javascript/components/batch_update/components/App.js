@@ -105,6 +105,7 @@ class App extends React.Component {
       (this.state.fair !== prevState.fair) ||
       (this.state.genes !== prevState.genes) ||
       (this.state.genomedFilter !== prevState.genomedFilter) ||
+      (this.state.keywords !== prevState.keywords) ||
       (this.state.partner !== prevState.partner) ||
       (this.state.publishedFilter !== prevState.publishedFilter) ||
       (this.state.tags !== prevState.tags) ||
@@ -130,6 +131,7 @@ class App extends React.Component {
       fair,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       size,
@@ -150,6 +152,7 @@ class App extends React.Component {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         size,
@@ -178,6 +181,7 @@ class App extends React.Component {
       fair,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       tags
@@ -195,6 +199,7 @@ class App extends React.Component {
       from,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       size,
