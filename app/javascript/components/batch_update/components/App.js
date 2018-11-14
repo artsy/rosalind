@@ -104,7 +104,8 @@ class App extends React.Component {
       (this.state.genomedFilter !== prevState.genomedFilter) ||
       (this.state.partner !== prevState.partner) ||
       (this.state.publishedFilter !== prevState.publishedFilter) ||
-      (this.state.tags !== prevState.tags)
+      (this.state.tags !== prevState.tags) ||
+      (this.state.artists !== prevState.artists)
     )
   }
 
@@ -119,6 +120,7 @@ class App extends React.Component {
 
   fetchArtworks () {
     const {
+      artists,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -138,6 +140,7 @@ class App extends React.Component {
       })
     } else {
       const query = buildElasticsearchQuery({
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -165,6 +168,7 @@ class App extends React.Component {
 
   fetchMoreArtworks () {
     const {
+      artists,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -180,6 +184,7 @@ class App extends React.Component {
     const from = artworks.length
 
     const query = buildElasticsearchQuery({
+      artists,
       createdAfterDate,
       createdBeforeDate,
       fair,

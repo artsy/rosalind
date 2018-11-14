@@ -2,6 +2,7 @@ const defaultPageSize = 100
 
 export function buildElasticsearchQuery (args) {
   const {
+    artists,
     createdAfterDate,
     createdBeforeDate,
     fair,
@@ -16,6 +17,7 @@ export function buildElasticsearchQuery (args) {
 
   const geneMatches = genes.map(g => { return { 'match': { 'genes': g.name } } })
   const tagMatches = tags.map(t => { return { 'match': { 'tags': t.name } } })
+  const artistMatches = artists.map(a => { return { 'match': { 'artist_id': a.id } } })
   const filterMatches = buildFilterMatches({ publishedFilter, genomedFilter })
   const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
   const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
@@ -28,6 +30,7 @@ export function buildElasticsearchQuery (args) {
           { 'match': { 'deleted': false } },
           ...geneMatches,
           ...tagMatches,
+          ...artistMatches,
           ...filterMatches,
           partnerMatch,
           fairMatch,
