@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import CurrentCriteria from './CurrentCriteria'
 import { CreatedAfterDateInput, CreatedBeforeDateInput } from './DateInput'
 import {
+  ArtistAutosuggest,
   FairAutosuggest,
   GeneAutosuggest,
   PartnerAutosuggest,
@@ -62,7 +63,7 @@ class SearchForm extends React.Component {
       tags
     } = this.props
 
-    const { onAddGene, onAddTag, updateState } = this.props
+    const { onAddGene, onAddTag, onAddArtist, updateState } = this.props
 
     const { genomedFilter, publishedFilter } = this.props
 
@@ -83,6 +84,10 @@ class SearchForm extends React.Component {
 
         <GeneAutosuggest placeholder="Add a gene" onSelectGene={onAddGene} />
         <TagAutosuggest placeholder="Add a tag" onSelectTag={onAddTag} />
+        <ArtistAutosuggest
+          placeholder="Add an artist"
+          onSelectArtist={onAddArtist}
+        />{' '}
         {partner === null && <PartnerAutosuggest updateState={updateState} />}
         {fair === null && <FairAutosuggest updateState={updateState} />}
         {createdAfterDate === null && (
