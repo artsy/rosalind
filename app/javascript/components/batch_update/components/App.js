@@ -394,6 +394,7 @@ class App extends React.Component {
             genomedFilter={genomedFilter}
             onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
+            onAddKeyword={this.onAddKeyword}
             onAddTag={this.onAddTag}
             onOpenBatchUpdate={this.onOpenBatchUpdate}
             onRemoveArtist={this.onRemoveArtist}
