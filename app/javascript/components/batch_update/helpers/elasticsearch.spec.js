@@ -123,6 +123,42 @@ describe('buildElasticsearchQuery', () => {
       expect(actualQuery).toEqual(expectedQuery)
     })
 
+    it('builds a query from the supplied artists', () => {
+      const expectedQuery = {
+        'query': {
+          'bool': {
+            'must': [
+              {'match': {'deleted': false}},
+              {'match': {'artist_id': 'artistId1'}},
+              {'match': {'artist_id': 'artistId2'}}
+            ]
+          }
+        },
+        'from': 0,
+        'size': 100,
+        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+      }
+      artists = [
+        {id: 'artistId1', name: 'Artist 1'},
+        {id: 'artistId2', name: 'Artist 2'}
+      ]
+
+      const params = {
+        artists,
+        createdAfterDate,
+        createdBeforeDate,
+        fair,
+        genes,
+        genomedFilter,
+        keywords,
+        partner,
+        publishedFilter,
+        tags
+      }
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
     it('builds a query from the supplied partner', () => {
       const expectedQuery = {
         'query': {
