@@ -52,6 +52,7 @@ class SearchForm extends React.Component {
 
   render() {
     const {
+      artists,
       clearState,
       createdAfterDate,
       createdBeforeDate,
@@ -59,6 +60,7 @@ class SearchForm extends React.Component {
       genes,
       onRemoveGene,
       onRemoveTag,
+      onRemoveArtist,
       partner,
       tags
     } = this.props
@@ -70,6 +72,7 @@ class SearchForm extends React.Component {
     return (
       <div className={this.props.className}>
         <CurrentCriteria
+          artists={artists}
           clearState={clearState}
           createdAfterDate={createdAfterDate}
           createdBeforeDate={createdBeforeDate}
@@ -77,6 +80,7 @@ class SearchForm extends React.Component {
           genes={genes}
           onRemoveGene={onRemoveGene}
           onRemoveTag={onRemoveTag}
+          onRemoveArtist={onRemoveArtist}
           partner={partner}
           tags={tags}
           updateState={updateState}

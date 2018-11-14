@@ -7,12 +7,14 @@ import {
   SelectedCreatedBeforeDate,
   SelectedGene,
   SelectedTag,
+  SelectedArtist,
   SelectedPartner,
   SelectedFair
 } from './Selected'
 
 function CurrentCriteria (props) {
   const {
+    artists,
     className,
     clearState,
     createdAfterDate,
@@ -21,6 +23,7 @@ function CurrentCriteria (props) {
     genes,
     onRemoveGene,
     onRemoveTag,
+    onRemoveArtist,
     partner,
     tags
   } = props
@@ -29,6 +32,7 @@ function CurrentCriteria (props) {
     <div className={className}>
       {genes.length > 0 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
       {tags.length > 0 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
+      {artists.length > 0 && <CurrentArtists artists={artists} onRemoveArtist={onRemoveArtist} />}
       {partner && <SelectedPartner name={partner.name} clearState={clearState} />}
       {fair && <SelectedFair name={fair.name} clearState={clearState} />}
       {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} clearState={clearState} />}
@@ -38,6 +42,7 @@ function CurrentCriteria (props) {
 }
 
 CurrentCriteria.propTypes = {
+  artists: PropTypes.arrayOf(PropTypes.object),
   clearState: PropTypes.func,
   createdAfterDate: PropTypes.string,
   createdBeforeDate: PropTypes.string,
@@ -46,7 +51,7 @@ CurrentCriteria.propTypes = {
   onRemoveGene: PropTypes.func.isRequired,
   onRemoveTag: PropTypes.func.isRequired,
   partner: PropTypes.object,
-  tags: PropTypes.arrayOf(PropTypes.object)
+  tags: PropTypes.arrayOf(PropTypes.object),
 }
 
 function CurrentGenes (props) {
@@ -65,6 +70,16 @@ function CurrentTags (props) {
     <div>
       <h2>Tags</h2>
       {tags.map(t => <SelectedTag key={t.id} name={t.name} onRemove={onRemoveTag} />)}
+    </div>
+  )
+}
+
+function CurrentArtists (props) {
+  const { artists, onRemoveArtist } = props
+  return (
+    <div>
+      <h2>Artists</h2>
+      {artists.map(a => <SelectedArtist key={a.id} id={a.id} name={a.name} onRemove={onRemoveArtist} />)}
     </div>
   )
 }

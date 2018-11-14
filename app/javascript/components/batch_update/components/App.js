@@ -341,6 +341,7 @@ class App extends React.Component {
 
   render () {
     const {
+      artists,
       artworks,
       createdAfterDate,
       createdBeforeDate,
@@ -361,15 +362,18 @@ class App extends React.Component {
       <Wrapper>
         <Sidebar>
           <SearchForm
+            artists={artists}
             clearState={this.clearStateFor}
             createdAfterDate={createdAfterDate}
             createdBeforeDate={createdBeforeDate}
             fair={fair}
             genes={genes}
             genomedFilter={genomedFilter}
+            onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
             onAddTag={this.onAddTag}
             onOpenBatchUpdate={this.onOpenBatchUpdate}
+            onRemoveArtist={this.onRemoveArtist}
             onRemoveGene={this.onRemoveGene}
             onRemoveTag={this.onRemoveTag}
             partner={partner}
