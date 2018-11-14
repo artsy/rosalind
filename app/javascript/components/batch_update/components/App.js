@@ -117,6 +117,7 @@ class App extends React.Component {
     return (
       (this.state.fair !== null) ||
       (this.state.genes.length !== 0) ||
+      (this.state.keywords.length !== 0) ||
       (this.state.partner !== null) ||
       (this.state.tags.length !== 0) ||
       (this.state.artists.length !== 0)
