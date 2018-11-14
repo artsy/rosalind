@@ -506,6 +506,36 @@ exports[`renders correctly 1`] = `
             aria-autocomplete="list"
             aria-expanded={false}
             aria-haspopup={false}
+            aria-owns="react-autowhatever-artist-autosuggest"
+            autoComplete="off"
+            className="react-autosuggest__input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Add an artist"
+            role="combobox"
+            type="text"
+            value=""
+          />
+          <div
+            className="react-autosuggest__suggestions-container"
+            id="react-autowhatever-artist-autosuggest"
+          />
+        </div>
+      </div>
+       
+      <div
+        className="GenericAutosuggest"
+      >
+        <div
+          className="react-autosuggest__container"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
             aria-owns="react-autowhatever-partner-autosuggest"
             autoComplete="off"
             className="react-autosuggest__input"

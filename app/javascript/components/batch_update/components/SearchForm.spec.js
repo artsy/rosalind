@@ -9,6 +9,7 @@ let props
 
 beforeEach(() => {
   props = {
+    artists: [],
     artworksCount: 0,
     createdAfterDate: null,
     createdBeforeDate: null,
@@ -17,10 +18,12 @@ beforeEach(() => {
     genomedFilter: 'SHOW_ALL',
     onAddGene: jest.fn(),
     onAddTag: jest.fn(),
+    onAddArtist: jest.fn(),
     onClearFair: jest.fn(),
     onClearPartner: jest.fn(),
     onRemoveGene: jest.fn(),
     onRemoveTag: jest.fn(),
+    onRemoveArtist: jest.fn(),
     partner: null,
     publishedFilter: 'SHOW_ALL',
     selectedArtworksCount: 0,

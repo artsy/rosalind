@@ -54,6 +54,22 @@ describe('state mutations', () => {
       })
     })
 
+    test('artists can be added and removed', () => {
+      const artist1 = { id: 'abc123', name: 'Alice', slug: 'alice' }
+      const artist2 = { id: 'def456', name: 'Bob', slug: 'bob' }
+
+      app.onAddArtist(artist1)
+      app.onAddArtist(artist2)
+      expect(app.state).toMatchObject({
+        artists: [ artist1, artist2 ]
+      })
+
+      app.onRemoveArtist('abc123')
+      expect(app.state).toMatchObject({
+        artists: [ artist2 ]
+      })
+    })
+
     test('arbitrary state keys can be set and cleared', () => {
       app.updateStateFor('foo', 'bar')
       expect(app.state).toMatchObject({

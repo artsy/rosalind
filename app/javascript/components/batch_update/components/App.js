@@ -11,6 +11,7 @@ import FullScreenModal from './FullScreenModal'
 import { Notices, Notice } from './Notices'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
+const findById = (items, item) => items.find(i => i.id === item.id)
 
 const commonGenesToIgnore = [
   'Art',
@@ -21,6 +22,7 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      artists: [],
       artworks: [],
       createdAfterDate: null,
       createdBeforeDate: null,
@@ -29,12 +31,12 @@ class App extends React.Component {
       genomedFilter: 'SHOW_ALL',
       isLoading: false,
       isSpecifyingBatchUpdate: false,
+      notices: [],
       partner: null,
       previewedArtwork: null,
       publishedFilter: 'SHOW_ALL',
       selectedArtworkIds: [],
       size: 100,
-      notices: [],
       tags: [],
       totalHits: null
     }
@@ -44,6 +46,8 @@ class App extends React.Component {
     this.onAddGene = this.onAddGene.bind(this)
     this.onRemoveTag = this.onRemoveTag.bind(this)
     this.onAddTag = this.onAddTag.bind(this)
+    this.onRemoveArtist = this.onRemoveArtist.bind(this)
+    this.onAddArtist = this.onAddArtist.bind(this)
 
     this.updateStateFor = this.updateStateFor.bind(this)
     this.clearStateFor = this.clearStateFor.bind(this)
@@ -100,7 +104,8 @@ class App extends React.Component {
       (this.state.genomedFilter !== prevState.genomedFilter) ||
       (this.state.partner !== prevState.partner) ||
       (this.state.publishedFilter !== prevState.publishedFilter) ||
-      (this.state.tags !== prevState.tags)
+      (this.state.tags !== prevState.tags) ||
+      (this.state.artists !== prevState.artists)
     )
   }
 
@@ -109,12 +114,14 @@ class App extends React.Component {
       (this.state.fair !== null) ||
       (this.state.genes.length !== 0) ||
       (this.state.partner !== null) ||
-      (this.state.tags.length !== 0)
+      (this.state.tags.length !== 0) ||
+      (this.state.artists.length !== 0)
     )
   }
 
   fetchArtworks () {
     const {
+      artists,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -134,6 +141,7 @@ class App extends React.Component {
       })
     } else {
       const query = buildElasticsearchQuery({
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -161,6 +169,7 @@ class App extends React.Component {
 
   fetchMoreArtworks () {
     const {
+      artists,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -176,6 +185,7 @@ class App extends React.Component {
     const from = artworks.length
 
     const query = buildElasticsearchQuery({
+      artists,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -230,6 +240,20 @@ class App extends React.Component {
     const { tags } = this.state
     findByName(tags, tag) || this.setState({
       tags: tags.concat(tag)
+    })
+  }
+
+  onRemoveArtist (artistId) {
+    const { artists } = this.state
+    this.setState({
+      artists: artists.filter(a => a.id !== artistId)
+    })
+  }
+
+  onAddArtist (artist) {
+    const { artists } = this.state
+    findById(artists, artist) || this.setState({
+      artists: artists.concat(artist)
     })
   }
 
@@ -323,6 +347,7 @@ class App extends React.Component {
 
   render () {
     const {
+      artists,
       artworks,
       createdAfterDate,
       createdBeforeDate,
@@ -343,15 +368,18 @@ class App extends React.Component {
       <Wrapper>
         <Sidebar>
           <SearchForm
+            artists={artists}
             clearState={this.clearStateFor}
             createdAfterDate={createdAfterDate}
             createdBeforeDate={createdBeforeDate}
             fair={fair}
             genes={genes}
             genomedFilter={genomedFilter}
+            onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
             onAddTag={this.onAddTag}
             onOpenBatchUpdate={this.onOpenBatchUpdate}
+            onRemoveArtist={this.onRemoveArtist}
             onRemoveGene={this.onRemoveGene}
             onRemoveTag={this.onRemoveTag}
             partner={partner}

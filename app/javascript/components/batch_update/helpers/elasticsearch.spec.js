@@ -5,6 +5,7 @@ describe('buildElasticsearchQuery', () => {
     createdAfterDate,
     createdBeforeDate,
     tags,
+    artists,
     partner,
     fair,
     publishedFilter,
@@ -15,6 +16,7 @@ describe('buildElasticsearchQuery', () => {
     createdBeforeDate = null
     genes = []
     tags = []
+    artists = []
     partner = null
     fair = null
     publishedFilter = null
@@ -36,6 +38,7 @@ describe('buildElasticsearchQuery', () => {
     }
 
     const params = {
+      artists,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -71,6 +74,7 @@ describe('buildElasticsearchQuery', () => {
       ]
 
       const params = {
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -105,6 +109,7 @@ describe('buildElasticsearchQuery', () => {
       ]
 
       const params = {
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -134,6 +139,7 @@ describe('buildElasticsearchQuery', () => {
       }
       partner = {id: 'some-partner', name: 'Some Partner'}
       const params = {
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -163,6 +169,7 @@ describe('buildElasticsearchQuery', () => {
       }
       fair = {id: 'some-fair', name: 'Some Fair'}
       const params = {
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -192,7 +199,16 @@ describe('buildElasticsearchQuery', () => {
       }
       genes = [{id: 'gene1', name: 'Gene 1'}]
       const size = 11
-      const actualQuery = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, genomedFilter, size })
+      const actualQuery = buildElasticsearchQuery({
+        artists,
+        fair,
+        genes,
+        genomedFilter,
+        partner,
+        publishedFilter,
+        size,
+        tags
+      })
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -212,7 +228,16 @@ describe('buildElasticsearchQuery', () => {
       }
       genes = [{id: 'gene1', name: 'Gene 1'}]
       const from = 111
-      const actualQuery = buildElasticsearchQuery({ genes, tags, partner, fair, publishedFilter, genomedFilter, from })
+      const actualQuery = buildElasticsearchQuery({
+        artists,
+        fair,
+        from,
+        genes,
+        genomedFilter,
+        partner,
+        publishedFilter,
+        tags,
+      })
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -240,6 +265,7 @@ describe('buildElasticsearchQuery', () => {
       }
 
       const params = {
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -278,6 +304,7 @@ describe('buildElasticsearchQuery', () => {
       }
 
       const params = {
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -318,6 +345,7 @@ describe('buildElasticsearchQuery', () => {
       }
 
       const params = {
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -355,6 +383,7 @@ describe('buildElasticsearchQuery', () => {
       }
       publishedFilter = 'SHOW_PUBLISHED'
       const params = {
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -385,6 +414,7 @@ describe('buildElasticsearchQuery', () => {
       }
       genomedFilter = 'SHOW_GENOMED'
       const params = {
+        artists,
         createdAfterDate,
         createdBeforeDate,
         fair,

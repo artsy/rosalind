@@ -9,6 +9,7 @@ let props
 
 beforeEach(() => {
   props = {
+    artists: [],
     createdAfterDate: null,
     createdBeforeDate: null,
     fair: null,
@@ -42,6 +43,16 @@ it('renders the selected tags', () => {
   props.tags = [
     {id: 'foo', name: 'Foo'},
     {id: 'bar', name: 'Bar'}
+  ]
+  const rendered = renderer.create(<CurrentCriteria {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders the selected artists', () => {
+  props.artists = [
+    {id: 'abc123', name: 'Alice', slug: 'alice'},
+    {id: 'def456', name: 'Bob', slug: 'bob'}
   ]
   const rendered = renderer.create(<CurrentCriteria {...props} />)
   const tree = rendered.toJSON()

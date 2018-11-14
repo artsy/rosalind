@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="GenericAutosuggest"
+>
+  <div
+    className="react-autosuggest__container"
+  >
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-artist-autosuggest"
+      autoComplete="off"
+      className="react-autosuggest__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Select an artist"
+      role="combobox"
+      type="text"
+      value=""
+    />
+    <div
+      className="react-autosuggest__suggestions-container"
+      id="react-autowhatever-artist-autosuggest"
+    />
+  </div>
+</div>
+`;

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'match/tags'
   get 'match/fairs'
   get 'match/partners'
+  get 'match/artists'
 
   mount Sidekiq::Web => '/sidekiq', :constraints => AdminConstraint.new
 end

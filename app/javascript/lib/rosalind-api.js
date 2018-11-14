@@ -40,6 +40,16 @@ export const matchFairs = function (term) {
     })
 }
 
+export const matchArtists = function (term) {
+  const uri = `/match/artists?term=${term}`
+  return window.fetch(uri, { credentials: 'include' })
+    .then(resp => resp.json())
+    .then(artists => artists.map(({ id: slug, _id: id, name }) => ({ id, slug, name })))
+    .catch((err) => {
+      console.error(err)
+    })
+}
+
 export const matchArtworks = function (esQuery) {
   const queryJSON = JSON.stringify(esQuery)
   const uri = `/match/artworks?query=${encodeURIComponent(queryJSON)}`
