@@ -59,6 +59,8 @@ class SearchForm extends React.Component {
       createdBeforeDate,
       fair,
       genes,
+      keywords,
+      onRemoveKeyword,
       onRemoveGene,
       onRemoveTag,
       onRemoveArtist,
@@ -79,6 +81,8 @@ class SearchForm extends React.Component {
           createdBeforeDate={createdBeforeDate}
           fair={fair}
           genes={genes}
+          keywords={keywords}
+          onRemoveKeyword={onRemoveKeyword}
           onRemoveGene={onRemoveGene}
           onRemoveTag={onRemoveTag}
           onRemoveArtist={onRemoveArtist}

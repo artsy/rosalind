@@ -373,6 +373,7 @@ class App extends React.Component {
       genomedFilter,
       isLoading,
       isSpecifyingBatchUpdate,
+      keywords,
       partner,
       previewedArtwork,
       publishedFilter,
@@ -392,6 +393,7 @@ class App extends React.Component {
             fair={fair}
             genes={genes}
             genomedFilter={genomedFilter}
+            keywords={keywords}
             onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
             onAddKeyword={this.onAddKeyword}
@@ -399,6 +401,7 @@ class App extends React.Component {
             onOpenBatchUpdate={this.onOpenBatchUpdate}
             onRemoveArtist={this.onRemoveArtist}
             onRemoveGene={this.onRemoveGene}
+            onRemoveKeyword={this.onRemoveKeyword}
             onRemoveTag={this.onRemoveTag}
             partner={partner}
             publishedFilter={publishedFilter}
