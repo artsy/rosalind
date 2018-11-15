@@ -373,6 +373,7 @@ class App extends React.Component {
     const {
       artists,
       artworks,
+      attributionClass,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -394,6 +395,7 @@ class App extends React.Component {
         <Sidebar>
           <SearchForm
             artists={artists}
+            attributionClass={attributionClass}
             clearState={this.clearStateFor}
             createdAfterDate={createdAfterDate}
             createdBeforeDate={createdBeforeDate}

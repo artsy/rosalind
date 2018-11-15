@@ -84,6 +84,13 @@ it('renders the selected fair', () => {
   expect(tree).toMatchSnapshot()
 })
 
+it('renders the selected attribution class', () => {
+  props.attributionClass = {id: 'foo', name: 'Foo Edition'}
+  const rendered = renderer.create(<CurrentCriteria {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 it('renders the created after date', () => {
   props.createdAfterDate = moment('2020-01-01T12:00:00-00:00').utc().format()
   const currentCriteria = mount(<CurrentCriteria {...props} />)

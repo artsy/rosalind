@@ -177,7 +177,6 @@ exports[`"edit artworks" button does not render an edit button if there are no a
       />
     </div>
   </div>
-   
   <div
     className="GenericAutosuggest"
   >
@@ -597,7 +596,6 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
       />
     </div>
   </div>
-   
   <div
     className="GenericAutosuggest"
   >
@@ -1034,7 +1032,6 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
       />
     </div>
   </div>
-   
   <div
     className="GenericAutosuggest"
   >
@@ -1228,6 +1225,384 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
       Edit Artworks
     </span>
   </button>
+</div>
+`;
+
+exports[`does not render attribution class autosuggest if it is already selected 1`] = `
+.c1 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c1 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+.c3 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c3 input:focus {
+  outline: none;
+}
+
+.c2 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c2 input:focus {
+  outline: none;
+}
+
+.c4 {
+  font-size: 80%;
+  color: #999;
+  line-height: 140%;
+  margin: 2em 0;
+  opacity: 0.25;
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+
+.c4:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.c4 .filter {
+  margin-top: 1em;
+}
+
+.c4 .filter a {
+  color: #ccc;
+  margin-right: 0.5em;
+}
+
+.c4 .filter a.active {
+  color: #333;
+  font-weight: bold;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: default;
+}
+
+<div
+  className=""
+>
+  <div
+    className="c0"
+  >
+    <div>
+      <h2>
+        Attribution Class
+      </h2>
+      <div
+        className="c1"
+      >
+        Ephemera
+        <a
+          className="remove"
+          href="#"
+          onClick={[Function]}
+        >
+          ✕
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c2"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Add a keyword"
+      type="text"
+    />
+  </div>
+  <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-gene-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Add a gene"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-gene-autosuggest"
+      />
+    </div>
+  </div>
+  <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-tag-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Add a tag"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-tag-autosuggest"
+      />
+    </div>
+  </div>
+  <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-artist-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Add an artist"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-artist-autosuggest"
+      />
+    </div>
+  </div>
+  <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-partner-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Select a partner"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-partner-autosuggest"
+      />
+    </div>
+  </div>
+  <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-fair-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Select a fair"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-fair-autosuggest"
+      />
+    </div>
+  </div>
+  <div
+    className="c3"
+  >
+    <input
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Created after date"
+      type="text"
+      value=""
+    />
+    <div
+      className="parsed"
+    >
+      <a
+        href="#"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="c3"
+  >
+    <input
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Created before date"
+      type="text"
+      value=""
+    />
+    <div
+      className="parsed"
+    >
+      <a
+        href="#"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="c4"
+  >
+    <div
+      className="filter"
+    >
+      <div>
+        Published?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Published
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Not published
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        Genomed?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Genomed
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Not genomed
+      </a>
+    </div>
+  </div>
 </div>
 `;
 
@@ -1450,7 +1825,6 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
       />
     </div>
   </div>
-   
   <div
     className="GenericAutosuggest"
   >
@@ -1829,7 +2203,6 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
       />
     </div>
   </div>
-   
   <div
     className="GenericAutosuggest"
   >
@@ -2166,7 +2539,6 @@ exports[`renders correctly 1`] = `
       />
     </div>
   </div>
-   
   <div
     className="GenericAutosuggest"
   >

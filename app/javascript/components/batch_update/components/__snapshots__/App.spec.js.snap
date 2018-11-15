@@ -547,7 +547,6 @@ exports[`renders correctly 1`] = `
           />
         </div>
       </div>
-       
       <div
         className="GenericAutosuggest"
       >

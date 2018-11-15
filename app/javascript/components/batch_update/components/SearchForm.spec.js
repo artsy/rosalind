@@ -10,6 +10,7 @@ let props
 beforeEach(() => {
   props = {
     artists: [],
+    attributionClass: null,
     artworksCount: 0,
     createdAfterDate: null,
     createdBeforeDate: null,
@@ -52,6 +53,14 @@ it('does not render partner autosuggest if partner is already selected', () => {
 it('does not render fair autosuggest if fair is already selected', () => {
   const fair = { id: 'nice-fair', name: 'Nice Fair' }
   Object.assign(props, { fair })
+  const rendered = renderer.create(<SearchForm {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('does not render attribution class autosuggest if it is already selected', () => {
+  const attributionClass = { id: 'ephemera', name: 'Ephemera' }
+  Object.assign(props, { attributionClass })
   const rendered = renderer.create(<SearchForm {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
