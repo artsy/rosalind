@@ -101,6 +101,8 @@ class App extends React.Component {
 
   hasSearchCriteriaChanged (prevState) {
     return (
+      (this.state.artists !== prevState.artists) ||
+      (this.state.attributionClass !== prevState.attributionClass) ||
       (this.state.createdAfterDate !== prevState.createdAfterDate) ||
       (this.state.createdBeforeDate !== prevState.createdBeforeDate) ||
       (this.state.fair !== prevState.fair) ||
@@ -109,8 +111,7 @@ class App extends React.Component {
       (this.state.keywords !== prevState.keywords) ||
       (this.state.partner !== prevState.partner) ||
       (this.state.publishedFilter !== prevState.publishedFilter) ||
-      (this.state.tags !== prevState.tags) ||
-      (this.state.artists !== prevState.artists)
+      (this.state.tags !== prevState.tags)
     )
   }
 
@@ -128,6 +129,7 @@ class App extends React.Component {
   fetchArtworks () {
     const {
       artists,
+      attributionClass,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -149,6 +151,7 @@ class App extends React.Component {
     } else {
       const query = buildElasticsearchQuery({
         artists,
+        attributionClass,
         createdAfterDate,
         createdBeforeDate,
         fair,
@@ -178,6 +181,7 @@ class App extends React.Component {
   fetchMoreArtworks () {
     const {
       artists,
+      attributionClass,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -195,6 +199,7 @@ class App extends React.Component {
 
     const query = buildElasticsearchQuery({
       artists,
+      attributionClass,
       createdAfterDate,
       createdBeforeDate,
       fair,
