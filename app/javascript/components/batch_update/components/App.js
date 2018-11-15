@@ -117,12 +117,13 @@ class App extends React.Component {
 
   canSearch () {
     return (
+      (this.state.artists.length !== 0) ||
+      (this.state.attributionClass !== null) ||
       (this.state.fair !== null) ||
       (this.state.genes.length !== 0) ||
       (this.state.keywords.length !== 0) ||
       (this.state.partner !== null) ||
-      (this.state.tags.length !== 0) ||
-      (this.state.artists.length !== 0)
+      (this.state.tags.length !== 0)
     )
   }
 
