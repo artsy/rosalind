@@ -5,6 +5,7 @@ import { CreatedAfterDateInput, CreatedBeforeDateInput } from './DateInput'
 import TextInput from './TextInput'
 import {
   ArtistAutosuggest,
+  AttributionClassAutosuggest,
   FairAutosuggest,
   GeneAutosuggest,
   PartnerAutosuggest,
@@ -100,6 +101,7 @@ class SearchForm extends React.Component {
         />{' '}
         {partner === null && <PartnerAutosuggest updateState={updateState} />}
         {fair === null && <FairAutosuggest updateState={updateState} />}
+        <AttributionClassAutosuggest updateState={updateState} />
         {createdAfterDate === null && (
           <CreatedAfterDateInput
             updateState={updateState}

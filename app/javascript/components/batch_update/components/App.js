@@ -24,6 +24,7 @@ class App extends React.Component {
     this.state = {
       artists: [],
       artworks: [],
+      attributionClass: null,
       createdAfterDate: null,
       createdBeforeDate: null,
       fair: null,

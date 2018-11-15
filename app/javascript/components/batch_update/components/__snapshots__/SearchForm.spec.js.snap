@@ -237,6 +237,35 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     </div>
   </div>
   <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Select an attribution class"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-attribution-class-autosuggest"
+      />
+    </div>
+  </div>
+  <div
     className="c2"
   >
     <input
@@ -624,6 +653,35 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-fair-autosuggest"
+      />
+    </div>
+  </div>
+  <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Select an attribution class"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-attribution-class-autosuggest"
       />
     </div>
   </div>
@@ -1036,6 +1094,35 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Select an attribution class"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-attribution-class-autosuggest"
+      />
+    </div>
+  </div>
+  <div
     className="c2"
   >
     <input
@@ -1394,6 +1481,35 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     </div>
   </div>
   <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Select an attribution class"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-attribution-class-autosuggest"
+      />
+    </div>
+  </div>
+  <div
     className="c3"
   >
     <input
@@ -1744,6 +1860,35 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     </div>
   </div>
   <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Select an attribution class"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-attribution-class-autosuggest"
+      />
+    </div>
+  </div>
+  <div
     className="c3"
   >
     <input
@@ -2077,6 +2222,35 @@ exports[`renders correctly 1`] = `
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-fair-autosuggest"
+      />
+    </div>
+  </div>
+  <div
+    className="GenericAutosuggest"
+  >
+    <div
+      className="react-autosuggest__container"
+    >
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Select an attribution class"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-attribution-class-autosuggest"
       />
     </div>
   </div>
