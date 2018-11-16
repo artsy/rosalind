@@ -30,6 +30,7 @@ exports[`renders correctly 1`] = `
   box-sizing: border-box;
   padding: 2em;
   max-height: 90%;
+  width: 600px;
   z-index: 2;
   background: white;
   box-shadow: 0 0 20px hsla(0,0%,0%,0.5);
@@ -64,7 +65,9 @@ exports[`renders correctly 1`] = `
   font-weight: bold;
 }
 
-.c1 .status {
+.c1 .status,
+.c1 .more,
+.c1 .links {
   font-size: 0.9em;
   line-height: 125%;
   margin: 1em 0;
@@ -100,20 +103,6 @@ exports[`renders correctly 1`] = `
         Soup Can
       </p>
       <p
-        className="status"
-      >
-        Deleted: 
-        false
-         
-        <br />
-        Published: 
-        true
-         
-        <br />
-        Genomed: 
-        true
-      </p>
-      <p
         className="links"
       >
         View artwork in:
@@ -137,10 +126,7 @@ exports[`renders correctly 1`] = `
         >
           Artsy.net
         </a>
-      </p>
-      <p
-        className="links"
-      >
+        <br />
         View artist in:
         <a
           href="https://helix.artsy.net/genome/artist?search[genome_artist_id]=undefined"
@@ -149,6 +135,21 @@ exports[`renders correctly 1`] = `
           Helix
         </a>
       </p>
+      <p
+        className="status"
+      >
+        Deleted: 
+        false
+         
+        <br />
+        Published: 
+        true
+         
+        <br />
+        Genomed: 
+        true
+      </p>
+      …
     </div>
   </div>
 </div>
