@@ -83,3 +83,12 @@ export const submitBatchUpdate = function (artworkIds, genes, csrfToken) {
   }
   return window.fetch(uri, options)
 }
+
+export const fetchArtwork = function (artworkId) {
+  const uri = `/artworks/${artworkId}`
+  return window.fetch(uri, { credentials: 'include' })
+    .then(resp => resp.json())
+    .catch((err) => {
+      console.error(err)
+    })
+}

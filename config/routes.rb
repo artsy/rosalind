@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#batch_update'
 
   resources :batch_updates, only: :create
+  resources :artworks, only: :show
 
   # searches and autocompletes
   get 'match/artworks'
