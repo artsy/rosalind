@@ -925,9 +925,18 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   background: #6e1fff;
 }
 
+.c8 {
+  color: #666666;
+}
+
 .c4 {
   margin: 0;
   width: 100%;
+}
+
+.c7 {
+  display: block;
+  margin-top: 1em;
 }
 
 <div
@@ -1225,6 +1234,13 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
       Edit Artworks
     </span>
   </button>
+  <a
+    className="c7 c8"
+    href={null}
+    target="_blank"
+  >
+    Open selected in Helix
+  </a>
 </div>
 `;
 

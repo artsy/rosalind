@@ -420,6 +420,7 @@ class App extends React.Component {
             onRemoveTag={this.onRemoveTag}
             partner={partner}
             publishedFilter={publishedFilter}
+            selectedArtworkIds={selectedArtworkIds}
             selectedArtworksCount={selectedArtworkIds.length}
             tags={tags}
             updateState={this.updateStateFor}

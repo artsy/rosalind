@@ -159,6 +159,10 @@ exports[`renders correctly 1`] = `
   background: #cccccc;
 }
 
+.c13 {
+  color: #666666;
+}
+
 .c6 {
   margin: 0;
   width: 100%;
@@ -232,10 +236,6 @@ exports[`renders correctly 1`] = `
   background: #6E1FFF;
   border-color: #6E1FFF;
   color: #ffffff;
-}
-
-.c13 {
-  color: #666666;
 }
 
 .c9 {
