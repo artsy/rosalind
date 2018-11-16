@@ -14,6 +14,20 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   text-transform: uppercase;
 }
 
+.c2 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c2 input:focus {
+  outline: none;
+}
+
 .c1 input {
   width: 100%;
   margin: 1em 0 0 0;
@@ -28,7 +42,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   outline: none;
 }
 
-.c2 {
+.c3 {
   font-size: 80%;
   color: #999;
   line-height: 140%;
@@ -38,22 +52,22 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   transition: opacity 0.75s;
 }
 
-.c2:hover {
+.c3:hover {
   opacity: 1;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
 }
 
-.c2 .filter {
+.c3 .filter {
   margin-top: 1em;
 }
 
-.c2 .filter a {
+.c3 .filter a {
   color: #ccc;
   margin-right: 0.5em;
 }
 
-.c2 .filter a.active {
+.c3 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -67,6 +81,15 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   <div
     className="c0"
   />
+  <div
+    className="c1"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Add a keyword"
+      type="text"
+    />
+  </div>
   <div
     className="GenericAutosuggest"
   >
@@ -214,7 +237,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     </div>
   </div>
   <div
-    className="c1"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -233,7 +256,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     </div>
   </div>
   <div
-    className="c1"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -252,7 +275,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     </div>
   </div>
   <div
-    className="c2"
+    className="c3"
   >
     <div
       className="filter"
@@ -328,6 +351,20 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   text-transform: uppercase;
 }
 
+.c2 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c2 input:focus {
+  outline: none;
+}
+
 .c1 input {
   width: 100%;
   margin: 1em 0 0 0;
@@ -342,7 +379,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   outline: none;
 }
 
-.c2 {
+.c3 {
   font-size: 80%;
   color: #999;
   line-height: 140%;
@@ -352,22 +389,22 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   transition: opacity 0.75s;
 }
 
-.c2:hover {
+.c3:hover {
   opacity: 1;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
 }
 
-.c2 .filter {
+.c3 .filter {
   margin-top: 1em;
 }
 
-.c2 .filter a {
+.c3 .filter a {
   color: #ccc;
   margin-right: 0.5em;
 }
 
-.c2 .filter a.active {
+.c3 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -375,7 +412,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   cursor: default;
 }
 
-.c4 {
+.c5 {
   font-family: 'ITC Avant Garde Gothic W04','AvantGardeGothicITCW01D 731075',AvantGardeGothicITCW01Dm,Helvetica,sans-serif;
   -webkit-font-smoothing: antialiased;
   text-transform: uppercase;
@@ -419,12 +456,12 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   border-radius: 2px;
 }
 
-.c4:hover:not(:disabled) {
+.c5:hover:not(:disabled) {
   cursor: pointer;
   background: #cccccc;
 }
 
-.c3 {
+.c4 {
   margin: 0;
   width: 100%;
 }
@@ -435,6 +472,15 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   <div
     className="c0"
   />
+  <div
+    className="c1"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Add a keyword"
+      type="text"
+    />
+  </div>
   <div
     className="GenericAutosuggest"
   >
@@ -582,7 +628,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <div
-    className="c1"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -601,7 +647,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <div
-    className="c1"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -620,7 +666,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <div
-    className="c2"
+    className="c3"
   >
     <div
       className="filter"
@@ -680,7 +726,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <button
-    className="c3 c4"
+    className="c4 c5"
     disabled={true}
   >
     <span>
@@ -704,6 +750,20 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   text-transform: uppercase;
 }
 
+.c2 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c2 input:focus {
+  outline: none;
+}
+
 .c1 input {
   width: 100%;
   margin: 1em 0 0 0;
@@ -718,7 +778,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   outline: none;
 }
 
-.c2 {
+.c3 {
   font-size: 80%;
   color: #999;
   line-height: 140%;
@@ -728,22 +788,22 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   transition: opacity 0.75s;
 }
 
-.c2:hover {
+.c3:hover {
   opacity: 1;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
 }
 
-.c2 .filter {
+.c3 .filter {
   margin-top: 1em;
 }
 
-.c2 .filter a {
+.c3 .filter a {
   color: #ccc;
   margin-right: 0.5em;
 }
 
-.c2 .filter a.active {
+.c3 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -751,7 +811,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   cursor: default;
 }
 
-.c5 {
+.c6 {
   font-family: 'ITC Avant Garde Gothic W04','AvantGardeGothicITCW01D 731075',AvantGardeGothicITCW01Dm,Helvetica,sans-serif;
   -webkit-font-smoothing: antialiased;
   text-transform: uppercase;
@@ -795,21 +855,21 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   border-radius: 2px;
 }
 
-.c5:hover:not(:disabled) {
+.c6:hover:not(:disabled) {
   cursor: pointer;
   background: #cccccc;
 }
 
-.c4 {
+.c5 {
   background: black;
   color: white;
 }
 
-.c4:hover:not(:disabled) {
+.c5:hover:not(:disabled) {
   background: #6e1fff;
 }
 
-.c3 {
+.c4 {
   margin: 0;
   width: 100%;
 }
@@ -820,6 +880,15 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   <div
     className="c0"
   />
+  <div
+    className="c1"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Add a keyword"
+      type="text"
+    />
+  </div>
   <div
     className="GenericAutosuggest"
   >
@@ -967,7 +1036,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <div
-    className="c1"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -986,7 +1055,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <div
-    className="c1"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -1005,7 +1074,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <div
-    className="c2"
+    className="c3"
   >
     <div
       className="filter"
@@ -1065,7 +1134,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <button
-    className="c3 c4 c5"
+    className="c4 c5 c6"
     onClick={undefined}
   >
     <span>
@@ -1113,6 +1182,20 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
   text-transform: uppercase;
 }
 
+.c3 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c3 input:focus {
+  outline: none;
+}
+
 .c2 input {
   width: 100%;
   margin: 1em 0 0 0;
@@ -1127,7 +1210,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
   outline: none;
 }
 
-.c3 {
+.c4 {
   font-size: 80%;
   color: #999;
   line-height: 140%;
@@ -1137,22 +1220,22 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
   transition: opacity 0.75s;
 }
 
-.c3:hover {
+.c4:hover {
   opacity: 1;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
 }
 
-.c3 .filter {
+.c4 .filter {
   margin-top: 1em;
 }
 
-.c3 .filter a {
+.c4 .filter a {
   color: #ccc;
   margin-right: 0.5em;
 }
 
-.c3 .filter a.active {
+.c4 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -1183,6 +1266,15 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         </a>
       </div>
     </div>
+  </div>
+  <div
+    className="c2"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Add a keyword"
+      type="text"
+    />
   </div>
   <div
     className="GenericAutosuggest"
@@ -1302,7 +1394,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     </div>
   </div>
   <div
-    className="c2"
+    className="c3"
   >
     <input
       onChange={[Function]}
@@ -1321,7 +1413,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     </div>
   </div>
   <div
-    className="c2"
+    className="c3"
   >
     <input
       onChange={[Function]}
@@ -1340,7 +1432,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     </div>
   </div>
   <div
-    className="c3"
+    className="c4"
   >
     <div
       className="filter"
@@ -1440,6 +1532,20 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
   text-transform: uppercase;
 }
 
+.c3 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c3 input:focus {
+  outline: none;
+}
+
 .c2 input {
   width: 100%;
   margin: 1em 0 0 0;
@@ -1454,7 +1560,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
   outline: none;
 }
 
-.c3 {
+.c4 {
   font-size: 80%;
   color: #999;
   line-height: 140%;
@@ -1464,22 +1570,22 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
   transition: opacity 0.75s;
 }
 
-.c3:hover {
+.c4:hover {
   opacity: 1;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
 }
 
-.c3 .filter {
+.c4 .filter {
   margin-top: 1em;
 }
 
-.c3 .filter a {
+.c4 .filter a {
   color: #ccc;
   margin-right: 0.5em;
 }
 
-.c3 .filter a.active {
+.c4 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -1510,6 +1616,15 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         </a>
       </div>
     </div>
+  </div>
+  <div
+    className="c2"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Add a keyword"
+      type="text"
+    />
   </div>
   <div
     className="GenericAutosuggest"
@@ -1629,7 +1744,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     </div>
   </div>
   <div
-    className="c2"
+    className="c3"
   >
     <input
       onChange={[Function]}
@@ -1648,7 +1763,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     </div>
   </div>
   <div
-    className="c2"
+    className="c3"
   >
     <input
       onChange={[Function]}
@@ -1667,7 +1782,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     </div>
   </div>
   <div
-    className="c3"
+    className="c4"
   >
     <div
       className="filter"
@@ -1743,6 +1858,20 @@ exports[`renders correctly 1`] = `
   text-transform: uppercase;
 }
 
+.c2 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c2 input:focus {
+  outline: none;
+}
+
 .c1 input {
   width: 100%;
   margin: 1em 0 0 0;
@@ -1757,7 +1886,7 @@ exports[`renders correctly 1`] = `
   outline: none;
 }
 
-.c2 {
+.c3 {
   font-size: 80%;
   color: #999;
   line-height: 140%;
@@ -1767,22 +1896,22 @@ exports[`renders correctly 1`] = `
   transition: opacity 0.75s;
 }
 
-.c2:hover {
+.c3:hover {
   opacity: 1;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
 }
 
-.c2 .filter {
+.c3 .filter {
   margin-top: 1em;
 }
 
-.c2 .filter a {
+.c3 .filter a {
   color: #ccc;
   margin-right: 0.5em;
 }
 
-.c2 .filter a.active {
+.c3 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -1796,6 +1925,15 @@ exports[`renders correctly 1`] = `
   <div
     className="c0"
   />
+  <div
+    className="c1"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Add a keyword"
+      type="text"
+    />
+  </div>
   <div
     className="GenericAutosuggest"
   >
@@ -1943,7 +2081,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c1"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -1962,7 +2100,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c1"
+    className="c2"
   >
     <input
       onChange={[Function]}
@@ -1981,7 +2119,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c2"
+    className="c3"
   >
     <div
       className="filter"

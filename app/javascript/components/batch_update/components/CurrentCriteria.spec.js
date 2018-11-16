@@ -14,6 +14,7 @@ beforeEach(() => {
     createdBeforeDate: null,
     fair: null,
     genes: [],
+    keywords: [],
     onClearFair: jest.fn(),
     onClearPartner: jest.fn(),
     onRemoveGene: jest.fn(),
@@ -24,6 +25,16 @@ beforeEach(() => {
 })
 
 it('renders nothing if there are no selected criteria', () => {
+  const rendered = renderer.create(<CurrentCriteria {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders the selected keywords', () => {
+  props.keywords = [
+    "soup",
+    "can"
+  ]
   const rendered = renderer.create(<CurrentCriteria {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()

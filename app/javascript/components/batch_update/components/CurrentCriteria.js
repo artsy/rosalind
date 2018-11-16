@@ -6,6 +6,7 @@ import {
   SelectedCreatedAfterDate,
   SelectedCreatedBeforeDate,
   SelectedGene,
+  SelectedKeyword,
   SelectedTag,
   SelectedArtist,
   SelectedPartner,
@@ -21,6 +22,8 @@ function CurrentCriteria (props) {
     createdBeforeDate,
     fair,
     genes,
+    keywords,
+    onRemoveKeyword,
     onRemoveGene,
     onRemoveTag,
     onRemoveArtist,
@@ -30,6 +33,7 @@ function CurrentCriteria (props) {
 
   return (
     <div className={className}>
+      {keywords.length > 0 && <CurrentKeywords keywords={keywords} onRemoveKeyword={onRemoveKeyword} />}
       {genes.length > 0 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
       {tags.length > 0 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
       {artists.length > 0 && <CurrentArtists artists={artists} onRemoveArtist={onRemoveArtist} />}
@@ -60,6 +64,16 @@ function CurrentGenes (props) {
     <div>
       <h2>Genes</h2>
       {genes.map(g => <SelectedGene key={g.id} name={g.name} onRemove={onRemoveGene} />)}
+    </div>
+  )
+}
+
+function CurrentKeywords (props) {
+  const { keywords, onRemoveKeyword } = props
+  return (
+    <div>
+      <h2>Keywords</h2>
+      {keywords.map(k => <SelectedKeyword key={k} text={k} onRemove={onRemoveKeyword} />)}
     </div>
   )
 }

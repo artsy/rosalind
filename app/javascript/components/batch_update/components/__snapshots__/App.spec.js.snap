@@ -25,7 +25,7 @@ exports[`renders correctly 1`] = `
   padding: 1em;
 }
 
-.c7 {
+.c8 {
   -webkit-box-flex: 5;
   -webkit-flex-grow: 5;
   -ms-flex-positive: 5;
@@ -49,6 +49,20 @@ exports[`renders correctly 1`] = `
   text-transform: uppercase;
 }
 
+.c4 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c4 input:focus {
+  outline: none;
+}
+
 .c3 input {
   width: 100%;
   margin: 1em 0 0 0;
@@ -63,7 +77,7 @@ exports[`renders correctly 1`] = `
   outline: none;
 }
 
-.c4 {
+.c5 {
   font-size: 80%;
   color: #999;
   line-height: 140%;
@@ -73,22 +87,22 @@ exports[`renders correctly 1`] = `
   transition: opacity 0.75s;
 }
 
-.c4:hover {
+.c5:hover {
   opacity: 1;
   -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
 }
 
-.c4 .filter {
+.c5 .filter {
   margin-top: 1em;
 }
 
-.c4 .filter a {
+.c5 .filter a {
   color: #ccc;
   margin-right: 0.5em;
 }
 
-.c4 .filter a.active {
+.c5 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -96,7 +110,7 @@ exports[`renders correctly 1`] = `
   cursor: default;
 }
 
-.c6 {
+.c7 {
   font-family: 'ITC Avant Garde Gothic W04','AvantGardeGothicITCW01D 731075',AvantGardeGothicITCW01Dm,Helvetica,sans-serif;
   -webkit-font-smoothing: antialiased;
   text-transform: uppercase;
@@ -140,17 +154,17 @@ exports[`renders correctly 1`] = `
   border-radius: 2px;
 }
 
-.c6:hover:not(:disabled) {
+.c7:hover:not(:disabled) {
   cursor: pointer;
   background: #cccccc;
 }
 
-.c5 {
+.c6 {
   margin: 0;
   width: 100%;
 }
 
-.c13 {
+.c14 {
   display: inline-block;
   padding: 18px 30px 15px 30px;
   background: #F8F8F8;
@@ -166,38 +180,11 @@ exports[`renders correctly 1`] = `
   cursor: not-allowed;
 }
 
-.c19 {
+.c20 {
   display: inline-block;
   padding: 18px 30px 15px 30px;
   background: #ffffff;
   color: #000000;
-  border: solid 1px #000000;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
-  -webkit-transition-property: background,border-color,color;
-  transition-property: background,border-color,color;
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
-}
-
-.c19:hover {
-  background: #6E1FFF;
-  border-color: #6E1FFF;
-  color: #ffffff;
-}
-
-.c20 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #000000;
-  color: #ffffff;
   border: solid 1px #000000;
   font-family: 'ITC Avant Garde Gothic W01';
   font-weight: normal;
@@ -220,11 +207,38 @@ exports[`renders correctly 1`] = `
   color: #ffffff;
 }
 
-.c12 {
+.c21 {
+  display: inline-block;
+  padding: 18px 30px 15px 30px;
+  background: #000000;
+  color: #ffffff;
+  border: solid 1px #000000;
+  font-family: 'ITC Avant Garde Gothic W01';
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 13px;
+  text-transform: uppercase;
+  -webkit-transition-property: background,border-color,color;
+  transition-property: background,border-color,color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+.c21:hover {
+  background: #6E1FFF;
+  border-color: #6E1FFF;
+  color: #ffffff;
+}
+
+.c13 {
   color: #666666;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -234,24 +248,24 @@ exports[`renders correctly 1`] = `
   flex-direction: column;
 }
 
-.c8 .counts {
+.c9 .counts {
   display: inline-block;
   width: 75%;
   padding: 0.75em;
 }
 
-.c8 .select {
+.c9 .select {
   display: inline-block;
   width: 25%;
   padding: 0.75em;
   text-align: right;
 }
 
-.c8 .select a {
+.c9 .select a {
   margin: 0 0.25em;
 }
 
-.c8 .results {
+.c9 .results {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -261,7 +275,7 @@ exports[`renders correctly 1`] = `
   flex-flow: row wrap;
 }
 
-.c17 {
+.c18 {
   position: fixed;
   left: 50%;
   top: 40%;
@@ -279,7 +293,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c17.modal-open {
+.c18.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1) translate(-50%,-50%);
@@ -289,24 +303,24 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c17 h1 {
+.c18 h1 {
   font-weight: normal;
   font-size: 1.5em;
   color: #666666;
 }
 
-.c17 section {
+.c18 section {
   color: #333333;
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
 }
 
-.c17 section p {
+.c18 section p {
   margin-bottom: 1em;
 }
 
-.c18 {
+.c19 {
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
@@ -323,15 +337,15 @@ exports[`renders correctly 1`] = `
   justify-content: flex-end;
 }
 
-.c18 a {
+.c19 a {
   margin-left: 1em;
 }
 
-.c10 {
+.c11 {
   padding: 18px 30px;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -351,7 +365,7 @@ exports[`renders correctly 1`] = `
   border-bottom: solid 1px #DBDBDB;
 }
 
-.c14 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -362,18 +376,18 @@ exports[`renders correctly 1`] = `
   padding: 30px 0;
 }
 
-.c15 {
+.c16 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   text-align: center;
 }
 
-.c16 {
+.c17 {
   height: 5em;
 }
 
-.c9 {
+.c10 {
   position: fixed;
   left: 0px;
   top: 0px;
@@ -390,7 +404,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c9.modal-open {
+.c10.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1);
@@ -400,7 +414,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c21 {
+.c22 {
   position: fixed;
   top: 0;
   right: 0;
@@ -437,6 +451,15 @@ exports[`renders correctly 1`] = `
       <div
         className="c2"
       />
+      <div
+        className="c3"
+      >
+        <input
+          onKeyUp={[Function]}
+          placeholder="Add a keyword"
+          type="text"
+        />
+      </div>
       <div
         className="GenericAutosuggest"
       >
@@ -584,7 +607,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c3"
+        className="c4"
       >
         <input
           onChange={[Function]}
@@ -603,7 +626,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c3"
+        className="c4"
       >
         <input
           onChange={[Function]}
@@ -622,7 +645,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c4"
+        className="c5"
       >
         <div
           className="filter"
@@ -682,7 +705,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <button
-        className="c5 c6"
+        className="c6 c7"
         disabled={true}
       >
         <span>
@@ -692,10 +715,10 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c7"
+    className="c8"
   >
     <div
-      className="c8"
+      className="c9"
     >
       <div
         className="results"
@@ -703,16 +726,16 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c9"
+    className="c10"
   >
     <div
-      className="c10"
+      className="c11"
     >
       <div
-        className="c11"
+        className="c12"
       >
         <a
-          className="cancel c12"
+          className="cancel c13"
           href="#"
           onClick={[Function]}
         >
@@ -723,7 +746,7 @@ exports[`renders correctly 1`] = `
            works selected
         </div>
         <button
-          className="queue c13"
+          className="queue c14"
           disabled={true}
           onClick={[Function]}
         >
@@ -731,10 +754,10 @@ exports[`renders correctly 1`] = `
         </button>
       </div>
       <div
-        className="c14"
+        className="c15"
       />
       <div
-        className="c15"
+        className="c16"
       >
         There aren’t any genes that describe all of your selected works
       </div>
@@ -768,10 +791,10 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c16"
+        className="c17"
       />
       <div
-        className="c17"
+        className="c18"
       >
         <h1>
           Are you sure you want to queue these changes?
@@ -784,17 +807,17 @@ exports[`renders correctly 1`] = `
           </p>
         </section>
         <div
-          className="c18"
+          className="c19"
         >
           <a
-            className="dismiss c19"
+            className="dismiss c20"
             href="#"
             onClick={[Function]}
           >
             Go back
           </a>
           <a
-            className="accept c20"
+            className="accept c21"
             href="#"
             onClick={[Function]}
           >
@@ -805,7 +828,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c21"
+    className="c22"
   />
 </div>
 `;

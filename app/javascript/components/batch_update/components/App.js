@@ -31,6 +31,7 @@ class App extends React.Component {
       genomedFilter: 'SHOW_ALL',
       isLoading: false,
       isSpecifyingBatchUpdate: false,
+      keywords: [],
       notices: [],
       partner: null,
       previewedArtwork: null,
@@ -48,6 +49,8 @@ class App extends React.Component {
     this.onAddTag = this.onAddTag.bind(this)
     this.onRemoveArtist = this.onRemoveArtist.bind(this)
     this.onAddArtist = this.onAddArtist.bind(this)
+    this.onRemoveKeyword = this.onRemoveKeyword.bind(this)
+    this.onAddKeyword = this.onAddKeyword.bind(this)
 
     this.updateStateFor = this.updateStateFor.bind(this)
     this.clearStateFor = this.clearStateFor.bind(this)
@@ -102,6 +105,7 @@ class App extends React.Component {
       (this.state.fair !== prevState.fair) ||
       (this.state.genes !== prevState.genes) ||
       (this.state.genomedFilter !== prevState.genomedFilter) ||
+      (this.state.keywords !== prevState.keywords) ||
       (this.state.partner !== prevState.partner) ||
       (this.state.publishedFilter !== prevState.publishedFilter) ||
       (this.state.tags !== prevState.tags) ||
@@ -113,6 +117,7 @@ class App extends React.Component {
     return (
       (this.state.fair !== null) ||
       (this.state.genes.length !== 0) ||
+      (this.state.keywords.length !== 0) ||
       (this.state.partner !== null) ||
       (this.state.tags.length !== 0) ||
       (this.state.artists.length !== 0)
@@ -127,6 +132,7 @@ class App extends React.Component {
       fair,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       size,
@@ -147,6 +153,7 @@ class App extends React.Component {
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         size,
@@ -175,6 +182,7 @@ class App extends React.Component {
       fair,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       tags
@@ -192,6 +200,7 @@ class App extends React.Component {
       from,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       size,
@@ -254,6 +263,20 @@ class App extends React.Component {
     const { artists } = this.state
     findById(artists, artist) || this.setState({
       artists: artists.concat(artist)
+    })
+  }
+
+  onRemoveKeyword (keyword) {
+    const { keywords } = this.state
+    this.setState({
+      keywords: keywords.filter(k => k !== keyword)
+    })
+  }
+
+  onAddKeyword (keyword) {
+    const { keywords } = this.state
+    keywords.includes(keyword) || this.setState({
+      keywords: [...keywords, keyword]
     })
   }
 
@@ -356,6 +379,7 @@ class App extends React.Component {
       genomedFilter,
       isLoading,
       isSpecifyingBatchUpdate,
+      keywords,
       partner,
       previewedArtwork,
       publishedFilter,
@@ -375,12 +399,15 @@ class App extends React.Component {
             fair={fair}
             genes={genes}
             genomedFilter={genomedFilter}
+            keywords={keywords}
             onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
+            onAddKeyword={this.onAddKeyword}
             onAddTag={this.onAddTag}
             onOpenBatchUpdate={this.onOpenBatchUpdate}
             onRemoveArtist={this.onRemoveArtist}
             onRemoveGene={this.onRemoveGene}
+            onRemoveKeyword={this.onRemoveKeyword}
             onRemoveTag={this.onRemoveTag}
             partner={partner}
             publishedFilter={publishedFilter}

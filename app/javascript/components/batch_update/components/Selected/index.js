@@ -1,5 +1,6 @@
 export { SelectedCreatedAfterDate } from './SelectedCreatedAfterDate'
 export { SelectedCreatedBeforeDate } from './SelectedCreatedBeforeDate'
+export { SelectedKeyword } from './SelectedKeyword'
 export { SelectedGene } from './SelectedGene'
 export { SelectedTag } from './SelectedTag'
 export { SelectedArtist } from './SelectedArtist'
