@@ -5,6 +5,7 @@ import { CreatedAfterDateInput, CreatedBeforeDateInput } from './DateInput'
 import TextInput from './TextInput'
 import {
   ArtistAutosuggest,
+  AttributionClassAutosuggest,
   FairAutosuggest,
   GeneAutosuggest,
   PartnerAutosuggest,
@@ -54,6 +55,7 @@ class SearchForm extends React.Component {
   render() {
     const {
       artists,
+      attributionClass,
       clearState,
       createdAfterDate,
       createdBeforeDate,
@@ -76,6 +78,7 @@ class SearchForm extends React.Component {
       <div className={this.props.className}>
         <CurrentCriteria
           artists={artists}
+          attributionClass={attributionClass}
           clearState={clearState}
           createdAfterDate={createdAfterDate}
           createdBeforeDate={createdBeforeDate}
@@ -97,9 +100,10 @@ class SearchForm extends React.Component {
         <ArtistAutosuggest
           placeholder="Add an artist"
           onSelectArtist={onAddArtist}
-        />{' '}
+        />
         {partner === null && <PartnerAutosuggest updateState={updateState} />}
         {fair === null && <FairAutosuggest updateState={updateState} />}
+        {attributionClass === null && <AttributionClassAutosuggest updateState={updateState} />}
         {createdAfterDate === null && (
           <CreatedAfterDateInput
             updateState={updateState}

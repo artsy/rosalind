@@ -10,12 +10,14 @@ import {
   SelectedTag,
   SelectedArtist,
   SelectedPartner,
-  SelectedFair
+  SelectedFair,
+  SelectedAttributionClass
 } from './Selected'
 
 function CurrentCriteria (props) {
   const {
     artists,
+    attributionClass,
     className,
     clearState,
     createdAfterDate,
@@ -39,6 +41,7 @@ function CurrentCriteria (props) {
       {artists.length > 0 && <CurrentArtists artists={artists} onRemoveArtist={onRemoveArtist} />}
       {partner && <SelectedPartner name={partner.name} clearState={clearState} />}
       {fair && <SelectedFair name={fair.name} clearState={clearState} />}
+      {attributionClass && <SelectedAttributionClass name={attributionClass.name} clearState={clearState} />}
       {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} clearState={clearState} />}
       {createdBeforeDate && <SelectedCreatedBeforeDate name={createdBeforeDate} clearState={clearState} />}
     </div>

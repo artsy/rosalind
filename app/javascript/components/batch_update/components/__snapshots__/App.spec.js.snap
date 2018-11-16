@@ -547,7 +547,6 @@ exports[`renders correctly 1`] = `
           />
         </div>
       </div>
-       
       <div
         className="GenericAutosuggest"
       >
@@ -603,6 +602,35 @@ exports[`renders correctly 1`] = `
           <div
             className="react-autosuggest__suggestions-container"
             id="react-autowhatever-fair-autosuggest"
+          />
+        </div>
+      </div>
+      <div
+        className="GenericAutosuggest"
+      >
+        <div
+          className="react-autosuggest__container"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
+            aria-owns="react-autowhatever-attribution-class-autosuggest"
+            autoComplete="off"
+            className="react-autosuggest__input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Select an attribution class"
+            role="combobox"
+            type="text"
+            value=""
+          />
+          <div
+            className="react-autosuggest__suggestions-container"
+            id="react-autowhatever-attribution-class-autosuggest"
           />
         </div>
       </div>

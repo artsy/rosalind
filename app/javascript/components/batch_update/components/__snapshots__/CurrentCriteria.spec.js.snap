@@ -92,6 +92,67 @@ exports[`renders the selected artists 1`] = `
 </div>
 `;
 
+exports[`renders the selected attribution class 1`] = `
+.c1 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c1 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.c0 h2 {
+  font-family: 'ITC Avant Garde Gothic W01';
+  color: #999;
+  font-size: 0.75em;
+  font-weight: 400;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+<div
+  className="c0"
+>
+  <div>
+    <h2>
+      Attribution Class
+    </h2>
+    <div
+      className="c1"
+    >
+      Foo Edition
+      <a
+        className="remove"
+        href="#"
+        onClick={[Function]}
+      >
+        ✕
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders the selected fair 1`] = `
 .c1 {
   font-weight: bold;

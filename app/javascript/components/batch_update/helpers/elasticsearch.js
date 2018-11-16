@@ -3,6 +3,7 @@ const defaultPageSize = 100
 export function buildElasticsearchQuery (args) {
   const {
     artists,
+    attributionClass,
     createdAfterDate,
     createdBeforeDate,
     fair,
@@ -22,6 +23,7 @@ export function buildElasticsearchQuery (args) {
   const filterMatches = buildFilterMatches({ publishedFilter, genomedFilter })
   const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
   const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
+  const attributionClassMatch = attributionClass ? { 'match': { 'attribution': attributionClass.value } } : null
   const createdDateRange = buildCreatedDateRange({createdAfterDate, createdBeforeDate})
 
   // Modeled after Gravity's keyword query in
@@ -56,6 +58,7 @@ export function buildElasticsearchQuery (args) {
           ...filterMatches,
           partnerMatch,
           fairMatch,
+          attributionClassMatch,
           createdDateRange
         ].filter(m => m !== null)
       }
