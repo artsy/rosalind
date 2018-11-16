@@ -28,12 +28,12 @@ const FullWidthInvertedButton = styled(InvertedButton)`
 `
 
 class SearchForm extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.maybeRenderEditButton = this.maybeRenderEditButton.bind(this)
   }
 
-  maybeRenderEditButton() {
+  maybeRenderEditButton () {
     const {
       artworksCount,
       selectedArtworksCount,
@@ -52,7 +52,7 @@ class SearchForm extends React.Component {
     }
   }
 
-  render() {
+  render () {
     const {
       artists,
       attributionClass,
@@ -94,11 +94,11 @@ class SearchForm extends React.Component {
           updateState={updateState}
         />
 
-        <TextInput placeholder="Add a keyword" onEnter={onAddKeyword} />
-        <GeneAutosuggest placeholder="Add a gene" onSelectGene={onAddGene} />
-        <TagAutosuggest placeholder="Add a tag" onSelectTag={onAddTag} />
+        <TextInput placeholder='Add a keyword' onEnter={onAddKeyword} />
+        <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />
+        <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
         <ArtistAutosuggest
-          placeholder="Add an artist"
+          placeholder='Add an artist'
           onSelectArtist={onAddArtist}
         />
         {partner === null && <PartnerAutosuggest updateState={updateState} />}
