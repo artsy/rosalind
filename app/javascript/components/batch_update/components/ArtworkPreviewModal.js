@@ -4,10 +4,15 @@ import styled from 'styled-components'
 import missingImage from './missing_image.png'
 import { ESC, LEFT, RIGHT } from 'lib/keycodes'
 import Overlay from './Overlay'
+import { fetchArtwork } from 'lib/rosalind-api'
 
 class ArtworkPreviewModal extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {
+      fullArtworksById: {}
+    }
+    this._moreInfoTimer = null
     this.dismiss = this.dismiss.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
   }
@@ -32,14 +37,44 @@ class ArtworkPreviewModal extends React.Component {
 
   componentDidMount () {
     window.addEventListener('keyup', this.handleKeyUp)
+    this.fetchMoreInfoAfterDelay()
   }
 
   componentWillUnmount () {
     window.removeEventListener('keyup', this.handleKeyUp)
+    clearTimeout(this._moreInfoTimer)
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    const isNewArtwork =
+      this.props.artwork &&
+      prevProps.artwork &&
+      this.props.artwork.id !== prevProps.artwork.id
+
+    if (isNewArtwork) {
+      clearTimeout(this._moreInfoTimer)
+      this.fetchMoreInfoAfterDelay()
+    }
+  }
+
+  fetchMoreInfoAfterDelay (millis = 500) {
+    this._moreInfoTimer = setTimeout(() => {
+      fetchArtwork(this.props.artwork.id)
+        .then(fullArtwork => {
+          console.log('got', fullArtwork)
+          if (fullArtwork._id) {
+            this.setState((previous) => {
+              const updated = Object.assign(previous.fullArtworksById, { [fullArtwork._id]: fullArtwork })
+              return { fullArtworksById: updated }
+            })
+          }
+        })
+    }, millis)
   }
 
   render () {
     const { id, artist_id: artistId, partner_id: partnerId, name, image_url: imageUrl, published, genomed, deleted } = this.props.artwork
+    const moreInfo = this.state.fullArtworksById[id]
     return (
       <Overlay onClick={this.dismiss}>
         <div className={this.props.className} ref={(el) => { this.modal = el }} onClickCapture={e => e.stopPropagation()}>
