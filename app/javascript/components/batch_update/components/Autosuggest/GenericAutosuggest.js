@@ -56,6 +56,7 @@ export default class GenericAutosuggest extends React.Component {
           renderSuggestion={this.props.renderSuggestion}
           inputProps={inputElementProps}
           onSuggestionSelected={this.onSuggestionSelected}
+          shouldRenderSuggestions={this.props.shouldRenderSuggestions}
         />
       </div>
     )
@@ -68,5 +69,6 @@ GenericAutosuggest.propTypes = {
   fetchSuggestions: PropTypes.func.isRequired, // searchTerm => listOfMatchingSuggestionObjects
   getSuggestionValue: PropTypes.func.isRequired, // suggestionObject => displayName
   renderSuggestion: PropTypes.func.isRequired, // suggestionObject => stringOrMarkupForSuggestionList
-  selectSuggestion: PropTypes.func.isRequired // suggestionObject => { handlerFunction(suggestionObject) }
+  selectSuggestion: PropTypes.func.isRequired, // suggestionObject => { handlerFunction(suggestionObject) }
+  shouldRenderSuggestions: PropTypes.func
 }

@@ -19,7 +19,7 @@ const getSuggestions = value => {
 
   const results =
     inputLength === 0
-      ? []
+      ? attributionClasses
       : attributionClasses.filter(
           attr => attr.name.toLowerCase().includes(inputValue)
         )
@@ -37,6 +37,7 @@ function AttributionClassAutosuggest(props) {
       selectSuggestion={attributionClass => {
         props.updateState('attributionClass', attributionClass)
       }}
+      shouldRenderSuggestions={() => true}
     />
   )
 }
