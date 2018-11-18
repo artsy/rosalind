@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import { mount } from 'enzyme'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
+import { SitesProvider } from '../SitesContext'
 
 let artwork
 
@@ -48,4 +49,25 @@ it('fetches more data after a delay', () => {
   expect(window.fetch).not.toHaveBeenCalled()
   jest.runAllTimers()
   expect(window.fetch).toHaveBeenCalled()
+})
+
+it('uses Context to render links to external sites', () => {
+  const mockSites = {
+    artsy: 'http://artsy.mock',
+    volt: 'http://cms.mock',
+    helix: 'http://helix.mock'
+  }
+
+  const wrapper = mount(
+    <SitesProvider sites={mockSites}>
+      <ArtworkPreviewModal artwork={artwork} />
+    </SitesProvider>
+  )
+
+  const externalLinks = wrapper.find('ExternalLinks')
+  expect(externalLinks.find('a')).toHaveLength(4)
+  expect(externalLinks.html()).toMatch('http://artsy.mock/artwork/')
+  expect(externalLinks.html()).toMatch('http://cms.mock/artworks/')
+  expect(externalLinks.html()).toMatch('http://helix.mock/genome/artworks')
+  expect(externalLinks.html()).toMatch('http://helix.mock/genome/artist')
 })

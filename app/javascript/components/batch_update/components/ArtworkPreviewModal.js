@@ -5,6 +5,7 @@ import missingImage from './missing_image.png'
 import { ESC, LEFT, RIGHT } from 'lib/keycodes'
 import Overlay from './Overlay'
 import { fetchArtwork } from 'lib/rosalind-api'
+import { SitesConsumer } from '../SitesContext'
 
 class ArtworkPreviewModal extends React.Component {
   constructor (props) {
@@ -84,15 +85,7 @@ class ArtworkPreviewModal extends React.Component {
           </div>
           <div className='details'>
             <p className='name'>{name}</p>
-            <p className='links'>
-              View artwork in:
-              <a target='_blank' href={`https://helix.artsy.net/genome/artworks?artwork_ids=${id}`}>Helix</a>|
-              <a target='_blank' href={`https://cms.artsy.net/artworks/${id}/edit?current_partner_id=${partnerId}`}>CMS</a>|
-              <a target='_blank' href={`https://www.artsy.net/artwork/${id}`}>Artsy.net</a>
-              <br />
-              View artist in:
-              <a target='_blank' href={`https://helix.artsy.net/genome/artist?search[genome_artist_id]=${artistId}`}>Helix</a>
-            </p>
+            <ExternalLinks id={id} artistId={artistId} partnerId={partnerId} />
             <p className='status'>
               Deleted: {deleted.toString()} <br />
               Published: {published.toString()} <br />
@@ -123,6 +116,26 @@ ArtworkPreviewModal.propTypes = {
   onPreviewPrevious: PropTypes.func,
   onPreviewNext: PropTypes.func
 }
+
+const ExternalLinks = ({id, artistId, partnerId}) => (
+  <SitesConsumer>
+    {
+      sites => {
+        return (
+          <p className='links'>
+            View artwork in:
+            <a target='_blank' href={`${sites.helix}/genome/artworks?artwork_ids=${id}`}>Helix</a> |
+            <a target='_blank' href={`${sites.volt}/artworks/${id}/edit?current_partner_id=${partnerId}`}>CMS</a> |
+            <a target='_blank' href={`${sites.artsy}/artwork/${id}`}>Artsy.net</a>
+            <br />
+            View artist in:
+            <a target='_blank' href={`${sites.helix}/genome/artist?search[genome_artist_id]=${artistId}`}>Helix</a>
+          </p>
+        )
+      }
+    }
+  </SitesConsumer>
+)
 
 /* default styled component */
 
