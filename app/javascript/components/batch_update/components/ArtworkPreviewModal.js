@@ -60,11 +60,12 @@ class ArtworkPreviewModal extends React.Component {
   fetchMoreInfoAfterDelay (millis = 500) {
     this._moreInfoTimer = setTimeout(() => {
       fetchArtwork(this.props.artwork.id)
-        .then(fullArtwork => {
-          console.log('got', fullArtwork)
-          if (fullArtwork._id) {
+        .then(response => {
+          if (response.error) {
+            console.error(this.props.artwork.id, response.error)
+          } else {
             this.setState((previous) => {
-              const updated = Object.assign(previous.fullArtworksById, { [fullArtwork._id]: fullArtwork })
+              const updated = Object.assign(previous.fullArtworksById, { [response._id]: response })
               return { fullArtworksById: updated }
             })
           }
