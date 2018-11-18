@@ -15,6 +15,7 @@ import FilterOptions from './FilterOptions'
 import Button from '@artsy/reaction/dist/Components/Buttons/Default'
 import InvertedButton from '@artsy/reaction/dist/Components/Buttons/Inverted'
 import { Link } from './Links'
+import { SitesConsumer } from '../SitesContext'
 
 const fullWidth = `
   margin: 0;
@@ -51,9 +52,7 @@ class SearchForm extends React.Component {
           <FullWidthInvertedButton onClick={onOpenBatchUpdate}>
             Edit Artworks
           </FullWidthInvertedButton>
-          <HelixLink target='_blank' href={selectedArtworkIds.length > 0 ? `https://helix.artsy.net/genome/artworks?artwork_ids=${selectedArtworkIds.join(',')}` : null}>
-            Open selected in Helix
-          </HelixLink>
+          <HelixLink selectedArtworkIds={selectedArtworkIds} />
         </React.Fragment>
 
       )
@@ -137,7 +136,24 @@ class SearchForm extends React.Component {
   }
 }
 
-const HelixLink = styled(Link)`
+const HelixLink = ({selectedArtworkIds}) => {
+  return (
+    <SitesConsumer>
+      {
+        sites => {
+          const href = `${sites.helix}/genome/artworks?artwork_ids=${selectedArtworkIds.join(',')}`
+          return (
+            <_Link target='_blank' href={href}>
+              Open selected works in Helix
+            </_Link>
+          )
+        }
+      }
+    </SitesConsumer>
+  )
+}
+
+const _Link = styled(Link)`
   display: block;
   margin-top: 1em;
 `

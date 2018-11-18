@@ -1,0 +1,8 @@
+development: &default
+  artsy: <%= ENV['artsy_url'] || 'https://staging.artsy.net' %>
+  volt: <%= ENV['volt_url'] || 'https://cms-staging.artsy.net' %>
+  helix: <%= ENV['helix_url'] || 'https://helix-staging.artsy.net' %>
+test:
+  <<: *default
+production:
+  <<: *default

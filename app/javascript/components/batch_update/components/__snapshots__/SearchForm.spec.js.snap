@@ -1236,10 +1236,10 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   </button>
   <a
     className="c7 c8"
-    href={null}
+    href="http://helix/genome/artworks?artwork_ids="
     target="_blank"
   >
-    Open selected in Helix
+    Open selected works in Helix
   </a>
 </div>
 `;
