@@ -28,3 +28,16 @@
   background: purple;
   color: white;
 }
+
+
+.GenericAutosuggest div.react-autosuggest__suggestions-container {
+  position: relative;
+}
+
+.GenericAutosuggest ul.react-autosuggest__suggestions-list {
+  position: absolute;
+  border: solid 1px #eee;
+  border-top: none;
+  width: 100%;
+  z-index: 1;
+}

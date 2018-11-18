@@ -54,6 +54,38 @@ describe('state mutations', () => {
       })
     })
 
+    test('artists can be added and removed', () => {
+      const artist1 = { id: 'abc123', name: 'Alice', slug: 'alice' }
+      const artist2 = { id: 'def456', name: 'Bob', slug: 'bob' }
+
+      app.onAddArtist(artist1)
+      app.onAddArtist(artist2)
+      expect(app.state).toMatchObject({
+        artists: [ artist1, artist2 ]
+      })
+
+      app.onRemoveArtist('abc123')
+      expect(app.state).toMatchObject({
+        artists: [ artist2 ]
+      })
+    })
+
+    test('keywords can be added and removed', () => {
+      const keyword1 = "foo"
+      const keyword2 = "bar"
+
+      app.onAddKeyword(keyword1)
+      app.onAddKeyword(keyword2)
+      expect(app.state).toMatchObject({
+        keywords: [ keyword1, keyword2 ]
+      })
+
+      app.onRemoveKeyword('foo')
+      expect(app.state).toMatchObject({
+        keywords: [ keyword2 ]
+      })
+    })
+
     test('arbitrary state keys can be set and cleared', () => {
       app.updateStateFor('foo', 'bar')
       expect(app.state).toMatchObject({

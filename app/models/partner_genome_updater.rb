@@ -10,6 +10,7 @@ class PartnerGenomeUpdater
 
   def update
     return unless current_genes
+
     updated_genes = current_genes.except(*genes_to_remove)
     update_artwork_genes(updated_genes) if updated_genes != current_genes
   end
@@ -30,6 +31,7 @@ class PartnerGenomeUpdater
 
   def current_genes
     return nil unless partner_id
+
     @current_genes ||= PartnerGenome.genes partner_id, @artwork_id
   end
 

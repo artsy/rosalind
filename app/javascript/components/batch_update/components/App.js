@@ -11,6 +11,7 @@ import FullScreenModal from './FullScreenModal'
 import { Notices, Notice } from './Notices'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
+const findById = (items, item) => items.find(i => i.id === item.id)
 
 const commonGenesToIgnore = [
   'Art',
@@ -21,7 +22,9 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      artists: [],
       artworks: [],
+      attributionClass: null,
       createdAfterDate: null,
       createdBeforeDate: null,
       fair: null,
@@ -29,12 +32,13 @@ class App extends React.Component {
       genomedFilter: 'SHOW_ALL',
       isLoading: false,
       isSpecifyingBatchUpdate: false,
+      keywords: [],
+      notices: [],
       partner: null,
       previewedArtwork: null,
       publishedFilter: 'SHOW_ALL',
       selectedArtworkIds: [],
       size: 100,
-      notices: [],
       tags: [],
       totalHits: null
     }
@@ -44,6 +48,10 @@ class App extends React.Component {
     this.onAddGene = this.onAddGene.bind(this)
     this.onRemoveTag = this.onRemoveTag.bind(this)
     this.onAddTag = this.onAddTag.bind(this)
+    this.onRemoveArtist = this.onRemoveArtist.bind(this)
+    this.onAddArtist = this.onAddArtist.bind(this)
+    this.onRemoveKeyword = this.onRemoveKeyword.bind(this)
+    this.onAddKeyword = this.onAddKeyword.bind(this)
 
     this.updateStateFor = this.updateStateFor.bind(this)
     this.clearStateFor = this.clearStateFor.bind(this)
@@ -93,11 +101,14 @@ class App extends React.Component {
 
   hasSearchCriteriaChanged (prevState) {
     return (
+      (this.state.artists !== prevState.artists) ||
+      (this.state.attributionClass !== prevState.attributionClass) ||
       (this.state.createdAfterDate !== prevState.createdAfterDate) ||
       (this.state.createdBeforeDate !== prevState.createdBeforeDate) ||
       (this.state.fair !== prevState.fair) ||
       (this.state.genes !== prevState.genes) ||
       (this.state.genomedFilter !== prevState.genomedFilter) ||
+      (this.state.keywords !== prevState.keywords) ||
       (this.state.partner !== prevState.partner) ||
       (this.state.publishedFilter !== prevState.publishedFilter) ||
       (this.state.tags !== prevState.tags)
@@ -106,8 +117,11 @@ class App extends React.Component {
 
   canSearch () {
     return (
+      (this.state.artists.length !== 0) ||
+      (this.state.attributionClass !== null) ||
       (this.state.fair !== null) ||
       (this.state.genes.length !== 0) ||
+      (this.state.keywords.length !== 0) ||
       (this.state.partner !== null) ||
       (this.state.tags.length !== 0)
     )
@@ -115,11 +129,14 @@ class App extends React.Component {
 
   fetchArtworks () {
     const {
+      artists,
+      attributionClass,
       createdAfterDate,
       createdBeforeDate,
       fair,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       size,
@@ -134,11 +151,14 @@ class App extends React.Component {
       })
     } else {
       const query = buildElasticsearchQuery({
+        artists,
+        attributionClass,
         createdAfterDate,
         createdBeforeDate,
         fair,
         genes,
         genomedFilter,
+        keywords,
         partner,
         publishedFilter,
         size,
@@ -161,11 +181,14 @@ class App extends React.Component {
 
   fetchMoreArtworks () {
     const {
+      artists,
+      attributionClass,
       createdAfterDate,
       createdBeforeDate,
       fair,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       tags
@@ -176,12 +199,15 @@ class App extends React.Component {
     const from = artworks.length
 
     const query = buildElasticsearchQuery({
+      artists,
+      attributionClass,
       createdAfterDate,
       createdBeforeDate,
       fair,
       from,
       genes,
       genomedFilter,
+      keywords,
       partner,
       publishedFilter,
       size,
@@ -230,6 +256,34 @@ class App extends React.Component {
     const { tags } = this.state
     findByName(tags, tag) || this.setState({
       tags: tags.concat(tag)
+    })
+  }
+
+  onRemoveArtist (artistId) {
+    const { artists } = this.state
+    this.setState({
+      artists: artists.filter(a => a.id !== artistId)
+    })
+  }
+
+  onAddArtist (artist) {
+    const { artists } = this.state
+    findById(artists, artist) || this.setState({
+      artists: artists.concat(artist)
+    })
+  }
+
+  onRemoveKeyword (keyword) {
+    const { keywords } = this.state
+    this.setState({
+      keywords: keywords.filter(k => k !== keyword)
+    })
+  }
+
+  onAddKeyword (keyword) {
+    const { keywords } = this.state
+    keywords.includes(keyword) || this.setState({
+      keywords: [...keywords, keyword]
     })
   }
 
@@ -323,7 +377,9 @@ class App extends React.Component {
 
   render () {
     const {
+      artists,
       artworks,
+      attributionClass,
       createdAfterDate,
       createdBeforeDate,
       fair,
@@ -331,6 +387,7 @@ class App extends React.Component {
       genomedFilter,
       isLoading,
       isSpecifyingBatchUpdate,
+      keywords,
       partner,
       previewedArtwork,
       publishedFilter,
@@ -343,19 +400,27 @@ class App extends React.Component {
       <Wrapper>
         <Sidebar>
           <SearchForm
+            artists={artists}
+            attributionClass={attributionClass}
             clearState={this.clearStateFor}
             createdAfterDate={createdAfterDate}
             createdBeforeDate={createdBeforeDate}
             fair={fair}
             genes={genes}
             genomedFilter={genomedFilter}
+            keywords={keywords}
+            onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
+            onAddKeyword={this.onAddKeyword}
             onAddTag={this.onAddTag}
             onOpenBatchUpdate={this.onOpenBatchUpdate}
+            onRemoveArtist={this.onRemoveArtist}
             onRemoveGene={this.onRemoveGene}
+            onRemoveKeyword={this.onRemoveKeyword}
             onRemoveTag={this.onRemoveTag}
             partner={partner}
             publishedFilter={publishedFilter}
+            selectedArtworkIds={selectedArtworkIds}
             selectedArtworksCount={selectedArtworkIds.length}
             tags={tags}
             updateState={this.updateStateFor}

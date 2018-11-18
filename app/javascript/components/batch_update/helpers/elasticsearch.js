@@ -2,12 +2,15 @@ const defaultPageSize = 100
 
 export function buildElasticsearchQuery (args) {
   const {
+    artists,
+    attributionClass,
     createdAfterDate,
     createdBeforeDate,
     fair,
     from,
     genes,
     genomedFilter,
+    keywords,
     partner,
     publishedFilter,
     size,
@@ -16,21 +19,46 @@ export function buildElasticsearchQuery (args) {
 
   const geneMatches = genes.map(g => { return { 'match': { 'genes': g.name } } })
   const tagMatches = tags.map(t => { return { 'match': { 'tags': t.name } } })
+  const artistMatches = artists.map(a => { return { 'match': { 'artist_id': a.id } } })
   const filterMatches = buildFilterMatches({ publishedFilter, genomedFilter })
   const partnerMatch = partner ? { 'match': { 'partner_id': partner.id } } : null
   const fairMatch = fair ? { 'match': { 'fair_ids': fair.id } } : null
+  const attributionClassMatch = attributionClass ? { 'match': { 'attribution': attributionClass.value } } : null
   const createdDateRange = buildCreatedDateRange({createdAfterDate, createdBeforeDate})
+
+  // Modeled after Gravity's keyword query in
+  // https://github.com/artsy/gravity/blob/56d10ed6084065ab8ed4838a72203f8d45368fd9/app/models/search/queries/artwork_filtered_query.rb#L82-L86
+  const keywordMatches = keywords.map(k => {
+    return {
+      'multi_match': {
+        "type": "most_fields",
+        "fields": [
+          "name.*",
+          "genes.*^4",
+          "tags.*^4",
+          "auto_tags.*^2",
+          "partner_name.*^2",
+          "artist_name.*^2"
+        ],
+        "query": k,
+        "operator": "and"
+      }
+    }
+  })
 
   return {
     'query': {
       'bool': {
         'must': [
           { 'match': { 'deleted': false } },
+          ...keywordMatches,
           ...geneMatches,
           ...tagMatches,
+          ...artistMatches,
           ...filterMatches,
           partnerMatch,
           fairMatch,
+          attributionClassMatch,
           createdDateRange
         ].filter(m => m !== null)
       }

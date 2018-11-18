@@ -216,6 +216,7 @@ exports[`renders a modal when previewing 1`] = `
   box-sizing: border-box;
   padding: 2em;
   max-height: 90%;
+  width: 600px;
   z-index: 2;
   background: white;
   box-shadow: 0 0 20px hsla(0,0%,0%,0.5);
@@ -250,7 +251,9 @@ exports[`renders a modal when previewing 1`] = `
   font-weight: bold;
 }
 
-.c2 .status {
+.c2 .status,
+.c2 .more,
+.c2 .links {
   font-size: 0.9em;
   line-height: 125%;
   margin: 1em 0;
@@ -347,6 +350,39 @@ exports[`renders a modal when previewing 1`] = `
           Soup Can
         </p>
         <p
+          className="links"
+        >
+          View artwork in:
+          <a
+            href="http://helix/genome/artworks?artwork_ids=can"
+            target="_blank"
+          >
+            Helix
+          </a>
+           |
+          <a
+            href="http://cms/artworks/can/edit?current_partner_id=undefined"
+            target="_blank"
+          >
+            CMS
+          </a>
+           |
+          <a
+            href="http://artsy/artwork/can"
+            target="_blank"
+          >
+            Artsy.net
+          </a>
+          <br />
+          View artist in:
+          <a
+            href="http://helix/genome/artist?search[genome_artist_id]=undefined"
+            target="_blank"
+          >
+            Helix
+          </a>
+        </p>
+        <p
           className="status"
         >
           Deleted: 
@@ -360,42 +396,7 @@ exports[`renders a modal when previewing 1`] = `
           Genomed: 
           true
         </p>
-        <p
-          className="links"
-        >
-          View artwork in:
-          <a
-            href="https://helix.artsy.net/genome/artworks?artwork_ids=can"
-            target="_blank"
-          >
-            Helix
-          </a>
-          |
-          <a
-            href="https://cms.artsy.net/artworks/can/edit?current_partner_id=undefined"
-            target="_blank"
-          >
-            CMS
-          </a>
-          |
-          <a
-            href="https://www.artsy.net/artwork/can"
-            target="_blank"
-          >
-            Artsy.net
-          </a>
-        </p>
-        <p
-          className="links"
-        >
-          View artist in:
-          <a
-            href="https://helix.artsy.net/genome/artist?search[genome_artist_id]=undefined"
-            target="_blank"
-          >
-            Helix
-          </a>
-        </p>
+        …
       </div>
     </div>
   </div>

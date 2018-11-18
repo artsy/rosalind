@@ -6,31 +6,42 @@ import {
   SelectedCreatedAfterDate,
   SelectedCreatedBeforeDate,
   SelectedGene,
+  SelectedKeyword,
   SelectedTag,
+  SelectedArtist,
   SelectedPartner,
-  SelectedFair
+  SelectedFair,
+  SelectedAttributionClass
 } from './Selected'
 
 function CurrentCriteria (props) {
   const {
+    artists,
+    attributionClass,
     className,
     clearState,
     createdAfterDate,
     createdBeforeDate,
     fair,
     genes,
+    keywords,
+    onRemoveKeyword,
     onRemoveGene,
     onRemoveTag,
+    onRemoveArtist,
     partner,
     tags
   } = props
 
   return (
     <div className={className}>
+      {keywords.length > 0 && <CurrentKeywords keywords={keywords} onRemoveKeyword={onRemoveKeyword} />}
       {genes.length > 0 && <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />}
       {tags.length > 0 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
+      {artists.length > 0 && <CurrentArtists artists={artists} onRemoveArtist={onRemoveArtist} />}
       {partner && <SelectedPartner name={partner.name} clearState={clearState} />}
       {fair && <SelectedFair name={fair.name} clearState={clearState} />}
+      {attributionClass && <SelectedAttributionClass name={attributionClass.name} clearState={clearState} />}
       {createdAfterDate && <SelectedCreatedAfterDate name={createdAfterDate} clearState={clearState} />}
       {createdBeforeDate && <SelectedCreatedBeforeDate name={createdBeforeDate} clearState={clearState} />}
     </div>
@@ -38,6 +49,7 @@ function CurrentCriteria (props) {
 }
 
 CurrentCriteria.propTypes = {
+  artists: PropTypes.arrayOf(PropTypes.object),
   clearState: PropTypes.func,
   createdAfterDate: PropTypes.string,
   createdBeforeDate: PropTypes.string,
@@ -46,7 +58,7 @@ CurrentCriteria.propTypes = {
   onRemoveGene: PropTypes.func.isRequired,
   onRemoveTag: PropTypes.func.isRequired,
   partner: PropTypes.object,
-  tags: PropTypes.arrayOf(PropTypes.object)
+  tags: PropTypes.arrayOf(PropTypes.object),
 }
 
 function CurrentGenes (props) {
@@ -59,12 +71,32 @@ function CurrentGenes (props) {
   )
 }
 
+function CurrentKeywords (props) {
+  const { keywords, onRemoveKeyword } = props
+  return (
+    <div>
+      <h2>Keywords</h2>
+      {keywords.map(k => <SelectedKeyword key={k} text={k} onRemove={onRemoveKeyword} />)}
+    </div>
+  )
+}
+
 function CurrentTags (props) {
   const { tags, onRemoveTag } = props
   return (
     <div>
       <h2>Tags</h2>
       {tags.map(t => <SelectedTag key={t.id} name={t.name} onRemove={onRemoveTag} />)}
+    </div>
+  )
+}
+
+function CurrentArtists (props) {
+  const { artists, onRemoveArtist } = props
+  return (
+    <div>
+      <h2>Artists</h2>
+      {artists.map(a => <SelectedArtist key={a.id} id={a.id} name={a.name} onRemove={onRemoveArtist} />)}
     </div>
   )
 }

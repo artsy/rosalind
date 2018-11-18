@@ -9,20 +9,28 @@ let props
 
 beforeEach(() => {
   props = {
+    artists: [],
+    attributionClass: null,
     artworksCount: 0,
     createdAfterDate: null,
     createdBeforeDate: null,
     fair: null,
     genes: [],
     genomedFilter: 'SHOW_ALL',
+    keywords: [],
+    onAddKeyword: jest.fn(),
     onAddGene: jest.fn(),
     onAddTag: jest.fn(),
+    onAddArtist: jest.fn(),
     onClearFair: jest.fn(),
     onClearPartner: jest.fn(),
+    onRemoveKeyword: jest.fn(),
     onRemoveGene: jest.fn(),
     onRemoveTag: jest.fn(),
+    onRemoveArtist: jest.fn(),
     partner: null,
     publishedFilter: 'SHOW_ALL',
+    selectedArtworkIds: [],
     selectedArtworksCount: 0,
     tags: [],
     updateStateFor: jest.fn()
@@ -46,6 +54,14 @@ it('does not render partner autosuggest if partner is already selected', () => {
 it('does not render fair autosuggest if fair is already selected', () => {
   const fair = { id: 'nice-fair', name: 'Nice Fair' }
   Object.assign(props, { fair })
+  const rendered = renderer.create(<SearchForm {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('does not render attribution class autosuggest if it is already selected', () => {
+  const attributionClass = { id: 'ephemera', name: 'Ephemera' }
+  Object.assign(props, { attributionClass })
   const rendered = renderer.create(<SearchForm {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
@@ -95,5 +111,21 @@ describe('"edit artworks" button', () => {
     const rendered = renderer.create(<SearchForm {...props} />)
     const tree = rendered.toJSON()
     expect(tree).toMatchSnapshot()
+  })
+})
+
+describe('Link to open artworks in Helix', () => {
+  it('does NOT render if there are NO selected artworks', () => {
+    Object.assign(props, { artworksCount: 100, selectedArtworksCount: 0, selectedArtworkIds: [] })
+    const wrapper = mount(<SearchForm {...props} />)
+    expect(wrapper.text()).not.toMatch(/open.*in Helix/i)
+    expect(wrapper.find('a[href*="helix"]')).toHaveLength(0)
+  })
+
+  it('renders if there are selected artworks', () => {
+    Object.assign(props, { artworksCount: 100, selectedArtworksCount: 1, selectedArtworkIds: ['foo'] })
+    const wrapper = mount(<SearchForm {...props} />)
+    expect(wrapper.text()).toMatch(/open.*in Helix/i)
+    expect(wrapper.find('a[href*="helix"]')).toHaveLength(1)
   })
 })

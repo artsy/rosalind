@@ -9,10 +9,12 @@ let props
 
 beforeEach(() => {
   props = {
+    artists: [],
     createdAfterDate: null,
     createdBeforeDate: null,
     fair: null,
     genes: [],
+    keywords: [],
     onClearFair: jest.fn(),
     onClearPartner: jest.fn(),
     onRemoveGene: jest.fn(),
@@ -23,6 +25,16 @@ beforeEach(() => {
 })
 
 it('renders nothing if there are no selected criteria', () => {
+  const rendered = renderer.create(<CurrentCriteria {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders the selected keywords', () => {
+  props.keywords = [
+    "soup",
+    "can"
+  ]
   const rendered = renderer.create(<CurrentCriteria {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
@@ -48,6 +60,16 @@ it('renders the selected tags', () => {
   expect(tree).toMatchSnapshot()
 })
 
+it('renders the selected artists', () => {
+  props.artists = [
+    {id: 'abc123', name: 'Alice', slug: 'alice'},
+    {id: 'def456', name: 'Bob', slug: 'bob'}
+  ]
+  const rendered = renderer.create(<CurrentCriteria {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 it('renders the selected partner', () => {
   props.partner = {id: 'foo', name: 'Gallery Foo'}
   const rendered = renderer.create(<CurrentCriteria {...props} />)
@@ -57,6 +79,13 @@ it('renders the selected partner', () => {
 
 it('renders the selected fair', () => {
   props.fair = {id: 'foo', name: 'FooFair'}
+  const rendered = renderer.create(<CurrentCriteria {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders the selected attribution class', () => {
+  props.attributionClass = {id: 'foo', name: 'Foo Edition'}
   const rendered = renderer.create(<CurrentCriteria {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()

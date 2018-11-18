@@ -28,4 +28,10 @@ class MatchController < ApplicationController
     fairs = Fair.match term: term, size: 5
     render json: fairs
   end
+
+  def artists
+    term = params.require(:term)
+    artists = Artist.match term: term, size: 5
+    render json: artists
+  end
 end
