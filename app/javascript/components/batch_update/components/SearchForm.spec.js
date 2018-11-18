@@ -113,3 +113,19 @@ describe('"edit artworks" button', () => {
     expect(tree).toMatchSnapshot()
   })
 })
+
+describe('Link to open artworks in Helix', () => {
+  it('does NOT render if there are NO selected artworks', () => {
+    Object.assign(props, { artworksCount: 100, selectedArtworksCount: 0, selectedArtworkIds: [] })
+    const wrapper = mount(<SearchForm {...props} />)
+    expect(wrapper.text()).not.toMatch(/open.*in Helix/i)
+    expect(wrapper.find('a[href*="helix"]')).toHaveLength(0)
+  })
+
+  it('renders if there are selected artworks', () => {
+    Object.assign(props, { artworksCount: 100, selectedArtworksCount: 1, selectedArtworkIds: ['foo'] })
+    const wrapper = mount(<SearchForm {...props} />)
+    expect(wrapper.text()).toMatch(/open.*in Helix/i)
+    expect(wrapper.find('a[href*="helix"]')).toHaveLength(1)
+  })
+})
