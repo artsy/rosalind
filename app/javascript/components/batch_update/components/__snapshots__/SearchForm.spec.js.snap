@@ -94,14 +94,16 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-gene-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-gene-autosuggest"
+        aria-controls="react-autowhatever-gene-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -109,13 +111,13 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a gene"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-gene-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -123,14 +125,16 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-tag-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-tag-autosuggest"
+        aria-controls="react-autowhatever-tag-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -138,13 +142,13 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a tag"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-tag-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -152,14 +156,16 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-artist-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-artist-autosuggest"
+        aria-controls="react-autowhatever-artist-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -167,13 +173,13 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add an artist"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-artist-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -181,14 +187,16 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-partner-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-partner-autosuggest"
+        aria-controls="react-autowhatever-partner-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -196,13 +204,13 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a partner"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-partner-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -210,14 +218,16 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-fair-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-fair-autosuggest"
+        aria-controls="react-autowhatever-fair-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -225,13 +235,13 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a fair"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-fair-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -239,14 +249,16 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-attribution-class-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        aria-controls="react-autowhatever-attribution-class-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -254,13 +266,13 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select an attribution class"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-attribution-class-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -450,10 +462,6 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   letter-spacing: 1px;
   font-size: 13px;
   line-height: 1.65em;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
   background: #e5e5e5;
   color: rgba(0,0,0,0.5);
   display: -webkit-inline-box;
@@ -513,14 +521,16 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-gene-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-gene-autosuggest"
+        aria-controls="react-autowhatever-gene-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -528,13 +538,13 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a gene"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-gene-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -542,14 +552,16 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-tag-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-tag-autosuggest"
+        aria-controls="react-autowhatever-tag-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -557,13 +569,13 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a tag"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-tag-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -571,14 +583,16 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-artist-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-artist-autosuggest"
+        aria-controls="react-autowhatever-artist-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -586,13 +600,13 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add an artist"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-artist-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -600,14 +614,16 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-partner-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-partner-autosuggest"
+        aria-controls="react-autowhatever-partner-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -615,13 +631,13 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a partner"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-partner-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -629,14 +645,16 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-fair-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-fair-autosuggest"
+        aria-controls="react-autowhatever-fair-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -644,13 +662,13 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a fair"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-fair-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -658,14 +676,16 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-attribution-class-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        aria-controls="react-autowhatever-attribution-class-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -673,13 +693,13 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select an attribution class"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-attribution-class-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -877,10 +897,6 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   letter-spacing: 1px;
   font-size: 13px;
   line-height: 1.65em;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
   background: #e5e5e5;
   color: black;
   display: -webkit-inline-box;
@@ -958,14 +974,16 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-gene-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-gene-autosuggest"
+        aria-controls="react-autowhatever-gene-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -973,13 +991,13 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a gene"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-gene-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -987,14 +1005,16 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-tag-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-tag-autosuggest"
+        aria-controls="react-autowhatever-tag-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1002,13 +1022,13 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a tag"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-tag-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1016,14 +1036,16 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-artist-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-artist-autosuggest"
+        aria-controls="react-autowhatever-artist-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1031,13 +1053,13 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add an artist"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-artist-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1045,14 +1067,16 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-partner-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-partner-autosuggest"
+        aria-controls="react-autowhatever-partner-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1060,13 +1084,13 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a partner"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-partner-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1074,14 +1098,16 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-fair-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-fair-autosuggest"
+        aria-controls="react-autowhatever-fair-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1089,13 +1115,13 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a fair"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-fair-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1103,14 +1129,16 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-attribution-class-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        aria-controls="react-autowhatever-attribution-class-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1118,13 +1146,13 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select an attribution class"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-attribution-class-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1380,14 +1408,16 @@ exports[`does not render attribution class autosuggest if it is already selected
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-gene-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-gene-autosuggest"
+        aria-controls="react-autowhatever-gene-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1395,13 +1425,13 @@ exports[`does not render attribution class autosuggest if it is already selected
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a gene"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-gene-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1409,14 +1439,16 @@ exports[`does not render attribution class autosuggest if it is already selected
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-tag-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-tag-autosuggest"
+        aria-controls="react-autowhatever-tag-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1424,13 +1456,13 @@ exports[`does not render attribution class autosuggest if it is already selected
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a tag"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-tag-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1438,14 +1470,16 @@ exports[`does not render attribution class autosuggest if it is already selected
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-artist-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-artist-autosuggest"
+        aria-controls="react-autowhatever-artist-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1453,13 +1487,13 @@ exports[`does not render attribution class autosuggest if it is already selected
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add an artist"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-artist-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1467,14 +1501,16 @@ exports[`does not render attribution class autosuggest if it is already selected
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-partner-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-partner-autosuggest"
+        aria-controls="react-autowhatever-partner-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1482,13 +1518,13 @@ exports[`does not render attribution class autosuggest if it is already selected
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a partner"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-partner-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1496,14 +1532,16 @@ exports[`does not render attribution class autosuggest if it is already selected
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-fair-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-fair-autosuggest"
+        aria-controls="react-autowhatever-fair-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1511,13 +1549,13 @@ exports[`does not render attribution class autosuggest if it is already selected
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a fair"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-fair-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1758,14 +1796,16 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-gene-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-gene-autosuggest"
+        aria-controls="react-autowhatever-gene-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1773,13 +1813,13 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a gene"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-gene-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1787,14 +1827,16 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-tag-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-tag-autosuggest"
+        aria-controls="react-autowhatever-tag-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1802,13 +1844,13 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a tag"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-tag-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1816,14 +1858,16 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-artist-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-artist-autosuggest"
+        aria-controls="react-autowhatever-artist-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1831,13 +1875,13 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add an artist"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-artist-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1845,14 +1889,16 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-partner-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-partner-autosuggest"
+        aria-controls="react-autowhatever-partner-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1860,13 +1906,13 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a partner"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-partner-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -1874,14 +1920,16 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-attribution-class-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        aria-controls="react-autowhatever-attribution-class-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -1889,13 +1937,13 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select an attribution class"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-attribution-class-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2136,14 +2184,16 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-gene-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-gene-autosuggest"
+        aria-controls="react-autowhatever-gene-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2151,13 +2201,13 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a gene"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-gene-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2165,14 +2215,16 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-tag-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-tag-autosuggest"
+        aria-controls="react-autowhatever-tag-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2180,13 +2232,13 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a tag"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-tag-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2194,14 +2246,16 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-artist-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-artist-autosuggest"
+        aria-controls="react-autowhatever-artist-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2209,13 +2263,13 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add an artist"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-artist-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2223,14 +2277,16 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-fair-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-fair-autosuggest"
+        aria-controls="react-autowhatever-fair-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2238,13 +2294,13 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a fair"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-fair-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2252,14 +2308,16 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-attribution-class-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        aria-controls="react-autowhatever-attribution-class-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2267,13 +2325,13 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select an attribution class"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-attribution-class-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2472,14 +2530,16 @@ exports[`renders correctly 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-gene-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-gene-autosuggest"
+        aria-controls="react-autowhatever-gene-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2487,13 +2547,13 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a gene"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-gene-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2501,14 +2561,16 @@ exports[`renders correctly 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-tag-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-tag-autosuggest"
+        aria-controls="react-autowhatever-tag-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2516,13 +2578,13 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add a tag"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-tag-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2530,14 +2592,16 @@ exports[`renders correctly 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-artist-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-artist-autosuggest"
+        aria-controls="react-autowhatever-artist-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2545,13 +2609,13 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Add an artist"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-artist-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2559,14 +2623,16 @@ exports[`renders correctly 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-partner-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-partner-autosuggest"
+        aria-controls="react-autowhatever-partner-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2574,13 +2640,13 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a partner"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-partner-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2588,14 +2654,16 @@ exports[`renders correctly 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-fair-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-fair-autosuggest"
+        aria-controls="react-autowhatever-fair-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2603,13 +2671,13 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select a fair"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-fair-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
@@ -2617,14 +2685,16 @@ exports[`renders correctly 1`] = `
     className="GenericAutosuggest"
   >
     <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-attribution-class-autosuggest"
       className="react-autosuggest__container"
+      role="combobox"
     >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-expanded={false}
-        aria-haspopup={false}
-        aria-owns="react-autowhatever-attribution-class-autosuggest"
+        aria-controls="react-autowhatever-attribution-class-autosuggest"
         autoComplete="off"
         className="react-autosuggest__input"
         onBlur={[Function]}
@@ -2632,13 +2702,13 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder="Select an attribution class"
-        role="combobox"
         type="text"
         value=""
       />
       <div
         className="react-autosuggest__suggestions-container"
         id="react-autowhatever-attribution-class-autosuggest"
+        role="listbox"
       />
     </div>
   </div>
