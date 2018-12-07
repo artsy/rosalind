@@ -120,10 +120,6 @@ exports[`renders correctly 1`] = `
   letter-spacing: 1px;
   font-size: 13px;
   line-height: 1.65em;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
   background: #e5e5e5;
   color: rgba(0,0,0,0.5);
   display: -webkit-inline-box;

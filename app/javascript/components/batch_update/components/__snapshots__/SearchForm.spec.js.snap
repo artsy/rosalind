@@ -450,10 +450,6 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   letter-spacing: 1px;
   font-size: 13px;
   line-height: 1.65em;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
   background: #e5e5e5;
   color: rgba(0,0,0,0.5);
   display: -webkit-inline-box;
@@ -877,10 +873,6 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   letter-spacing: 1px;
   font-size: 13px;
   line-height: 1.65em;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
   background: #e5e5e5;
   color: black;
   display: -webkit-inline-box;
