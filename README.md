@@ -10,7 +10,7 @@ You can read more about [the motivation for the app][motivation].
 
 ## Meta
 
-* __State:__ development
+* __State:__ production
 * __Staging:__ [https://rosalind-staging.artsy.net/][staging] | [Heroku][heroku_staging]
 * __Production:__ [https://rosalind.artsy.net/][production] | [Heroku][heroku_production]
 * __GitHub:__ [https://github.com/artsy/rosalind][github]
