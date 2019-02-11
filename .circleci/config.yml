@@ -27,6 +27,14 @@ jobs:
 
       - run: bundle exec rubocop --rails
       - run: yarn run lint
+
+      - run:
+          name: Browser testing version info
+          command: |
+            google-chrome --version
+            bundle exec chromedriver-helper --version
+            bundle show selenium-webdriver
+
       - run: bundle exec rspec
       - run: yarn run test -- --runInBand
 
