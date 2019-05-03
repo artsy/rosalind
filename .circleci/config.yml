@@ -31,10 +31,7 @@ jobs:
       - run:
           name: Browser testing version info
           command: |
-            bundle exec chromedriver-update 2.38
             google-chrome --version
-            bundle exec chromedriver-helper --version
-            bundle show selenium-webdriver
 
       - run: bundle exec rspec
       - run: yarn run test -- --runInBand
