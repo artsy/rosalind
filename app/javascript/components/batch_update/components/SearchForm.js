@@ -12,22 +12,9 @@ import {
   TagAutosuggest
 } from './Autosuggest'
 import FilterOptions from './FilterOptions'
-import Button from '@artsy/reaction/dist/Components/Buttons/Default'
-import InvertedButton from '@artsy/reaction/dist/Components/Buttons/Inverted'
+import { Button } from '@artsy/palette'
 import { Link } from './Links'
 import { SitesConsumer } from '../SitesContext'
-
-const fullWidth = `
-  margin: 0;
-  width: 100%;
-`
-const FullWidthButton = styled(Button)`
-  ${fullWidth}
-`
-
-const FullWidthInvertedButton = styled(InvertedButton)`
-  ${fullWidth}
-`
 
 class SearchForm extends React.Component {
   constructor (props) {
@@ -45,16 +32,19 @@ class SearchForm extends React.Component {
     if (artworksCount === 0) {
       return null
     } else if (selectedArtworksCount === 0) {
-      return <FullWidthButton disabled>Edit Artworks</FullWidthButton>
+      return (
+        <Button width={1} disabled>
+          Edit Artworks
+        </Button>
+      )
     } else {
       return (
         <React.Fragment>
-          <FullWidthInvertedButton onClick={onOpenBatchUpdate}>
+          <Button width={1} onClick={onOpenBatchUpdate}>
             Edit Artworks
-          </FullWidthInvertedButton>
+          </Button>
           <HelixLink selectedArtworkIds={selectedArtworkIds} />
         </React.Fragment>
-
       )
     }
   }

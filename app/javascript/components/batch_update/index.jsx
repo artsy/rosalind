@@ -1,10 +1,13 @@
 import React from 'react'
 import { SitesProvider } from './SitesContext'
+import { Theme } from '@artsy/palette'
 import App from './components/App'
 
-const AppWithContext = (props) => (
+const AppWithContext = props => (
   <SitesProvider sites={props.sites}>
-    <App />
+    <Theme>
+      <App />
+    </Theme>
   </SitesProvider>
 )
 
