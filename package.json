@@ -40,8 +40,6 @@
     "react-autosuggest": "^9.3.2",
     "react-dom": "^16.3.2",
     "react-test-renderer": "^16.2",
-    "standard": "^11",
-    "standard-loader": "^6.0.1",
     "stats-webpack-plugin": "^0.6",
     "style-loader": "^0.21",
     "styled-components": "^3",
@@ -60,7 +58,6 @@
     "setupTestFrameworkScriptFile": "<rootDir>/app/javascript/test/setup.js"
   },
   "scripts": {
-    "lint": "standard $(find config webpack -name *.js)",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:verbose": "jest --verbose"
