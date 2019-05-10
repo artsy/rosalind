@@ -58,6 +58,7 @@
     "setupTestFrameworkScriptFile": "<rootDir>/app/javascript/test/setup.js"
   },
   "scripts": {
+    "lint": "eslint $(find config app/javascript -name *.js)",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:verbose": "jest --verbose"
