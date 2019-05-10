@@ -264,7 +264,8 @@ exports[`renders correctly 1`] = `
       <p>
         You will be changing the genome of 
         3
-         works
+         
+        works
       </p>
     </section>
     <div

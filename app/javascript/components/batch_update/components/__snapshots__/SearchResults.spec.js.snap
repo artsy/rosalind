@@ -359,14 +359,16 @@ exports[`renders a modal when previewing 1`] = `
           >
             Helix
           </a>
-           |
+           
+          |
           <a
             href="http://cms/artworks/can/edit?current_partner_id=undefined"
             target="_blank"
           >
             CMS
           </a>
-           |
+           
+          |
           <a
             href="http://artsy/artwork/can"
             target="_blank"
@@ -459,7 +461,7 @@ exports[`renders a spinner while fetching artworks 1`] = `
   top: 0;
   right: 0;
   height: calc(100vh - 50px);
-  background: hsla(0,0%,100%,0.90);
+  background: hsla(0,0%,100%,0.9);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

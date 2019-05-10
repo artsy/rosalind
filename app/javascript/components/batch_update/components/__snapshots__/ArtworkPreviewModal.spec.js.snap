@@ -112,14 +112,16 @@ exports[`renders correctly 1`] = `
         >
           Helix
         </a>
-         |
+         
+        |
         <a
           href="http://cms/artworks/can/edit?current_partner_id=undefined"
           target="_blank"
         >
           CMS
         </a>
-         |
+         
+        |
         <a
           href="http://artsy/artwork/can"
           target="_blank"
