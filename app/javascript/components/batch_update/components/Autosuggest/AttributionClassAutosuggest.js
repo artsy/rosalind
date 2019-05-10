@@ -10,7 +10,7 @@ const attributionClasses = [
   { name: 'Made-to-order', value: 'made-to-order' },
   { name: 'Non-editioned multiple', value: 'non-editioned multiple' },
   { name: 'Reproduction', value: 'reproduction' },
-  { name: 'Unique', value: 'unique' }
+  { name: 'Unique', value: 'unique' },
 ]
 
 const getSuggestions = value => {
@@ -20,8 +20,8 @@ const getSuggestions = value => {
   const results =
     inputLength === 0
       ? attributionClasses
-      : attributionClasses.filter(
-          attr => attr.name.toLowerCase().includes(inputValue)
+      : attributionClasses.filter(attr =>
+          attr.name.toLowerCase().includes(inputValue)
         )
   return Promise.resolve(results)
 }
@@ -44,11 +44,11 @@ function AttributionClassAutosuggest(props) {
 
 AttributionClassAutosuggest.propTypes = {
   updateState: PropTypes.func,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
 }
 
 AttributionClassAutosuggest.defaultProps = {
-  placeholder: 'Select an attribution class'
+  placeholder: 'Select an attribution class',
 }
 
 export { AttributionClassAutosuggest }

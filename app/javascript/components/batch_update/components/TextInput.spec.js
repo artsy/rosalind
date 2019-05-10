@@ -15,7 +15,7 @@ it('submits the text upon pressing Enter', () => {
   const wrapper = mount(<TextInput onEnter={mockOnEnter} />)
 
   wrapper.find('input').simulate('change', { target: { value: 'soup' } })
-  wrapper.find('input').simulate('keyup', { key: "Enter" })
+  wrapper.find('input').simulate('keyup', { key: 'Enter' })
 
   expect(mockOnEnter).toHaveBeenCalledTimes(1)
 })

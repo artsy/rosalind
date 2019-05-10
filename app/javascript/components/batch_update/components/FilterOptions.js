@@ -2,24 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import FilterOption from './FilterOption'
 
-function FilterOptions (props) {
-  const {
-    className,
-    publishedFilter,
-    genomedFilter,
-    updateState
-  } = props
+function FilterOptions(props) {
+  const { className, publishedFilter, genomedFilter, updateState } = props
 
   return (
     <div className={className}>
       <FilterOption
         current={publishedFilter}
-        name='published'
+        name="published"
         updateState={updateState}
       />
       <FilterOption
         current={genomedFilter}
-        name='genomed'
+        name="genomed"
         updateState={updateState}
       />
     </div>
@@ -52,7 +47,7 @@ const StyledFilterOptions = styled(FilterOptions)`
         color: #333;
         font-weight: bold;
         text-decoration: none;
-        cursor: default;;
+        cursor: default;
       }
     }
   }

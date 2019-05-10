@@ -4,25 +4,27 @@ import GenericAutosuggest from './GenericAutosuggest'
 import { matchFairs } from 'lib/rosalind-api'
 import { getSuggestionValue, renderSuggestion } from './helpers'
 
-function FairAutosuggest (props) {
+function FairAutosuggest(props) {
   return (
     <GenericAutosuggest
-      id='fair-autosuggest'
+      id="fair-autosuggest"
       placeholder={props.placeholder}
       fetchSuggestions={matchFairs}
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
-      selectSuggestion={fair => { props.updateState('fair', fair) }}
+      selectSuggestion={fair => {
+        props.updateState('fair', fair)
+      }}
     />
   )
 }
 
 FairAutosuggest.propTypes = {
-  updateState: PropTypes.func
+  updateState: PropTypes.func,
 }
 
 FairAutosuggest.defaultProps = {
-  placeholder: 'Select a fair'
+  placeholder: 'Select a fair',
 }
 
 export { FairAutosuggest }

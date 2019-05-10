@@ -30,7 +30,9 @@ describe('Button', () => {
   })
 
   it('renders a full width button', () => {
-    const rendered = renderer.create(<LinkButton fullWidth>Click me</LinkButton>)
+    const rendered = renderer.create(
+      <LinkButton fullWidth>Click me</LinkButton>
+    )
     const tree = rendered.toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -72,19 +74,25 @@ describe('LinkButton', () => {
   })
 
   it('renders a secondary link button', () => {
-    const rendered = renderer.create(<LinkButton secondary>Click me</LinkButton>)
+    const rendered = renderer.create(
+      <LinkButton secondary>Click me</LinkButton>
+    )
     const tree = rendered.toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('renders a full width link button', () => {
-    const rendered = renderer.create(<LinkButton fullWidth>Click me</LinkButton>)
+    const rendered = renderer.create(
+      <LinkButton fullWidth>Click me</LinkButton>
+    )
     const tree = rendered.toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('renders a full width link button', () => {
-    const rendered = renderer.create(<LinkButton fullWidth>Click me</LinkButton>)
+    const rendered = renderer.create(
+      <LinkButton fullWidth>Click me</LinkButton>
+    )
     const tree = rendered.toJSON()
     expect(tree).toMatchSnapshot()
   })

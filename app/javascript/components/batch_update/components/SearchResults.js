@@ -8,7 +8,7 @@ import { Button } from './Buttons'
 import { Link } from './Links'
 
 class SearchResults extends React.Component {
-  maybeRenderSpinner () {
+  maybeRenderSpinner() {
     const { isLoading } = this.props
     if (isLoading) {
       return <Spinner />
@@ -17,35 +17,51 @@ class SearchResults extends React.Component {
     }
   }
 
-  maybeRenderModal () {
-    const { previewedArtwork, onPreviewArtwork, onPreviewPrevious, onPreviewNext } = this.props
+  maybeRenderModal() {
+    const {
+      previewedArtwork,
+      onPreviewArtwork,
+      onPreviewPrevious,
+      onPreviewNext,
+    } = this.props
     if (previewedArtwork) {
-      return previewedArtwork && <ArtworkPreviewModal
-        artwork={previewedArtwork}
-        onPreviewArtwork={onPreviewArtwork}
-        onPreviewPrevious={onPreviewPrevious}
-        onPreviewNext={onPreviewNext}
-      />
+      return (
+        previewedArtwork && (
+          <ArtworkPreviewModal
+            artwork={previewedArtwork}
+            onPreviewArtwork={onPreviewArtwork}
+            onPreviewPrevious={onPreviewPrevious}
+            onPreviewNext={onPreviewNext}
+          />
+        )
+      )
     } else {
       return null
     }
   }
 
-  maybeRenderControls () {
-    const { artworks, totalHits, onSelectAllArtworks, onDeselectAllArtworks } = this.props
+  maybeRenderControls() {
+    const {
+      artworks,
+      totalHits,
+      onSelectAllArtworks,
+      onDeselectAllArtworks,
+    } = this.props
     if (totalHits && artworks && artworks.length > 0) {
-      return <Controls
-        displayed={artworks.length}
-        total={totalHits}
-        onSelectAllArtworks={onSelectAllArtworks}
-        onDeselectAllArtworks={onDeselectAllArtworks}
-      />
+      return (
+        <Controls
+          displayed={artworks.length}
+          total={totalHits}
+          onSelectAllArtworks={onSelectAllArtworks}
+          onDeselectAllArtworks={onDeselectAllArtworks}
+        />
+      )
     } else {
       return null
     }
   }
 
-  maybeRenderMoreButton () {
+  maybeRenderMoreButton() {
     const { artworks, totalHits, onLoadMore } = this.props
     if (totalHits > artworks.length) {
       return <LoadMore onLoadMore={onLoadMore} />
@@ -54,8 +70,14 @@ class SearchResults extends React.Component {
     }
   }
 
-  render () {
-    const { className, artworks, selectedArtworkIds, onPreviewArtwork, onToggleArtwork } = this.props
+  render() {
+    const {
+      className,
+      artworks,
+      selectedArtworkIds,
+      onPreviewArtwork,
+      onToggleArtwork,
+    } = this.props
     return (
       <div className={className}>
         {this.maybeRenderSpinner()}
@@ -86,43 +108,67 @@ SearchResults.propTypes = {
   onToggleArtwork: PropTypes.func,
   previewedArtwork: PropTypes.object,
   selectedArtworkIds: PropTypes.arrayOf(PropTypes.string),
-  totalHits: PropTypes.number
+  totalHits: PropTypes.number,
 }
 
-const Controls = ({displayed, total, onSelectAllArtworks, onDeselectAllArtworks}) => (
+const Controls = ({
+  displayed,
+  total,
+  onSelectAllArtworks,
+  onDeselectAllArtworks,
+}) => (
   <div>
-    <div className='counts'>
-      Displaying {displayed.toLocaleString()} of {total.toLocaleString()} matching artworks
+    <div className="counts">
+      Displaying {displayed.toLocaleString()} of {total.toLocaleString()}{' '}
+      matching artworks
     </div>
-    <div className='select'>
+    <div className="select">
       Select:
-      <Link href='#' onClick={(e) => { e.preventDefault(); onSelectAllArtworks() }}>
+      <Link
+        href="#"
+        onClick={e => {
+          e.preventDefault()
+          onSelectAllArtworks()
+        }}
+      >
         all
       </Link>
       /
-      <Link href='#' onClick={(e) => { e.preventDefault(); onDeselectAllArtworks() }}>
+      <Link
+        href="#"
+        onClick={e => {
+          e.preventDefault()
+          onDeselectAllArtworks()
+        }}
+      >
         none
       </Link>
     </div>
   </div>
 )
 
-const ArtworkResultList = ({artworks, selectedArtworkIds, onPreviewArtwork, onToggleArtwork}) => {
+const ArtworkResultList = ({
+  artworks,
+  selectedArtworkIds,
+  onPreviewArtwork,
+  onToggleArtwork,
+}) => {
   return (
-    <div className='results'>
-      {artworks.map(artwork =>
-        <ArtworkSearchResult key={artwork.id}
+    <div className="results">
+      {artworks.map(artwork => (
+        <ArtworkSearchResult
+          key={artwork.id}
           artwork={artwork}
           onPreviewArtwork={onPreviewArtwork}
           onToggleArtwork={onToggleArtwork}
           selected={selectedArtworkIds.indexOf(artwork.id) > -1}
         />
-      )}
+      ))}
     </div>
   )
 }
 
-const LoadMore = ({onLoadMore}) => (
+const LoadMore = ({ onLoadMore }) => (
   <Button primary fullWidth onClick={onLoadMore}>
     Load more
   </Button>

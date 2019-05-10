@@ -12,7 +12,7 @@ beforeEach(() => {
     image_url: 'can.jpg',
     deleted: false,
     published: true,
-    genomed: true
+    genomed: true,
   }
   shark = {
     id: 'shark',
@@ -20,32 +20,56 @@ beforeEach(() => {
     image_url: 'shark.jpg',
     deleted: false,
     published: true,
-    genomed: true
+    genomed: true,
   }
   artworks = [soup, shark]
   selectedArtworkIds = []
 })
 
 it('renders a collection of artworks', () => {
-  const rendered = renderer.create(<SearchResults artworks={artworks} selectedArtworkIds={selectedArtworkIds} />)
+  const rendered = renderer.create(
+    <SearchResults
+      artworks={artworks}
+      selectedArtworkIds={selectedArtworkIds}
+    />
+  )
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 it('renders a modal when previewing', () => {
-  const rendered = renderer.create(<SearchResults previewedArtwork={soup} artworks={artworks} selectedArtworkIds={selectedArtworkIds} />)
+  const rendered = renderer.create(
+    <SearchResults
+      previewedArtwork={soup}
+      artworks={artworks}
+      selectedArtworkIds={selectedArtworkIds}
+    />
+  )
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 it('does not render a modal when not previewing', () => {
-  const rendered = renderer.create(<SearchResults previewedArtwork={null} artworks={artworks} selectedArtworkIds={selectedArtworkIds} />)
+  const rendered = renderer.create(
+    <SearchResults
+      previewedArtwork={null}
+      artworks={artworks}
+      selectedArtworkIds={selectedArtworkIds}
+    />
+  )
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 it('renders a spinner while fetching artworks', () => {
-  const rendered = renderer.create(<SearchResults isLoading previewedArtwork={null} artworks={artworks} selectedArtworkIds={selectedArtworkIds} />)
+  const rendered = renderer.create(
+    <SearchResults
+      isLoading
+      previewedArtwork={null}
+      artworks={artworks}
+      selectedArtworkIds={selectedArtworkIds}
+    />
+  )
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })

@@ -4,25 +4,27 @@ import GenericAutosuggest from './GenericAutosuggest'
 import { matchPartners } from 'lib/rosalind-api'
 import { getSuggestionValue, renderSuggestion } from './helpers'
 
-function PartnerAutosuggest (props) {
+function PartnerAutosuggest(props) {
   return (
     <GenericAutosuggest
-      id='partner-autosuggest'
+      id="partner-autosuggest"
       placeholder={props.placeholder}
       fetchSuggestions={matchPartners}
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
-      selectSuggestion={partner => { props.updateState('partner', partner) }}
+      selectSuggestion={partner => {
+        props.updateState('partner', partner)
+      }}
     />
   )
 }
 
 PartnerAutosuggest.propTypes = {
-  updateState: PropTypes.func
+  updateState: PropTypes.func,
 }
 
 PartnerAutosuggest.defaultProps = {
-  placeholder: 'Select a partner'
+  placeholder: 'Select a partner',
 }
 
 export { PartnerAutosuggest }

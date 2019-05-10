@@ -63,14 +63,14 @@ const Controls = styled.div`
 Controls.displayName = 'Controls'
 
 class ConfirmationModal extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleKeyup = this.handleKeyup.bind(this)
     this.handleDismissClick = this.handleDismissClick.bind(this)
     this.handleAcceptClick = this.handleAcceptClick.bind(this)
   }
 
-  componentWillUpdate ({isOpen: willBeOpen}) {
+  componentWillUpdate({ isOpen: willBeOpen }) {
     const { isOpen } = this.props
     if (!isOpen && willBeOpen) {
       // modal is opening
@@ -82,31 +82,45 @@ class ConfirmationModal extends React.Component {
     }
   }
 
-  handleKeyup (e) {
+  handleKeyup(e) {
     if (e.keyCode === ESC) {
       this.props.onDismiss()
     }
   }
 
-  handleDismissClick (e) {
+  handleDismissClick(e) {
     e.preventDefault()
     this.props.onDismiss()
   }
 
-  handleAcceptClick (e) {
+  handleAcceptClick(e) {
     e.preventDefault()
     this.props.onAccept()
   }
 
-  render () {
+  render() {
     const { isOpen, children } = this.props
     const className = isOpen ? 'modal-open' : null
     return (
       <Modal className={className}>
         {children}
         <Controls>
-          <LinkButton secondary href='#' className='dismiss' onClick={this.handleDismissClick}>Go back</LinkButton>
-          <LinkButton primary href='#' className='accept' onClick={this.handleAcceptClick}>Continue</LinkButton>
+          <LinkButton
+            secondary
+            href="#"
+            className="dismiss"
+            onClick={this.handleDismissClick}
+          >
+            Go back
+          </LinkButton>
+          <LinkButton
+            primary
+            href="#"
+            className="accept"
+            onClick={this.handleAcceptClick}
+          >
+            Continue
+          </LinkButton>
         </Controls>
       </Modal>
     )
@@ -116,7 +130,7 @@ class ConfirmationModal extends React.Component {
 ConfirmationModal.propTypes = {
   isOpen: PropTypes.bool,
   onDismiss: PropTypes.func.isRequired,
-  onAccept: PropTypes.func.isRequired
+  onAccept: PropTypes.func.isRequired,
 }
 
 export default ConfirmationModal

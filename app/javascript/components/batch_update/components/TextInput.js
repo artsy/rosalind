@@ -24,11 +24,11 @@ class TextInput extends React.Component {
 }
 
 TextInput.propTypes = {
-  onEnter: PropTypes.func
+  onEnter: PropTypes.func,
 }
 
 TextInput.defaultProps = {
-  placeholder: 'Add some text'
+  placeholder: 'Add some text',
 }
 
 const StyledTextInput = styled(TextInput)`

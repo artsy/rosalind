@@ -8,45 +8,45 @@ import { fetchArtwork } from 'lib/rosalind-api'
 import { SitesConsumer } from '../SitesContext'
 
 class ArtworkPreviewModal extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
-      fullArtworksById: {}
+      fullArtworksById: {},
     }
     this._moreInfoTimer = null
     this.dismiss = this.dismiss.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
   }
 
-  dismiss () {
+  dismiss() {
     this.props.onPreviewArtwork(null)
   }
 
-  prev () {
+  prev() {
     this.props.onPreviewPrevious()
   }
 
-  next () {
+  next() {
     this.props.onPreviewNext()
   }
 
-  handleKeyUp (e) {
+  handleKeyUp(e) {
     e.keyCode === ESC && this.dismiss()
     e.keyCode === LEFT && this.prev()
     e.keyCode === RIGHT && this.next()
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('keyup', this.handleKeyUp)
     this.fetchMoreInfoAfterDelay()
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keyup', this.handleKeyUp)
     clearTimeout(this._moreInfoTimer)
   }
 
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     const isNewArtwork =
       this.props.artwork &&
       prevProps.artwork &&
@@ -58,41 +58,57 @@ class ArtworkPreviewModal extends React.Component {
     }
   }
 
-  fetchMoreInfoAfterDelay (millis = 500) {
+  fetchMoreInfoAfterDelay(millis = 500) {
     this._moreInfoTimer = setTimeout(() => {
-      fetchArtwork(this.props.artwork.id)
-        .then(response => {
-          if (response.error) {
-            console.error(this.props.artwork.id, response.error)
-          } else {
-            this.setState((previous) => {
-              const updated = Object.assign(previous.fullArtworksById, { [response._id]: response })
-              return { fullArtworksById: updated }
+      fetchArtwork(this.props.artwork.id).then(response => {
+        if (response.error) {
+          console.error(this.props.artwork.id, response.error)
+        } else {
+          this.setState(previous => {
+            const updated = Object.assign(previous.fullArtworksById, {
+              [response._id]: response,
             })
-          }
-        })
+            return { fullArtworksById: updated }
+          })
+        }
+      })
     }, millis)
   }
 
-  render () {
-    const { id, artist_id: artistId, partner_id: partnerId, name, image_url: imageUrl, published, genomed, deleted } = this.props.artwork
+  render() {
+    const {
+      id,
+      artist_id: artistId,
+      partner_id: partnerId,
+      name,
+      image_url: imageUrl,
+      published,
+      genomed,
+      deleted,
+    } = this.props.artwork
     const moreInfo = this.state.fullArtworksById[id]
     return (
       <Overlay onClick={this.dismiss}>
-        <div className={this.props.className} ref={(el) => { this.modal = el }} onClickCapture={e => e.stopPropagation()}>
-          <div className='image'>
+        <div
+          className={this.props.className}
+          ref={el => {
+            this.modal = el
+          }}
+          onClickCapture={e => e.stopPropagation()}
+        >
+          <div className="image">
             <img src={imageUrl || missingImage} alt={name} />
           </div>
-          <div className='details'>
-            <p className='name'>{name}</p>
+          <div className="details">
+            <p className="name">{name}</p>
             <ExternalLinks id={id} artistId={artistId} partnerId={partnerId} />
-            <p className='status'>
+            <p className="status">
               Deleted: {deleted.toString()} <br />
               Published: {published.toString()} <br />
               Genomed: {genomed.toString()}
             </p>
-            { moreInfo
-              ? <p className='more'>
+            {moreInfo ? (
+              <p className="more">
                 Medium type: {moreInfo.category} <br />
                 Materials: {moreInfo.medium} <br />
                 Dimensions: {moreInfo.dimensions.in} <br />
@@ -101,8 +117,9 @@ class ArtworkPreviewModal extends React.Component {
                 Availability: {moreInfo.availability} <br />
                 Acquireable: {moreInfo.acquireable.toString()} <br />
               </p>
-              : '…'
-            }
+            ) : (
+              '…'
+            )}
           </div>
         </div>
       </Overlay>
@@ -114,26 +131,47 @@ ArtworkPreviewModal.propTypes = {
   artwork: PropTypes.object.isRequired,
   onPreviewArtwork: PropTypes.func,
   onPreviewPrevious: PropTypes.func,
-  onPreviewNext: PropTypes.func
+  onPreviewNext: PropTypes.func,
 }
 
-const ExternalLinks = ({id, artistId, partnerId}) => (
+const ExternalLinks = ({ id, artistId, partnerId }) => (
   <SitesConsumer>
-    {
-      sites => {
-        return (
-          <p className='links'>
-            View artwork in:
-            <a target='_blank' href={`${sites.helix}/genome/artworks?artwork_ids=${id}`}>Helix</a> |
-            <a target='_blank' href={`${sites.volt}/artworks/${id}/edit?current_partner_id=${partnerId}`}>CMS</a> |
-            <a target='_blank' href={`${sites.artsy}/artwork/${id}`}>Artsy.net</a>
-            <br />
-            View artist in:
-            <a target='_blank' href={`${sites.helix}/genome/artist?search[genome_artist_id]=${artistId}`}>Helix</a>
-          </p>
-        )
-      }
-    }
+    {sites => {
+      return (
+        <p className="links">
+          View artwork in:
+          <a
+            target="_blank"
+            href={`${sites.helix}/genome/artworks?artwork_ids=${id}`}
+          >
+            Helix
+          </a>{' '}
+          |
+          <a
+            target="_blank"
+            href={`${
+              sites.volt
+            }/artworks/${id}/edit?current_partner_id=${partnerId}`}
+          >
+            CMS
+          </a>{' '}
+          |
+          <a target="_blank" href={`${sites.artsy}/artwork/${id}`}>
+            Artsy.net
+          </a>
+          <br />
+          View artist in:
+          <a
+            target="_blank"
+            href={`${
+              sites.helix
+            }/genome/artist?search[genome_artist_id]=${artistId}`}
+          >
+            Helix
+          </a>
+        </p>
+      )
+    }}
   </SitesConsumer>
 )
 
@@ -151,7 +189,6 @@ const StyledArtworkPreviewModal = styled(ArtworkPreviewModal)`
   flex-direction: row;
   justify-content: space-between;
 
-
   .image {
     flex: 0 1 40%;
   }
@@ -166,7 +203,9 @@ const StyledArtworkPreviewModal = styled(ArtworkPreviewModal)`
     font-weight: bold;
   }
 
-  .status, .more, .links {
+  .status,
+  .more,
+  .links {
     font-size: 0.9em;
     line-height: 125%;
     margin: 1em 0;

@@ -6,9 +6,7 @@ import FullScreenModal from './FullScreenModal'
 
 it('renders correctly when closed', () => {
   const rendered = renderer.create(
-    <FullScreenModal>
-      I am closed
-    </FullScreenModal>
+    <FullScreenModal>I am closed</FullScreenModal>
   )
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
@@ -16,9 +14,7 @@ it('renders correctly when closed', () => {
 
 it('renders correctly when open', () => {
   const rendered = renderer.create(
-    <FullScreenModal isOpen>
-      I am open
-    </FullScreenModal>
+    <FullScreenModal isOpen>I am open</FullScreenModal>
   )
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
@@ -37,27 +33,25 @@ describe('body scrolling', () => {
       value: {
         classList: {
           add: addClass,
-          remove: removeClass
-        }
-      }
+          remove: removeClass,
+        },
+      },
     })
   })
 
   it('temporarily assigns a no-scroll css selector to the <body> element', () => {
     const wrapper = mount(
-      <FullScreenModal>
-        No scrolling, not in my house.
-      </FullScreenModal>
+      <FullScreenModal>No scrolling, not in my house.</FullScreenModal>
     )
 
     wrapper.setProps({
-      isOpen: true
+      isOpen: true,
     })
     expect(addClass.mock.calls.length).toBe(1)
     expect(addClass.mock.calls[0][0]).toEqual('FullScreenModal--open')
 
     wrapper.setProps({
-      isOpen: false
+      isOpen: false,
     })
     expect(removeClass.mock.calls.length).toBe(1)
     expect(removeClass.mock.calls[0][0]).toEqual('FullScreenModal--open')
