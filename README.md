@@ -3,6 +3,8 @@
 Rosalind is an admin app for large-batch operations on artist and artwork
 genomes (Artsy-created genomes as well as "partner-applied categories").
 
+Learn even more about its history and open source nature on the [announcement blog post](https://artsy.github.io/blog/2019/05/09/rosalind/)!
+
 Among its major components are [Rails 5][rails_5] + [Kinetic][kinetic] on the
 backend and [React][react] + [Webpack][webpack] on the frontend.
 
