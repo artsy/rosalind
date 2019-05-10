@@ -6,7 +6,8 @@ genomes (Artsy-created genomes as well as "partner-applied categories").
 Among its major components are [Rails 5][rails_5] + [Kinetic][kinetic] on the
 backend and [React][react] + [Webpack][webpack] on the frontend.
 
-You can read more about [the motivation for the app][motivation].
+You can read more about the motivation for the app over in [Pull Request #1][pull_1], 
+and in the [blog post][blog_post] we wrote when we open-sourced it.
 
 ## Meta
 
@@ -94,7 +95,6 @@ pioneering work in X-ray crystallography led to the discovery of the double
 [kinetic]: https://github.com/artsy/kinetic
 [react]: https://facebook.github.io/react/
 [webpack]: https://webpack.github.io
-[motivation]: https://github.com/artsy/rosalind/pull/1
 [staging]: https://rosalind-staging.artsy.net/
 [heroku_staging]: https://dashboard.heroku.com/apps/rosalind-staging
 [production]: https://rosalind.artsy.net/
@@ -105,3 +105,5 @@ pioneering work in X-ray crystallography led to the discovery of the double
 [franklin]: https://www.google.com/search?q=Rosalind+Franklin
 [helix]: https://github.com/artsy/helix
 [deploy]: https://github.com/artsy/rosalind/compare/release...master?expand=1
+[pull_1]: https://github.com/artsy/rosalind/pull/1
+[blog_post]: https://artsy.github.io/blog/2019/05/09/rosalind/
