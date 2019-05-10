@@ -87,6 +87,8 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-standard": "^4.0.0",
+    "husky": ">=1",
+    "lint-staged": ">=8",
     "prettier": "1.17.0",
     "webpack-dev-server": "^2.11"
   },
@@ -94,5 +96,20 @@
     "trailingComma": "es5",
     "semi": false,
     "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "app/javascript/**/*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "{app,spec}/**/*.rb": [
+      "bundle exec rubocop -a",
+      "git add"
+    ]
   }
 }
