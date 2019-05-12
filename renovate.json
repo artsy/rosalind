@@ -1,5 +1,5 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["@artsy:app"],
+  "assignees": ["zephraph"],
+  "reviewers": ["anandaroop"]
 }
