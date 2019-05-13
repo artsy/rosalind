@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
 import ArtworkSearchResult from './ArtworkSearchResult'
 import Spinner from './Spinner'
-import { Button } from './Buttons'
+import { Button } from '@artsy/palette'
 import { Link } from './Links'
 
 class SearchResults extends React.Component {
@@ -169,9 +169,7 @@ const ArtworkResultList = ({
 }
 
 const LoadMore = ({ onLoadMore }) => (
-  <Button primary fullWidth onClick={onLoadMore}>
-    Load more
-  </Button>
+  <Button onClick={onLoadMore}>Load more</Button>
 )
 
 /* default styled component */

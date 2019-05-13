@@ -85,7 +85,8 @@ describe('with no currently added genes', () => {
   })
 
   it('disables the "Queue" button', () => {
-    expect(wrapper.find('button.queue').props().disabled).toEqual(true)
+    // console.log(wrapper.debug())
+    expect(wrapper.find('Button.queue button').prop('disabled')).toEqual(true)
   })
 })
 
@@ -102,7 +103,7 @@ describe('with only null genes', () => {
   })
 
   it('disables the "Queue" button', () => {
-    expect(wrapper.find('button.queue').props().disabled).toEqual(true)
+    expect(wrapper.find('Button.queue button').prop('disabled')).toEqual(true)
   })
 })
 
@@ -122,7 +123,7 @@ describe('with currently added genes', () => {
   })
 
   it('enables the "Queue" button', () => {
-    expect(wrapper.find('button.queue').props().disabled).toEqual(false)
+    expect(wrapper.find('Button.queue button').prop('disabled')).toEqual(false)
   })
 
   it('renders the current genes', () => {
@@ -155,7 +156,7 @@ describe('with currently added genes', () => {
   describe('when the "Queue" button is clicked', () => {
     it('opens a confirmation modal', () => {
       const mockClickEvent = { preventDefault: jest.fn() }
-      wrapper.find('button.queue').simulate('click', mockClickEvent)
+      wrapper.find('Button.queue button').simulate('click', mockClickEvent)
       expect(
         wrapper
           .find(ConfirmationModal)
@@ -191,10 +192,10 @@ describe('with currently added genes', () => {
         console.error = jest.fn()
 
         const mockClickEvent = { preventDefault: jest.fn() }
-        wrapper.find('button.queue').simulate('click', mockClickEvent)
+        wrapper.find('Button.queue button').simulate('click', mockClickEvent)
         wrapper
           .find(ConfirmationModal)
-          .find('a.accept')
+          .find('Button.accept button')
           .simulate('click', mockClickEvent)
       })
 

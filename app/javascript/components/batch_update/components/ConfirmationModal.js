@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors } from './Layout'
 import { ESC } from 'lib/keycodes.js'
-import { LinkButton } from './Buttons'
+import { Button } from '@artsy/palette'
 
 const Modal = styled.div`
   position: fixed;
@@ -105,22 +105,17 @@ class ConfirmationModal extends React.Component {
       <Modal className={className}>
         {children}
         <Controls>
-          <LinkButton
-            secondary
-            href="#"
+          <Button
+            variant="secondaryOutline"
+            mx={1}
             className="dismiss"
             onClick={this.handleDismissClick}
           >
             Go back
-          </LinkButton>
-          <LinkButton
-            primary
-            href="#"
-            className="accept"
-            onClick={this.handleAcceptClick}
-          >
+          </Button>
+          <Button className="accept" onClick={this.handleAcceptClick}>
             Continue
-          </LinkButton>
+          </Button>
         </Controls>
       </Modal>
     )
