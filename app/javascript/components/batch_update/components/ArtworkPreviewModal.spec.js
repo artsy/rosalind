@@ -20,11 +20,11 @@ beforeEach(() => {
     medium: 'oil on canvas',
     dimensions: {
       cm: 'foo',
-      in: 'bar'
+      in: 'bar',
     },
     ecommerce: false,
     availability: 'not for sale',
-    acquireable: false
+    acquireable: false,
   }
 })
 
@@ -38,13 +38,11 @@ it('fetches more data after a delay', () => {
   jest.useFakeTimers()
   window.fetch = jest.fn(() => {
     return Promise.resolve({
-      json: () => Promise.resolve(artwork)
+      json: () => Promise.resolve(artwork),
     })
   })
 
-  mount(
-    <ArtworkPreviewModal artwork={artwork} />
-  )
+  mount(<ArtworkPreviewModal artwork={artwork} />)
 
   expect(window.fetch).not.toHaveBeenCalled()
   jest.runAllTimers()
@@ -55,7 +53,7 @@ it('uses Context to render links to external sites', () => {
   const mockSites = {
     artsy: 'http://artsy.mock',
     volt: 'http://cms.mock',
-    helix: 'http://helix.mock'
+    helix: 'http://helix.mock',
   }
 
   const wrapper = mount(

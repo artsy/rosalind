@@ -20,11 +20,11 @@ function ArtistAutosuggest(props) {
 }
 
 ArtistAutosuggest.propTypes = {
-  onSelectArtist: PropTypes.func
+  onSelectArtist: PropTypes.func,
 }
 
 ArtistAutosuggest.defaultProps = {
-  placeholder: 'Select an artist'
+  placeholder: 'Select an artist',
 }
 
 export { ArtistAutosuggest }

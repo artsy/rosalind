@@ -7,13 +7,13 @@ export const breakpoints = {
     @media (min-width: 768px) {
       ${css(...args)}
     }
-  `
+  `,
 }
 
 /* constants */
 
 export const avantGarde = css`
-  font-family:'ITC Avant Garde Gothic W01';
+  font-family: 'ITC Avant Garde Gothic W01';
 `
 
 export const colors = {
@@ -36,7 +36,7 @@ export const colors = {
   greenLight: '#0EDA83',
   green: '#0EDA83',
   white: '#ffffff',
-  black: '#000000'
+  black: '#000000',
 }
 
 /* grid components */

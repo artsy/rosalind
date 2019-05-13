@@ -1,32 +1,32 @@
 import moment from 'moment'
 
 const dateFormats = {
-  long: (date) => {
+  long: date => {
     const formatted = isNull(date) ? null : longFormat(date)
     return formatted
   },
 
-  default: (date) => {
+  default: date => {
     const formatted = isNull(date) ? null : defaultFormat(date)
     return formatted
-  }
+  },
 }
 
-function longFormat (input) {
+function longFormat(input) {
   const date = isDate(input) ? input : new Date(input)
   return moment(date).format('MMMM Do YYYY, h:mm:ss a')
 }
 
-function defaultFormat (input) {
+function defaultFormat(input) {
   const date = isDate(input) ? input : new Date(input)
   return moment(date).format()
 }
 
-function isNull (date) {
+function isNull(date) {
   return date === null
 }
 
-function isDate (input) {
+function isDate(input) {
   return Object.prototype.toString.call(input) === '[object Date]'
 }
 

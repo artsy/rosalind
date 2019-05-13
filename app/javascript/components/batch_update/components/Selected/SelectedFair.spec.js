@@ -8,7 +8,7 @@ let props
 beforeEach(() => {
   props = {
     name: 'Frieze',
-    onRemove: jest.fn()
+    onRemove: jest.fn(),
   }
 })
 

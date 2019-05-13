@@ -11,7 +11,7 @@ beforeEach(() => {
   props = {
     id: 'abc123',
     message: "It's all going to be fine",
-    onDismiss: dismissHandler
+    onDismiss: dismissHandler,
   }
 })
 

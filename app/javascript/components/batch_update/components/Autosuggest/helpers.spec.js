@@ -1,7 +1,7 @@
 import React from 'react'
 import { getSuggestionValue, renderSuggestion } from './helpers'
 
-const suggestion = {id: 'kawaii', name: 'Kawaii'}
+const suggestion = { id: 'kawaii', name: 'Kawaii' }
 
 describe('getSuggestionValue', () => {
   it('returns the gene name', () => {

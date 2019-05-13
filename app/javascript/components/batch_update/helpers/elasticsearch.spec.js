@@ -29,16 +29,14 @@ describe('buildElasticsearchQuery', () => {
 
   it('queries only for non-deleted works', () => {
     const expectedQuery = {
-      'query': {
-        'bool': {
-          'must': [
-            {'match': {'deleted': false}}
-          ]
-        }
+      query: {
+        bool: {
+          must: [{ match: { deleted: false } }],
+        },
       },
-      'from': 0,
-      'size': 100,
-      'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+      from: 0,
+      size: 100,
+      sort: [{ published_at: 'desc' }, { id: 'desc' }],
     }
 
     const params = {
@@ -52,7 +50,7 @@ describe('buildElasticsearchQuery', () => {
       keywords,
       partner,
       publishedFilter,
-      tags
+      tags,
     }
     const actualQuery = buildElasticsearchQuery(params)
     expect(actualQuery).toEqual(expectedQuery)
@@ -61,23 +59,20 @@ describe('buildElasticsearchQuery', () => {
   describe('main search criteria', () => {
     it('builds a query from the supplied genes', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'genes': 'Gene 1'}},
-              {'match': {'genes': 'Gene 2'}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { genes: 'Gene 1' } },
+              { match: { genes: 'Gene 2' } },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      genes = [
-        {id: 'gene1', name: 'Gene 1'},
-        {id: 'gene2', name: 'Gene 2'}
-      ]
+      genes = [{ id: 'gene1', name: 'Gene 1' }, { id: 'gene2', name: 'Gene 2' }]
 
       const params = {
         artists,
@@ -90,7 +85,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
@@ -98,51 +93,48 @@ describe('buildElasticsearchQuery', () => {
 
     it('builds a query from the supplied keywords', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              { 'match': {'deleted': false} },
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
               {
-                'multi_match': {
-                  'type': 'most_fields',
-                  'fields': [
+                multi_match: {
+                  type: 'most_fields',
+                  fields: [
                     'name.*',
                     'genes.*^4',
                     'tags.*^4',
                     'auto_tags.*^2',
                     'partner_name.*^2',
-                    'artist_name.*^2'
+                    'artist_name.*^2',
                   ],
-                  'query': 'sherman',
-                  'operator': 'and'
-                }
+                  query: 'sherman',
+                  operator: 'and',
+                },
               },
               {
-                'multi_match': {
-                  'type': 'most_fields',
-                  'fields': [
+                multi_match: {
+                  type: 'most_fields',
+                  fields: [
                     'name.*',
                     'genes.*^4',
                     'tags.*^4',
                     'auto_tags.*^2',
                     'partner_name.*^2',
-                    'artist_name.*^2'
+                    'artist_name.*^2',
                   ],
-                  'query': 'film still',
-                  'operator': 'and'
-                }
-              }
-            ]
-          }
+                  query: 'film still',
+                  operator: 'and',
+                },
+              },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      keywords = [
-        'sherman',
-        'film still'
-      ]
+      keywords = ['sherman', 'film still']
 
       const params = {
         artists,
@@ -155,7 +147,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
@@ -163,23 +155,20 @@ describe('buildElasticsearchQuery', () => {
 
     it('builds a query from the supplied tags', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'tags': 'Tag 1'}},
-              {'match': {'tags': 'Tag 2'}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { tags: 'Tag 1' } },
+              { match: { tags: 'Tag 2' } },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      tags = [
-        {id: 'tag1', name: 'Tag 1'},
-        {id: 'tag2', name: 'Tag 2'}
-      ]
+      tags = [{ id: 'tag1', name: 'Tag 1' }, { id: 'tag2', name: 'Tag 2' }]
 
       const params = {
         artists,
@@ -192,7 +181,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
@@ -200,22 +189,22 @@ describe('buildElasticsearchQuery', () => {
 
     it('builds a query from the supplied artists', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'artist_id': 'artistId1'}},
-              {'match': {'artist_id': 'artistId2'}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { artist_id: 'artistId1' } },
+              { match: { artist_id: 'artistId2' } },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
       artists = [
-        {id: 'artistId1', name: 'Artist 1'},
-        {id: 'artistId2', name: 'Artist 2'}
+        { id: 'artistId1', name: 'Artist 1' },
+        { id: 'artistId2', name: 'Artist 2' },
       ]
 
       const params = {
@@ -229,7 +218,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
@@ -237,19 +226,19 @@ describe('buildElasticsearchQuery', () => {
 
     it('builds a query from the supplied partner', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'partner_id': 'some-partner'}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { partner_id: 'some-partner' } },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      partner = {id: 'some-partner', name: 'Some Partner'}
+      partner = { id: 'some-partner', name: 'Some Partner' }
       const params = {
         artists,
         attributionClass,
@@ -261,7 +250,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
@@ -269,19 +258,19 @@ describe('buildElasticsearchQuery', () => {
 
     it('builds a query from the supplied fair', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'fair_ids': 'some-fair'}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { fair_ids: 'some-fair' } },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      fair = {id: 'some-fair', name: 'Some Fair'}
+      fair = { id: 'some-fair', name: 'Some Fair' }
       const params = {
         artists,
         attributionClass,
@@ -293,7 +282,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
@@ -301,19 +290,19 @@ describe('buildElasticsearchQuery', () => {
 
     it('builds a query from the supplied attribution class', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'attribution': 'ephemera'}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { attribution: 'ephemera' } },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      attributionClass = {name: 'Ephemera', value: 'ephemera'}
+      attributionClass = { name: 'Ephemera', value: 'ephemera' }
       const params = {
         artists,
         attributionClass,
@@ -325,7 +314,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
@@ -333,19 +322,19 @@ describe('buildElasticsearchQuery', () => {
 
     it('builds a query requesting the specified page size', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'genes': 'Gene 1'}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { genes: 'Gene 1' } },
+            ],
+          },
         },
-        'from': 0,
-        'size': 11,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 11,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      genes = [{id: 'gene1', name: 'Gene 1'}]
+      genes = [{ id: 'gene1', name: 'Gene 1' }]
       const size = 11
       const actualQuery = buildElasticsearchQuery({
         artists,
@@ -357,26 +346,26 @@ describe('buildElasticsearchQuery', () => {
         partner,
         publishedFilter,
         size,
-        tags
+        tags,
       })
       expect(actualQuery).toEqual(expectedQuery)
     })
 
     it('builds a query requesting the specified offset', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'genes': 'Gene 1'}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { genes: 'Gene 1' } },
+            ],
+          },
         },
-        'from': 111,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 111,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      genes = [{id: 'gene1', name: 'Gene 1'}]
+      genes = [{ id: 'gene1', name: 'Gene 1' }]
       const from = 111
       const actualQuery = buildElasticsearchQuery({
         artists,
@@ -397,23 +386,23 @@ describe('buildElasticsearchQuery', () => {
       createdAfterDate = 'a-real-date'
 
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
               {
-                'range': {
-                  'created_at': {
-                    'gte': createdAfterDate
-                  }
-                }
-              }
-            ]
-          }
+                range: {
+                  created_at: {
+                    gte: createdAfterDate,
+                  },
+                },
+              },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
 
       const params = {
@@ -427,7 +416,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
 
       const actualQuery = buildElasticsearchQuery(params)
@@ -438,23 +427,23 @@ describe('buildElasticsearchQuery', () => {
       createdBeforeDate = 'a-real-date'
 
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
               {
-                'range': {
-                  'created_at': {
-                    'lte': createdBeforeDate
-                  }
-                }
-              }
-            ]
-          }
+                range: {
+                  created_at: {
+                    lte: createdBeforeDate,
+                  },
+                },
+              },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
 
       const params = {
@@ -468,7 +457,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
 
       const actualQuery = buildElasticsearchQuery(params)
@@ -480,24 +469,24 @@ describe('buildElasticsearchQuery', () => {
       createdBeforeDate = 'another-real-date'
 
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
               {
-                'range': {
-                  'created_at': {
-                    'gte': createdAfterDate,
-                    'lte': createdBeforeDate
-                  }
-                }
-              }
-            ]
-          }
+                range: {
+                  created_at: {
+                    gte: createdAfterDate,
+                    lte: createdBeforeDate,
+                  },
+                },
+              },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
 
       const params = {
@@ -511,7 +500,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
 
       const actualQuery = buildElasticsearchQuery(params)
@@ -521,23 +510,23 @@ describe('buildElasticsearchQuery', () => {
 
   describe('status filters', () => {
     beforeEach(() => {
-      genes = [{id: 'gene1', name: 'Gene 1'}]
+      genes = [{ id: 'gene1', name: 'Gene 1' }]
     })
 
     it('modifies a query with the value of the "published" filter', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'genes': 'Gene 1'}},
-              {'match': {'published': true}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { genes: 'Gene 1' } },
+              { match: { published: true } },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
       publishedFilter = 'SHOW_PUBLISHED'
       const params = {
@@ -551,7 +540,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
@@ -559,18 +548,18 @@ describe('buildElasticsearchQuery', () => {
 
     it('modifies a query with the value of the "genomed" filter', () => {
       const expectedQuery = {
-        'query': {
-          'bool': {
-            'must': [
-              {'match': {'deleted': false}},
-              {'match': {'genes': 'Gene 1'}},
-              {'match': {'genomed': true}}
-            ]
-          }
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { genes: 'Gene 1' } },
+              { match: { genomed: true } },
+            ],
+          },
         },
-        'from': 0,
-        'size': 100,
-        'sort': [{'published_at': 'desc'}, {'id': 'desc'}]
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
       genomedFilter = 'SHOW_GENOMED'
       const params = {
@@ -584,7 +573,7 @@ describe('buildElasticsearchQuery', () => {
         keywords,
         partner,
         publishedFilter,
-        tags
+        tags,
       }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)

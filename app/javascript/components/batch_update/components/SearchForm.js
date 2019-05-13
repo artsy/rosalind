@@ -9,7 +9,7 @@ import {
   FairAutosuggest,
   GeneAutosuggest,
   PartnerAutosuggest,
-  TagAutosuggest
+  TagAutosuggest,
 } from './Autosuggest'
 import FilterOptions from './FilterOptions'
 import { Button } from '@artsy/palette'
@@ -17,17 +17,17 @@ import { Link } from './Links'
 import { SitesConsumer } from '../SitesContext'
 
 class SearchForm extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.maybeRenderEditButton = this.maybeRenderEditButton.bind(this)
   }
 
-  maybeRenderEditButton () {
+  maybeRenderEditButton() {
     const {
       artworksCount,
       selectedArtworksCount,
       selectedArtworkIds,
-      onOpenBatchUpdate
+      onOpenBatchUpdate,
     } = this.props
     if (artworksCount === 0) {
       return null
@@ -49,7 +49,7 @@ class SearchForm extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const {
       artists,
       attributionClass,
@@ -64,10 +64,16 @@ class SearchForm extends React.Component {
       onRemoveTag,
       onRemoveArtist,
       partner,
-      tags
+      tags,
     } = this.props
 
-    const { onAddKeyword, onAddGene, onAddTag, onAddArtist, updateState } = this.props
+    const {
+      onAddKeyword,
+      onAddGene,
+      onAddTag,
+      onAddArtist,
+      updateState,
+    } = this.props
 
     const { genomedFilter, publishedFilter } = this.props
 
@@ -91,16 +97,18 @@ class SearchForm extends React.Component {
           updateState={updateState}
         />
 
-        <TextInput placeholder='Add a keyword' onEnter={onAddKeyword} />
-        <GeneAutosuggest placeholder='Add a gene' onSelectGene={onAddGene} />
-        <TagAutosuggest placeholder='Add a tag' onSelectTag={onAddTag} />
+        <TextInput placeholder="Add a keyword" onEnter={onAddKeyword} />
+        <GeneAutosuggest placeholder="Add a gene" onSelectGene={onAddGene} />
+        <TagAutosuggest placeholder="Add a tag" onSelectTag={onAddTag} />
         <ArtistAutosuggest
-          placeholder='Add an artist'
+          placeholder="Add an artist"
           onSelectArtist={onAddArtist}
         />
         {partner === null && <PartnerAutosuggest updateState={updateState} />}
         {fair === null && <FairAutosuggest updateState={updateState} />}
-        {attributionClass === null && <AttributionClassAutosuggest updateState={updateState} />}
+        {attributionClass === null && (
+          <AttributionClassAutosuggest updateState={updateState} />
+        )}
         {createdAfterDate === null && (
           <CreatedAfterDateInput
             updateState={updateState}
@@ -126,19 +134,19 @@ class SearchForm extends React.Component {
   }
 }
 
-const HelixLink = ({selectedArtworkIds}) => {
+const HelixLink = ({ selectedArtworkIds }) => {
   return (
     <SitesConsumer>
-      {
-        sites => {
-          const href = `${sites.helix}/genome/artworks?artwork_ids=${selectedArtworkIds.join(',')}`
-          return (
-            <_Link target='_blank' href={href}>
-              Open selected works in Helix
-            </_Link>
-          )
-        }
-      }
+      {sites => {
+        const href = `${
+          sites.helix
+        }/genome/artworks?artwork_ids=${selectedArtworkIds.join(',')}`
+        return (
+          <_Link target="_blank" href={href}>
+            Open selected works in Helix
+          </_Link>
+        )
+      }}
     </SitesConsumer>
   )
 }
