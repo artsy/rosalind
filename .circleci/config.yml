@@ -36,7 +36,7 @@ jobs:
       - run: bundle exec rspec
       - run: yarn run test -- --runInBand
 
-      - run: bundle exec danger
+      # - run: bundle exec danger
 
       - run: bash .circleci/heroku_setup
       - add_ssh_keys:
