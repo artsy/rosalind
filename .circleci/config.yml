@@ -7,7 +7,7 @@ jobs:
       - image: artsy/ruby:2.5.3-node-chrome
         environment:
           RAILS_ENV: test
-      - image: circleci/postgres:10.1-alpine
+      - image: circleci/postgres:10.8-alpine
     steps:
       - checkout
 
