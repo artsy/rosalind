@@ -14,10 +14,10 @@ beforeEach(() => {
       image_url: 'can.jpg',
       deleted: false,
       published: true,
-      genomed: true
+      genomed: true,
     },
     onPreviewArtwork: jest.fn(),
-    onToggleArtwork: jest.fn()
+    onToggleArtwork: jest.fn(),
   }
 })
 

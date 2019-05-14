@@ -1,16 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function FilterOption (props) {
+function FilterOption(props) {
   const suffix = props.name.toUpperCase()
 
   return (
-    <div className='filter'>
-      <div>
-        {`${capitalize(props.name)}?`}
-      </div>
+    <div className="filter">
+      <div>{`${capitalize(props.name)}?`}</div>
 
-      <Option option='SHOW_ALL' {...props}>
+      <Option option="SHOW_ALL" {...props}>
         All
       </Option>
 
@@ -28,17 +26,11 @@ function FilterOption (props) {
 FilterOption.propTypes = {
   current: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  updateState: PropTypes.func
+  updateState: PropTypes.func,
 }
 
-function Option (props) {
-  const {
-    current,
-    children,
-    name,
-    option,
-    updateState
-  } = props
+function Option(props) {
+  const { current, children, name, option, updateState } = props
 
   const handleClick = (option, event) => {
     event.preventDefault()
@@ -46,21 +38,22 @@ function Option (props) {
     updateState(filter, option)
   }
 
-  const active = (condition) => {
+  const active = condition => {
     return condition ? 'active' : null
   }
 
   return (
-    <a href='#'
+    <a
+      href="#"
       className={active(current === option)}
-      onClick={handleClick.bind(null, option)}
+      onClick={handleClick.bind(null, option)} // eslint-disable-line react/jsx-no-bind
     >
       {children}
     </a>
   )
 }
 
-function capitalize (str) {
+function capitalize(str) {
   return str.substring(0, 1).toUpperCase() + str.substring(1)
 }
 

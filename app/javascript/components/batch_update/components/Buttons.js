@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { avantGarde, colors } from './Layout'
 
-const buttonSizing = (props) => {
+const buttonSizing = props => {
   if (props.fullWidth) {
     return css`
       display: block;
@@ -16,7 +16,7 @@ const buttonSizing = (props) => {
   }
 }
 
-const buttonColors = (props) => {
+const buttonColors = props => {
   if (props.primary) {
     return css`
       background: ${colors.black};
@@ -44,7 +44,7 @@ const buttonColors = (props) => {
   }
 }
 
-const buttonTypography = (props) => {
+const buttonTypography = props => {
   return css`
     ${avantGarde}
     font-weight: normal;
@@ -54,7 +54,7 @@ const buttonTypography = (props) => {
   `
 }
 
-const buttonTransitions = (props) => {
+const buttonTransitions = props => {
   if (props.disabled) {
     return css`
       transition: none;
@@ -72,7 +72,7 @@ const buttonTransitions = (props) => {
   }
 }
 
-const buttonCursor = (props) => {
+const buttonCursor = props => {
   if (props.disabled) {
     return css`
       cursor: not-allowed;

@@ -3,50 +3,54 @@ import PropTypes from 'prop-types'
 import Autosuggest from 'react-autosuggest'
 
 export default class GenericAutosuggest extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       value: '',
-      suggestions: []
+      suggestions: [],
     }
-    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this)
-    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this)
+    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(
+      this
+    )
+    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(
+      this
+    )
     this.onChange = this.onChange.bind(this)
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this)
   }
 
-  onSuggestionsFetchRequested ({value}) {
+  onSuggestionsFetchRequested({ value }) {
     this.props.fetchSuggestions(value).then(suggestions => {
       this.setState({ suggestions })
     })
   }
 
-  onSuggestionsClearRequested () {
+  onSuggestionsClearRequested() {
     this.setState({
-      suggestions: []
+      suggestions: [],
     })
   }
 
-  onChange (event, { newValue }) {
+  onChange(event, { newValue }) {
     this.setState({
-      value: newValue
+      value: newValue,
     })
   }
 
-  onSuggestionSelected (event, { suggestion }) {
+  onSuggestionSelected(event, { suggestion }) {
     this.props.selectSuggestion(suggestion)
-    this.setState({value: ''})
+    this.setState({ value: '' })
   }
 
-  render () {
+  render() {
     const inputElementProps = {
       placeholder: this.props.placeholder,
       value: this.state.value,
-      onChange: this.onChange
+      onChange: this.onChange,
     }
 
     return (
-      <div className='GenericAutosuggest'>
+      <div className="GenericAutosuggest">
         <Autosuggest
           id={this.props.id}
           suggestions={this.state.suggestions}
@@ -70,5 +74,5 @@ GenericAutosuggest.propTypes = {
   getSuggestionValue: PropTypes.func.isRequired, // suggestionObject => displayName
   renderSuggestion: PropTypes.func.isRequired, // suggestionObject => stringOrMarkupForSuggestionList
   selectSuggestion: PropTypes.func.isRequired, // suggestionObject => { handlerFunction(suggestionObject) }
-  shouldRenderSuggestions: PropTypes.func
+  shouldRenderSuggestions: PropTypes.func,
 }

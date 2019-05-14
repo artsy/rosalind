@@ -15,7 +15,9 @@ describe('DateInput', () => {
   it('displays a date string in the anchor element', () => {
     const date = new Date().toString()
     const dateInput = shallow(<DateInput />)
-    const formattedDate = moment(new Date(date)).format('MMMM Do YYYY, h:mm:ss a')
+    const formattedDate = moment(new Date(date)).format(
+      'MMMM Do YYYY, h:mm:ss a'
+    )
 
     dateInput.setState({ suggestion: date })
 

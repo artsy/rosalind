@@ -4,21 +4,21 @@ import styled from 'styled-components'
 import { colors } from './Layout'
 
 class Notice extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.enter = this.enter.bind(this)
     this.leave = this.leave.bind(this)
     this.destroy = this.destroy.bind(this)
   }
 
-  enter () {
+  enter() {
     this._element.classList.add('entering')
     this._enterTimer = setTimeout(() => {
       this._element.classList.remove('entering')
     }, 400)
   }
 
-  leave () {
+  leave() {
     this._element.classList.add('leaving')
     this._leaveTimer = setTimeout(() => {
       this._element.classList.remove('leaving')
@@ -26,24 +26,27 @@ class Notice extends React.Component {
     }, 400)
   }
 
-  destroy () {
+  destroy() {
     clearTimeout(this._enterTimer)
     clearTimeout(this._leaveTimer)
     this.props.onDismiss(this.props.id)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.enter()
   }
 
-  render () {
+  render() {
     const { className, children } = this.props
     return (
-      <div className={className} ref={el => { this._element = el }}>
-        <div className='message'>
-          {children}
-        </div>
-        <div className='dismiss' onClick={this.leave}>
+      <div
+        className={className}
+        ref={el => {
+          this._element = el
+        }}
+      >
+        <div className="message">{children}</div>
+        <div className="dismiss" onClick={this.leave}>
           ✕
         </div>
       </div>
@@ -53,8 +56,8 @@ class Notice extends React.Component {
 
 Notice.propTypes = {
   id: PropTypes.string.isRequired,
-  isError: PropTypes.bool,
-  onDismiss: PropTypes.func.isRequired
+  isError: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
+  onDismiss: PropTypes.func.isRequired,
 }
 
 const StyledNotice = styled(Notice)`
@@ -67,7 +70,9 @@ const StyledNotice = styled(Notice)`
   background: white;
   border: solid 1px hsla(0, 0%, 0%, 0.1);
   color: ${colors.grayDarker};
-  ${props => props.isError && `
+  ${props =>
+    props.isError &&
+    `
     color: ${colors.red};
   `}
   opacity: 1;
@@ -110,7 +115,4 @@ const Notices = styled.div`
   font-size: 0.9em;
 `
 
-export {
-  StyledNotice as Notice,
-  Notices
-}
+export { StyledNotice as Notice, Notices }

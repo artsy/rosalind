@@ -33,7 +33,7 @@ beforeEach(() => {
     selectedArtworkIds: [],
     selectedArtworksCount: 0,
     tags: [],
-    updateStateFor: jest.fn()
+    updateStateFor: jest.fn(),
   }
 })
 
@@ -68,7 +68,9 @@ it('does not render attribution class autosuggest if it is already selected', ()
 })
 
 it('does not render createdAfterDate input if createdAfterDate is already entered', () => {
-  const createdAfterDate = moment('2020-01-01T12:00:00-00:00').utc().format()
+  const createdAfterDate = moment('2020-01-01T12:00:00-00:00')
+    .utc()
+    .format()
   Object.assign(props, { createdAfterDate })
 
   const searchForm = mount(<SearchForm {...props} />)
@@ -80,7 +82,9 @@ it('does not render createdAfterDate input if createdAfterDate is already entere
 })
 
 it('does not render createdBeforeDate input if createdBeforeDate is already entered', () => {
-  const createdBeforeDate = moment('2020-01-01T12:00:00-00:00').utc().format()
+  const createdBeforeDate = moment('2020-01-01T12:00:00-00:00')
+    .utc()
+    .format()
   Object.assign(props, { createdBeforeDate })
 
   const searchForm = mount(<SearchForm {...props} />)
@@ -116,14 +120,22 @@ describe('"edit artworks" button', () => {
 
 describe('Link to open artworks in Helix', () => {
   it('does NOT render if there are NO selected artworks', () => {
-    Object.assign(props, { artworksCount: 100, selectedArtworksCount: 0, selectedArtworkIds: [] })
+    Object.assign(props, {
+      artworksCount: 100,
+      selectedArtworksCount: 0,
+      selectedArtworkIds: [],
+    })
     const wrapper = mount(<SearchForm {...props} />)
     expect(wrapper.text()).not.toMatch(/open.*in Helix/i)
     expect(wrapper.find('a[href*="helix"]')).toHaveLength(0)
   })
 
   it('renders if there are selected artworks', () => {
-    Object.assign(props, { artworksCount: 100, selectedArtworksCount: 1, selectedArtworkIds: ['foo'] })
+    Object.assign(props, {
+      artworksCount: 100,
+      selectedArtworksCount: 1,
+      selectedArtworkIds: ['foo'],
+    })
     const wrapper = mount(<SearchForm {...props} />)
     expect(wrapper.text()).toMatch(/open.*in Helix/i)
     expect(wrapper.find('a[href*="helix"]')).toHaveLength(1)

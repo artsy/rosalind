@@ -4,18 +4,18 @@ import styled from 'styled-components'
 import { colors } from './Layout'
 
 class GeneInput extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange (e) {
+  handleChange(e) {
     const { onChangeValue, name } = this.props
     const value = e.target.value
     onChangeValue({ name, value })
   }
 
-  render () {
+  render() {
     const { name, value } = this.props
     return (
       <Square value={value}>
@@ -24,11 +24,11 @@ class GeneInput extends React.Component {
           <Bar value={value} />
         </Name>
         <Value
-          type='number'
-          min='0'
-          max='100'
-          step='10'
-          placeholder='Multiple'
+          type="number"
+          min="0"
+          max="100"
+          step="10"
+          placeholder="Multiple"
           value={value === null ? '' : value}
           onChange={this.handleChange}
         />
@@ -40,7 +40,7 @@ class GeneInput extends React.Component {
 GeneInput.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.number,
-  onChangeValue: PropTypes.func
+  onChangeValue: PropTypes.func,
 }
 
 const Square = styled.div`

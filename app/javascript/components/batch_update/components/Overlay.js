@@ -16,7 +16,7 @@ const Overlay = styled.div`
 `
 Overlay.displayName = 'Overlay'
 Overlay.defaultProps = {
-  z: 1
+  z: 1,
 }
 
 export default Overlay

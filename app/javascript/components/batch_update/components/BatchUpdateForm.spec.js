@@ -16,7 +16,7 @@ beforeEach(() => {
     onCancel: dismissHandler,
     selectedArtworkIds: ['one', 'two', 'three'],
     getCommonGenes: jest.fn().mockReturnValueOnce(['Art', 'Painting']),
-    onAddNotice: jest.fn()
+    onAddNotice: jest.fn(),
   }
 })
 
@@ -30,11 +30,11 @@ it('renders the common genes for each new artwork selection', () => {
   const wrapper = mount(<BatchUpdateForm {...props} />)
   expect(wrapper.state().geneValues).toEqual({})
   wrapper.setProps({
-    selectedArtworkIds: ['one', 'two', 'three', 'four']
+    selectedArtworkIds: ['one', 'two', 'three', 'four'],
   }) // triggers componentWillReceiveProps()
   expect(wrapper.state().geneValues).toMatchObject({
-    'Art': null,
-    'Painting': null
+    Art: null,
+    Painting: null,
   })
   expect(wrapper.find(GeneInput).length).toEqual(2)
 })
@@ -51,14 +51,14 @@ describe('when the "Cancel" link is clicked', () => {
     const wrapper = mount(<BatchUpdateForm {...props} />)
     wrapper.setState({
       geneValues: {
-        'Kawaii': 70
-      }
+        Kawaii: 70,
+      },
     })
     const mockClickEvent = { preventDefault: jest.fn() }
     wrapper.find('a.cancel').simulate('click', mockClickEvent)
     expect(wrapper.state('geneValues')).toEqual({
-      'Art': null,
-      'Painting': null
+      Art: null,
+      Painting: null,
     })
   })
 })
@@ -69,8 +69,8 @@ it('adds genes', () => {
   component.onAddGene({ id: 'kawaii', name: 'Kawaii' })
   expect(component.state).toMatchObject({
     geneValues: {
-      'Kawaii': null
-    }
+      Kawaii: null,
+    },
   })
 })
 
@@ -80,7 +80,7 @@ describe('with no currently added genes', () => {
   beforeEach(() => {
     wrapper = mount(<BatchUpdateForm {...props} />)
     wrapper.setState({
-      geneValues: {}
+      geneValues: {},
     })
   })
 
@@ -96,8 +96,8 @@ describe('with only null genes', () => {
     wrapper = mount(<BatchUpdateForm {...props} />)
     wrapper.setState({
       geneValues: {
-        'Kawaii': null
-      }
+        Kawaii: null,
+      },
     })
   })
 
@@ -114,9 +114,9 @@ describe('with currently added genes', () => {
     component = wrapper.instance()
     component.setState({
       geneValues: {
-        'Kawaii': 0,
-        'Animals': 100
-      }
+        Kawaii: 0,
+        Animals: 100,
+      },
     })
     wrapper.update()
   })
@@ -134,21 +134,21 @@ describe('with currently added genes', () => {
   it('updates gene values from integers', () => {
     component.onChangeGeneValue({ name: 'Kawaii', value: 70 })
     expect(component.state['geneValues']).toMatchObject({
-      'Kawaii': 70
+      Kawaii: 70,
     })
   })
 
   it('updates gene values from number-ish strings', () => {
     component.onChangeGeneValue({ name: 'Kawaii', value: '70' })
     expect(component.state['geneValues']).toMatchObject({
-      'Kawaii': 70
+      Kawaii: 70,
     })
   })
 
   it('nulls gene values from empty strings', () => {
     component.onChangeGeneValue({ name: 'Kawaii', value: '' })
     expect(component.state['geneValues']).toMatchObject({
-      'Kawaii': null
+      Kawaii: null,
     })
   })
 
@@ -156,7 +156,12 @@ describe('with currently added genes', () => {
     it('opens a confirmation modal', () => {
       const mockClickEvent = { preventDefault: jest.fn() }
       wrapper.find('button.queue').simulate('click', mockClickEvent)
-      expect(wrapper.find(ConfirmationModal).render().hasClass('modal-open')).toBe(true)
+      expect(
+        wrapper
+          .find(ConfirmationModal)
+          .render()
+          .hasClass('modal-open')
+      ).toBe(true)
     })
 
     describe('when the confirmation modal is accepted', () => {
@@ -166,7 +171,9 @@ describe('with currently added genes', () => {
         // that tag.
         // https://github.com/facebook/jest/issues/2297
         Object.defineProperty(document, 'querySelector', {
-          value: () => { return { content: 'very secret csrf token' } }
+          value: () => {
+            return { content: 'very secret csrf token' }
+          },
         })
       })
 
@@ -185,7 +192,10 @@ describe('with currently added genes', () => {
 
         const mockClickEvent = { preventDefault: jest.fn() }
         wrapper.find('button.queue').simulate('click', mockClickEvent)
-        wrapper.find(ConfirmationModal).find('a.accept').simulate('click', mockClickEvent)
+        wrapper
+          .find(ConfirmationModal)
+          .find('a.accept')
+          .simulate('click', mockClickEvent)
       })
 
       it('submits the form', () => {
@@ -193,12 +203,19 @@ describe('with currently added genes', () => {
       })
 
       it('sends the genes and artworks', () => {
-        expect(rosalindApi.submitBatchUpdate.mock.calls[0][0]).toEqual(props.selectedArtworkIds)
-        expect(rosalindApi.submitBatchUpdate.mock.calls[0][1]).toEqual({'Animals': 100, 'Kawaii': 0})
+        expect(rosalindApi.submitBatchUpdate.mock.calls[0][0]).toEqual(
+          props.selectedArtworkIds
+        )
+        expect(rosalindApi.submitBatchUpdate.mock.calls[0][1]).toEqual({
+          Animals: 100,
+          Kawaii: 0,
+        })
       })
 
       it('includes the forgery token from the html document', () => {
-        expect(rosalindApi.submitBatchUpdate.mock.calls[0][2]).toEqual('very secret csrf token')
+        expect(rosalindApi.submitBatchUpdate.mock.calls[0][2]).toEqual(
+          'very secret csrf token'
+        )
       })
     })
   })

@@ -17,11 +17,11 @@ const Overlay = styled.div`
   top: 0;
   right: 0;
   height: calc(100vh - 50px);
-  background: hsla(0, 0%, 100%, 0.90);
+  background: hsla(0, 0%, 100%, 0.9);
   display: flex;
   flex-direction: row;
   justify-content: center;
-  z-index: 1
+  z-index: 1;
 `
 
 const AnimatedLine = styled.div`
@@ -34,11 +34,11 @@ const AnimatedLine = styled.div`
 `
 
 AnimatedLine.propTypes = {
-  color: PropTypes.string
+  color: PropTypes.string,
 }
 
 AnimatedLine.defaultProps = {
-  color: 'black'
+  color: 'black',
 }
 
 const Spinner = () => (
