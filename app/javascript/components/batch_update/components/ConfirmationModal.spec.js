@@ -37,7 +37,7 @@ describe('when the "Go back" button is clicked', () => {
       <ConfirmationModal {...props}>Dismiss me?</ConfirmationModal>
     )
     const mockClickEvent = { preventDefault: jest.fn() }
-    wrapper.find('a.dismiss').simulate('click', mockClickEvent)
+    wrapper.find('Button.dismiss button').simulate('click', mockClickEvent)
     expect(props.onDismiss.mock.calls.length).toEqual(1)
   })
 })
@@ -48,7 +48,7 @@ describe('when the "Continue" button is clicked', () => {
       <ConfirmationModal {...props}>Accept me?</ConfirmationModal>
     )
     const mockClickEvent = { preventDefault: jest.fn() }
-    wrapper.find('a.accept').simulate('click', mockClickEvent)
+    wrapper.find('Button.accept button').simulate('click', mockClickEvent)
     expect(props.onAccept.mock.calls.length).toEqual(1)
   })
 })

@@ -151,78 +151,74 @@ exports[`renders correctly 1`] = `
   pointer-events: none;
 }
 
-.c13 {
-  color: #666666;
+.c14 {
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  border: 2px solid;
+  border-radius: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 41px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  background-color: #000;
+  border-color: #000;
+  color: #FFF;
 }
 
-.c14 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #F8F8F8;
-  color: #cccccc;
-  border: solid 1px #F8F8F8;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
+.c14.loading {
   -webkit-transition: none;
   transition: none;
-  cursor: not-allowed;
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+  cursor: auto;
+}
+
+.c14.disabled {
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #FFF;
+  pointer-events: none;
 }
 
 .c20 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #ffffff;
-  color: #000000;
-  border: solid 1px #000000;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
-  -webkit-transition-property: background,border-color,color;
-  transition-property: background,border-color,color;
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
   cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
+  position: relative;
+  white-space: nowrap;
+  border: 2px solid;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 41px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  background-color: #FFF;
+  border-color: #E5E5E5;
+  color: #000;
 }
 
-.c20:hover {
-  background: #6E1FFF;
-  border-color: #6E1FFF;
-  color: #ffffff;
+.c20.loading {
+  -webkit-transition: none;
+  transition: none;
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+  cursor: auto;
 }
 
-.c21 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #000000;
-  color: #ffffff;
-  border: solid 1px #000000;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
-  -webkit-transition-property: background,border-color,color;
-  transition-property: background,border-color,color;
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
+.c20.disabled {
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #FFF;
+  pointer-events: none;
 }
 
-.c21:hover {
-  background: #6E1FFF;
-  border-color: #6E1FFF;
-  color: #ffffff;
+.c13 {
+  color: #666666;
 }
 
 .c9 {
@@ -401,7 +397,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c22 {
+.c21 {
   position: fixed;
   top: 0;
   right: 0;
@@ -431,6 +427,22 @@ exports[`renders correctly 1`] = `
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
+  }
+}
+
+@media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
+  .c14:hover {
+    background-color: #6E1EFF;
+    border-color: #6E1EFF;
+    color: #FFF;
+  }
+}
+
+@media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
+  .c20:hover {
+    background-color: #FFF;
+    border-color: #000;
+    color: #000;
   }
 }
 
@@ -741,6 +753,7 @@ exports[`renders correctly 1`] = `
       </div>
       <button
         className=" disabled c6"
+        disabled={true}
         height="41px"
         onClick={[Function]}
         width={1}
@@ -793,11 +806,24 @@ exports[`renders correctly 1`] = `
            works selected
         </div>
         <button
-          className="queue c14"
+          className=" disabled c14"
           disabled={true}
+          height="41px"
           onClick={[Function]}
         >
-          Queue changes
+          <div
+            className="c7"
+            color={undefined}
+            fontFamily={
+              Object {
+                "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+                "fontWeight": 500,
+              }
+            }
+            fontSize="14px"
+          >
+            Queue changes
+          </div>
         </button>
       </div>
       <div
@@ -859,26 +885,52 @@ exports[`renders correctly 1`] = `
         <div
           className="c19"
         >
-          <a
-            className="dismiss c20"
-            href="#"
+          <button
+            className="  c20"
+            disabled={undefined}
+            height="41px"
             onClick={[Function]}
           >
-            Go back
-          </a>
-          <a
-            className="accept c21"
-            href="#"
+            <div
+              className="c7"
+              color={undefined}
+              fontFamily={
+                Object {
+                  "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+                  "fontWeight": 500,
+                }
+              }
+              fontSize="14px"
+            >
+              Go back
+            </div>
+          </button>
+          <button
+            className="  c14"
+            disabled={undefined}
+            height="41px"
             onClick={[Function]}
           >
-            Continue
-          </a>
+            <div
+              className="c7"
+              color={undefined}
+              fontFamily={
+                Object {
+                  "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+                  "fontWeight": 500,
+                }
+              }
+              fontSize="14px"
+            >
+              Continue
+            </div>
+          </button>
         </div>
       </div>
     </div>
   </div>
   <div
-    className="c22"
+    className="c21"
   />
 </div>
 `;

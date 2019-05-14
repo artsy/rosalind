@@ -1,58 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly when closed 1`] = `
-.c2 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #ffffff;
-  color: #000000;
-  border: solid 1px #000000;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
-  -webkit-transition-property: background,border-color,color;
-  transition-property: background,border-color,color;
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
-}
-
-.c2:hover {
-  background: #6E1FFF;
-  border-color: #6E1FFF;
-  color: #ffffff;
-}
-
 .c3 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #000000;
-  color: #ffffff;
-  border: solid 1px #000000;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
-  -webkit-transition-property: background,border-color,color;
-  transition-property: background,border-color,color;
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
+  font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  padding-top: 1px;
 }
 
-.c3:hover {
-  background: #6E1FFF;
-  border-color: #6E1FFF;
-  color: #ffffff;
+.c2 {
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  border: 2px solid;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 41px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  background-color: #FFF;
+  border-color: #E5E5E5;
+  color: #000;
+}
+
+.c2.loading {
+  -webkit-transition: none;
+  transition: none;
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+  cursor: auto;
+}
+
+.c2.disabled {
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #FFF;
+  pointer-events: none;
+}
+
+.c4 {
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  border: 2px solid;
+  border-radius: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 41px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  background-color: #000;
+  border-color: #000;
+  color: #FFF;
+}
+
+.c4.loading {
+  -webkit-transition: none;
+  transition: none;
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+  cursor: auto;
+}
+
+.c4.disabled {
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #FFF;
+  pointer-events: none;
 }
 
 .c0 {
@@ -119,6 +139,22 @@ exports[`renders correctly when closed 1`] = `
 
 .c1 a {
   margin-left: 1em;
+}
+
+@media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
+  .c2:hover {
+    background-color: #FFF;
+    border-color: #000;
+    color: #000;
+  }
+}
+
+@media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
+  .c4:hover {
+    background-color: #6E1EFF;
+    border-color: #6E1EFF;
+    color: #FFF;
+  }
 }
 
 <div
@@ -128,77 +164,123 @@ exports[`renders correctly when closed 1`] = `
   <div
     className="c1"
   >
-    <a
-      className="dismiss c2"
-      href="#"
+    <button
+      className="  c2"
+      disabled={undefined}
+      height="41px"
       onClick={[Function]}
     >
-      Go back
-    </a>
-    <a
-      className="accept c3"
-      href="#"
+      <div
+        className="c3"
+        color={undefined}
+        fontFamily={
+          Object {
+            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            "fontWeight": 500,
+          }
+        }
+        fontSize="14px"
+      >
+        Go back
+      </div>
+    </button>
+    <button
+      className="  c4"
+      disabled={undefined}
+      height="41px"
       onClick={[Function]}
     >
-      Continue
-    </a>
+      <div
+        className="c3"
+        color={undefined}
+        fontFamily={
+          Object {
+            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            "fontWeight": 500,
+          }
+        }
+        fontSize="14px"
+      >
+        Continue
+      </div>
+    </button>
   </div>
 </div>
 `;
 
 exports[`renders correctly when open 1`] = `
-.c2 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #ffffff;
-  color: #000000;
-  border: solid 1px #000000;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
-  -webkit-transition-property: background,border-color,color;
-  transition-property: background,border-color,color;
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
-}
-
-.c2:hover {
-  background: #6E1FFF;
-  border-color: #6E1FFF;
-  color: #ffffff;
-}
-
 .c3 {
-  display: inline-block;
-  padding: 18px 30px 15px 30px;
-  background: #000000;
-  color: #ffffff;
-  border: solid 1px #000000;
-  font-family: 'ITC Avant Garde Gothic W01';
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-  text-transform: uppercase;
-  -webkit-transition-property: background,border-color,color;
-  transition-property: background,border-color,color;
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
+  font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  padding-top: 1px;
 }
 
-.c3:hover {
-  background: #6E1FFF;
-  border-color: #6E1FFF;
-  color: #ffffff;
+.c2 {
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  border: 2px solid;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 41px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  background-color: #FFF;
+  border-color: #E5E5E5;
+  color: #000;
+}
+
+.c2.loading {
+  -webkit-transition: none;
+  transition: none;
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+  cursor: auto;
+}
+
+.c2.disabled {
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #FFF;
+  pointer-events: none;
+}
+
+.c4 {
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  border: 2px solid;
+  border-radius: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 41px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  background-color: #000;
+  border-color: #000;
+  color: #FFF;
+}
+
+.c4.loading {
+  -webkit-transition: none;
+  transition: none;
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+  cursor: auto;
+}
+
+.c4.disabled {
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #FFF;
+  pointer-events: none;
 }
 
 .c0 {
@@ -267,6 +349,22 @@ exports[`renders correctly when open 1`] = `
   margin-left: 1em;
 }
 
+@media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
+  .c2:hover {
+    background-color: #FFF;
+    border-color: #000;
+    color: #000;
+  }
+}
+
+@media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
+  .c4:hover {
+    background-color: #6E1EFF;
+    border-color: #6E1EFF;
+    color: #FFF;
+  }
+}
+
 <div
   className="modal-open c0"
 >
@@ -274,20 +372,46 @@ exports[`renders correctly when open 1`] = `
   <div
     className="c1"
   >
-    <a
-      className="dismiss c2"
-      href="#"
+    <button
+      className="  c2"
+      disabled={undefined}
+      height="41px"
       onClick={[Function]}
     >
-      Go back
-    </a>
-    <a
-      className="accept c3"
-      href="#"
+      <div
+        className="c3"
+        color={undefined}
+        fontFamily={
+          Object {
+            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            "fontWeight": 500,
+          }
+        }
+        fontSize="14px"
+      >
+        Go back
+      </div>
+    </button>
+    <button
+      className="  c4"
+      disabled={undefined}
+      height="41px"
       onClick={[Function]}
     >
-      Continue
-    </a>
+      <div
+        className="c3"
+        color={undefined}
+        fontFamily={
+          Object {
+            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            "fontWeight": 500,
+          }
+        }
+        fontSize="14px"
+      >
+        Continue
+      </div>
+    </button>
   </div>
 </div>
 `;
