@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/rosalind
     docker:
-      - image: artsy/ruby:2.5.3-node-chrome
+      - image: artsy/ruby:2.6.2-node-chrome
         environment:
           RAILS_ENV: test
       - image: circleci/postgres:10.1-alpine
