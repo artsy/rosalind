@@ -85,7 +85,6 @@ describe('with no currently added genes', () => {
   })
 
   it('disables the "Queue" button', () => {
-    // console.log(wrapper.debug())
     expect(wrapper.find('Button.queue button').prop('disabled')).toEqual(true)
   })
 })
