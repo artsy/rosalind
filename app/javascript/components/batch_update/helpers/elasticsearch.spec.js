@@ -7,6 +7,7 @@ describe('buildElasticsearchQuery', () => {
     tags,
     keywords,
     artists,
+    NSOFilter,
     partner,
     fair,
     attributionClass,
@@ -571,6 +572,45 @@ describe('buildElasticsearchQuery', () => {
         genes,
         genomedFilter,
         keywords,
+        partner,
+        publishedFilter,
+        tags,
+      }
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('modifies a query with the value of the "NSO" filter', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { genes: 'Gene 1' } },
+              {
+                or: [
+                  { term: { offerable: true } },
+                  { term: { acquireable: true } },
+                ],
+              },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+      NSOFilter = 'SHOW_NSO'
+      const params = {
+        artists,
+        attributionClass,
+        createdAfterDate,
+        createdBeforeDate,
+        fair,
+        genes,
+        genomedFilter,
+        keywords,
+        NSOFilter,
         partner,
         publishedFilter,
         tags,

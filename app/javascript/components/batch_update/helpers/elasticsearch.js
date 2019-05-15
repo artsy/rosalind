@@ -12,6 +12,7 @@ export function buildElasticsearchQuery(args) {
     genes,
     genomedFilter,
     keywords,
+    NSOFilter,
     partner,
     publishedFilter,
     size,
@@ -27,7 +28,11 @@ export function buildElasticsearchQuery(args) {
   const artistMatches = artists.map(a => {
     return { match: { artist_id: a.id } }
   })
-  const filterMatches = buildFilterMatches({ publishedFilter, genomedFilter })
+  const filterMatches = buildFilterMatches({
+    publishedFilter,
+    genomedFilter,
+    NSOFilter,
+  })
   const partnerMatch = partner ? { match: { partner_id: partner.id } } : null
   const fairMatch = fair ? { match: { fair_ids: fair.id } } : null
   const attributionClassMatch = attributionClass
@@ -108,9 +113,10 @@ const buildCreatedDateRange = ({ createdAfterDate, createdBeforeDate }) => {
   return query
 }
 
-const buildFilterMatches = ({ publishedFilter, genomedFilter }) => [
+const buildFilterMatches = ({ publishedFilter, genomedFilter, NSOFilter }) => [
   publishedMatcher(publishedFilter),
   genomedMatcher(genomedFilter),
+  NSOMatcher(NSOFilter),
 ]
 
 const publishedMatcher = publishedFilter => {
@@ -130,6 +136,43 @@ const genomedMatcher = genomedFilter => {
       return { match: { genomed: true } }
     case 'SHOW_NOT_GENOMED':
       return { match: { genomed: false } }
+    default:
+      return null
+  }
+}
+
+const NSOMatcher = NSOFilter => {
+  switch (NSOFilter) {
+    case 'SHOW_NSO':
+      return {
+        or: [
+          {
+            term: {
+              offerable: true,
+            },
+          },
+          {
+            term: {
+              acquireable: true,
+            },
+          },
+        ],
+      }
+    case 'SHOW_NOT_NSO':
+      return {
+        and: [
+          {
+            term: {
+              offerable: false,
+            },
+          },
+          {
+            term: {
+              acquireable: false,
+            },
+          },
+        ],
+      }
     default:
       return null
   }
