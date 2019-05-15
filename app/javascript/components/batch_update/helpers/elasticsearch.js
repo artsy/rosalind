@@ -1,4 +1,5 @@
 const defaultPageSize = 100
+const DEBUG = false
 
 export function buildElasticsearchQuery(args) {
   const {
@@ -57,7 +58,7 @@ export function buildElasticsearchQuery(args) {
     }
   })
 
-  return {
+  const query = {
     query: {
       bool: {
         must: [
@@ -78,6 +79,11 @@ export function buildElasticsearchQuery(args) {
     from: from || 0,
     size: size || defaultPageSize,
   }
+
+  if (DEBUG) {
+    console.log(JSON.stringify(query, null, 2))
+  }
+  return query
 }
 
 const buildCreatedDateRange = ({ createdAfterDate, createdBeforeDate }) => {
