@@ -12,7 +12,7 @@ export function buildElasticsearchQuery(args) {
     genes,
     genomedFilter,
     keywords,
-    NSOFilter,
+    acquireableOrOfferableFilter,
     partner,
     publishedFilter,
     size,
@@ -31,7 +31,7 @@ export function buildElasticsearchQuery(args) {
   const filterMatches = buildFilterMatches({
     publishedFilter,
     genomedFilter,
-    NSOFilter,
+    acquireableOrOfferableFilter,
   })
   const partnerMatch = partner ? { match: { partner_id: partner.id } } : null
   const fairMatch = fair ? { match: { fair_ids: fair.id } } : null
@@ -113,10 +113,14 @@ const buildCreatedDateRange = ({ createdAfterDate, createdBeforeDate }) => {
   return query
 }
 
-const buildFilterMatches = ({ publishedFilter, genomedFilter, NSOFilter }) => [
+const buildFilterMatches = ({
+  publishedFilter,
+  genomedFilter,
+  acquireableOrOfferableFilter,
+}) => [
   publishedMatcher(publishedFilter),
   genomedMatcher(genomedFilter),
-  NSOMatcher(NSOFilter),
+  acquireableOrOfferableMatcher(acquireableOrOfferableFilter),
 ]
 
 const publishedMatcher = publishedFilter => {
@@ -141,9 +145,9 @@ const genomedMatcher = genomedFilter => {
   }
 }
 
-const NSOMatcher = NSOFilter => {
-  switch (NSOFilter) {
-    case 'SHOW_NSO':
+const acquireableOrOfferableMatcher = acquireableOrOfferableFilter => {
+  switch (acquireableOrOfferableFilter) {
+    case 'SHOW_ACQUIREABLE_OR_OFFERABLE':
       return {
         or: [
           {
@@ -158,7 +162,7 @@ const NSOMatcher = NSOFilter => {
           },
         ],
       }
-    case 'SHOW_NOT_NSO':
+    case 'SHOW_NOT_ACQUIREABLE_OR_OFFERABLE':
       return {
         and: [
           {

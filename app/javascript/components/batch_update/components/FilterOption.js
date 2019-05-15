@@ -2,22 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function FilterOption(props) {
-  const suffix = props.name.toUpperCase()
+  const suffix = toOptionValue(props.name)
 
   return (
     <div className="filter">
-      <div>{`${capitalize(props.name)}?`}</div>
+      <div>{`${toDisplayName(props.name)}?`}</div>
 
       <Option option="SHOW_ALL" {...props}>
         All
       </Option>
 
       <Option option={`SHOW_${suffix}`} {...props}>
-        {capitalize(props.name)}
+        True
       </Option>
 
       <Option option={`SHOW_NOT_${suffix}`} {...props}>
-        {`Not ${props.name}`}
+        False
       </Option>
     </div>
   )
@@ -53,8 +53,22 @@ function Option(props) {
   )
 }
 
-function capitalize(str) {
-  return str.substring(0, 1).toUpperCase() + str.substring(1)
+const toDisplayName = str => {
+  // un-camelize
+  str = str.replace(/([a-z])([A-Z])/g, '$1 $2')
+  // capitalize first letter
+  str = str.charAt(0).toUpperCase() + str.slice(1)
+  return str
+}
+
+const toOptionValue = str => {
+  // un-camelize
+  str = str.replace(/([a-z])([A-Z])/g, '$1 $2')
+  // add underscores
+  str = str.replace(/\s+/g, '_')
+  // capitalize
+  str = str.toUpperCase()
+  return str
 }
 
 export default FilterOption

@@ -75,7 +75,11 @@ class SearchForm extends React.Component {
       updateState,
     } = this.props
 
-    const { genomedFilter, NSOFilter, publishedFilter } = this.props
+    const {
+      genomedFilter,
+      acquireableOrOfferableFilter,
+      publishedFilter,
+    } = this.props
 
     return (
       <div className={this.props.className}>
@@ -124,7 +128,7 @@ class SearchForm extends React.Component {
 
         <FilterOptions
           genomedFilter={genomedFilter}
-          NSOFilter={NSOFilter}
+          acquireableOrOfferableFilter={acquireableOrOfferableFilter}
           publishedFilter={publishedFilter}
           updateState={updateState}
         />

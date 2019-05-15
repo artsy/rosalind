@@ -7,7 +7,7 @@ describe('buildElasticsearchQuery', () => {
     tags,
     keywords,
     artists,
-    NSOFilter,
+    acquireableOrOfferableFilter,
     partner,
     fair,
     attributionClass,
@@ -580,7 +580,7 @@ describe('buildElasticsearchQuery', () => {
       expect(actualQuery).toEqual(expectedQuery)
     })
 
-    it('modifies a query with the value of the "NSO" filter', () => {
+    it('modifies a query with the value of the "acquireable or offerable" filter', () => {
       const expectedQuery = {
         query: {
           bool: {
@@ -600,7 +600,7 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      NSOFilter = 'SHOW_NSO'
+      acquireableOrOfferableFilter = 'SHOW_ACQUIREABLE_OR_OFFERABLE'
       const params = {
         artists,
         attributionClass,
@@ -610,7 +610,7 @@ describe('buildElasticsearchQuery', () => {
         genes,
         genomedFilter,
         keywords,
-        NSOFilter,
+        acquireableOrOfferableFilter,
         partner,
         publishedFilter,
         tags,

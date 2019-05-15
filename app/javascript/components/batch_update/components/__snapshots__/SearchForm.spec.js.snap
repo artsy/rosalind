@@ -44,18 +44,18 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 
 .c3 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3 .filter {
@@ -63,7 +63,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 }
 
 .c3 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -335,14 +335,14 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -363,21 +363,21 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
       </a>
     </div>
     <div
       className="filter"
     >
       <div>
-        NSO?
+        Acquireable Or Offerable?
       </div>
       <a
         className="active"
@@ -391,14 +391,14 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         href="#"
         onClick={[Function]}
       >
-        NSO
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not NSO
+        False
       </a>
     </div>
   </div>
@@ -449,18 +449,18 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 
 .c3 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3 .filter {
@@ -468,7 +468,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 }
 
 .c3 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -789,14 +789,14 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -817,21 +817,21 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
       </a>
     </div>
     <div
       className="filter"
     >
       <div>
-        NSO?
+        Acquireable Or Offerable?
       </div>
       <a
         className="active"
@@ -845,14 +845,14 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         href="#"
         onClick={[Function]}
       >
-        NSO
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not NSO
+        False
       </a>
     </div>
   </div>
@@ -924,18 +924,18 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 
 .c3 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3 .filter {
@@ -943,7 +943,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 }
 
 .c3 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -1273,14 +1273,14 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -1301,21 +1301,21 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
       </a>
     </div>
     <div
       className="filter"
     >
       <div>
-        NSO?
+        Acquireable Or Offerable?
       </div>
       <a
         className="active"
@@ -1329,14 +1329,14 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         href="#"
         onClick={[Function]}
       >
-        NSO
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not NSO
+        False
       </a>
     </div>
   </div>
@@ -1439,18 +1439,18 @@ exports[`does not render attribution class autosuggest if it is already selected
 
 .c4 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4 .filter {
@@ -1458,7 +1458,7 @@ exports[`does not render attribution class autosuggest if it is already selected
 }
 
 .c4 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -1717,14 +1717,14 @@ exports[`does not render attribution class autosuggest if it is already selected
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -1745,21 +1745,21 @@ exports[`does not render attribution class autosuggest if it is already selected
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
       </a>
     </div>
     <div
       className="filter"
     >
       <div>
-        NSO?
+        Acquireable Or Offerable?
       </div>
       <a
         className="active"
@@ -1773,14 +1773,14 @@ exports[`does not render attribution class autosuggest if it is already selected
         href="#"
         onClick={[Function]}
       >
-        NSO
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not NSO
+        False
       </a>
     </div>
   </div>
@@ -1855,18 +1855,18 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
 
 .c4 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4 .filter {
@@ -1874,7 +1874,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
 }
 
 .c4 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -2133,14 +2133,14 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -2161,21 +2161,21 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
       </a>
     </div>
     <div
       className="filter"
     >
       <div>
-        NSO?
+        Acquireable Or Offerable?
       </div>
       <a
         className="active"
@@ -2189,14 +2189,14 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         href="#"
         onClick={[Function]}
       >
-        NSO
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not NSO
+        False
       </a>
     </div>
   </div>
@@ -2271,18 +2271,18 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
 
 .c4 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4 .filter {
@@ -2290,7 +2290,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
 }
 
 .c4 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -2549,14 +2549,14 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -2577,21 +2577,21 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
       </a>
     </div>
     <div
       className="filter"
     >
       <div>
-        NSO?
+        Acquireable Or Offerable?
       </div>
       <a
         className="active"
@@ -2605,14 +2605,14 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         href="#"
         onClick={[Function]}
       >
-        NSO
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not NSO
+        False
       </a>
     </div>
   </div>
@@ -2663,18 +2663,18 @@ exports[`renders correctly 1`] = `
 
 .c3 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3 .filter {
@@ -2682,7 +2682,7 @@ exports[`renders correctly 1`] = `
 }
 
 .c3 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -2954,14 +2954,14 @@ exports[`renders correctly 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -2982,21 +2982,21 @@ exports[`renders correctly 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
       </a>
     </div>
     <div
       className="filter"
     >
       <div>
-        NSO?
+        Acquireable Or Offerable?
       </div>
       <a
         className="active"
@@ -3010,14 +3010,14 @@ exports[`renders correctly 1`] = `
         href="#"
         onClick={[Function]}
       >
-        NSO
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not NSO
+        False
       </a>
     </div>
   </div>

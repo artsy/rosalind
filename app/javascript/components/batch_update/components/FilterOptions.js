@@ -7,7 +7,7 @@ function FilterOptions(props) {
     className,
     publishedFilter,
     genomedFilter,
-    NSOFilter,
+    acquireableOrOfferableFilter,
     updateState,
   } = props
 
@@ -23,7 +23,11 @@ function FilterOptions(props) {
         name="genomed"
         updateState={updateState}
       />
-      <FilterOption current={NSOFilter} name="NSO" updateState={updateState} />
+      <FilterOption
+        current={acquireableOrOfferableFilter}
+        name="acquireableOrOfferable"
+        updateState={updateState}
+      />
     </div>
   )
 }
@@ -32,22 +36,22 @@ function FilterOptions(props) {
 
 const StyledFilterOptions = styled(FilterOptions)`
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  transition: opacity 0.5s;
 
   &:hover {
     opacity: 1;
-    transition: opacity 0.25s;
+    transition: opacity 0.5s;
   }
 
   .filter {
     margin-top: 1em;
 
     a {
-      color: #ccc;
+      color: #999;
       margin-right: 0.5em;
 
       &.active {
