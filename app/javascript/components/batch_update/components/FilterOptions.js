@@ -3,7 +3,13 @@ import styled from 'styled-components'
 import FilterOption from './FilterOption'
 
 function FilterOptions(props) {
-  const { className, publishedFilter, genomedFilter, updateState } = props
+  const {
+    className,
+    publishedFilter,
+    genomedFilter,
+    NSOFilter,
+    updateState,
+  } = props
 
   return (
     <div className={className}>
@@ -17,6 +23,7 @@ function FilterOptions(props) {
         name="genomed"
         updateState={updateState}
       />
+      <FilterOption current={NSOFilter} name="NSO" updateState={updateState} />
     </div>
   )
 }

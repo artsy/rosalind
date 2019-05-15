@@ -18,6 +18,7 @@ beforeEach(() => {
     genes: [],
     genomedFilter: 'SHOW_ALL',
     keywords: [],
+    NSOFilter: 'SHOW_ALL',
     onAddKeyword: jest.fn(),
     onAddGene: jest.fn(),
     onAddTag: jest.fn(),

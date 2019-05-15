@@ -373,6 +373,34 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         Not genomed
       </a>
     </div>
+    <div
+      className="filter"
+    >
+      <div>
+        NSO?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        NSO
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Not NSO
+      </a>
+    </div>
   </div>
 </div>
 `;
@@ -797,6 +825,34 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         onClick={[Function]}
       >
         Not genomed
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        NSO?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        NSO
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Not NSO
       </a>
     </div>
   </div>
@@ -1255,6 +1311,34 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         Not genomed
       </a>
     </div>
+    <div
+      className="filter"
+    >
+      <div>
+        NSO?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        NSO
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Not NSO
+      </a>
+    </div>
   </div>
   <button
     className="  c4"
@@ -1671,6 +1755,34 @@ exports[`does not render attribution class autosuggest if it is already selected
         Not genomed
       </a>
     </div>
+    <div
+      className="filter"
+    >
+      <div>
+        NSO?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        NSO
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Not NSO
+      </a>
+    </div>
   </div>
 </div>
 `;
@@ -2057,6 +2169,34 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         onClick={[Function]}
       >
         Not genomed
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        NSO?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        NSO
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Not NSO
       </a>
     </div>
   </div>
@@ -2447,6 +2587,34 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         Not genomed
       </a>
     </div>
+    <div
+      className="filter"
+    >
+      <div>
+        NSO?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        NSO
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Not NSO
+      </a>
+    </div>
   </div>
 </div>
 `;
@@ -2822,6 +2990,34 @@ exports[`renders correctly 1`] = `
         onClick={[Function]}
       >
         Not genomed
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        NSO?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        NSO
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        Not NSO
       </a>
     </div>
   </div>

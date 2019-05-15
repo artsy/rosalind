@@ -750,6 +750,34 @@ exports[`renders correctly 1`] = `
             Not genomed
           </a>
         </div>
+        <div
+          className="filter"
+        >
+          <div>
+            NSO?
+          </div>
+          <a
+            className="active"
+            href="#"
+            onClick={[Function]}
+          >
+            All
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}
+          >
+            NSO
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}
+          >
+            Not NSO
+          </a>
+        </div>
       </div>
       <button
         className=" disabled c6"
