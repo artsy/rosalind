@@ -149,33 +149,11 @@ const acquireableOrOfferableMatcher = acquireableOrOfferableFilter => {
   switch (acquireableOrOfferableFilter) {
     case 'SHOW_ACQUIREABLE_OR_OFFERABLE':
       return {
-        or: [
-          {
-            term: {
-              offerable: true,
-            },
-          },
-          {
-            term: {
-              acquireable: true,
-            },
-          },
-        ],
+        or: [{ term: { offerable: true } }, { term: { acquireable: true } }],
       }
     case 'SHOW_NOT_ACQUIREABLE_OR_OFFERABLE':
       return {
-        and: [
-          {
-            term: {
-              offerable: false,
-            },
-          },
-          {
-            term: {
-              acquireable: false,
-            },
-          },
-        ],
+        and: [{ term: { offerable: false } }, { term: { acquireable: false } }],
       }
     default:
       return null
