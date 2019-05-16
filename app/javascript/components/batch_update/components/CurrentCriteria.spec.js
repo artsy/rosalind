@@ -20,6 +20,8 @@ beforeEach(() => {
     onRemoveGene: jest.fn(),
     onRemoveTag: jest.fn(),
     partner: null,
+    minPrice: null,
+    maxPrice: null,
     tags: [],
   }
 })

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import CurrentCriteria from './CurrentCriteria'
 import { CreatedAfterDateInput, CreatedBeforeDateInput } from './DateInput'
 import TextInput from './TextInput'
+import PriceInput from './PriceInput'
 import {
   ArtistAutosuggest,
   AttributionClassAutosuggest,
@@ -59,10 +60,14 @@ class SearchForm extends React.Component {
       fair,
       genes,
       keywords,
+      maxPrice,
+      minPrice,
       onRemoveKeyword,
       onRemoveGene,
       onRemoveTag,
       onRemoveArtist,
+      onRemoveMinPrice,
+      onRemoveMaxPrice,
       partner,
       tags,
     } = this.props
@@ -92,6 +97,10 @@ class SearchForm extends React.Component {
           fair={fair}
           genes={genes}
           keywords={keywords}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          onRemoveMinPrice={onRemoveMinPrice}
+          onRemoveMaxPrice={onRemoveMaxPrice}
           onRemoveKeyword={onRemoveKeyword}
           onRemoveGene={onRemoveGene}
           onRemoveTag={onRemoveTag}
@@ -125,7 +134,11 @@ class SearchForm extends React.Component {
             createdBeforeDate={createdBeforeDate}
           />
         )}
-
+        <PriceInput
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          updateState={updateState}
+        />
         <FilterOptions
           genomedFilter={genomedFilter}
           acquireableOrOfferableFilter={acquireableOrOfferableFilter}

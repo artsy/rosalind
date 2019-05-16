@@ -19,6 +19,8 @@ beforeEach(() => {
     genomedFilter: 'SHOW_ALL',
     keywords: [],
     acquireableOrOfferableFilter: 'SHOW_ALL',
+    minPrice: null,
+    maxPrice: null,
     onAddKeyword: jest.fn(),
     onAddGene: jest.fn(),
     onAddTag: jest.fn(),

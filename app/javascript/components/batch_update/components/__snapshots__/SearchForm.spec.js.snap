@@ -314,6 +314,28 @@ exports[`"edit artworks" button does not render an edit button if there are no a
       />
     </div>
   </div>
+  <div>
+    <div
+      className="c1"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="c1"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c3"
   >
@@ -765,6 +787,28 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
       <a
         href="#"
         onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div>
+    <div
+      className="c1"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="c1"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
       />
     </div>
   </div>
@@ -1252,6 +1296,28 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
       />
     </div>
   </div>
+  <div>
+    <div
+      className="c1"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="c1"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c3"
   >
@@ -1696,6 +1762,28 @@ exports[`does not render attribution class autosuggest if it is already selected
       />
     </div>
   </div>
+  <div>
+    <div
+      className="c2"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="c2"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c4"
   >
@@ -2109,6 +2197,28 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
       <a
         href="#"
         onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div>
+    <div
+      className="c2"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="c2"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
       />
     </div>
   </div>
@@ -2528,6 +2638,28 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
       />
     </div>
   </div>
+  <div>
+    <div
+      className="c2"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="c2"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c4"
   >
@@ -2930,6 +3062,28 @@ exports[`renders correctly 1`] = `
       <a
         href="#"
         onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div>
+    <div
+      className="c1"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="c1"
+    >
+      <input
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
       />
     </div>
   </div>

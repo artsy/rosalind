@@ -11,6 +11,7 @@ import {
   SelectedArtist,
   SelectedPartner,
   SelectedFair,
+  SelectedPrices,
   SelectedAttributionClass,
 } from './Selected'
 
@@ -31,6 +32,8 @@ function CurrentCriteria(props) {
     onRemoveArtist,
     partner,
     tags,
+    minPrice,
+    maxPrice,
   } = props
 
   return (
@@ -67,6 +70,13 @@ function CurrentCriteria(props) {
       {createdBeforeDate && (
         <SelectedCreatedBeforeDate
           name={createdBeforeDate}
+          clearState={clearState}
+        />
+      )}
+      {(minPrice !== null || maxPrice !== null) && (
+        <SelectedPrices
+          minPrice={minPrice}
+          maxPrice={maxPrice}
           clearState={clearState}
         />
       )}
