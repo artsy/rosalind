@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+.c0 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c0 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+<div>
+  <h2>
+    Price
+  </h2>
+  <div
+    className="currentMinPrice c0"
+  >
+    Minimum: USD 1000
+    <a
+      className="remove"
+      href="#"
+      onClick={[Function]}
+    >
+      ✕
+    </a>
+  </div>
+  <div
+    className="currentMaxPrice c0"
+  >
+    Maximum: USD 2000
+    <a
+      className="remove"
+      href="#"
+      onClick={[Function]}
+    >
+      ✕
+    </a>
+  </div>
+</div>
+`;
+
+exports[`renders correctly when only max price is set 1`] = `
+.c0 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c0 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+<div>
+  <h2>
+    Price
+  </h2>
+  <div
+    className="currentMaxPrice c0"
+  >
+    Maximum: USD 2000
+    <a
+      className="remove"
+      href="#"
+      onClick={[Function]}
+    >
+      ✕
+    </a>
+  </div>
+</div>
+`;
+
+exports[`renders correctly when only min price is set 1`] = `
+.c0 {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+
+.c0 a.remove {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: #ddd;
+  margin-left: 0.5em;
+  border-radius: 1em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 a.remove:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+<div>
+  <h2>
+    Price
+  </h2>
+  <div
+    className="currentMinPrice c0"
+  >
+    Minimum: USD 1000
+    <a
+      className="remove"
+      href="#"
+      onClick={[Function]}
+    >
+      ✕
+    </a>
+  </div>
+</div>
+`;

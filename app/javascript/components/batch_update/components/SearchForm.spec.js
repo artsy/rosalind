@@ -19,6 +19,8 @@ beforeEach(() => {
     genomedFilter: 'SHOW_ALL',
     keywords: [],
     acquireableOrOfferableFilter: 'SHOW_ALL',
+    minPrice: null,
+    maxPrice: null,
     onAddKeyword: jest.fn(),
     onAddGene: jest.fn(),
     onAddTag: jest.fn(),
@@ -94,6 +96,26 @@ it('does not render createdBeforeDate input if createdBeforeDate is already ente
 
   expect(currentCreatedBeforeDate.length).toEqual(1)
   expect(createdBeforeDateInput.length).toEqual(0)
+})
+
+it('does not render minPrice input if minPrice is already set', () => {
+  Object.assign(props, { minPrice: 1000 })
+  const searchForm = mount(<SearchForm {...props} />)
+  const minPriceExists = searchForm.exists('.minPriceInput')
+  const maxPriceExists = searchForm.exists('.maxPriceInput')
+
+  expect(minPriceExists).toEqual(false)
+  expect(maxPriceExists).toEqual(true)
+})
+
+it('does not render maxPrice input if maxPrice is already set', () => {
+  Object.assign(props, { maxPrice: 1000 })
+  const searchForm = mount(<SearchForm {...props} />)
+  const minPriceExists = searchForm.exists('.minPriceInput')
+  const maxPriceExists = searchForm.exists('.maxPriceInput')
+
+  expect(minPriceExists).toEqual(true)
+  expect(maxPriceExists).toEqual(false)
 })
 
 describe('"edit artworks" button', () => {

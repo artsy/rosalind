@@ -15,6 +15,8 @@ beforeEach(() => {
     fair: null,
     genes: [],
     keywords: [],
+    minPrice: null,
+    maxPrice: null,
     onClearFair: jest.fn(),
     onClearPartner: jest.fn(),
     onRemoveGene: jest.fn(),
@@ -93,4 +95,26 @@ it('renders the created after date', () => {
   )
 
   expect(selectedCreatedAfterDate.length).toEqual(1)
+})
+
+it('renders minPrice', () => {
+  props.minPrice = 1000
+  let currentCriteria = mount(<CurrentCriteria {...props} />)
+  expect(currentCriteria.exists('.currentMinPrice')).toEqual(true)
+  expect(currentCriteria.exists('.currentMaxPrice')).toEqual(false)
+})
+
+it('renders maxPrice', () => {
+  props.maxPrice = 1000
+  let currentCriteria = mount(<CurrentCriteria {...props} />)
+  expect(currentCriteria.exists('.currentMinPrice')).toEqual(false)
+  expect(currentCriteria.exists('.currentMaxPrice')).toEqual(true)
+})
+
+it('renders both price bounds', () => {
+  props.minPrice = 1000
+  props.maxPrice = 2000
+  let currentCriteria = mount(<CurrentCriteria {...props} />)
+  expect(currentCriteria.exists('.currentMinPrice')).toEqual(true)
+  expect(currentCriteria.exists('.currentMaxPrice')).toEqual(true)
 })

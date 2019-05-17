@@ -30,6 +30,8 @@ class App extends React.Component {
       isLoading: false,
       isSpecifyingBatchUpdate: false,
       keywords: [],
+      maxPrice: null,
+      minPrice: null,
       notices: [],
       acquireableOrOfferableFilter: 'SHOW_ALL',
       partner: null,
@@ -50,7 +52,6 @@ class App extends React.Component {
     this.onAddArtist = this.onAddArtist.bind(this)
     this.onRemoveKeyword = this.onRemoveKeyword.bind(this)
     this.onAddKeyword = this.onAddKeyword.bind(this)
-
     this.updateStateFor = this.updateStateFor.bind(this)
     this.clearStateFor = this.clearStateFor.bind(this)
 
@@ -109,6 +110,8 @@ class App extends React.Component {
       this.state.keywords !== prevState.keywords ||
       this.state.acquireableOrOfferableFilter !==
         prevState.acquireableOrOfferableFilter ||
+      this.state.minPrice !== prevState.minPrice ||
+      this.state.maxPrice !== prevState.maxPrice ||
       this.state.partner !== prevState.partner ||
       this.state.publishedFilter !== prevState.publishedFilter ||
       this.state.tags !== prevState.tags
@@ -138,6 +141,8 @@ class App extends React.Component {
       genomedFilter,
       keywords,
       acquireableOrOfferableFilter,
+      maxPrice,
+      minPrice,
       partner,
       publishedFilter,
       size,
@@ -161,6 +166,8 @@ class App extends React.Component {
         genomedFilter,
         keywords,
         acquireableOrOfferableFilter,
+        maxPrice,
+        minPrice,
         partner,
         publishedFilter,
         size,
@@ -192,6 +199,8 @@ class App extends React.Component {
       genomedFilter,
       keywords,
       acquireableOrOfferableFilter,
+      maxPrice,
+      minPrice,
       partner,
       publishedFilter,
       tags,
@@ -212,6 +221,8 @@ class App extends React.Component {
       genomedFilter,
       keywords,
       acquireableOrOfferableFilter,
+      maxPrice,
+      minPrice,
       partner,
       publishedFilter,
       size,
@@ -404,6 +415,8 @@ class App extends React.Component {
       selectedArtworkIds,
       tags,
       totalHits,
+      minPrice,
+      maxPrice,
     } = this.state
 
     return (
@@ -420,6 +433,8 @@ class App extends React.Component {
             genomedFilter={genomedFilter}
             keywords={keywords}
             acquireableOrOfferableFilter={acquireableOrOfferableFilter}
+            maxPrice={maxPrice}
+            minPrice={minPrice}
             onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
             onAddKeyword={this.onAddKeyword}

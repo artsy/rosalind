@@ -17,6 +17,8 @@ export function buildElasticsearchQuery(args) {
     publishedFilter,
     size,
     tags,
+    minPrice,
+    maxPrice,
   } = args
 
   const geneMatches = genes.map(g => {
@@ -38,6 +40,8 @@ export function buildElasticsearchQuery(args) {
   const attributionClassMatch = attributionClass
     ? { match: { attribution: attributionClass.value } }
     : null
+  const priceMatch =
+    minPrice || maxPrice ? buildPriceMatch({ minPrice, maxPrice }) : null
   const createdDateRange = buildCreatedDateRange({
     createdAfterDate,
     createdBeforeDate,
@@ -76,6 +80,7 @@ export function buildElasticsearchQuery(args) {
           partnerMatch,
           fairMatch,
           attributionClassMatch,
+          priceMatch,
           createdDateRange,
         ].filter(m => m !== null),
       },
@@ -122,6 +127,15 @@ const buildFilterMatches = ({
   genomedMatcher(genomedFilter),
   acquireableOrOfferableMatcher(acquireableOrOfferableFilter),
 ]
+
+const buildPriceMatch = ({ minPrice, maxPrice }) => ({
+  range: {
+    prices: {
+      gte: minPrice,
+      lte: maxPrice,
+    },
+  },
+})
 
 const publishedMatcher = publishedFilter => {
   switch (publishedFilter) {

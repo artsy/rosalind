@@ -5,19 +5,30 @@ import styled from 'styled-components'
 class TextInput extends React.Component {
   handleKeyUp = e => {
     if (e.key === 'Enter') {
-      this.props.onEnter(e.target.value)
+      let value
+      if (this.props.numeric) {
+        value = parseInt(e.target.value)
+        if (isNaN(value)) {
+          return
+        }
+      } else {
+        value = e.target.value
+      }
+      this.props.onEnter(value)
       e.target.value = null
     }
   }
 
   render() {
+    const inputProps = {
+      type: 'text',
+      placeholder: this.props.placeholder,
+      onKeyUp: this.handleKeyUp,
+    }
+
     return (
       <div className={this.props.className}>
-        <input
-          type="text"
-          placeholder={this.props.placeholder}
-          onKeyUp={this.handleKeyUp}
-        />
+        <input {...inputProps} />
       </div>
     )
   }

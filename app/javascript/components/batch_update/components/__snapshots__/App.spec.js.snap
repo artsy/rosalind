@@ -691,6 +691,26 @@ exports[`renders correctly 1`] = `
           />
         </div>
       </div>
+      <div>
+        <div
+          className="minPriceInput c3"
+        >
+          <input
+            onKeyUp={[Function]}
+            placeholder="Minimum Price"
+            type="text"
+          />
+        </div>
+        <div
+          className="maxPriceInput c3"
+        >
+          <input
+            onKeyUp={[Function]}
+            placeholder="Maximum Price"
+            type="text"
+          />
+        </div>
+      </div>
       <div
         className="c5"
       >
