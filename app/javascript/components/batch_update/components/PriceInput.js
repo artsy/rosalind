@@ -7,25 +7,21 @@ const PriceInput = ({ minPrice, maxPrice, updateState }) => {
 
   return (
     <div>
-      {minPrice == null ? (
+      {minPrice == null && (
         <TextInput
+          className="minPriceInput"
           placeholder="Minimum Price"
-          value={minPrice}
           onEnter={onSetMin}
           numeric
         />
-      ) : (
-        <div />
       )}
-      {maxPrice == null ? (
+      {maxPrice == null && (
         <TextInput
+          className="maxPriceInput"
           placeholder="Maximum Price"
-          value={maxPrice}
           onEnter={onSetMax}
           numeric
         />
-      ) : (
-        <div />
       )}
     </div>
   )

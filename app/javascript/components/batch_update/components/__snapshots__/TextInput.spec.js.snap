@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`numeric adds a keydown handler if a numeric prop is passed in 1`] = `
+<div
+  className={undefined}
+>
+  <input
+    onKeyUp={[Function]}
+    placeholder="foo"
+    type="text"
+  />
+</div>
+`;
+
 exports[`renders correctly 1`] = `
 <div
   className={undefined}

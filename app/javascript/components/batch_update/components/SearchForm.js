@@ -66,8 +66,6 @@ class SearchForm extends React.Component {
       onRemoveGene,
       onRemoveTag,
       onRemoveArtist,
-      onRemoveMinPrice,
-      onRemoveMaxPrice,
       partner,
       tags,
     } = this.props
@@ -99,8 +97,6 @@ class SearchForm extends React.Component {
           keywords={keywords}
           minPrice={minPrice}
           maxPrice={maxPrice}
-          onRemoveMinPrice={onRemoveMinPrice}
-          onRemoveMaxPrice={onRemoveMaxPrice}
           onRemoveKeyword={onRemoveKeyword}
           onRemoveGene={onRemoveGene}
           onRemoveTag={onRemoveTag}

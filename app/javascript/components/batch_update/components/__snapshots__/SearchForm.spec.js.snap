@@ -316,20 +316,18 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   </div>
   <div>
     <div
-      className="c1"
+      className="minPriceInput c1"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Minimum Price"
         type="text"
       />
     </div>
     <div
-      className="c1"
+      className="maxPriceInput c1"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Maximum Price"
         type="text"
@@ -792,20 +790,18 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   </div>
   <div>
     <div
-      className="c1"
+      className="minPriceInput c1"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Minimum Price"
         type="text"
       />
     </div>
     <div
-      className="c1"
+      className="maxPriceInput c1"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Maximum Price"
         type="text"
@@ -1298,20 +1294,18 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   </div>
   <div>
     <div
-      className="c1"
+      className="minPriceInput c1"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Minimum Price"
         type="text"
       />
     </div>
     <div
-      className="c1"
+      className="maxPriceInput c1"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Maximum Price"
         type="text"
@@ -1764,20 +1758,18 @@ exports[`does not render attribution class autosuggest if it is already selected
   </div>
   <div>
     <div
-      className="c2"
+      className="minPriceInput c2"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Minimum Price"
         type="text"
       />
     </div>
     <div
-      className="c2"
+      className="maxPriceInput c2"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Maximum Price"
         type="text"
@@ -2202,20 +2194,18 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
   </div>
   <div>
     <div
-      className="c2"
+      className="minPriceInput c2"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Minimum Price"
         type="text"
       />
     </div>
     <div
-      className="c2"
+      className="maxPriceInput c2"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Maximum Price"
         type="text"
@@ -2640,20 +2630,18 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
   </div>
   <div>
     <div
-      className="c2"
+      className="minPriceInput c2"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Minimum Price"
         type="text"
       />
     </div>
     <div
-      className="c2"
+      className="maxPriceInput c2"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Maximum Price"
         type="text"
@@ -3067,20 +3055,18 @@ exports[`renders correctly 1`] = `
   </div>
   <div>
     <div
-      className="c1"
+      className="minPriceInput c1"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Minimum Price"
         type="text"
       />
     </div>
     <div
-      className="c1"
+      className="maxPriceInput c1"
     >
       <input
-        onKeyDown={[Function]}
         onKeyUp={[Function]}
         placeholder="Maximum Price"
         type="text"

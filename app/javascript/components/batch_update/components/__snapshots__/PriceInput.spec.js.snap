@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PriceInput renders correctly 1`] = `
+.c0 input {
+  width: 100%;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-size: 1em;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: none;
+}
+
+.c0 input:focus {
+  outline: none;
+}
+
+<div>
+  <div
+    className="minPriceInput c0"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Minimum Price"
+      type="text"
+    />
+  </div>
+  <div
+    className="maxPriceInput c0"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Maximum Price"
+      type="text"
+    />
+  </div>
+</div>
+`;

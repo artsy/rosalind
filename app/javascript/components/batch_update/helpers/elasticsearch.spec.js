@@ -12,7 +12,9 @@ describe('buildElasticsearchQuery', () => {
     fair,
     attributionClass,
     publishedFilter,
-    genomedFilter
+    genomedFilter,
+    minPrice,
+    maxPrice
 
   beforeEach(() => {
     createdAfterDate = null
@@ -26,6 +28,8 @@ describe('buildElasticsearchQuery', () => {
     attributionClass = null
     publishedFilter = null
     genomedFilter = null
+    minPrice = null
+    maxPrice = null
   })
 
   it('queries only for non-deleted works', () => {
@@ -502,6 +506,136 @@ describe('buildElasticsearchQuery', () => {
         partner,
         publishedFilter,
         tags,
+      }
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+    it('modifies a query with a minPrice', () => {
+      minPrice = 1000
+
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              {
+                range: {
+                  prices: {
+                    gte: minPrice,
+                    lte: null,
+                  },
+                },
+              },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+
+      const params = {
+        artists,
+        attributionClass,
+        createdAfterDate,
+        createdBeforeDate,
+        fair,
+        genes,
+        genomedFilter,
+        keywords,
+        partner,
+        publishedFilter,
+        tags,
+        minPrice,
+        maxPrice,
+      }
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+    it('modifies a query with a maxPrice', () => {
+      maxPrice = 1000
+
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              {
+                range: {
+                  prices: {
+                    gte: null,
+                    lte: maxPrice,
+                  },
+                },
+              },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+
+      const params = {
+        artists,
+        attributionClass,
+        createdAfterDate,
+        createdBeforeDate,
+        fair,
+        genes,
+        genomedFilter,
+        keywords,
+        partner,
+        publishedFilter,
+        tags,
+        minPrice,
+        maxPrice,
+      }
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+    it('modifies a query with both a minPrice and a maxPrice', () => {
+      minPrice = 1000
+      maxPrice = 2000
+
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              {
+                range: {
+                  prices: {
+                    gte: minPrice,
+                    lte: maxPrice,
+                  },
+                },
+              },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+
+      const params = {
+        artists,
+        attributionClass,
+        createdAfterDate,
+        createdBeforeDate,
+        fair,
+        genes,
+        genomedFilter,
+        keywords,
+        partner,
+        publishedFilter,
+        tags,
+        minPrice,
+        maxPrice,
       }
 
       const actualQuery = buildElasticsearchQuery(params)

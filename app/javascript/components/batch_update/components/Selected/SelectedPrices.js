@@ -8,15 +8,17 @@ const SelectedPrices = props => {
       <h2>Price</h2>
       {minPrice !== null && (
         <SelectedComponent
+          className="currentMinPrice"
           stateKey="minPrice"
-          name={'Min Price: ' + minPrice + ' USD'}
+          name={'Minimum: USD ' + minPrice}
           onRemove={clearState}
         />
       )}
       {maxPrice !== null && (
         <SelectedComponent
+          className="currentMaxPrice"
           stateKey="maxPrice"
-          name={'Max Price: ' + maxPrice + ' USD'}
+          name={'Maximum: USD ' + maxPrice}
           onRemove={clearState}
         />
       )}
