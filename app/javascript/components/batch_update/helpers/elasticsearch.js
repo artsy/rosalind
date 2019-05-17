@@ -1,4 +1,5 @@
 const defaultPageSize = 100
+const DEBUG = false
 
 export function buildElasticsearchQuery(args) {
   const {
@@ -11,6 +12,7 @@ export function buildElasticsearchQuery(args) {
     genes,
     genomedFilter,
     keywords,
+    acquireableOrOfferableFilter,
     partner,
     publishedFilter,
     size,
@@ -26,7 +28,11 @@ export function buildElasticsearchQuery(args) {
   const artistMatches = artists.map(a => {
     return { match: { artist_id: a.id } }
   })
-  const filterMatches = buildFilterMatches({ publishedFilter, genomedFilter })
+  const filterMatches = buildFilterMatches({
+    publishedFilter,
+    genomedFilter,
+    acquireableOrOfferableFilter,
+  })
   const partnerMatch = partner ? { match: { partner_id: partner.id } } : null
   const fairMatch = fair ? { match: { fair_ids: fair.id } } : null
   const attributionClassMatch = attributionClass
@@ -57,7 +63,7 @@ export function buildElasticsearchQuery(args) {
     }
   })
 
-  return {
+  const query = {
     query: {
       bool: {
         must: [
@@ -78,6 +84,11 @@ export function buildElasticsearchQuery(args) {
     from: from || 0,
     size: size || defaultPageSize,
   }
+
+  if (DEBUG) {
+    console.log(JSON.stringify(query, null, 2))
+  }
+  return query
 }
 
 const buildCreatedDateRange = ({ createdAfterDate, createdBeforeDate }) => {
@@ -102,9 +113,14 @@ const buildCreatedDateRange = ({ createdAfterDate, createdBeforeDate }) => {
   return query
 }
 
-const buildFilterMatches = ({ publishedFilter, genomedFilter }) => [
+const buildFilterMatches = ({
+  publishedFilter,
+  genomedFilter,
+  acquireableOrOfferableFilter,
+}) => [
   publishedMatcher(publishedFilter),
   genomedMatcher(genomedFilter),
+  acquireableOrOfferableMatcher(acquireableOrOfferableFilter),
 ]
 
 const publishedMatcher = publishedFilter => {
@@ -124,6 +140,21 @@ const genomedMatcher = genomedFilter => {
       return { match: { genomed: true } }
     case 'SHOW_NOT_GENOMED':
       return { match: { genomed: false } }
+    default:
+      return null
+  }
+}
+
+const acquireableOrOfferableMatcher = acquireableOrOfferableFilter => {
+  switch (acquireableOrOfferableFilter) {
+    case 'SHOW_ACQUIREABLE_OR_OFFERABLE':
+      return {
+        or: [{ term: { offerable: true } }, { term: { acquireable: true } }],
+      }
+    case 'SHOW_NOT_ACQUIREABLE_OR_OFFERABLE':
+      return {
+        and: [{ term: { offerable: false } }, { term: { acquireable: false } }],
+      }
     default:
       return null
   }

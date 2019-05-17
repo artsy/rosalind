@@ -79,18 +79,18 @@ exports[`renders correctly 1`] = `
 
 .c5 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c5:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c5 .filter {
@@ -98,7 +98,7 @@ exports[`renders correctly 1`] = `
 }
 
 .c5 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -712,14 +712,14 @@ exports[`renders correctly 1`] = `
             href="#"
             onClick={[Function]}
           >
-            Published
+            True
           </a>
           <a
             className={null}
             href="#"
             onClick={[Function]}
           >
-            Not published
+            False
           </a>
         </div>
         <div
@@ -740,14 +740,42 @@ exports[`renders correctly 1`] = `
             href="#"
             onClick={[Function]}
           >
-            Genomed
+            True
           </a>
           <a
             className={null}
             href="#"
             onClick={[Function]}
           >
-            Not genomed
+            False
+          </a>
+        </div>
+        <div
+          className="filter"
+        >
+          <div>
+            Acquireable Or Offerable?
+          </div>
+          <a
+            className="active"
+            href="#"
+            onClick={[Function]}
+          >
+            All
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}
+          >
+            True
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}
+          >
+            False
           </a>
         </div>
       </div>

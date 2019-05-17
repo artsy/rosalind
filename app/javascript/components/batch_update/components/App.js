@@ -31,6 +31,7 @@ class App extends React.Component {
       isSpecifyingBatchUpdate: false,
       keywords: [],
       notices: [],
+      acquireableOrOfferableFilter: 'SHOW_ALL',
       partner: null,
       previewedArtwork: null,
       publishedFilter: 'SHOW_ALL',
@@ -106,6 +107,8 @@ class App extends React.Component {
       this.state.genes !== prevState.genes ||
       this.state.genomedFilter !== prevState.genomedFilter ||
       this.state.keywords !== prevState.keywords ||
+      this.state.acquireableOrOfferableFilter !==
+        prevState.acquireableOrOfferableFilter ||
       this.state.partner !== prevState.partner ||
       this.state.publishedFilter !== prevState.publishedFilter ||
       this.state.tags !== prevState.tags
@@ -134,6 +137,7 @@ class App extends React.Component {
       genes,
       genomedFilter,
       keywords,
+      acquireableOrOfferableFilter,
       partner,
       publishedFilter,
       size,
@@ -156,6 +160,7 @@ class App extends React.Component {
         genes,
         genomedFilter,
         keywords,
+        acquireableOrOfferableFilter,
         partner,
         publishedFilter,
         size,
@@ -186,6 +191,7 @@ class App extends React.Component {
       genes,
       genomedFilter,
       keywords,
+      acquireableOrOfferableFilter,
       partner,
       publishedFilter,
       tags,
@@ -205,6 +211,7 @@ class App extends React.Component {
       genes,
       genomedFilter,
       keywords,
+      acquireableOrOfferableFilter,
       partner,
       publishedFilter,
       size,
@@ -390,6 +397,7 @@ class App extends React.Component {
       isLoading,
       isSpecifyingBatchUpdate,
       keywords,
+      acquireableOrOfferableFilter,
       partner,
       previewedArtwork,
       publishedFilter,
@@ -411,6 +419,7 @@ class App extends React.Component {
             genes={genes}
             genomedFilter={genomedFilter}
             keywords={keywords}
+            acquireableOrOfferableFilter={acquireableOrOfferableFilter}
             onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
             onAddKeyword={this.onAddKeyword}
