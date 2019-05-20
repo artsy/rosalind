@@ -874,6 +874,9 @@ exports[`renders correctly 1`] = `
           </div>
         </button>
       </div>
+      <h3>
+        Edit Genes
+      </h3>
       <div
         className="c15"
       />
@@ -909,6 +912,44 @@ exports[`renders correctly 1`] = `
           <div
             className="react-autosuggest__suggestions-container"
             id="react-autowhatever-gene-autosuggest"
+            role="listbox"
+          />
+        </div>
+      </div>
+      <div
+        className="c17"
+      />
+      <h3>
+        Edit Tags
+      </h3>
+      <div />
+      <div
+        className="GenericAutosuggest"
+      >
+        <div
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-owns="react-autowhatever-tag-autosuggest"
+          className="react-autosuggest__container"
+          role="combobox"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-tag-autosuggest"
+            autoComplete="off"
+            className="react-autosuggest__input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Add a tag"
+            type="text"
+            value=""
+          />
+          <div
+            className="react-autosuggest__suggestions-container"
+            id="react-autowhatever-tag-autosuggest"
             role="listbox"
           />
         </div>

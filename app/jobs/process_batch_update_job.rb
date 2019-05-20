@@ -4,7 +4,7 @@ class ProcessBatchUpdateJob < ApplicationJob
     return unless batch_update
 
     batch_update.artworks.each do |artwork_id|
-      UpdateArtworkGenesJob.perform_later artwork_id, batch_update_id
+      UpdateArtworkJob.perform_later artwork_id, batch_update_id
     end
   end
 end
