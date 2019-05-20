@@ -1,13 +1,13 @@
 import React from 'react'
 import DateInput from './DateInput'
 
-const CreatedAfterDateInput = (props) => {
+const CreatedAfterDateInput = props => {
   return (
     <DateInput
-      stateKey='createdAfterDate'
+      stateKey="createdAfterDate"
       onSelectDate={props.updateState}
       date={props.createdAfterDate}
-      placeholder='Created after date'
+      placeholder="Created after date"
     />
   )
 }

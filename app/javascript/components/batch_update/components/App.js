@@ -13,13 +13,10 @@ import { Notices, Notice } from './Notices'
 const findByName = (items, item) => items.find(i => i.name === item.name)
 const findById = (items, item) => items.find(i => i.id === item.id)
 
-const commonGenesToIgnore = [
-  'Art',
-  'Career Stage Gene'
-]
+const commonGenesToIgnore = ['Art', 'Career Stage Gene']
 
 class App extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       artists: [],
@@ -33,14 +30,17 @@ class App extends React.Component {
       isLoading: false,
       isSpecifyingBatchUpdate: false,
       keywords: [],
+      maxPrice: null,
+      minPrice: null,
       notices: [],
+      acquireableOrOfferableFilter: 'SHOW_ALL',
       partner: null,
       previewedArtwork: null,
       publishedFilter: 'SHOW_ALL',
       selectedArtworkIds: [],
       size: 100,
       tags: [],
-      totalHits: null
+      totalHits: null,
     }
 
     this.shouldComponentUpdate = this.shouldComponentUpdate.bind(this)
@@ -52,7 +52,6 @@ class App extends React.Component {
     this.onAddArtist = this.onAddArtist.bind(this)
     this.onRemoveKeyword = this.onRemoveKeyword.bind(this)
     this.onAddKeyword = this.onAddKeyword.bind(this)
-
     this.updateStateFor = this.updateStateFor.bind(this)
     this.clearStateFor = this.clearStateFor.bind(this)
 
@@ -78,56 +77,60 @@ class App extends React.Component {
     this.removeNotice = this.removeNotice.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.canSearch()) {
       this.fetchArtworks()
     }
     window.addEventListener('keyup', this.handleKeyup)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keyup', this.handleKeyup)
   }
 
-  componentDidUpdate (_prevProps, prevState) {
+  componentDidUpdate(_prevProps, prevState) {
     if (this.shouldComponentUpdate(prevState)) {
       this.fetchArtworks()
     }
   }
 
-  shouldComponentUpdate (prevState) {
+  shouldComponentUpdate(prevState) {
     return this.hasSearchCriteriaChanged(prevState)
   }
 
-  hasSearchCriteriaChanged (prevState) {
+  hasSearchCriteriaChanged(prevState) {
     return (
-      (this.state.artists !== prevState.artists) ||
-      (this.state.attributionClass !== prevState.attributionClass) ||
-      (this.state.createdAfterDate !== prevState.createdAfterDate) ||
-      (this.state.createdBeforeDate !== prevState.createdBeforeDate) ||
-      (this.state.fair !== prevState.fair) ||
-      (this.state.genes !== prevState.genes) ||
-      (this.state.genomedFilter !== prevState.genomedFilter) ||
-      (this.state.keywords !== prevState.keywords) ||
-      (this.state.partner !== prevState.partner) ||
-      (this.state.publishedFilter !== prevState.publishedFilter) ||
-      (this.state.tags !== prevState.tags)
+      this.state.artists !== prevState.artists ||
+      this.state.attributionClass !== prevState.attributionClass ||
+      this.state.createdAfterDate !== prevState.createdAfterDate ||
+      this.state.createdBeforeDate !== prevState.createdBeforeDate ||
+      this.state.fair !== prevState.fair ||
+      this.state.genes !== prevState.genes ||
+      this.state.genomedFilter !== prevState.genomedFilter ||
+      this.state.keywords !== prevState.keywords ||
+      this.state.acquireableOrOfferableFilter !==
+        prevState.acquireableOrOfferableFilter ||
+      this.state.minPrice !== prevState.minPrice ||
+      this.state.maxPrice !== prevState.maxPrice ||
+      this.state.partner !== prevState.partner ||
+      this.state.publishedFilter !== prevState.publishedFilter ||
+      this.state.tags !== prevState.tags
     )
   }
 
-  canSearch () {
+  canSearch() {
     return (
-      (this.state.artists.length !== 0) ||
-      (this.state.attributionClass !== null) ||
-      (this.state.fair !== null) ||
-      (this.state.genes.length !== 0) ||
-      (this.state.keywords.length !== 0) ||
-      (this.state.partner !== null) ||
-      (this.state.tags.length !== 0)
+      this.state.artists.length !== 0 ||
+      this.state.attributionClass !== null ||
+      this.state.fair !== null ||
+      this.state.genes.length !== 0 ||
+      this.state.keywords.length !== 0 ||
+      this.state.partner !== null ||
+      this.state.tags.length !== 0
     )
   }
 
-  fetchArtworks () {
+  fetchArtworks() {
     const {
       artists,
       attributionClass,
@@ -137,17 +140,20 @@ class App extends React.Component {
       genes,
       genomedFilter,
       keywords,
+      acquireableOrOfferableFilter,
+      maxPrice,
+      minPrice,
       partner,
       publishedFilter,
       size,
-      tags
+      tags,
     } = this.state
 
     if (this.canSearch() === false) {
       this.setState({
         artworks: [],
         selectedArtworkIds: [],
-        totalHits: 0
+        totalHits: 0,
       })
     } else {
       const query = buildElasticsearchQuery({
@@ -159,10 +165,13 @@ class App extends React.Component {
         genes,
         genomedFilter,
         keywords,
+        acquireableOrOfferableFilter,
+        maxPrice,
+        minPrice,
         partner,
         publishedFilter,
         size,
-        tags
+        tags,
       })
 
       this.setState({ isLoading: true })
@@ -173,13 +182,13 @@ class App extends React.Component {
           artworks,
           selectedArtworkIds: [],
           totalHits,
-          isLoading: false
+          isLoading: false,
         })
       })
     }
   }
 
-  fetchMoreArtworks () {
+  fetchMoreArtworks() {
     const {
       artists,
       attributionClass,
@@ -189,9 +198,12 @@ class App extends React.Component {
       genes,
       genomedFilter,
       keywords,
+      acquireableOrOfferableFilter,
+      maxPrice,
+      minPrice,
       partner,
       publishedFilter,
-      tags
+      tags,
     } = this.state
 
     const { artworks, size } = this.state
@@ -208,10 +220,13 @@ class App extends React.Component {
       genes,
       genomedFilter,
       keywords,
+      acquireableOrOfferableFilter,
+      maxPrice,
+      minPrice,
       partner,
       publishedFilter,
       size,
-      tags
+      tags,
     })
 
     matchArtworks(query).then(hits => {
@@ -221,161 +236,166 @@ class App extends React.Component {
     })
   }
 
-  refresh () {
+  refresh() {
     this.fetchArtworks()
   }
 
-  handleKeyup (e) {
+  handleKeyup(e) {
     if (e.code === 'KeyR' && e.target.tagName === 'BODY') {
       this.refresh()
     }
   }
 
-  onRemoveGene (geneName, key = null) {
+  onRemoveGene(geneName, key = null) {
     const { genes } = this.state
     this.setState({
-      genes: genes.filter(g => g.name !== geneName)
+      genes: genes.filter(g => g.name !== geneName),
     })
   }
 
-  onAddGene (gene) {
+  onAddGene(gene) {
     const { genes } = this.state
-    findByName(genes, gene) || this.setState({
-      genes: genes.concat(gene)
-    })
+    findByName(genes, gene) ||
+      this.setState({
+        genes: genes.concat(gene),
+      })
   }
 
-  onRemoveTag (tagName, key = null) {
+  onRemoveTag(tagName, key = null) {
     const { tags } = this.state
     this.setState({
-      tags: tags.filter(t => t.name !== tagName)
+      tags: tags.filter(t => t.name !== tagName),
     })
   }
 
-  onAddTag (tag) {
+  onAddTag(tag) {
     const { tags } = this.state
-    findByName(tags, tag) || this.setState({
-      tags: tags.concat(tag)
-    })
+    findByName(tags, tag) ||
+      this.setState({
+        tags: tags.concat(tag),
+      })
   }
 
-  onRemoveArtist (artistId) {
+  onRemoveArtist(artistId) {
     const { artists } = this.state
     this.setState({
-      artists: artists.filter(a => a.id !== artistId)
+      artists: artists.filter(a => a.id !== artistId),
     })
   }
 
-  onAddArtist (artist) {
+  onAddArtist(artist) {
     const { artists } = this.state
-    findById(artists, artist) || this.setState({
-      artists: artists.concat(artist)
-    })
+    findById(artists, artist) ||
+      this.setState({
+        artists: artists.concat(artist),
+      })
   }
 
-  onRemoveKeyword (keyword) {
+  onRemoveKeyword(keyword) {
     const { keywords } = this.state
     this.setState({
-      keywords: keywords.filter(k => k !== keyword)
+      keywords: keywords.filter(k => k !== keyword),
     })
   }
 
-  onAddKeyword (keyword) {
+  onAddKeyword(keyword) {
     const { keywords } = this.state
-    keywords.includes(keyword) || this.setState({
-      keywords: [...keywords, keyword]
-    })
+    keywords.includes(keyword) ||
+      this.setState({
+        keywords: [...keywords, keyword],
+      })
   }
 
-  clearStateFor (name = null, key) {
-    this.setState({[key]: null})
+  clearStateFor(name = null, key) {
+    this.setState({ [key]: null })
   }
 
-  updateStateFor (key, newState) {
-    this.setState({[key]: newState})
+  updateStateFor(key, newState) {
+    this.setState({ [key]: newState })
   }
 
-  onToggleArtwork (artwork) {
+  onToggleArtwork(artwork) {
     const { selectedArtworkIds } = this.state
     if (selectedArtworkIds.indexOf(artwork.id) > -1) {
       this.setState({
-        selectedArtworkIds: selectedArtworkIds.filter(id => id !== artwork.id)
+        selectedArtworkIds: selectedArtworkIds.filter(id => id !== artwork.id),
       })
     } else {
       this.setState({
-        selectedArtworkIds: [...selectedArtworkIds, artwork.id]
+        selectedArtworkIds: [...selectedArtworkIds, artwork.id],
       })
     }
   }
 
-  onSelectAllArtworks () {
+  onSelectAllArtworks() {
     const { artworks } = this.state
     this.setState({
-      selectedArtworkIds: artworks.map(a => a.id)
+      selectedArtworkIds: artworks.map(a => a.id),
     })
   }
 
-  onDeselectAllArtworks () {
+  onDeselectAllArtworks() {
     this.setState({
-      selectedArtworkIds: []
+      selectedArtworkIds: [],
     })
   }
 
-  getCommonGenes () {
+  getCommonGenes() {
     const { selectedArtworkIds, artworks } = this.state
     const geneArraysForSelectedArtworks = artworks
       .filter(artwork => selectedArtworkIds.indexOf(artwork.id) > -1)
       .map(artwork => artwork.genes)
-    const commonGenes = intersection(...geneArraysForSelectedArtworks)
-      .filter(g => commonGenesToIgnore.indexOf(g) === -1)
+    const commonGenes = intersection(...geneArraysForSelectedArtworks).filter(
+      g => commonGenesToIgnore.indexOf(g) === -1
+    )
     return commonGenes
   }
 
-  onPreviewArtwork (artwork) {
+  onPreviewArtwork(artwork) {
     this.setState({ previewedArtwork: artwork })
   }
 
-  onPreviewPrevious () {
+  onPreviewPrevious() {
     const curr = this.state.artworks.indexOf(this.state.previewedArtwork)
     const prev = Math.max(0, curr - 1)
     const artwork = this.state.artworks[prev]
     this.setState({ previewedArtwork: artwork })
   }
 
-  onPreviewNext () {
+  onPreviewNext() {
     const curr = this.state.artworks.indexOf(this.state.previewedArtwork)
     const next = Math.min(this.state.artworks.length, curr + 1)
     const artwork = this.state.artworks[next]
     this.setState({ previewedArtwork: artwork })
   }
 
-  onOpenBatchUpdate () {
+  onOpenBatchUpdate() {
     this.setState({ isSpecifyingBatchUpdate: true })
   }
 
-  onDismissBatchUpdate () {
+  onDismissBatchUpdate() {
     this.setState({ isSpecifyingBatchUpdate: false })
   }
 
-  addNotice (message, options) {
+  addNotice(message, options) {
     const optionsWithDefaults = defaults(options, { isError: false })
     const { isError } = optionsWithDefaults
     const newNotice = {
       id: `${Date.now()}—${message}`,
       message,
-      isError
+      isError,
     }
     this.setState({
-      notices: [ ...this.state.notices, newNotice ]
+      notices: [...this.state.notices, newNotice],
     })
   }
 
-  removeNotice (id) {
+  removeNotice(id) {
     const notices = this.state.notices.filter(n => n.id !== id)
     this.setState({ notices })
   }
 
-  render () {
+  render() {
     const {
       artists,
       artworks,
@@ -388,12 +408,15 @@ class App extends React.Component {
       isLoading,
       isSpecifyingBatchUpdate,
       keywords,
+      acquireableOrOfferableFilter,
       partner,
       previewedArtwork,
       publishedFilter,
       selectedArtworkIds,
       tags,
-      totalHits
+      totalHits,
+      minPrice,
+      maxPrice,
     } = this.state
 
     return (
@@ -409,6 +432,9 @@ class App extends React.Component {
             genes={genes}
             genomedFilter={genomedFilter}
             keywords={keywords}
+            acquireableOrOfferableFilter={acquireableOrOfferableFilter}
+            maxPrice={maxPrice}
+            minPrice={minPrice}
             onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
             onAddKeyword={this.onAddKeyword}
@@ -444,7 +470,10 @@ class App extends React.Component {
           />
         </Content>
 
-        <FullScreenModal isOpen={isSpecifyingBatchUpdate} onDismiss={this.onDismissBatchUpdate}>
+        <FullScreenModal
+          isOpen={isSpecifyingBatchUpdate}
+          onDismiss={this.onDismissBatchUpdate}
+        >
           <BatchUpdateForm
             getCommonGenes={this.getCommonGenes}
             onCancel={this.onDismissBatchUpdate}
@@ -456,11 +485,18 @@ class App extends React.Component {
         </FullScreenModal>
 
         <Notices>
-          {
-            this.state.notices.map(({id, message, isError}) => {
-              return (<Notice key={id} id={id} isError={isError} onDismiss={this.removeNotice}>{message}</Notice>)
-            })
-          }
+          {this.state.notices.map(({ id, message, isError }) => {
+            return (
+              <Notice
+                key={id}
+                id={id}
+                isError={isError}
+                onDismiss={this.removeNotice}
+              >
+                {message}
+              </Notice>
+            )
+          })}
         </Notices>
       </Wrapper>
     )

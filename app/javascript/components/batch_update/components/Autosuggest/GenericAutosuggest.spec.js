@@ -7,9 +7,11 @@ import GenericAutosuggest from './GenericAutosuggest'
 let props
 
 beforeEach(() => {
-  const mockSuggestionsFetcher = jest.fn((searchTerm) => {
+  const mockSuggestionsFetcher = jest.fn(searchTerm => {
     return new Promise((resolve, reject) => {
-      resolve([ /* listOfMatchingSuggestionObjects */ ])
+      resolve([
+        /* listOfMatchingSuggestionObjects */
+      ])
     })
   })
 
@@ -18,7 +20,7 @@ beforeEach(() => {
     fetchSuggestions: mockSuggestionsFetcher, // searchTerm => listOfMatchingSuggestionObjects
     getSuggestionValue: jest.fn(), // suggestionObject => displayName
     renderSuggestion: jest.fn(), // suggestionObject => stringOrMarkupForSuggestionList
-    selectSuggestion: jest.fn() // suggestionObject => { handlerFunction(suggestionObject) }
+    selectSuggestion: jest.fn(), // suggestionObject => { handlerFunction(suggestionObject) }
   }
 })
 

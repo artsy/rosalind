@@ -44,18 +44,18 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 
 .c3 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3 .filter {
@@ -63,7 +63,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
 }
 
 .c3 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -314,6 +314,26 @@ exports[`"edit artworks" button does not render an edit button if there are no a
       />
     </div>
   </div>
+  <div>
+    <div
+      className="minPriceInput c1"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="maxPriceInput c1"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c3"
   >
@@ -335,14 +355,14 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -363,14 +383,42 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
       </a>
     </div>
   </div>
@@ -421,18 +469,18 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 
 .c3 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3 .filter {
@@ -440,7 +488,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
 }
 
 .c3 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -740,6 +788,26 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
       />
     </div>
   </div>
+  <div>
+    <div
+      className="minPriceInput c1"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="maxPriceInput c1"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c3"
   >
@@ -761,14 +829,14 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -789,19 +857,48 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
       </a>
     </div>
   </div>
   <button
     className=" disabled c4"
+    disabled={true}
     height="41px"
     onClick={[Function]}
     width={1}
@@ -867,18 +964,18 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 
 .c3 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3 .filter {
@@ -886,7 +983,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 }
 
 .c3 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -1195,6 +1292,26 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
       />
     </div>
   </div>
+  <div>
+    <div
+      className="minPriceInput c1"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="maxPriceInput c1"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c3"
   >
@@ -1216,14 +1333,14 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -1244,19 +1361,48 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
       </a>
     </div>
   </div>
   <button
     className="  c4"
+    disabled={undefined}
     height="41px"
     onClick={[Function]}
     width={1}
@@ -1353,18 +1499,18 @@ exports[`does not render attribution class autosuggest if it is already selected
 
 .c4 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4 .filter {
@@ -1372,7 +1518,7 @@ exports[`does not render attribution class autosuggest if it is already selected
 }
 
 .c4 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -1610,6 +1756,26 @@ exports[`does not render attribution class autosuggest if it is already selected
       />
     </div>
   </div>
+  <div>
+    <div
+      className="minPriceInput c2"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="maxPriceInput c2"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c4"
   >
@@ -1631,14 +1797,14 @@ exports[`does not render attribution class autosuggest if it is already selected
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -1659,14 +1825,42 @@ exports[`does not render attribution class autosuggest if it is already selected
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
       </a>
     </div>
   </div>
@@ -1741,18 +1935,18 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
 
 .c4 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4 .filter {
@@ -1760,7 +1954,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
 }
 
 .c4 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -1998,6 +2192,26 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
       />
     </div>
   </div>
+  <div>
+    <div
+      className="minPriceInput c2"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="maxPriceInput c2"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c4"
   >
@@ -2019,14 +2233,14 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -2047,14 +2261,42 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
       </a>
     </div>
   </div>
@@ -2129,18 +2371,18 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
 
 .c4 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c4 .filter {
@@ -2148,7 +2390,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
 }
 
 .c4 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -2386,6 +2628,26 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
       />
     </div>
   </div>
+  <div>
+    <div
+      className="minPriceInput c2"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="maxPriceInput c2"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c4"
   >
@@ -2407,14 +2669,14 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -2435,14 +2697,42 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
       </a>
     </div>
   </div>
@@ -2493,18 +2783,18 @@ exports[`renders correctly 1`] = `
 
 .c3 {
   font-size: 80%;
-  color: #999;
+  color: #333;
   line-height: 140%;
   margin: 2em 0;
-  opacity: 0.25;
-  -webkit-transition: opacity 0.75s;
-  transition: opacity 0.75s;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .c3 .filter {
@@ -2512,7 +2802,7 @@ exports[`renders correctly 1`] = `
 }
 
 .c3 .filter a {
-  color: #ccc;
+  color: #999;
   margin-right: 0.5em;
 }
 
@@ -2763,6 +3053,26 @@ exports[`renders correctly 1`] = `
       />
     </div>
   </div>
+  <div>
+    <div
+      className="minPriceInput c1"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Minimum Price"
+        type="text"
+      />
+    </div>
+    <div
+      className="maxPriceInput c1"
+    >
+      <input
+        onKeyUp={[Function]}
+        placeholder="Maximum Price"
+        type="text"
+      />
+    </div>
+  </div>
   <div
     className="c3"
   >
@@ -2784,14 +3094,14 @@ exports[`renders correctly 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Published
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not published
+        False
       </a>
     </div>
     <div
@@ -2812,14 +3122,42 @@ exports[`renders correctly 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Genomed
+        True
       </a>
       <a
         className={null}
         href="#"
         onClick={[Function]}
       >
-        Not genomed
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
       </a>
     </div>
   </div>

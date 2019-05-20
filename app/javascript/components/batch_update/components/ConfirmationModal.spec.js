@@ -9,15 +9,13 @@ let props
 beforeEach(() => {
   props = {
     onDismiss: jest.fn(),
-    onAccept: jest.fn()
+    onAccept: jest.fn(),
   }
 })
 
 it('renders correctly when closed', () => {
   const rendered = renderer.create(
-    <ConfirmationModal {...props}>
-      I am closed
-    </ConfirmationModal>
+    <ConfirmationModal {...props}>I am closed</ConfirmationModal>
   )
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
@@ -36,12 +34,10 @@ it('renders correctly when open', () => {
 describe('when the "Go back" button is clicked', () => {
   it('calls the correct handler', () => {
     const wrapper = mount(
-      <ConfirmationModal {...props}>
-        Dismiss me?
-      </ConfirmationModal>
+      <ConfirmationModal {...props}>Dismiss me?</ConfirmationModal>
     )
     const mockClickEvent = { preventDefault: jest.fn() }
-    wrapper.find('a.dismiss').simulate('click', mockClickEvent)
+    wrapper.find('Button.dismiss button').simulate('click', mockClickEvent)
     expect(props.onDismiss.mock.calls.length).toEqual(1)
   })
 })
@@ -49,12 +45,10 @@ describe('when the "Go back" button is clicked', () => {
 describe('when the "Continue" button is clicked', () => {
   it('calls the correct handler', () => {
     const wrapper = mount(
-      <ConfirmationModal {...props}>
-        Accept me?
-      </ConfirmationModal>
+      <ConfirmationModal {...props}>Accept me?</ConfirmationModal>
     )
     const mockClickEvent = { preventDefault: jest.fn() }
-    wrapper.find('a.accept').simulate('click', mockClickEvent)
+    wrapper.find('Button.accept button').simulate('click', mockClickEvent)
     expect(props.onAccept.mock.calls.length).toEqual(1)
   })
 })

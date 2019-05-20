@@ -30,17 +30,16 @@ const Modal = styled.div`
     transform: scale(1);
     transition: all 0.125s;
   }
-
 `
 Modal.displayName = 'Modal'
 
 class FullScreenModal extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleKeyup = this.handleKeyup.bind(this)
   }
 
-  componentWillUpdate ({isOpen: willBeOpen}) {
+  componentWillUpdate({ isOpen: willBeOpen }) {
     const { isOpen } = this.props
     if (!isOpen && willBeOpen) {
       // modal is opening
@@ -54,21 +53,17 @@ class FullScreenModal extends React.Component {
     }
   }
 
-  handleKeyup (e) {
+  handleKeyup(e) {
     if (e.keyCode === ESC) {
       this.props.onDismiss()
     }
   }
 
-  render () {
+  render() {
     const { isOpen, children } = this.props
 
     const className = isOpen ? 'modal-open' : null
-    return (
-      <Modal className={className}>
-        {children}
-      </Modal>
-    )
+    return <Modal className={className}>{children}</Modal>
   }
 }
 

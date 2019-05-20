@@ -10,7 +10,7 @@ const topLevelStyledComponents = path.resolve(
 module.exports = {
   resolve: {
     alias: {
-      'styled-components': topLevelStyledComponents
-    }
-  }
+      'styled-components': topLevelStyledComponents,
+    },
+  },
 }

@@ -2,24 +2,25 @@ import React from 'react'
 import styled from 'styled-components'
 
 class SelectedComponent extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleRemove = this.handleRemove.bind(this)
   }
 
-  handleRemove (e) {
+  handleRemove(e) {
     e.preventDefault()
     this.props.onRemove(this.props.name, this.props.stateKey)
   }
 
-  render () {
+  render() {
     const { className, name } = this.props
 
     return (
       <div className={className}>
         {name}
-        <a href='#' className='remove'
-          onClick={this.handleRemove}>✕</a>
+        <a href="#" className="remove" onClick={this.handleRemove}>
+          ✕
+        </a>
       </div>
     )
   }

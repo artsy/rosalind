@@ -6,12 +6,12 @@ import { color } from '@artsy/palette'
 import missingImage from './missing_image.png'
 
 class ArtworkSearchResult extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick (e) {
+  handleClick(e) {
     const { artwork, onPreviewArtwork, onToggleArtwork } = this.props
     if (e.metaKey) {
       onPreviewArtwork(artwork)
@@ -20,7 +20,7 @@ class ArtworkSearchResult extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const { className, artwork } = this.props
     const { name, image_url: imageUrl } = artwork
     return (
@@ -35,7 +35,7 @@ class ArtworkSearchResult extends React.Component {
 ArtworkSearchResult.propTypes = {
   artwork: PropTypes.object.isRequired,
   onPreviewArtwork: PropTypes.func,
-  onToggleArtwork: PropTypes.func
+  onToggleArtwork: PropTypes.func,
 }
 
 /* default styled component */
