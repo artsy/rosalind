@@ -1,8 +1,8 @@
 import React from 'react'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { ESC } from 'lib/keycodes.js'
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   body.FullScreenModal--open {
     overflow: hidden;
   }
@@ -63,7 +63,12 @@ class FullScreenModal extends React.Component {
     const { isOpen, children } = this.props
 
     const className = isOpen ? 'modal-open' : null
-    return <Modal className={className}>{children}</Modal>
+    return (
+      <>
+        <GlobalStyle />
+        <Modal className={className}>{children}</Modal>
+      </>
+    )
   }
 }
 
