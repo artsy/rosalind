@@ -34,6 +34,7 @@ module.exports = function(api) {
           exclude: ['transform-typeof-symbol'],
         },
       ],
+      '@babel/preset-react',
     ].filter(Boolean),
     plugins: [
       require('babel-plugin-macros'),
@@ -44,6 +45,7 @@ module.exports = function(api) {
         require('@babel/plugin-proposal-class-properties').default,
         {
           loose: true,
+          // spec: true ?!
         },
       ],
       [
@@ -65,6 +67,31 @@ module.exports = function(api) {
           async: false,
         },
       ],
+      [
+        'module-resolver',
+        {
+          root: ['./app/javascript'],
+        },
+      ],
+      [
+        'babel-plugin-styled-components',
+        {
+          displayName: true,
+          minify: true,
+        },
+      ],
     ].filter(Boolean),
+    env: {
+      test: {
+        presets: [
+          [
+            '@babel/env',
+            {
+              modules: 'commonjs',
+            },
+          ],
+        ],
+      },
+    },
   }
 }
