@@ -91,9 +91,6 @@ class ArtworkPreviewModal extends React.Component {
       <Overlay onClick={this.dismiss}>
         <div
           className={this.props.className}
-          ref={el => {
-            this.modal = el
-          }}
           onClickCapture={e => e.stopPropagation()}
         >
           <div className="image">
