@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/artsy/kinetic.git
-  revision: 3e3a5484ab8b79cf166bc5850515a5f391efe561
+  revision: 20542f5deeed70eb968a391d0533ef4239cb2971
   branch: master
   specs:
-    kinetic (0.0.43)
+    kinetic (0.0.45)
       active_attr
       chronic
       ethon (>= 0.7.4)
