@@ -91,7 +91,7 @@
     "husky": "2.2.0",
     "lint-staged": "8.1.6",
     "prettier": "1.17.0",
-    "webpack-dev-server": "^2.11"
+    "webpack-dev-server": "^3.0.0"
   },
   "prettier": {
     "trailingComma": "es5",
