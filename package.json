@@ -16,7 +16,7 @@
     "@babel/polyfill": "7.0.0",
     "@babel/preset-env": "7.2.0",
     "@babel/preset-react": "7.0.0",
-    "@rails/webpacker": "3.5.5",
+    "@rails/webpacker": "4.0.2",
     "babel-loader": "8.0.4",
     "babel-plugin-module-resolver": "3.1.1",
     "babel-plugin-styled-components": "^1.10.0",
