@@ -13,10 +13,11 @@
     "@babel/plugin-proposal-class-properties": "7.2.1",
     "@babel/plugin-proposal-object-rest-spread": "7.2.0",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/polyfill": "7.0.0",
     "@babel/preset-env": "7.2.0",
     "@babel/preset-react": "7.0.0",
-    "@rails/webpacker": "3.5.5",
+    "@rails/webpacker": "4.0.2",
     "babel-loader": "8.0.4",
     "babel-plugin-module-resolver": "3.1.1",
     "babel-plugin-styled-components": "^1.10.0",
@@ -43,6 +44,7 @@
     "stats-webpack-plugin": "0.6.2",
     "style-loader": "0.21.0",
     "styled-components": "^4.2.0",
+    "webpack-cli": "^3.3.2",
     "whatwg-fetch": "2.0.4"
   },
   "jest": {
@@ -91,7 +93,7 @@
     "husky": "2.2.0",
     "lint-staged": "8.1.6",
     "prettier": "1.17.0",
-    "webpack-dev-server": "^2.11"
+    "webpack-dev-server": "^3.4.1"
   },
   "prettier": {
     "trailingComma": "es5",
