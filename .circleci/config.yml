@@ -27,6 +27,7 @@ jobs:
 
       - run: bundle exec rubocop
       - run: yarn run lint
+      - run: ls -la
 
       - run:
           name: Browser testing version info
