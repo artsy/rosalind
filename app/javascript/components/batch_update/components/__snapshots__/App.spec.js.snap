@@ -969,7 +969,7 @@ exports[`renders correctly 1`] = `
         </h1>
         <section>
           <p>
-            You will be changing the genome of 
+            You will be changing the metadata of 
             0
              
             works

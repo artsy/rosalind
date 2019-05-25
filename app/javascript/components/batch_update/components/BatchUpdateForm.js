@@ -338,7 +338,7 @@ class BatchUpdateForm extends React.Component {
           <h1>Are you sure you want to queue these changes?</h1>
           <section>
             <p>
-              You will be changing the genome of {selectedArtworkIds.length}{' '}
+              You will be changing the metadata of {selectedArtworkIds.length}{' '}
               works
             </p>
           </section>
@@ -350,6 +350,7 @@ class BatchUpdateForm extends React.Component {
 
 BatchUpdateForm.propTypes = {
   getCommonGenes: PropTypes.func,
+  getCommonTags: PropTypes.func,
   onAddNotice: PropTypes.func,
   onCancel: PropTypes.func.isRequired,
   selectedArtworkIds: PropTypes.array.isRequired,
