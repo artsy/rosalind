@@ -75,14 +75,20 @@ export const matchArtworks = function(esQuery) {
     })
 }
 
-export const submitBatchUpdate = function(artworkIds, genes, csrfToken) {
+export const submitBatchUpdate = function(
+  artworkIds,
+  { genes, tags },
+  csrfToken
+) {
   const uri = '/batch_updates'
   const payload = JSON.stringify({
     batch_update: {
       artworks: artworkIds,
       genes: genes,
+      tags: tags,
     },
   })
+
   const headers = {
     'X-CSRF-Token': csrfToken,
     'Content-Type': 'application/json',
