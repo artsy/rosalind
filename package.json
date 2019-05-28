@@ -64,7 +64,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:verbose": "jest --verbose",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "./script/check_for_server.rb && start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "standard": {
