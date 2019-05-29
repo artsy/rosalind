@@ -4,14 +4,14 @@ import styled from 'styled-components'
 import zipObject from 'lodash.zipobject'
 import pickBy from 'lodash.pickby'
 import { Link } from './Links'
-import { Button } from '@artsy/palette'
+import { Button, Sans } from '@artsy/palette'
 import { colors } from './Layout'
 import GeneInput from './GeneInput'
 import { GeneAutosuggest, TagAutosuggest } from './Autosuggest'
 import Overlay from './Overlay'
 import ConfirmationModal from './ConfirmationModal'
 import { submitBatchUpdate } from 'lib/rosalind-api'
-import { SelectedTag } from './Selected'
+import TagInput, { PENDING } from './TagInput'
 
 class BatchUpdateForm extends React.Component {
   constructor(props) {
@@ -183,7 +183,7 @@ class BatchUpdateForm extends React.Component {
   }
 
   onCancelAddTag(name) {
-    const tag = name.substr(1)
+    const tag = name
     const { tagsToAdd } = this.state
     this.setState({
       tagsToAdd: tagsToAdd.filter(t => t !== tag),
@@ -191,7 +191,7 @@ class BatchUpdateForm extends React.Component {
   }
 
   onCancelRemoveTag(name) {
-    const tag = name.substr(1)
+    const tag = name
     const { tagsToRemove } = this.state
     this.setState({
       tagsToRemove: tagsToRemove.filter(t => t !== tag),
@@ -227,29 +227,73 @@ class BatchUpdateForm extends React.Component {
     return output
   }
 
+  renderTagInputs = () => {
+    const currentTags = this.getTagState()
+
+    if (currentTags.length === 0) {
+      return (
+        <EmptyMessage>
+          There aren’t any tags that describe all of your selected works
+        </EmptyMessage>
+      )
+    }
+
+    return (
+      <Inputs>
+        {currentTags.map(item => {
+          const { tag, toAdd, toRemove } = item
+          const tagProps = {
+            name: tag,
+            key: tag,
+            pendingAction: null,
+            onClick: () => this.onRemoveExistingTag(tag),
+          }
+
+          if (toAdd) {
+            tagProps.pendingAction = PENDING.ADD
+            tagProps.onClick = () => this.onCancelAddTag(tag)
+          } else if (toRemove) {
+            tagProps.pendingAction = PENDING.REMOVE
+            tagProps.onClick = () => this.onCancelRemoveTag(tag)
+          }
+
+          return <TagInput {...tagProps} />
+        })}
+      </Inputs>
+    )
+  }
+
+  renderGeneInputs = () => {
+    const { geneValues } = this.state
+    const geneNames = Object.keys(geneValues).sort()
+
+    if (geneNames.length === 0) {
+      return (
+        <EmptyMessage>
+          There aren’t any genes that describe all of your selected works
+        </EmptyMessage>
+      )
+    }
+
+    return (
+      <Inputs>
+        {geneNames.map(name => (
+          <GeneInput
+            key={name}
+            name={name}
+            value={geneValues[name]}
+            onChangeValue={this.onChangeGeneValue}
+          />
+        ))}
+      </Inputs>
+    )
+  }
+
   render() {
     const { selectedArtworkIds } = this.props
     const selectedArtworksCount = selectedArtworkIds.length
-    const { geneValues, isConfirming } = this.state
-    const geneNames = Object.keys(geneValues).sort()
-    const tags = this.getTagState().map(item => {
-      const { tag, toAdd, toRemove } = item
-      const tagProps = {
-        name: tag,
-        key: tag,
-        onRemove: this.onRemoveExistingTag,
-      }
+    const { isConfirming } = this.state
 
-      if (toAdd) {
-        tagProps.toAdd = true
-        tagProps.onRemove = this.onCancelAddTag
-      } else if (toRemove) {
-        tagProps.toRemove = true
-        tagProps.onRemove = this.onCancelRemoveTag
-      }
-
-      return <SelectedTag {...tagProps} />
-    })
     return (
       <Wrapper>
         <Controls>
@@ -266,37 +310,24 @@ class BatchUpdateForm extends React.Component {
           </Button>
         </Controls>
 
-        <h3>Edit Genes</h3>
+        <Sans size="8" mt={3} mb={1}>
+          Tags
+        </Sans>
 
-        <Genes>
-          {geneNames.map(name => (
-            <GeneInput
-              key={name}
-              name={name}
-              value={geneValues[name]}
-              onChangeValue={this.onChangeGeneValue}
-            />
-          ))}
-        </Genes>
+        {this.renderTagInputs()}
 
-        {geneNames.length === 0 && (
-          <EmptyGenesMessage>
-            There aren’t any genes that describe all of your selected works
-          </EmptyGenesMessage>
-        )}
+        <TagAutosuggest placeholder="Add a tag" onSelectTag={this.onAddTag} />
+
+        <Sans size="8" mt={4} mb={1}>
+          Genes
+        </Sans>
+
+        {this.renderGeneInputs()}
 
         <GeneAutosuggest
           placeholder="Add a gene"
           onSelectGene={this.onAddGene}
         />
-
-        <Spacer />
-
-        <h3>Edit Tags</h3>
-        <div>{tags}</div>
-
-        <TagAutosuggest placeholder="Add a tag" onSelectTag={this.onAddTag} />
-        <Spacer />
 
         {isConfirming && <Overlay />}
         <ConfirmationModal
@@ -307,7 +338,7 @@ class BatchUpdateForm extends React.Component {
           <h1>Are you sure you want to queue these changes?</h1>
           <section>
             <p>
-              You will be changing the genome of {selectedArtworkIds.length}{' '}
+              You will be changing the metadata of {selectedArtworkIds.length}{' '}
               works
             </p>
           </section>
@@ -319,6 +350,7 @@ class BatchUpdateForm extends React.Component {
 
 BatchUpdateForm.propTypes = {
   getCommonGenes: PropTypes.func,
+  getCommonTags: PropTypes.func,
   onAddNotice: PropTypes.func,
   onCancel: PropTypes.func.isRequired,
   selectedArtworkIds: PropTypes.array.isRequired,
@@ -339,18 +371,18 @@ const Controls = styled.div`
 `
 Controls.displayName = 'Controls'
 
-const Genes = styled.div`
+const Inputs = styled.div`
   display: flex;
   flex-flow: row wrap;
   padding: 30px 0;
 `
-Genes.displayName = 'Genes'
+Inputs.displayName = 'Inputs'
 
-const EmptyGenesMessage = styled.div`
+const EmptyMessage = styled.div`
   align-self: center;
   text-align: center;
 `
-EmptyGenesMessage.displayName = 'EmptyGenesMessage'
+EmptyMessage.displayName = 'EmptyMessage'
 
 const Spacer = styled.div`
   height: 5em;

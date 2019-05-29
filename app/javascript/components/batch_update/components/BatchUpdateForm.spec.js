@@ -4,8 +4,8 @@ import 'jest-styled-components'
 import { mount } from 'enzyme'
 import BatchUpdateForm from './BatchUpdateForm'
 import GeneInput from './GeneInput'
+import TagInput, { PENDING } from './TagInput'
 import { GeneAutosuggest } from './Autosuggest'
-import { SelectedTag } from './Selected'
 import ConfirmationModal from './ConfirmationModal'
 import * as rosalindApi from 'lib/rosalind-api'
 
@@ -50,7 +50,7 @@ it('renders the common tags for each new artwork selection', () => {
     selectedArtworkIds: ['one', 'two', 'three', 'four'],
   }) // triggers componentWillReceiveProps()
   expect(wrapper.state().existingTags).toEqual(['foo', 'bar'])
-  expect(wrapper.find(SelectedTag).length).toEqual(2)
+  expect(wrapper.find(TagInput).length).toEqual(2)
 })
 
 describe('when the "Cancel" link is clicked', () => {
@@ -105,7 +105,7 @@ it('cancels adding a tag', () => {
   const wrapper = mount(<BatchUpdateForm {...props} />)
   const component = wrapper.instance()
   component.onAddTag({ name: 'foobar' })
-  component.onCancelAddTag('+foobar')
+  component.onCancelAddTag('foobar')
   expect(wrapper.state('tagsToAdd')).toEqual([])
 })
 
@@ -120,7 +120,7 @@ it('cancels removing an existing tag', () => {
   const wrapper = mount(<BatchUpdateForm {...props} />)
   const component = wrapper.instance()
   component.onRemoveExistingTag('foo')
-  component.onCancelRemoveTag('-foo')
+  component.onCancelRemoveTag('foo')
   expect(wrapper.state('tagsToRemove')).toEqual([])
 })
 
@@ -230,27 +230,19 @@ describe('with pending changes', () => {
     })
 
     it('renders the tag state', () => {
-      expect(wrapper.find(SelectedTag).length).toEqual(3)
+      expect(wrapper.find(TagInput).length).toEqual(3)
 
-      expect(wrapper.text()).toMatch('foo')
-      expect(wrapper.text()).not.toMatch('-foo')
-      expect(wrapper.text()).not.toMatch('+foo')
+      expect(
+        wrapper.find('TagInput[name="foo"]').prop('pendingAction')
+      ).toEqual(null)
 
-      expect(wrapper.text()).toMatch('bar')
-      expect(wrapper.text()).not.toMatch('-bar')
-      expect(wrapper.text()).not.toMatch('+bar')
+      expect(
+        wrapper.find('TagInput[name="bar"]').prop('pendingAction')
+      ).toEqual(null)
 
-      expect(wrapper.text()).toMatch('+bang')
-    })
-
-    it('renders pending tag removals with a prefixed minus sign', () => {
-      component.onRemoveExistingTag('foo')
-      expect(wrapper.text()).toMatch('-foo')
-    })
-
-    it('renders pending tag additions with a prefixed plus sign', () => {
-      component.onAddTag({ name: 'boop' })
-      expect(wrapper.text()).toMatch('+boop')
+      expect(
+        wrapper.find('TagInput[name="bang"]').prop('pendingAction')
+      ).toEqual(PENDING.ADD)
     })
   })
 
