@@ -1,5 +1,14 @@
 {
   "extends": ["@artsy:app"],
-  "assignees": ["zephraph"],
-  "reviewers": ["anandaroop"]
+  "assignees": ["zephraph", "mzikherman"],
+  "reviewers": ["anandaroop"],
+  "packageRules": [
+    {
+      "managers": ["bundler"],
+      "packagePatterns": ["*"],
+      "masterIssueApproval": true
+    }
+  ],
+  "bundler": { "enabled": true },
+  "enabledManagers": ["npm", "circleci", "bundler"]
 }
