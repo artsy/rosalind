@@ -4,18 +4,22 @@ import 'jest-styled-components'
 import { mount } from 'enzyme'
 import BatchUpdateForm from './BatchUpdateForm'
 import GeneInput from './GeneInput'
+import TagInput, { PENDING } from './TagInput'
 import { GeneAutosuggest } from './Autosuggest'
 import ConfirmationModal from './ConfirmationModal'
 import * as rosalindApi from 'lib/rosalind-api'
 
-let props, dismissHandler
+let props, dismissHandler, defaultCommonGenes, defaultCommonTags
 
 beforeEach(() => {
   dismissHandler = jest.fn()
+  defaultCommonGenes = ['Art', 'Painting']
+  defaultCommonTags = ['foo', 'bar']
   props = {
     onCancel: dismissHandler,
     selectedArtworkIds: ['one', 'two', 'three'],
-    getCommonGenes: jest.fn().mockReturnValueOnce(['Art', 'Painting']),
+    getCommonGenes: jest.fn().mockReturnValueOnce(defaultCommonGenes),
+    getCommonTags: jest.fn().mockReturnValueOnce(defaultCommonTags),
     onAddNotice: jest.fn(),
   }
 })
@@ -39,6 +43,16 @@ it('renders the common genes for each new artwork selection', () => {
   expect(wrapper.find(GeneInput).length).toEqual(2)
 })
 
+it('renders the common tags for each new artwork selection', () => {
+  const wrapper = mount(<BatchUpdateForm {...props} />)
+  expect(wrapper.state().existingTags).toEqual([])
+  wrapper.setProps({
+    selectedArtworkIds: ['one', 'two', 'three', 'four'],
+  }) // triggers componentWillReceiveProps()
+  expect(wrapper.state().existingTags).toEqual(['foo', 'bar'])
+  expect(wrapper.find(TagInput).length).toEqual(2)
+})
+
 describe('when the "Cancel" link is clicked', () => {
   it('calls the correct handler', () => {
     const wrapper = mount(<BatchUpdateForm {...props} />)
@@ -53,6 +67,9 @@ describe('when the "Cancel" link is clicked', () => {
       geneValues: {
         Kawaii: 70,
       },
+      existingTags: ['mewtwo'],
+      tagsToAdd: ['pikachu'],
+      tagsToRemove: ['bulbasaur'],
     })
     const mockClickEvent = { preventDefault: jest.fn() }
     wrapper.find('a.cancel').simulate('click', mockClickEvent)
@@ -60,6 +77,9 @@ describe('when the "Cancel" link is clicked', () => {
       Art: null,
       Painting: null,
     })
+    expect(wrapper.state('existingTags')).toEqual(defaultCommonTags)
+    expect(wrapper.state('tagsToAdd')).toEqual([])
+    expect(wrapper.state('tagsToRemove')).toEqual([])
   })
 })
 
@@ -74,13 +94,45 @@ it('adds genes', () => {
   })
 })
 
-describe('with no currently added genes', () => {
+it('adds a tag', () => {
+  const wrapper = mount(<BatchUpdateForm {...props} />)
+  const component = wrapper.instance()
+  component.onAddTag({ name: 'foobar' })
+  expect(wrapper.state('tagsToAdd')).toEqual(['foobar'])
+})
+
+it('cancels adding a tag', () => {
+  const wrapper = mount(<BatchUpdateForm {...props} />)
+  const component = wrapper.instance()
+  component.onAddTag({ name: 'foobar' })
+  component.onCancelAddTag('foobar')
+  expect(wrapper.state('tagsToAdd')).toEqual([])
+})
+
+it('removes an existing tag', () => {
+  const wrapper = mount(<BatchUpdateForm {...props} />)
+  const component = wrapper.instance()
+  component.onRemoveExistingTag('foo')
+  expect(wrapper.state('tagsToRemove')).toEqual(['foo'])
+})
+
+it('cancels removing an existing tag', () => {
+  const wrapper = mount(<BatchUpdateForm {...props} />)
+  const component = wrapper.instance()
+  component.onRemoveExistingTag('foo')
+  component.onCancelRemoveTag('foo')
+  expect(wrapper.state('tagsToRemove')).toEqual([])
+})
+
+describe('with no currently added genes or tag changes', () => {
   let wrapper
 
   beforeEach(() => {
     wrapper = mount(<BatchUpdateForm {...props} />)
     wrapper.setState({
       geneValues: {},
+      tagsToAdd: [],
+      tagsToRemove: [],
     })
   })
 
@@ -106,53 +158,106 @@ describe('with only null genes', () => {
   })
 })
 
-describe('with currently added genes', () => {
+describe('with pending changes', () => {
   let wrapper, component
 
   beforeEach(() => {
     wrapper = mount(<BatchUpdateForm {...props} />)
     component = wrapper.instance()
-    component.setState({
-      geneValues: {
-        Kawaii: 0,
-        Animals: 100,
-      },
-    })
+  })
+
+  const renderState = state => {
+    component.setState(state)
     wrapper.update()
-  })
+  }
 
-  it('enables the "Queue" button', () => {
-    expect(wrapper.find('Button.queue button').prop('disabled')).toEqual(false)
-  })
+  describe('to genes', () => {
+    beforeEach(() => {
+      renderState({
+        geneValues: {
+          Kawaii: 0,
+          Animals: 100,
+        },
+      })
+    })
 
-  it('renders the current genes', () => {
-    expect(wrapper.find(GeneInput).length).toEqual(2)
-    expect(wrapper.text()).toMatch('Kawaii')
-    expect(wrapper.text()).toMatch('Animals')
-  })
+    it('enables the "Queue" button', () => {
+      expect(wrapper.find('Button.queue button').prop('disabled')).toEqual(
+        false
+      )
+    })
 
-  it('updates gene values from integers', () => {
-    component.onChangeGeneValue({ name: 'Kawaii', value: 70 })
-    expect(component.state['geneValues']).toMatchObject({
-      Kawaii: 70,
+    it('renders the current genes', () => {
+      expect(wrapper.find(GeneInput).length).toEqual(2)
+      expect(wrapper.text()).toMatch('Kawaii')
+      expect(wrapper.text()).toMatch('Animals')
+    })
+
+    it('updates gene values from integers', () => {
+      component.onChangeGeneValue({ name: 'Kawaii', value: 70 })
+      expect(component.state['geneValues']).toMatchObject({
+        Kawaii: 70,
+      })
+    })
+
+    it('updates gene values from number-ish strings', () => {
+      component.onChangeGeneValue({ name: 'Kawaii', value: '70' })
+      expect(component.state['geneValues']).toMatchObject({
+        Kawaii: 70,
+      })
+    })
+
+    it('nulls gene values from empty strings', () => {
+      component.onChangeGeneValue({ name: 'Kawaii', value: '' })
+      expect(component.state['geneValues']).toMatchObject({
+        Kawaii: null,
+      })
     })
   })
 
-  it('updates gene values from number-ish strings', () => {
-    component.onChangeGeneValue({ name: 'Kawaii', value: '70' })
-    expect(component.state['geneValues']).toMatchObject({
-      Kawaii: 70,
+  describe('to tags', () => {
+    beforeEach(() => {
+      renderState({
+        existingTags: defaultCommonTags,
+        tagsToAdd: ['bang'],
+      })
     })
-  })
 
-  it('nulls gene values from empty strings', () => {
-    component.onChangeGeneValue({ name: 'Kawaii', value: '' })
-    expect(component.state['geneValues']).toMatchObject({
-      Kawaii: null,
+    it('enables the "Queue" button', () => {
+      expect(wrapper.find('Button.queue button').prop('disabled')).toEqual(
+        false
+      )
+    })
+
+    it('renders the tag state', () => {
+      expect(wrapper.find(TagInput).length).toEqual(3)
+
+      expect(
+        wrapper.find('TagInput[name="foo"]').prop('pendingAction')
+      ).toEqual(null)
+
+      expect(
+        wrapper.find('TagInput[name="bar"]').prop('pendingAction')
+      ).toEqual(null)
+
+      expect(
+        wrapper.find('TagInput[name="bang"]').prop('pendingAction')
+      ).toEqual(PENDING.ADD)
     })
   })
 
   describe('when the "Queue" button is clicked', () => {
+    beforeEach(() => {
+      renderState({
+        geneValues: {
+          Kawaii: 0,
+          Animals: 100,
+        },
+        existingTags: defaultCommonTags,
+        tagsToAdd: ['bang'],
+        tagsToRemove: ['foo'],
+      })
+    })
     it('opens a confirmation modal', () => {
       const mockClickEvent = { preventDefault: jest.fn() }
       wrapper.find('Button.queue button').simulate('click', mockClickEvent)
@@ -202,13 +307,19 @@ describe('with currently added genes', () => {
         expect(rosalindApi.submitBatchUpdate.mock.calls.length).toEqual(1)
       })
 
-      it('sends the genes and artworks', () => {
+      it('sends the genes, tags and artworks', () => {
         expect(rosalindApi.submitBatchUpdate.mock.calls[0][0]).toEqual(
           props.selectedArtworkIds
         )
         expect(rosalindApi.submitBatchUpdate.mock.calls[0][1]).toEqual({
-          Animals: 100,
-          Kawaii: 0,
+          genes: {
+            Animals: 100,
+            Kawaii: 0,
+          },
+          tags: {
+            toAdd: ['bang'],
+            toRemove: ['foo'],
+          },
         })
       })
 

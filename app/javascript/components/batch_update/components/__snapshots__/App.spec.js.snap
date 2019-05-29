@@ -118,6 +118,22 @@ exports[`renders correctly 1`] = `
   padding-top: 1px;
 }
 
+.c15 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 28px;
+  line-height: 36px;
+  margin-bottom: 4px;
+  margin-top: 16px;
+}
+
+.c17 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 28px;
+  line-height: 36px;
+  margin-bottom: 4px;
+  margin-top: 32px;
+}
+
 .c6 {
   cursor: pointer;
   position: relative;
@@ -348,26 +364,11 @@ exports[`renders correctly 1`] = `
   border-bottom: solid 1px #DBDBDB;
 }
 
-.c15 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  padding: 30px 0;
-}
-
 .c16 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   text-align: center;
-}
-
-.c17 {
-  height: 5em;
 }
 
 .c10 {
@@ -876,7 +877,54 @@ exports[`renders correctly 1`] = `
       </div>
       <div
         className="c15"
-      />
+        fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        fontSize="28px"
+      >
+        Tags
+      </div>
+      <div
+        className="c16"
+      >
+        There aren’t any tags that describe all of your selected works
+      </div>
+      <div
+        className="GenericAutosuggest"
+      >
+        <div
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-owns="react-autowhatever-tag-autosuggest"
+          className="react-autosuggest__container"
+          role="combobox"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-tag-autosuggest"
+            autoComplete="off"
+            className="react-autosuggest__input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Add a tag"
+            type="text"
+            value=""
+          />
+          <div
+            className="react-autosuggest__suggestions-container"
+            id="react-autowhatever-tag-autosuggest"
+            role="listbox"
+          />
+        </div>
+      </div>
+      <div
+        className="c17"
+        fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        fontSize="28px"
+      >
+        Genes
+      </div>
       <div
         className="c16"
       >
@@ -914,9 +962,6 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c17"
-      />
-      <div
         className="c18"
       >
         <h1>
@@ -924,7 +969,7 @@ exports[`renders correctly 1`] = `
         </h1>
         <section>
           <p>
-            You will be changing the genome of 
+            You will be changing the metadata of 
             0
              
             works

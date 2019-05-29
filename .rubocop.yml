@@ -10,13 +10,13 @@ Style/BlockComments:
 Style/Documentation:
   Enabled: false
 
-Layout/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   EnforcedStyle: consistent
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Layout/IndentArray:
+Layout/IndentFirstArrayElement:
   EnforcedStyle: consistent
 
 Naming/FileName:

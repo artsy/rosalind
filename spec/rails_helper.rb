@@ -9,6 +9,13 @@ require 'rspec/rails'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
+begin
+  ActiveRecord::Migration.maintain_test_schema!
+rescue ActiveRecord::PendingMigrationError => e
+  puts e.to_s.strip
+  exit 1
+end
+
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
@@ -26,3 +33,7 @@ RSpec.configure do |config|
     # driven_by :selenium_chrome
   end
 end
+
+# only look for driver updates if the previous check was
+# longer ago than a specified number of seconds
+Webdrivers.cache_time = 86_400

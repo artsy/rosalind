@@ -4,13 +4,14 @@ import styled from 'styled-components'
 import zipObject from 'lodash.zipobject'
 import pickBy from 'lodash.pickby'
 import { Link } from './Links'
-import { Button } from '@artsy/palette'
+import { Button, Sans } from '@artsy/palette'
 import { colors } from './Layout'
 import GeneInput from './GeneInput'
-import { GeneAutosuggest } from './Autosuggest'
+import { GeneAutosuggest, TagAutosuggest } from './Autosuggest'
 import Overlay from './Overlay'
 import ConfirmationModal from './ConfirmationModal'
 import { submitBatchUpdate } from 'lib/rosalind-api'
+import TagInput, { PENDING } from './TagInput'
 
 class BatchUpdateForm extends React.Component {
   constructor(props) {
@@ -18,6 +19,9 @@ class BatchUpdateForm extends React.Component {
     this.state = {
       geneValues: {},
       isConfirming: false,
+      existingTags: [],
+      tagsToAdd: [],
+      tagsToRemove: [],
     }
     this.handleCancelClick = this.handleCancelClick.bind(this)
     this.close = this.close.bind(this)
@@ -29,6 +33,11 @@ class BatchUpdateForm extends React.Component {
     this.handleFailure = this.handleFailure.bind(this)
     this.handleError = this.handleError.bind(this)
     this.onAddGene = this.onAddGene.bind(this)
+    this.onAddTag = this.onAddTag.bind(this)
+    this.onRemoveExistingTag = this.onRemoveExistingTag.bind(this)
+    this.onCancelAddTag = this.onCancelAddTag.bind(this)
+    this.onCancelRemoveTag = this.onCancelRemoveTag.bind(this)
+    this.getTagState = this.getTagState.bind(this)
     this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
   }
 
@@ -37,6 +46,7 @@ class BatchUpdateForm extends React.Component {
     const nextArtworks = nextProps.selectedArtworkIds
     if (nextArtworks !== currentArtworks) {
       this.initializeGeneValues()
+      this.initializeTagValues()
     }
   }
 
@@ -49,6 +59,15 @@ class BatchUpdateForm extends React.Component {
     })
   }
 
+  initializeTagValues() {
+    const commonTags = this.props.getCommonTags()
+    this.setState({
+      existingTags: commonTags,
+      tagsToAdd: [],
+      tagsToRemove: [],
+    })
+  }
+
   handleCancelClick(e) {
     e.preventDefault()
     this.close()
@@ -56,6 +75,7 @@ class BatchUpdateForm extends React.Component {
 
   close() {
     this.dismissConfirmation()
+    this.initializeTagValues()
     this.initializeGeneValues()
     this.props.onCancel()
   }
@@ -74,20 +94,30 @@ class BatchUpdateForm extends React.Component {
 
   isValid() {
     const selectedArtworksCount = this.props.selectedArtworkIds.length
-    const { geneValues } = this.state
+    const { geneValues, tagsToAdd, tagsToRemove } = this.state
     const names = Object.keys(geneValues)
     const validGeneValues = names
       .map(name => geneValues[name])
       .filter(value => value !== null)
-    return selectedArtworksCount > 0 && validGeneValues.length > 0
+    return (
+      selectedArtworksCount > 0 &&
+      (validGeneValues.length > 0 ||
+        tagsToAdd.length > 0 ||
+        tagsToRemove.length > 0)
+    )
   }
 
   submit() {
     const { selectedArtworkIds } = this.props
-    const { geneValues } = this.state
+    const { geneValues, tagsToAdd, tagsToRemove } = this.state
     const validGenes = pickBy(geneValues, (value, _key) => value !== null)
+    const validTags = { toAdd: tagsToAdd, toRemove: tagsToRemove }
     const csrfToken = document.querySelector('meta[name=csrf-token]').content
-    submitBatchUpdate(selectedArtworkIds, validGenes, csrfToken)
+    submitBatchUpdate(
+      selectedArtworkIds,
+      { genes: validGenes, tags: validTags },
+      csrfToken
+    )
       .then(response => {
         if (response.ok) {
           this.handleSuccess()
@@ -101,9 +131,6 @@ class BatchUpdateForm extends React.Component {
   }
 
   handleSuccess() {
-    const { selectedArtworkIds } = this.props
-    const { geneValues } = this.state
-    console.log('Success:', JSON.stringify(geneValues), selectedArtworkIds)
     this.props.onAddNotice('Batch update was successfully queued')
     this.close()
   }
@@ -140,11 +167,133 @@ class BatchUpdateForm extends React.Component {
     })
   }
 
+  onAddTag({ name: tag }) {
+    const { tagsToAdd } = this.state
+    this.setState({
+      tagsToAdd: [...tagsToAdd, tag],
+    })
+  }
+
+  onRemoveExistingTag(name) {
+    const tag = name
+    const { tagsToRemove } = this.state
+    this.setState({
+      tagsToRemove: [...tagsToRemove, tag],
+    })
+  }
+
+  onCancelAddTag(name) {
+    const tag = name
+    const { tagsToAdd } = this.state
+    this.setState({
+      tagsToAdd: tagsToAdd.filter(t => t !== tag),
+    })
+  }
+
+  onCancelRemoveTag(name) {
+    const tag = name
+    const { tagsToRemove } = this.state
+    this.setState({
+      tagsToRemove: tagsToRemove.filter(t => t !== tag),
+    })
+  }
+
+  getTagState() {
+    const { existingTags, tagsToAdd, tagsToRemove } = this.state
+    const output = existingTags.map(tag => ({
+      tag,
+      toAdd: false,
+      toRemove: false,
+    }))
+
+    tagsToAdd.forEach(t => {
+      if (output.indexOf(t) === -1 && tagsToRemove.indexOf(t) === -1) {
+        output.push({
+          tag: t,
+          toAdd: true,
+          toRemove: false,
+        })
+      }
+    })
+
+    tagsToRemove.forEach(t => {
+      output.forEach(item => {
+        if (item.tag === t) {
+          item.toRemove = true
+        }
+      })
+    })
+
+    return output
+  }
+
+  renderTagInputs = () => {
+    const currentTags = this.getTagState()
+
+    if (currentTags.length === 0) {
+      return (
+        <EmptyMessage>
+          There aren’t any tags that describe all of your selected works
+        </EmptyMessage>
+      )
+    }
+
+    return (
+      <Inputs>
+        {currentTags.map(item => {
+          const { tag, toAdd, toRemove } = item
+          const tagProps = {
+            name: tag,
+            key: tag,
+            pendingAction: null,
+            onClick: () => this.onRemoveExistingTag(tag),
+          }
+
+          if (toAdd) {
+            tagProps.pendingAction = PENDING.ADD
+            tagProps.onClick = () => this.onCancelAddTag(tag)
+          } else if (toRemove) {
+            tagProps.pendingAction = PENDING.REMOVE
+            tagProps.onClick = () => this.onCancelRemoveTag(tag)
+          }
+
+          return <TagInput {...tagProps} />
+        })}
+      </Inputs>
+    )
+  }
+
+  renderGeneInputs = () => {
+    const { geneValues } = this.state
+    const geneNames = Object.keys(geneValues).sort()
+
+    if (geneNames.length === 0) {
+      return (
+        <EmptyMessage>
+          There aren’t any genes that describe all of your selected works
+        </EmptyMessage>
+      )
+    }
+
+    return (
+      <Inputs>
+        {geneNames.map(name => (
+          <GeneInput
+            key={name}
+            name={name}
+            value={geneValues[name]}
+            onChangeValue={this.onChangeGeneValue}
+          />
+        ))}
+      </Inputs>
+    )
+  }
+
   render() {
     const { selectedArtworkIds } = this.props
     const selectedArtworksCount = selectedArtworkIds.length
-    const { geneValues, isConfirming } = this.state
-    const geneNames = Object.keys(geneValues).sort()
+    const { isConfirming } = this.state
+
     return (
       <Wrapper>
         <Controls>
@@ -161,28 +310,24 @@ class BatchUpdateForm extends React.Component {
           </Button>
         </Controls>
 
-        <Genes>
-          {geneNames.map(name => (
-            <GeneInput
-              key={name}
-              name={name}
-              value={geneValues[name]}
-              onChangeValue={this.onChangeGeneValue}
-            />
-          ))}
-        </Genes>
+        <Sans size="8" mt={3} mb={1}>
+          Tags
+        </Sans>
 
-        {geneNames.length === 0 && (
-          <EmptyGenesMessage>
-            There aren’t any genes that describe all of your selected works
-          </EmptyGenesMessage>
-        )}
+        {this.renderTagInputs()}
+
+        <TagAutosuggest placeholder="Add a tag" onSelectTag={this.onAddTag} />
+
+        <Sans size="8" mt={4} mb={1}>
+          Genes
+        </Sans>
+
+        {this.renderGeneInputs()}
 
         <GeneAutosuggest
           placeholder="Add a gene"
           onSelectGene={this.onAddGene}
         />
-        <Spacer />
 
         {isConfirming && <Overlay />}
         <ConfirmationModal
@@ -193,7 +338,7 @@ class BatchUpdateForm extends React.Component {
           <h1>Are you sure you want to queue these changes?</h1>
           <section>
             <p>
-              You will be changing the genome of {selectedArtworkIds.length}{' '}
+              You will be changing the metadata of {selectedArtworkIds.length}{' '}
               works
             </p>
           </section>
@@ -205,6 +350,7 @@ class BatchUpdateForm extends React.Component {
 
 BatchUpdateForm.propTypes = {
   getCommonGenes: PropTypes.func,
+  getCommonTags: PropTypes.func,
   onAddNotice: PropTypes.func,
   onCancel: PropTypes.func.isRequired,
   selectedArtworkIds: PropTypes.array.isRequired,
@@ -225,18 +371,18 @@ const Controls = styled.div`
 `
 Controls.displayName = 'Controls'
 
-const Genes = styled.div`
+const Inputs = styled.div`
   display: flex;
   flex-flow: row wrap;
   padding: 30px 0;
 `
-Genes.displayName = 'Genes'
+Inputs.displayName = 'Inputs'
 
-const EmptyGenesMessage = styled.div`
+const EmptyMessage = styled.div`
   align-self: center;
   text-align: center;
 `
-EmptyGenesMessage.displayName = 'EmptyGenesMessage'
+EmptyMessage.displayName = 'EmptyMessage'
 
 const Spacer = styled.div`
   height: 5em;

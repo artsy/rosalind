@@ -64,11 +64,27 @@ $ bundle exec rspec spec/system
 In order to view the specs running in a real browser, you can change the
 `driven_by` config to `:selenium_chrome` in `spec/rails_helper.rb`.
 
-## Starting Server
+## Developing with Storybook
+
+In order to facilitate development and documentation of UI components,
+we've added Storybook to this project.
+
+```sh
+$ yarn run storybook
+```
+
+Storybook can only show accurate styling if it can load the Rails
+`application.css` stylesheet. For this reason we require you to have the Rails
+server running first.
+
+## Starting the Server
 
 Foreman is used to manage the server configuration, so starting a server is as
 easy as `foreman start`, but you might want to use the development version
-instead:
+in Procfile.dev instead.
+
+Procfile.dev is configured to run Webpack's dev server, for hot reloading of
+React components.
 
 ```sh
 $ foreman start -f Procfile.dev

@@ -14,18 +14,19 @@ gem 'coffee-rails'
 gem 'decent_exposure'
 gem 'haml-rails'
 gem 'jbuilder'
-gem 'sass-rails'
+gem 'sassc-rails'
 gem 'sentry-raven'
 gem 'sidekiq'
 gem 'typhoeus'
 gem 'uglifier'
-gem 'webpacker', '3.5.3'
+gem 'webpacker'
 
 group :development, :test do
   gem 'danger'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'dotenv'
 end
 
 group :development do
@@ -42,3 +43,4 @@ group :test do
   gem 'webdrivers'
   gem 'webmock'
 end
+

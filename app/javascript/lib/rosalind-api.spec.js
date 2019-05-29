@@ -72,15 +72,16 @@ describe('matchArtworks', () => {
 })
 
 describe('submitBatchUpdate', () => {
-  let artworkIds, geneValues, csrfToken
+  let artworkIds, geneValues, tags, csrfToken
 
   beforeEach(() => {
     artworkIds = ['a', 'b', 'c']
     geneValues = { Kawaii: 70, Animals: 0 }
+    tags = { toAdd: ['foo', 'bar'], toRemove: ['baz'] }
     csrfToken =
       'SECRET is a funny looking word after you stare at it for a while'
 
-    submitBatchUpdate(artworkIds, geneValues, csrfToken)
+    submitBatchUpdate(artworkIds, { genes: geneValues, tags: tags }, csrfToken)
   })
 
   it('fetches the expected url', () => {
@@ -99,6 +100,7 @@ describe('submitBatchUpdate', () => {
       batch_update: {
         artworks: artworkIds,
         genes: geneValues,
+        tags: tags,
       },
     })
     const fetchOptions = window.fetch.mock.calls[0][1]

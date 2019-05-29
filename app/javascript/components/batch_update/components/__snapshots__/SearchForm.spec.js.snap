@@ -1036,11 +1036,8 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   pointer-events: none;
 }
 
-.c7 {
-  color: #666666;
-}
-
 .c6 {
+  color: #666666;
   display: block;
   margin-top: 1em;
 }
@@ -1422,7 +1419,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </button>
   <a
-    className="c6 c7"
+    className="c6"
     href="http://helix/genome/artworks?artwork_ids="
     target="_blank"
   >

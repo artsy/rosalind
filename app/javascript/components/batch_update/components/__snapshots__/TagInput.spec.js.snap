@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a to-add tag correctly 1`] = `
+.c0 {
+  border: solid 1px #6E1FFF;
+  background: #F7F3FF;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+<div
+  className="c0"
+  onClick={undefined}
+>
+  Hot Dog
+</div>
+`;
+
+exports[`renders a to-ignore tag correctly 1`] = `
+.c0 {
+  border: solid 1px #E5E5E5;
+  background: #F8F8F8;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+<div
+  className="c0"
+  onClick={undefined}
+>
+  Hot Dog
+</div>
+`;
+
+exports[`renders a to-remove tag correctly 1`] = `
+.c0 {
+  border: solid 1px #F7625A;
+  background: #FFF8F8;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+<div
+  className="c0"
+  onClick={undefined}
+>
+  <strike>
+    Hot Dog
+  </strike>
+</div>
+`;

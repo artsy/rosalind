@@ -56,6 +56,7 @@ class App extends React.Component {
     this.clearStateFor = this.clearStateFor.bind(this)
 
     this.getCommonGenes = this.getCommonGenes.bind(this)
+    this.getCommonTags = this.getCommonTags.bind(this)
     this.onToggleArtwork = this.onToggleArtwork.bind(this)
     this.onSelectAllArtworks = this.onSelectAllArtworks.bind(this)
     this.onDeselectAllArtworks = this.onDeselectAllArtworks.bind(this)
@@ -351,6 +352,16 @@ class App extends React.Component {
     return commonGenes
   }
 
+  getCommonTags() {
+    const { selectedArtworkIds, artworks } = this.state
+
+    const tagArraysForSelectedArtworks = artworks
+      .filter(artwork => selectedArtworkIds.indexOf(artwork.id) > -1)
+      .map(artwork => artwork.tags || [])
+
+    return intersection(...tagArraysForSelectedArtworks)
+  }
+
   onPreviewArtwork(artwork) {
     this.setState({ previewedArtwork: artwork })
   }
@@ -476,6 +487,7 @@ class App extends React.Component {
         >
           <BatchUpdateForm
             getCommonGenes={this.getCommonGenes}
+            getCommonTags={this.getCommonTags}
             onCancel={this.onDismissBatchUpdate}
             selectedArtworkIds={selectedArtworkIds}
             updateState={this.updateStateFor}
