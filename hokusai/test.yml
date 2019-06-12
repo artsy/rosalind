@@ -1,0 +1,9 @@
+---
+version: '2'
+services:
+  rosalind:
+    command: ["bundle", "exec", "rspec"]
+    env_file: .env.test
+    extends:
+      file: build.yml
+      service: rosalind
