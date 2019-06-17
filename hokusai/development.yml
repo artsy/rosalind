@@ -2,6 +2,7 @@
 version: '2'
 services:
   rosalind:
+    command: sh -c 'bundle exec puma -C config/puma.config'
     env_file: ../.env
     extends:
       file: build.yml
@@ -10,3 +11,15 @@ services:
       - 3000:3000
     volumes:
       - ../:/app
+    depends_on:
+      - rosalind-postgres
+    environment:
+    - DATABASE_URL=postgresql://postgres:@rosalind-postgres/rosalind_development
+    - RAILS_ENV=development
+    - REDIS_URL=redis://rosalind-redis
+  rosalind-postgres:
+    image: postgres:10.6
+    environment:
+      - POSTGRES_DB=rosalind_development
+  rosalind-redis:
+    image: redis:3.2-alpine
