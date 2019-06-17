@@ -1,11 +1,15 @@
-FROM ruby:latest
+FROM artsy/ruby:2.6.2-node-chrome
 ENV LANG C.UTF-8
+
+ARG BUNDLE_GITHUB__COM
 
 # Set up dumb-init
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
 RUN chmod +x /usr/local/bin/dumb-init
 
-RUN apt-get update -qq && apt-get install -y nodejs mongodb-clients && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update -qq && apt-get install -y \
+  postgresql-client \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN gem install bundler
 
@@ -17,6 +21,7 @@ RUN mkdir /app
 
 # Set up gems
 WORKDIR /tmp
+ADD .ruby-version .ruby-version
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 RUN bundle install -j4
