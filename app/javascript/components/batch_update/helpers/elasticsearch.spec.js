@@ -722,10 +722,12 @@ describe('buildElasticsearchQuery', () => {
               { match: { deleted: false } },
               { match: { genes: 'Gene 1' } },
               {
-                or: [
-                  { term: { offerable: true } },
-                  { term: { acquireable: true } },
-                ],
+                bool: {
+                  should: [
+                    { term: { offerable: true } },
+                    { term: { acquireable: true } },
+                  ],
+                },
               },
             ],
           },
