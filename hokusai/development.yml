@@ -2,7 +2,7 @@
 version: '2'
 services:
   rosalind:
-    command: sh -c 'bundle exec puma -C config/puma.config'
+    command: sh -c 'bundle exec rails db:setup && bundle exec puma -C config/puma.config'
     env_file: ../.env
     extends:
       file: build.yml
@@ -14,9 +14,9 @@ services:
     depends_on:
       - rosalind-postgres
     environment:
-    - DATABASE_URL=postgresql://postgres:@rosalind-postgres/rosalind_development
-    - RAILS_ENV=development
-    - REDIS_URL=redis://rosalind-redis
+      - DATABASE_URL=postgresql://postgres:@rosalind-postgres/rosalind_development
+      - RAILS_ENV=development
+      - REDIS_URL=redis://rosalind-redis
   rosalind-postgres:
     image: postgres:10.6
     environment:

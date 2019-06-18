@@ -3,21 +3,22 @@ ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
 
-# Set up dumb-init
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
-RUN chmod +x /usr/local/bin/dumb-init
-
 RUN apt-get update -qq && apt-get install -y \
+  dumb-init \
   postgresql-client \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Set up deploy user, working directory and shared folders for Puma / Nginx
+RUN adduser --disabled-password --gecos '' deploy && \
+    mkdir -p /app && \
+    chown deploy:deploy /app && \
+    mkdir -p /shared/{config,pids,sockets} && \
+    chown deploy:deploy /shared
+
 RUN gem install bundler
 
-# throw errors if Gemfile has been modified since Gemfile.lock
+# Throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
-
-# Set up working directory
-RUN mkdir /app
 
 # Set up gems
 WORKDIR /tmp
@@ -26,20 +27,21 @@ ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 RUN bundle install -j4
 
+# Switch to deploy user
+USER deploy
+ENV USER deploy
+ENV HOME /home/deploy
+
 # Finally, add the rest of our app's code
 # (this is done at the end so that changes to our app's code
 # don't bust Docker's cache)
-ADD . /app
+ADD --chown=deploy:deploy . /app
 WORKDIR /app
 
-# Setup Rails shared folders for Puma / Nginx
-RUN mkdir /shared
-RUN mkdir /shared/config
-RUN mkdir /shared/pids
-RUN mkdir /shared/sockets
+RUN yarn install && yarn cache clean
 
 # Precompile Rails assets
 RUN bundle exec rake assets:precompile
 
-ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["bundle", "exec", "puma", "-C", "config/puma.config"]

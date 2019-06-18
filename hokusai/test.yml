@@ -9,8 +9,8 @@ services:
     depends_on:
       - rosalind-postgres
     environment:
-    - RAILS_ENV=test
-    - DATABASE_URL=postgresql://postgres:@rosalind-postgres/rosalind_test
+      - RAILS_ENV=test
+      - DATABASE_URL=postgresql://postgres:@rosalind-postgres/rosalind_test
   rosalind-postgres:
     image: postgres:10.6
     environment:
