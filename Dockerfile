@@ -5,6 +5,7 @@ ARG BUNDLE_GITHUB__COM
 
 RUN apt-get update -qq && apt-get install -y \
   dumb-init \
+  libpq-dev \
   postgresql-client \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -12,8 +13,11 @@ RUN apt-get update -qq && apt-get install -y \
 RUN adduser --disabled-password --gecos '' deploy && \
     mkdir -p /app && \
     chown deploy:deploy /app && \
-    mkdir -p /shared/{config,pids,sockets} && \
-    chown deploy:deploy /shared
+    mkdir /shared && \
+    mkdir /shared/config && \
+    mkdir /shared/pids && \
+    mkdir /shared/sockets && \
+    chown -R deploy:deploy /shared
 
 RUN gem install bundler
 
