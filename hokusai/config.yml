@@ -2,3 +2,4 @@
 project-name: rosalind
 git-remote: git@github.com:artsy/rosalind.git
 hokusai-required-version: "~=0.5"
+pre-deploy: 'rake db:migrate'
