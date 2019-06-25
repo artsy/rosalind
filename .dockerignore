@@ -16,7 +16,6 @@ README.md
 .env.sample
 *.rbc
 capybara-*.html
-.rspec
 log
 tmp
 db/*.sqlite3
