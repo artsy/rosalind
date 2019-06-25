@@ -12,6 +12,6 @@ services:
       - RAILS_ENV=test
       - DATABASE_URL=postgresql://postgres:@rosalind-postgres/rosalind_test
   rosalind-postgres:
-    image: postgres:10.6
+    image: postgres:9.6
     environment:
       - POSTGRES_DB=rosalind_test
