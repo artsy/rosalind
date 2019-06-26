@@ -1,47 +1,53 @@
-version: 2
+version: 2.1
 
-jobs:
-  build:
-    working_directory: ~/rosalind
-    docker:
-      - image: artsy/ruby:2.6.2-node-chrome
-        environment:
-          RAILS_ENV: test
-      - image: circleci/postgres:10.8-alpine
-    steps:
-      - checkout
+orbs:
+  hokusai: artsy/hokusai@0.3.0
 
-      - type: cache-restore
-        key: rosalind-bundler-{{ checksum "Gemfile.lock" }}
-      - run: bundle install --path vendor/bundle
-      - type: cache-save
-        key: rosalind-bundler-{{ checksum "Gemfile.lock" }}
-        paths:
-          - vendor/bundle
-      - run: yarn install
+not_staging_or_release: &not_staging_or_release
+  filters:
+    branches:
+      ignore:
+        - staging
+        - release
 
-      - run: mv config/database{.circle,}.yml
-      - run: bundle exec rake db:create db:migrate
+only_master: &only_master
+  context: hokusai
+  filters:
+    branches:
+      only: master
 
-      - run: bundle exec rake webpacker:compile
+only_release: &only_release
+  context: hokusai
+  filters:
+    branches:
+      only: release
 
-      - run: bundle exec rubocop
-      - run: yarn run lint
+workflows:
+  default:
+    jobs:
+      # pre-staging
+      - hokusai/test:
+          name: test
+          <<: *not_staging_or_release
 
-      - run:
-          name: Browser testing version info
-          command: |
-            google-chrome --version
+      # staging
+      - hokusai/push:
+          name: push-staging-image
+          <<: *only_master
+          requires:
+            - test
 
-      - run: bundle exec rspec
-      - run: yarn run test -- --runInBand
+      - hokusai/deploy-staging:
+          <<: *only_master
+          project-name: rosalind
+          requires:
+            - push-staging-image
 
-      # - run: bundle exec danger
-
-      - run: bash .circleci/heroku_setup
-      - add_ssh_keys:
-          fingerprints:
-            - "d1:68:35:96:47:c2:de:36:dd:9f:e4:90:84:be:2e:63"
-      - deploy:
-          name: Deploy
-          command: .circleci/heroku_deploy
+      # release
+      - hokusai/push:
+          name: push-production-image
+          <<: *only_release
+      - hokusai/deploy-production:
+          <<: *only_release
+          requires:
+            - push-production-image

@@ -1,0 +1,17 @@
+---
+version: '2'
+services:
+  rosalind:
+    command: ./hokusai/ci.sh
+    extends:
+      file: build.yml
+      service: rosalind
+    depends_on:
+      - rosalind-postgres
+    environment:
+      - RAILS_ENV=test
+      - DATABASE_URL=postgresql://postgres:@rosalind-postgres/rosalind_test
+  rosalind-postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_DB=rosalind_test

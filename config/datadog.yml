@@ -1,0 +1,7 @@
+development: &default
+  enabled: <%= ENV['DATADOG_ENABLED'] == 'true' %>
+  hostname: <%= (ENV['DATADOG_HOSTNAME'] || 'datadog') %>
+test:
+  <<: *default
+production:
+  <<: *default
