@@ -25,7 +25,7 @@ exports[`renders correctly 1`] = `
   padding: 1em;
 }
 
-.c8 {
+.c10 {
   -webkit-box-flex: 5;
   -webkit-flex-grow: 5;
   -ms-flex-positive: 5;
@@ -110,7 +110,7 @@ exports[`renders correctly 1`] = `
   cursor: default;
 }
 
-.c7 {
+.c8 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -118,7 +118,7 @@ exports[`renders correctly 1`] = `
   padding-top: 1px;
 }
 
-.c15 {
+.c17 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
@@ -126,12 +126,26 @@ exports[`renders correctly 1`] = `
   margin-top: 16px;
 }
 
-.c17 {
+.c19 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
   margin-bottom: 4px;
   margin-top: 32px;
+}
+
+.c7 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c9 {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .c6 {
@@ -167,7 +181,7 @@ exports[`renders correctly 1`] = `
   pointer-events: none;
 }
 
-.c14 {
+.c16 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -183,7 +197,7 @@ exports[`renders correctly 1`] = `
   color: #FFF;
 }
 
-.c14.loading {
+.c16.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -192,14 +206,14 @@ exports[`renders correctly 1`] = `
   cursor: auto;
 }
 
-.c14.disabled {
+.c16.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
-.c20 {
+.c22 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -217,7 +231,7 @@ exports[`renders correctly 1`] = `
   color: #000;
 }
 
-.c20.loading {
+.c22.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -226,18 +240,18 @@ exports[`renders correctly 1`] = `
   cursor: auto;
 }
 
-.c20.disabled {
+.c22.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
-.c13 {
+.c15 {
   color: #666666;
 }
 
-.c9 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -247,24 +261,24 @@ exports[`renders correctly 1`] = `
   flex-direction: column;
 }
 
-.c9 .counts {
+.c11 .counts {
   display: inline-block;
   width: 75%;
   padding: 0.75em;
 }
 
-.c9 .select {
+.c11 .select {
   display: inline-block;
   width: 25%;
   padding: 0.75em;
   text-align: right;
 }
 
-.c9 .select a {
+.c11 .select a {
   margin: 0 0.25em;
 }
 
-.c9 .results {
+.c11 .results {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -274,7 +288,7 @@ exports[`renders correctly 1`] = `
   flex-flow: row wrap;
 }
 
-.c18 {
+.c20 {
   position: fixed;
   left: 50%;
   top: 40%;
@@ -292,7 +306,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c18.modal-open {
+.c20.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1) translate(-50%,-50%);
@@ -302,24 +316,24 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c18 h1 {
+.c20 h1 {
   font-weight: normal;
   font-size: 1.5em;
   color: #666666;
 }
 
-.c18 section {
+.c20 section {
   color: #333333;
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
 }
 
-.c18 section p {
+.c20 section p {
   margin-bottom: 1em;
 }
 
-.c19 {
+.c21 {
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
@@ -336,15 +350,15 @@ exports[`renders correctly 1`] = `
   justify-content: flex-end;
 }
 
-.c19 a {
+.c21 a {
   margin-left: 1em;
 }
 
-.c11 {
+.c13 {
   padding: 18px 30px;
 }
 
-.c12 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -364,14 +378,14 @@ exports[`renders correctly 1`] = `
   border-bottom: solid 1px #DBDBDB;
 }
 
-.c16 {
+.c18 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   text-align: center;
 }
 
-.c10 {
+.c12 {
   position: fixed;
   left: 0px;
   top: 0px;
@@ -388,7 +402,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c10.modal-open {
+.c12.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1);
@@ -398,7 +412,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c21 {
+.c23 {
   position: fixed;
   top: 0;
   right: 0;
@@ -432,7 +446,7 @@ exports[`renders correctly 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c14:hover {
+  .c16:hover {
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
@@ -440,7 +454,7 @@ exports[`renders correctly 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c20:hover {
+  .c22:hover {
     background-color: #FFF;
     border-color: #000;
     color: #000;
@@ -808,7 +822,7 @@ exports[`renders correctly 1`] = `
         width={1}
       >
         <div
-          className="c7"
+          className="c7 c8"
           color={undefined}
           fontFamily={
             Object {
@@ -820,18 +834,20 @@ exports[`renders correctly 1`] = `
         >
           Edit Artworks
         </div>
+        <div
+          className="c9 c8"
+          fontFamily={
+            Object {
+              "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+              "fontWeight": 500,
+            }
+          }
+          fontSize="14px"
+          role="presentation"
+        >
+          Edit Artworks
+        </div>
       </button>
-    </div>
-  </div>
-  <div
-    className="c8"
-  >
-    <div
-      className="c9"
-    >
-      <div
-        className="results"
-      />
     </div>
   </div>
   <div
@@ -841,10 +857,21 @@ exports[`renders correctly 1`] = `
       className="c11"
     >
       <div
-        className="c12"
+        className="results"
+      />
+    </div>
+  </div>
+  <div
+    className="c12"
+  >
+    <div
+      className="c13"
+    >
+      <div
+        className="c14"
       >
         <a
-          className="cancel c13"
+          className="cancel c15"
           href="#"
           onClick={[Function]}
         >
@@ -855,13 +882,13 @@ exports[`renders correctly 1`] = `
            works selected
         </div>
         <button
-          className=" disabled c14"
+          className=" disabled c16"
           disabled={true}
           height="41px"
           onClick={[Function]}
         >
           <div
-            className="c7"
+            className="c7 c8"
             color={undefined}
             fontFamily={
               Object {
@@ -873,17 +900,30 @@ exports[`renders correctly 1`] = `
           >
             Queue changes
           </div>
+          <div
+            className="c9 c8"
+            fontFamily={
+              Object {
+                "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+                "fontWeight": 500,
+              }
+            }
+            fontSize="14px"
+            role="presentation"
+          >
+            Queue changes
+          </div>
         </button>
       </div>
       <div
-        className="c15"
+        className="c17"
         fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
         fontSize="28px"
       >
         Tags
       </div>
       <div
-        className="c16"
+        className="c18"
       >
         There aren’t any tags that describe all of your selected works
       </div>
@@ -919,14 +959,14 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c17"
+        className="c19"
         fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
         fontSize="28px"
       >
         Genes
       </div>
       <div
-        className="c16"
+        className="c18"
       >
         There aren’t any genes that describe all of your selected works
       </div>
@@ -962,7 +1002,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c18"
+        className="c20"
       >
         <h1>
           Are you sure you want to queue these changes?
@@ -976,16 +1016,16 @@ exports[`renders correctly 1`] = `
           </p>
         </section>
         <div
-          className="c19"
+          className="c21"
         >
           <button
-            className="  c20"
+            className="  c22"
             disabled={undefined}
             height="41px"
             onClick={[Function]}
           >
             <div
-              className="c7"
+              className="c7 c8"
               color={undefined}
               fontFamily={
                 Object {
@@ -997,15 +1037,28 @@ exports[`renders correctly 1`] = `
             >
               Go back
             </div>
+            <div
+              className="c9 c8"
+              fontFamily={
+                Object {
+                  "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+                  "fontWeight": 500,
+                }
+              }
+              fontSize="14px"
+              role="presentation"
+            >
+              Go back
+            </div>
           </button>
           <button
-            className="  c14"
+            className="  c16"
             disabled={undefined}
             height="41px"
             onClick={[Function]}
           >
             <div
-              className="c7"
+              className="c7 c8"
               color={undefined}
               fontFamily={
                 Object {
@@ -1017,13 +1070,26 @@ exports[`renders correctly 1`] = `
             >
               Continue
             </div>
+            <div
+              className="c9 c8"
+              fontFamily={
+                Object {
+                  "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+                  "fontWeight": 500,
+                }
+              }
+              fontSize="14px"
+              role="presentation"
+            >
+              Continue
+            </div>
           </button>
         </div>
       </div>
     </div>
   </div>
   <div
-    className="c21"
+    className="c23"
   />
 </div>
 `;
