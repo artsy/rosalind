@@ -7,7 +7,7 @@
     "relay-runtime": "https://github.com/artsy/relay/releases/download/v1.5.0-artsy.3/relay-runtime-1.5.0-artsy.3.tgz"
   },
   "dependencies": {
-    "@artsy/palette": "4.14.36",
+    "@artsy/palette": "4.14.37",
     "@babel/cli": "7.2.0",
     "@babel/core": "7.2.0",
     "@babel/plugin-proposal-class-properties": "7.2.1",
