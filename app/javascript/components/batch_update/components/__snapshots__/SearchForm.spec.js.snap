@@ -500,12 +500,26 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   cursor: default;
 }
 
-.c5 {
+.c6 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   padding-top: 1px;
+}
+
+.c5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c7 {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .c4 {
@@ -904,7 +918,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     width={1}
   >
     <div
-      className="c5"
+      className="c5 c6"
       color={undefined}
       fontFamily={
         Object {
@@ -913,6 +927,19 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         }
       }
       fontSize="14px"
+    >
+      Edit Artworks
+    </div>
+    <div
+      className="c7 c6"
+      fontFamily={
+        Object {
+          "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+          "fontWeight": 500,
+        }
+      }
+      fontSize="14px"
+      role="presentation"
     >
       Edit Artworks
     </div>
@@ -995,12 +1022,26 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   cursor: default;
 }
 
-.c5 {
+.c6 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   padding-top: 1px;
+}
+
+.c5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c7 {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .c4 {
@@ -1036,7 +1077,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   pointer-events: none;
 }
 
-.c6 {
+.c8 {
   color: #666666;
   display: block;
   margin-top: 1em;
@@ -1405,7 +1446,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     width={1}
   >
     <div
-      className="c5"
+      className="c5 c6"
       color={undefined}
       fontFamily={
         Object {
@@ -1417,9 +1458,22 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     >
       Edit Artworks
     </div>
+    <div
+      className="c7 c6"
+      fontFamily={
+        Object {
+          "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+          "fontWeight": 500,
+        }
+      }
+      fontSize="14px"
+      role="presentation"
+    >
+      Edit Artworks
+    </div>
   </button>
   <a
-    className="c6"
+    className="c8"
     href="http://helix/genome/artworks?artwork_ids="
     target="_blank"
   >
