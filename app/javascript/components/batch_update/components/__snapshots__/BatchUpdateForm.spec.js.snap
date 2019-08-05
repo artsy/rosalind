@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   color: #666666;
 }
 
-.c5 {
+.c4 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -13,7 +13,7 @@ exports[`renders correctly 1`] = `
   padding-top: 1px;
 }
 
-.c7 {
+.c5 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
@@ -21,26 +21,12 @@ exports[`renders correctly 1`] = `
   margin-top: 16px;
 }
 
-.c9 {
+.c7 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
   margin-bottom: 4px;
   margin-top: 32px;
-}
-
-.c4 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-}
-
-.c6 {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .c3 {
@@ -75,7 +61,7 @@ exports[`renders correctly 1`] = `
   pointer-events: none;
 }
 
-.c12 {
+.c10 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -93,7 +79,7 @@ exports[`renders correctly 1`] = `
   color: #000;
 }
 
-.c12.loading {
+.c10.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -102,14 +88,14 @@ exports[`renders correctly 1`] = `
   cursor: auto;
 }
 
-.c12.disabled {
+.c10.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
-.c10 {
+.c8 {
   position: fixed;
   left: 50%;
   top: 40%;
@@ -127,7 +113,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c10.modal-open {
+.c8.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1) translate(-50%,-50%);
@@ -137,24 +123,24 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c10 h1 {
+.c8 h1 {
   font-weight: normal;
   font-size: 1.5em;
   color: #666666;
 }
 
-.c10 section {
+.c8 section {
   color: #333333;
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
 }
 
-.c10 section p {
+.c8 section p {
   margin-bottom: 1em;
 }
 
-.c11 {
+.c9 {
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
@@ -171,7 +157,7 @@ exports[`renders correctly 1`] = `
   justify-content: flex-end;
 }
 
-.c11 a {
+.c9 a {
   margin-left: 1em;
 }
 
@@ -199,7 +185,7 @@ exports[`renders correctly 1`] = `
   border-bottom: solid 1px #DBDBDB;
 }
 
-.c8 {
+.c6 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -215,7 +201,7 @@ exports[`renders correctly 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c12:hover {
+  .c10:hover {
     background-color: #FFF;
     border-color: #000;
     color: #000;
@@ -246,8 +232,7 @@ exports[`renders correctly 1`] = `
       onClick={[Function]}
     >
       <div
-        className="c4 c5"
-        color={undefined}
+        className="c4"
         fontFamily={
           Object {
             "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -255,33 +240,20 @@ exports[`renders correctly 1`] = `
           }
         }
         fontSize="14px"
-      >
-        Queue changes
-      </div>
-      <div
-        className="c6 c5"
-        fontFamily={
-          Object {
-            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-            "fontWeight": 500,
-          }
-        }
-        fontSize="14px"
-        role="presentation"
       >
         Queue changes
       </div>
     </button>
   </div>
   <div
-    className="c7"
+    className="c5"
     fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
     fontSize="28px"
   >
     Tags
   </div>
   <div
-    className="c8"
+    className="c6"
   >
     There aren’t any tags that describe all of your selected works
   </div>
@@ -317,14 +289,14 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c9"
+    className="c7"
     fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
     fontSize="28px"
   >
     Genes
   </div>
   <div
-    className="c8"
+    className="c6"
   >
     There aren’t any genes that describe all of your selected works
   </div>
@@ -360,7 +332,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c10"
+    className="c8"
   >
     <h1>
       Are you sure you want to queue these changes?
@@ -374,17 +346,16 @@ exports[`renders correctly 1`] = `
       </p>
     </section>
     <div
-      className="c11"
+      className="c9"
     >
       <button
-        className="  c12"
+        className="  c10"
         disabled={undefined}
         height="41px"
         onClick={[Function]}
       >
         <div
-          className="c4 c5"
-          color={undefined}
+          className="c4"
           fontFamily={
             Object {
               "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -392,19 +363,6 @@ exports[`renders correctly 1`] = `
             }
           }
           fontSize="14px"
-        >
-          Go back
-        </div>
-        <div
-          className="c6 c5"
-          fontFamily={
-            Object {
-              "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-              "fontWeight": 500,
-            }
-          }
-          fontSize="14px"
-          role="presentation"
         >
           Go back
         </div>
@@ -416,8 +374,7 @@ exports[`renders correctly 1`] = `
         onClick={[Function]}
       >
         <div
-          className="c4 c5"
-          color={undefined}
+          className="c4"
           fontFamily={
             Object {
               "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -425,19 +382,6 @@ exports[`renders correctly 1`] = `
             }
           }
           fontSize="14px"
-        >
-          Continue
-        </div>
-        <div
-          className="c6 c5"
-          fontFamily={
-            Object {
-              "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-              "fontWeight": 500,
-            }
-          }
-          fontSize="14px"
-          role="presentation"
         >
           Continue
         </div>

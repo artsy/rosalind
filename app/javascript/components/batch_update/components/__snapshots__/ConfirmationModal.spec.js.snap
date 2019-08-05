@@ -1,26 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly when closed 1`] = `
-.c4 {
+.c3 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   padding-top: 1px;
-}
-
-.c3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-}
-
-.c5 {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .c2 {
@@ -57,7 +43,7 @@ exports[`renders correctly when closed 1`] = `
   pointer-events: none;
 }
 
-.c6 {
+.c4 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -73,7 +59,7 @@ exports[`renders correctly when closed 1`] = `
   color: #FFF;
 }
 
-.c6.loading {
+.c4.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -82,7 +68,7 @@ exports[`renders correctly when closed 1`] = `
   cursor: auto;
 }
 
-.c6.disabled {
+.c4.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
@@ -164,7 +150,7 @@ exports[`renders correctly when closed 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c6:hover {
+  .c4:hover {
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
@@ -185,8 +171,7 @@ exports[`renders correctly when closed 1`] = `
       onClick={[Function]}
     >
       <div
-        className="c3 c4"
-        color={undefined}
+        className="c3"
         fontFamily={
           Object {
             "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -194,32 +179,18 @@ exports[`renders correctly when closed 1`] = `
           }
         }
         fontSize="14px"
-      >
-        Go back
-      </div>
-      <div
-        className="c5 c4"
-        fontFamily={
-          Object {
-            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-            "fontWeight": 500,
-          }
-        }
-        fontSize="14px"
-        role="presentation"
       >
         Go back
       </div>
     </button>
     <button
-      className="  c6"
+      className="  c4"
       disabled={undefined}
       height="41px"
       onClick={[Function]}
     >
       <div
-        className="c3 c4"
-        color={undefined}
+        className="c3"
         fontFamily={
           Object {
             "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -227,19 +198,6 @@ exports[`renders correctly when closed 1`] = `
           }
         }
         fontSize="14px"
-      >
-        Continue
-      </div>
-      <div
-        className="c5 c4"
-        fontFamily={
-          Object {
-            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-            "fontWeight": 500,
-          }
-        }
-        fontSize="14px"
-        role="presentation"
       >
         Continue
       </div>
@@ -249,26 +207,12 @@ exports[`renders correctly when closed 1`] = `
 `;
 
 exports[`renders correctly when open 1`] = `
-.c4 {
+.c3 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   padding-top: 1px;
-}
-
-.c3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-}
-
-.c5 {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .c2 {
@@ -305,7 +249,7 @@ exports[`renders correctly when open 1`] = `
   pointer-events: none;
 }
 
-.c6 {
+.c4 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -321,7 +265,7 @@ exports[`renders correctly when open 1`] = `
   color: #FFF;
 }
 
-.c6.loading {
+.c4.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -330,7 +274,7 @@ exports[`renders correctly when open 1`] = `
   cursor: auto;
 }
 
-.c6.disabled {
+.c4.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
@@ -412,7 +356,7 @@ exports[`renders correctly when open 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c6:hover {
+  .c4:hover {
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
@@ -433,8 +377,7 @@ exports[`renders correctly when open 1`] = `
       onClick={[Function]}
     >
       <div
-        className="c3 c4"
-        color={undefined}
+        className="c3"
         fontFamily={
           Object {
             "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -442,32 +385,18 @@ exports[`renders correctly when open 1`] = `
           }
         }
         fontSize="14px"
-      >
-        Go back
-      </div>
-      <div
-        className="c5 c4"
-        fontFamily={
-          Object {
-            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-            "fontWeight": 500,
-          }
-        }
-        fontSize="14px"
-        role="presentation"
       >
         Go back
       </div>
     </button>
     <button
-      className="  c6"
+      className="  c4"
       disabled={undefined}
       height="41px"
       onClick={[Function]}
     >
       <div
-        className="c3 c4"
-        color={undefined}
+        className="c3"
         fontFamily={
           Object {
             "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -475,19 +404,6 @@ exports[`renders correctly when open 1`] = `
           }
         }
         fontSize="14px"
-      >
-        Continue
-      </div>
-      <div
-        className="c5 c4"
-        fontFamily={
-          Object {
-            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-            "fontWeight": 500,
-          }
-        }
-        fontSize="14px"
-        role="presentation"
       >
         Continue
       </div>
