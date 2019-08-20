@@ -25,7 +25,7 @@ exports[`renders correctly 1`] = `
   padding: 1em;
 }
 
-.c10 {
+.c8 {
   -webkit-box-flex: 5;
   -webkit-flex-grow: 5;
   -ms-flex-positive: 5;
@@ -110,7 +110,7 @@ exports[`renders correctly 1`] = `
   cursor: default;
 }
 
-.c8 {
+.c7 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -118,7 +118,7 @@ exports[`renders correctly 1`] = `
   padding-top: 1px;
 }
 
-.c17 {
+.c15 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
@@ -126,26 +126,12 @@ exports[`renders correctly 1`] = `
   margin-top: 16px;
 }
 
-.c19 {
+.c17 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
   margin-bottom: 4px;
   margin-top: 32px;
-}
-
-.c7 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-}
-
-.c9 {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .c6 {
@@ -181,7 +167,7 @@ exports[`renders correctly 1`] = `
   pointer-events: none;
 }
 
-.c16 {
+.c14 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -197,7 +183,7 @@ exports[`renders correctly 1`] = `
   color: #FFF;
 }
 
-.c16.loading {
+.c14.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -206,14 +192,14 @@ exports[`renders correctly 1`] = `
   cursor: auto;
 }
 
-.c16.disabled {
+.c14.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
-.c22 {
+.c20 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -231,7 +217,7 @@ exports[`renders correctly 1`] = `
   color: #000;
 }
 
-.c22.loading {
+.c20.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -240,18 +226,18 @@ exports[`renders correctly 1`] = `
   cursor: auto;
 }
 
-.c22.disabled {
+.c20.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
-.c15 {
+.c13 {
   color: #666666;
 }
 
-.c11 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -261,24 +247,24 @@ exports[`renders correctly 1`] = `
   flex-direction: column;
 }
 
-.c11 .counts {
+.c9 .counts {
   display: inline-block;
   width: 75%;
   padding: 0.75em;
 }
 
-.c11 .select {
+.c9 .select {
   display: inline-block;
   width: 25%;
   padding: 0.75em;
   text-align: right;
 }
 
-.c11 .select a {
+.c9 .select a {
   margin: 0 0.25em;
 }
 
-.c11 .results {
+.c9 .results {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -288,7 +274,7 @@ exports[`renders correctly 1`] = `
   flex-flow: row wrap;
 }
 
-.c20 {
+.c18 {
   position: fixed;
   left: 50%;
   top: 40%;
@@ -306,7 +292,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c20.modal-open {
+.c18.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1) translate(-50%,-50%);
@@ -316,24 +302,24 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c20 h1 {
+.c18 h1 {
   font-weight: normal;
   font-size: 1.5em;
   color: #666666;
 }
 
-.c20 section {
+.c18 section {
   color: #333333;
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
 }
 
-.c20 section p {
+.c18 section p {
   margin-bottom: 1em;
 }
 
-.c21 {
+.c19 {
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
@@ -350,15 +336,15 @@ exports[`renders correctly 1`] = `
   justify-content: flex-end;
 }
 
-.c21 a {
+.c19 a {
   margin-left: 1em;
 }
 
-.c13 {
+.c11 {
   padding: 18px 30px;
 }
 
-.c14 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -378,14 +364,14 @@ exports[`renders correctly 1`] = `
   border-bottom: solid 1px #DBDBDB;
 }
 
-.c18 {
+.c16 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   text-align: center;
 }
 
-.c12 {
+.c10 {
   position: fixed;
   left: 0px;
   top: 0px;
@@ -402,7 +388,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c12.modal-open {
+.c10.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1);
@@ -412,7 +398,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c23 {
+.c21 {
   position: fixed;
   top: 0;
   right: 0;
@@ -446,7 +432,7 @@ exports[`renders correctly 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c16:hover {
+  .c14:hover {
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
@@ -454,7 +440,7 @@ exports[`renders correctly 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c22:hover {
+  .c20:hover {
     background-color: #FFF;
     border-color: #000;
     color: #000;
@@ -822,8 +808,7 @@ exports[`renders correctly 1`] = `
         width={1}
       >
         <div
-          className="c7 c8"
-          color={undefined}
+          className="c7"
           fontFamily={
             Object {
               "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -831,23 +816,21 @@ exports[`renders correctly 1`] = `
             }
           }
           fontSize="14px"
-        >
-          Edit Artworks
-        </div>
-        <div
-          className="c9 c8"
-          fontFamily={
-            Object {
-              "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-              "fontWeight": 500,
-            }
-          }
-          fontSize="14px"
-          role="presentation"
         >
           Edit Artworks
         </div>
       </button>
+    </div>
+  </div>
+  <div
+    className="c8"
+  >
+    <div
+      className="c9"
+    >
+      <div
+        className="results"
+      />
     </div>
   </div>
   <div
@@ -857,21 +840,10 @@ exports[`renders correctly 1`] = `
       className="c11"
     >
       <div
-        className="results"
-      />
-    </div>
-  </div>
-  <div
-    className="c12"
-  >
-    <div
-      className="c13"
-    >
-      <div
-        className="c14"
+        className="c12"
       >
         <a
-          className="cancel c15"
+          className="cancel c13"
           href="#"
           onClick={[Function]}
         >
@@ -882,14 +854,13 @@ exports[`renders correctly 1`] = `
            works selected
         </div>
         <button
-          className=" disabled c16"
+          className=" disabled c14"
           disabled={true}
           height="41px"
           onClick={[Function]}
         >
           <div
-            className="c7 c8"
-            color={undefined}
+            className="c7"
             fontFamily={
               Object {
                 "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -897,33 +868,20 @@ exports[`renders correctly 1`] = `
               }
             }
             fontSize="14px"
-          >
-            Queue changes
-          </div>
-          <div
-            className="c9 c8"
-            fontFamily={
-              Object {
-                "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-                "fontWeight": 500,
-              }
-            }
-            fontSize="14px"
-            role="presentation"
           >
             Queue changes
           </div>
         </button>
       </div>
       <div
-        className="c17"
+        className="c15"
         fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
         fontSize="28px"
       >
         Tags
       </div>
       <div
-        className="c18"
+        className="c16"
       >
         There aren’t any tags that describe all of your selected works
       </div>
@@ -959,14 +917,14 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c19"
+        className="c17"
         fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
         fontSize="28px"
       >
         Genes
       </div>
       <div
-        className="c18"
+        className="c16"
       >
         There aren’t any genes that describe all of your selected works
       </div>
@@ -1002,7 +960,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c20"
+        className="c18"
       >
         <h1>
           Are you sure you want to queue these changes?
@@ -1016,17 +974,16 @@ exports[`renders correctly 1`] = `
           </p>
         </section>
         <div
-          className="c21"
+          className="c19"
         >
           <button
-            className="  c22"
+            className="  c20"
             disabled={undefined}
             height="41px"
             onClick={[Function]}
           >
             <div
-              className="c7 c8"
-              color={undefined}
+              className="c7"
               fontFamily={
                 Object {
                   "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -1034,32 +991,18 @@ exports[`renders correctly 1`] = `
                 }
               }
               fontSize="14px"
-            >
-              Go back
-            </div>
-            <div
-              className="c9 c8"
-              fontFamily={
-                Object {
-                  "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-                  "fontWeight": 500,
-                }
-              }
-              fontSize="14px"
-              role="presentation"
             >
               Go back
             </div>
           </button>
           <button
-            className="  c16"
+            className="  c14"
             disabled={undefined}
             height="41px"
             onClick={[Function]}
           >
             <div
-              className="c7 c8"
-              color={undefined}
+              className="c7"
               fontFamily={
                 Object {
                   "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -1067,19 +1010,6 @@ exports[`renders correctly 1`] = `
                 }
               }
               fontSize="14px"
-            >
-              Continue
-            </div>
-            <div
-              className="c9 c8"
-              fontFamily={
-                Object {
-                  "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-                  "fontWeight": 500,
-                }
-              }
-              fontSize="14px"
-              role="presentation"
             >
               Continue
             </div>
@@ -1089,7 +1019,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c23"
+    className="c21"
   />
 </div>
 `;
