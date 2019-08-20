@@ -68,8 +68,8 @@ describe('buildElasticsearchQuery', () => {
           bool: {
             must: [
               { match: { deleted: false } },
-              { match: { genes: 'Gene 1' } },
-              { match: { genes: 'Gene 2' } },
+              { match: { 'genes.raw': 'Gene 1' } },
+              { match: { 'genes.raw': 'Gene 2' } },
             ],
           },
         },
@@ -164,8 +164,8 @@ describe('buildElasticsearchQuery', () => {
           bool: {
             must: [
               { match: { deleted: false } },
-              { match: { tags: 'Tag 1' } },
-              { match: { tags: 'Tag 2' } },
+              { match: { 'tags.raw': 'Tag 1' } },
+              { match: { 'tags.raw': 'Tag 2' } },
             ],
           },
         },
@@ -331,7 +331,7 @@ describe('buildElasticsearchQuery', () => {
           bool: {
             must: [
               { match: { deleted: false } },
-              { match: { genes: 'Gene 1' } },
+              { match: { 'genes.raw': 'Gene 1' } },
             ],
           },
         },
@@ -362,7 +362,7 @@ describe('buildElasticsearchQuery', () => {
           bool: {
             must: [
               { match: { deleted: false } },
-              { match: { genes: 'Gene 1' } },
+              { match: { 'genes.raw': 'Gene 1' } },
             ],
           },
         },
@@ -654,7 +654,7 @@ describe('buildElasticsearchQuery', () => {
           bool: {
             must: [
               { match: { deleted: false } },
-              { match: { genes: 'Gene 1' } },
+              { match: { 'genes.raw': 'Gene 1' } },
               { match: { published: true } },
             ],
           },
@@ -687,7 +687,7 @@ describe('buildElasticsearchQuery', () => {
           bool: {
             must: [
               { match: { deleted: false } },
-              { match: { genes: 'Gene 1' } },
+              { match: { 'genes.raw': 'Gene 1' } },
               { match: { genomed: true } },
             ],
           },
@@ -720,7 +720,7 @@ describe('buildElasticsearchQuery', () => {
           bool: {
             must: [
               { match: { deleted: false } },
-              { match: { genes: 'Gene 1' } },
+              { match: { 'genes.raw': 'Gene 1' } },
               {
                 bool: {
                   should: [
