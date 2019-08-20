@@ -22,10 +22,10 @@ export function buildElasticsearchQuery(args) {
   } = args
 
   const geneMatches = genes.map(g => {
-    return { match: { genes: g.name } }
+    return { match: { 'genes.raw': g.name } }
   })
   const tagMatches = tags.map(t => {
-    return { match: { tags: t.name } }
+    return { match: { 'tags.raw': t.name } }
   })
   const artistMatches = artists.map(a => {
     return { match: { artist_id: a.id } }
