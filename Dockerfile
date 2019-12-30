@@ -1,4 +1,4 @@
-FROM artsy/ruby:2.6.2-node-chrome
+FROM artsy/ruby:2.6.5-node-chrome
 ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
