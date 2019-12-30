@@ -1,6 +1,6 @@
 namespace :test do
   desc 'Shortcut to run all ruby and javascript linters and specs'
-  task :all do
+  task all: :environment do
     commands = [
       'bundle exec rubocop',
       'bundle exec rspec',

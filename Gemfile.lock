@@ -271,13 +271,16 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    rubocop (0.70.0)
+    rubocop (0.78.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.6)
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
+    rubocop-rails (2.4.1)
+      rack (>= 1.1)
+      rubocop (>= 0.72.0)
     ruby-enum (0.7.2)
       i18n
     ruby-progressbar (1.10.0)
@@ -382,6 +385,7 @@ DEPENDENCIES
   rails (~> 5.2.0)
   rspec-rails
   rubocop
+  rubocop-rails
   sassc-rails
   sentry-raven
   sidekiq

@@ -27,6 +27,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubocop-rails'
   gem 'dotenv'
 end
 
