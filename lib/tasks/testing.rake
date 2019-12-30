@@ -1,6 +1,6 @@
 namespace :test do
   desc 'Shortcut to run all ruby and javascript linters and specs'
-  task all: :environment do
+  task :all do # rubocop:disable Rails/RakeEnvironment
     commands = [
       'bundle exec rubocop',
       'bundle exec rspec',
