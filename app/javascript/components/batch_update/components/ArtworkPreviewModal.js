@@ -139,6 +139,7 @@ const ExternalLinks = ({ id, artistId, partnerId }) => (
           View artwork in:
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href={`${sites.helix}/genome/artworks?artwork_ids=${id}`}
           >
             Helix
@@ -146,23 +147,25 @@ const ExternalLinks = ({ id, artistId, partnerId }) => (
           |
           <a
             target="_blank"
-            href={`${
-              sites.volt
-            }/artworks/${id}/edit?current_partner_id=${partnerId}`}
+            rel="noopener noreferrer"
+            href={`${sites.volt}/artworks/${id}/edit?current_partner_id=${partnerId}`}
           >
             CMS
           </a>{' '}
           |
-          <a target="_blank" href={`${sites.artsy}/artwork/${id}`}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`${sites.artsy}/artwork/${id}`}
+          >
             Artsy.net
           </a>
           <br />
           View artist in:
           <a
             target="_blank"
-            href={`${
-              sites.helix
-            }/genome/artist?search[genome_artist_id]=${artistId}`}
+            rel="noopener noreferrer"
+            href={`${sites.helix}/genome/artist?search[genome_artist_id]=${artistId}`}
           >
             Helix
           </a>

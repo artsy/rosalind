@@ -17,7 +17,7 @@ gem 'haml-rails'
 gem 'jbuilder'
 gem 'sassc-rails'
 gem 'sentry-raven'
-gem 'sidekiq'
+gem 'sidekiq', '~>5.2'
 gem 'typhoeus'
 gem 'uglifier'
 gem 'webpacker'
@@ -27,6 +27,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubocop-rails'
   gem 'dotenv'
 end
 

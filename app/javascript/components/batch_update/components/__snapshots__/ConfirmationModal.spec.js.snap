@@ -165,13 +165,12 @@ exports[`renders correctly when closed 1`] = `
     className="c1"
   >
     <button
-      className="  c2"
-      disabled={undefined}
+      className="c2  "
       height="41px"
       onClick={[Function]}
     >
       <div
-        className="c3"
+        className="c3 "
         fontFamily={
           Object {
             "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -184,13 +183,12 @@ exports[`renders correctly when closed 1`] = `
       </div>
     </button>
     <button
-      className="  c4"
-      disabled={undefined}
+      className="c4  "
       height="41px"
       onClick={[Function]}
     >
       <div
-        className="c3"
+        className="c3 "
         fontFamily={
           Object {
             "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -364,20 +362,19 @@ exports[`renders correctly when open 1`] = `
 }
 
 <div
-  className="modal-open c0"
+  className="c0 modal-open"
 >
   I am open
   <div
     className="c1"
   >
     <button
-      className="  c2"
-      disabled={undefined}
+      className="c2  "
       height="41px"
       onClick={[Function]}
     >
       <div
-        className="c3"
+        className="c3 "
         fontFamily={
           Object {
             "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -390,13 +387,12 @@ exports[`renders correctly when open 1`] = `
       </div>
     </button>
     <button
-      className="  c4"
-      disabled={undefined}
+      className="c4  "
       height="41px"
       onClick={[Function]}
     >
       <div
-        className="c3"
+        className="c3 "
         fontFamily={
           Object {
             "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",

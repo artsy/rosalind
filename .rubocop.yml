@@ -1,6 +1,8 @@
 inherit_from: .rubocop_todo.yml
+require: rubocop-rails
 
-Metrics/LineLength:
+
+Layout/LineLength:
   Max: 132 # good for desktop Github
 
 Style/BlockComments:
@@ -10,13 +12,13 @@ Style/BlockComments:
 Style/Documentation:
   Enabled: false
 
-Layout/IndentFirstArgument:
+Layout/FirstArgumentIndentation:
   EnforcedStyle: consistent
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
 Naming/FileName:

@@ -355,6 +355,7 @@ exports[`renders a modal when previewing 1`] = `
           View artwork in:
           <a
             href="http://helix/genome/artworks?artwork_ids=can"
+            rel="noopener noreferrer"
             target="_blank"
           >
             Helix
@@ -363,6 +364,7 @@ exports[`renders a modal when previewing 1`] = `
           |
           <a
             href="http://cms/artworks/can/edit?current_partner_id=undefined"
+            rel="noopener noreferrer"
             target="_blank"
           >
             CMS
@@ -371,6 +373,7 @@ exports[`renders a modal when previewing 1`] = `
           |
           <a
             href="http://artsy/artwork/can"
+            rel="noopener noreferrer"
             target="_blank"
           >
             Artsy.net
@@ -379,6 +382,7 @@ exports[`renders a modal when previewing 1`] = `
           View artist in:
           <a
             href="http://helix/genome/artist?search[genome_artist_id]=undefined"
+            rel="noopener noreferrer"
             target="_blank"
           >
             Helix

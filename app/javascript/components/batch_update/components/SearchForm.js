@@ -40,12 +40,12 @@ class SearchForm extends React.Component {
       )
     } else {
       return (
-        <React.Fragment>
+        <>
           <Button width={1} onClick={onOpenBatchUpdate}>
             Edit Artworks
           </Button>
           <HelixLink selectedArtworkIds={selectedArtworkIds} />
-        </React.Fragment>
+        </>
       )
     }
   }
@@ -156,16 +156,16 @@ const HelixLink = ({ selectedArtworkIds }) => {
           sites.helix
         }/genome/artworks?artwork_ids=${selectedArtworkIds.join(',')}`
         return (
-          <_Link target="_blank" href={href}>
+          <StyledLink target="_blank" rel="noopener noreferrer" href={href}>
             Open selected works in Helix
-          </_Link>
+          </StyledLink>
         )
       }}
     </SitesConsumer>
   )
 }
 
-const _Link = styled(Link)`
+const StyledLink = styled(Link)`
   display: block;
   margin-top: 1em;
 `

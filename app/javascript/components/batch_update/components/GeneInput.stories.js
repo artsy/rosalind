@@ -13,7 +13,7 @@ class GeneInputWrapper extends React.Component {
   }
 
   render() {
-    let props = {
+    const props = {
       name: 'Fungible',
       value: this.state.value,
       onChangeValue: ({ name, value }) => {
