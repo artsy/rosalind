@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@artsy/palette": "5.1.11",
+    "@artsy/palette": "5.1.12",
     "@babel/cli": "7.2.0",
     "@babel/core": "7.2.0",
     "@babel/plugin-proposal-class-properties": "7.2.1",
@@ -15,16 +15,16 @@
     "@babel/preset-env": "7.2.0",
     "@babel/preset-react": "7.0.0",
     "@rails/webpacker": "4.0.2",
-    "babel-loader": "8.0.4",
+    "babel-loader": "8.0.6",
     "babel-plugin-module-resolver": "3.1.1",
-    "babel-plugin-styled-components": "1.10.0",
-    "chrono-node": "1.3.5",
+    "babel-plugin-styled-components": "1.10.6",
+    "chrono-node": "1.3.11",
     "css-loader": "0.28.11",
     "enzyme": "3.7.0",
     "enzyme-adapter-react-16": "1.7.0",
     "file-loader": "1.1.11",
     "jest": "22.4.4",
-    "jest-styled-components": "6.3.1",
+    "jest-styled-components": "6.3.4",
     "json-loader": "0.5.7",
     "lodash.defaults": "4.2.0",
     "lodash.intersection": "4.4.0",
@@ -35,13 +35,13 @@
     "raf": "3.4.1",
     "react": "16.6.3",
     "react-addons-test-utils": "15.6.2",
-    "react-autosuggest": "9.4.2",
+    "react-autosuggest": "9.4.3",
     "react-dom": "16.6.3",
     "react-test-renderer": "16.6.3",
     "stats-webpack-plugin": "0.6.2",
     "style-loader": "0.21.0",
     "styled-components": "4.2.0",
-    "webpack-cli": "3.3.2",
+    "webpack-cli": "3.3.10",
     "whatwg-fetch": "2.0.4"
   },
   "jest": {
@@ -54,7 +54,8 @@
       "/node_modules/",
       "/vendor/bundle/"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/app/javascript/test/setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/app/javascript/test/setup.js",
+    "testURL": "http://localhost"
   },
   "scripts": {
     "lint": "eslint app/javascript --ext .js,.jsx",
@@ -76,8 +77,12 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "5.0.11",
+    "@storybook/addon-links": "5.0.11",
+    "@storybook/addons": "5.0.11",
+    "@storybook/react": "5.0.11",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "10.0.1",
+    "babel-eslint": "10.0.3",
     "babel-jest": "22.4.4",
     "eslint": "5.16.0",
     "eslint-config-prettier": "4.2.0",
@@ -88,15 +93,11 @@
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-promise": "4.1.1",
     "eslint-plugin-react": "7.13.0",
-    "eslint-plugin-standard": "4.0.0",
+    "eslint-plugin-standard": "4.0.1",
     "husky": "2.2.0",
     "lint-staged": "8.1.6",
     "prettier": "1.17.0",
-    "webpack-dev-server": "3.4.1",
-    "@storybook/react": "5.0.11",
-    "@storybook/addon-actions": "5.0.11",
-    "@storybook/addon-links": "5.0.11",
-    "@storybook/addons": "5.0.11"
+    "webpack-dev-server": "3.4.1"
   },
   "prettier": {
     "trailingComma": "es5",
