@@ -350,7 +350,6 @@ exports[`renders correctly 1`] = `
     >
       <button
         className="  c10"
-        disabled={undefined}
         height="41px"
         onClick={[Function]}
       >
@@ -369,7 +368,6 @@ exports[`renders correctly 1`] = `
       </button>
       <button
         className="  c3"
-        disabled={undefined}
         height="41px"
         onClick={[Function]}
       >

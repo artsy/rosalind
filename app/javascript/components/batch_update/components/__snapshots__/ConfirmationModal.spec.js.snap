@@ -166,7 +166,6 @@ exports[`renders correctly when closed 1`] = `
   >
     <button
       className="  c2"
-      disabled={undefined}
       height="41px"
       onClick={[Function]}
     >
@@ -185,7 +184,6 @@ exports[`renders correctly when closed 1`] = `
     </button>
     <button
       className="  c4"
-      disabled={undefined}
       height="41px"
       onClick={[Function]}
     >
@@ -372,7 +370,6 @@ exports[`renders correctly when open 1`] = `
   >
     <button
       className="  c2"
-      disabled={undefined}
       height="41px"
       onClick={[Function]}
     >
@@ -391,7 +388,6 @@ exports[`renders correctly when open 1`] = `
     </button>
     <button
       className="  c4"
-      disabled={undefined}
       height="41px"
       onClick={[Function]}
     >

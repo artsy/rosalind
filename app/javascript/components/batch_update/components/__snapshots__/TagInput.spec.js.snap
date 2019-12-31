@@ -18,7 +18,6 @@ exports[`renders a to-add tag correctly 1`] = `
 
 <div
   className="c0"
-  onClick={undefined}
 >
   Hot Dog
 </div>
@@ -42,7 +41,6 @@ exports[`renders a to-ignore tag correctly 1`] = `
 
 <div
   className="c0"
-  onClick={undefined}
 >
   Hot Dog
 </div>
@@ -66,7 +64,6 @@ exports[`renders a to-remove tag correctly 1`] = `
 
 <div
   className="c0"
-  onClick={undefined}
 >
   <strike>
     Hot Dog
