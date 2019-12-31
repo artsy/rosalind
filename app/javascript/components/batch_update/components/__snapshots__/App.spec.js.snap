@@ -694,7 +694,7 @@ exports[`renders correctly 1`] = `
       </div>
       <div>
         <div
-          className="minPriceInput c3"
+          className="c3 minPriceInput"
         >
           <input
             onKeyUp={[Function]}
@@ -703,7 +703,7 @@ exports[`renders correctly 1`] = `
           />
         </div>
         <div
-          className="maxPriceInput c3"
+          className="c3 maxPriceInput"
         >
           <input
             onKeyUp={[Function]}
@@ -801,14 +801,14 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <button
-        className=" disabled c6"
+        className="c6  disabled"
         disabled={true}
         height="41px"
         onClick={[Function]}
         width={1}
       >
         <div
-          className="c7"
+          className="c7 "
           fontFamily={
             Object {
               "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -843,7 +843,7 @@ exports[`renders correctly 1`] = `
         className="c12"
       >
         <a
-          className="cancel c13"
+          className="c13 cancel"
           href="#"
           onClick={[Function]}
         >
@@ -854,13 +854,13 @@ exports[`renders correctly 1`] = `
            works selected
         </div>
         <button
-          className=" disabled c14"
+          className="c14  disabled"
           disabled={true}
           height="41px"
           onClick={[Function]}
         >
           <div
-            className="c7"
+            className="c7 "
             fontFamily={
               Object {
                 "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -874,7 +874,7 @@ exports[`renders correctly 1`] = `
         </button>
       </div>
       <div
-        className="c15"
+        className="c15 "
         fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
         fontSize="28px"
       >
@@ -917,7 +917,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c17"
+        className="c17 "
         fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
         fontSize="28px"
       >
@@ -977,13 +977,12 @@ exports[`renders correctly 1`] = `
           className="c19"
         >
           <button
-            className="  c20"
-            disabled={undefined}
+            className="c20  "
             height="41px"
             onClick={[Function]}
           >
             <div
-              className="c7"
+              className="c7 "
               fontFamily={
                 Object {
                   "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -996,13 +995,12 @@ exports[`renders correctly 1`] = `
             </div>
           </button>
           <button
-            className="  c14"
-            disabled={undefined}
+            className="c14  "
             height="41px"
             onClick={[Function]}
           >
             <div
-              className="c7"
+              className="c7 "
               fontFamily={
                 Object {
                   "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",

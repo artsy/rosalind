@@ -77,7 +77,10 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      genes = [{ id: 'gene1', name: 'Gene 1' }, { id: 'gene2', name: 'Gene 2' }]
+      genes = [
+        { id: 'gene1', name: 'Gene 1' },
+        { id: 'gene2', name: 'Gene 2' },
+      ]
 
       const params = {
         artists,
@@ -173,7 +176,10 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      tags = [{ id: 'tag1', name: 'Tag 1' }, { id: 'tag2', name: 'Tag 2' }]
+      tags = [
+        { id: 'tag1', name: 'Tag 1' },
+        { id: 'tag2', name: 'Tag 2' },
+      ]
 
       const params = {
         artists,

@@ -30,7 +30,7 @@ exports[`renders correctly 1`] = `
     Price
   </h2>
   <div
-    className="currentMinPrice c0"
+    className="c0 currentMinPrice"
   >
     Minimum: USD 1000
     <a
@@ -42,7 +42,7 @@ exports[`renders correctly 1`] = `
     </a>
   </div>
   <div
-    className="currentMaxPrice c0"
+    className="c0 currentMaxPrice"
   >
     Maximum: USD 2000
     <a
@@ -86,7 +86,7 @@ exports[`renders correctly when only max price is set 1`] = `
     Price
   </h2>
   <div
-    className="currentMaxPrice c0"
+    className="c0 currentMaxPrice"
   >
     Maximum: USD 2000
     <a
@@ -130,7 +130,7 @@ exports[`renders correctly when only min price is set 1`] = `
     Price
   </h2>
   <div
-    className="currentMinPrice c0"
+    className="c0 currentMinPrice"
   >
     Minimum: USD 1000
     <a

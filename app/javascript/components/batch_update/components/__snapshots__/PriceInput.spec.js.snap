@@ -17,7 +17,7 @@ exports[`PriceInput renders correctly 1`] = `
 
 <div>
   <div
-    className="minPriceInput c0"
+    className="c0 minPriceInput"
   >
     <input
       onKeyUp={[Function]}
@@ -26,7 +26,7 @@ exports[`PriceInput renders correctly 1`] = `
     />
   </div>
   <div
-    className="maxPriceInput c0"
+    className="c0 maxPriceInput"
   >
     <input
       onKeyUp={[Function]}

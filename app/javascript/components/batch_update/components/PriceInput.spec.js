@@ -12,7 +12,7 @@ describe('PriceInput', () => {
   let minPriceInput
   let maxPriceInput
   const init = (options = {}) => {
-    let { minPrice, maxPrice } = options
+    const { minPrice, maxPrice } = options
     updateState = jest.fn()
     component = (
       <PriceInput

@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div
-  className={undefined}
->
+<div>
   Foo Name
   <a
     className="remove"

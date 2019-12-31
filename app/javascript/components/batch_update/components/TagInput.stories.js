@@ -18,7 +18,7 @@ class TagInputWrapper extends React.Component {
       [PENDING.ADD]: null,
     }
 
-    let props = {
+    const props = {
       name: 'Fungible',
       pendingAction: this.state.pendingAction,
       onClick: () => {
