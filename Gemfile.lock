@@ -304,11 +304,11 @@ GEM
     sentry-raven (2.13.0)
       faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.13.0)
-    sidekiq (6.0.4)
-      connection_pool (>= 2.2.2)
-      rack (>= 2.0.0)
-      rack-protection (>= 2.0.0)
-      redis (>= 4.1.0)
+    sidekiq (5.2.7)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack (>= 1.5.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
     simple_form (5.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -384,7 +384,7 @@ DEPENDENCIES
   rubocop-rails
   sassc-rails
   sentry-raven
-  sidekiq
+  sidekiq (~> 5.2)
   spring
   spring-watcher-listen
   typhoeus
