@@ -195,21 +195,21 @@ describe('with pending changes', () => {
 
     it('updates gene values from integers', () => {
       component.onChangeGeneValue({ name: 'Kawaii', value: 70 })
-      expect(component.state['geneValues']).toMatchObject({
+      expect(component.state.geneValues).toMatchObject({
         Kawaii: 70,
       })
     })
 
     it('updates gene values from number-ish strings', () => {
       component.onChangeGeneValue({ name: 'Kawaii', value: '70' })
-      expect(component.state['geneValues']).toMatchObject({
+      expect(component.state.geneValues).toMatchObject({
         Kawaii: 70,
       })
     })
 
     it('nulls gene values from empty strings', () => {
       component.onChangeGeneValue({ name: 'Kawaii', value: '' })
-      expect(component.state['geneValues']).toMatchObject({
+      expect(component.state.geneValues).toMatchObject({
         Kawaii: null,
       })
     })

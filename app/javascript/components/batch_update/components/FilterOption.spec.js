@@ -6,7 +6,7 @@ import FilterOption from './FilterOption'
 describe('FilterOption', () => {
   let wrapper
 
-  let props = {
+  const props = {
     name: 'edible', // some predicate about artworks
     current: 'SHOW_ALL',
     updateState: jest.fn(),

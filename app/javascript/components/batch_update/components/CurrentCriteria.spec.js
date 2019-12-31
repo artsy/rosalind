@@ -40,14 +40,20 @@ it('renders the selected keywords', () => {
 })
 
 it('renders the selected genes', () => {
-  props.genes = [{ id: 'foo', name: 'Foo' }, { id: 'bar', name: 'Bar' }]
+  props.genes = [
+    { id: 'foo', name: 'Foo' },
+    { id: 'bar', name: 'Bar' },
+  ]
   const rendered = renderer.create(<CurrentCriteria {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 it('renders the selected tags', () => {
-  props.tags = [{ id: 'foo', name: 'Foo' }, { id: 'bar', name: 'Bar' }]
+  props.tags = [
+    { id: 'foo', name: 'Foo' },
+    { id: 'bar', name: 'Bar' },
+  ]
   const rendered = renderer.create(<CurrentCriteria {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
@@ -99,14 +105,14 @@ it('renders the created after date', () => {
 
 it('renders minPrice', () => {
   props.minPrice = 1000
-  let currentCriteria = mount(<CurrentCriteria {...props} />)
+  const currentCriteria = mount(<CurrentCriteria {...props} />)
   expect(currentCriteria.exists('.currentMinPrice')).toEqual(true)
   expect(currentCriteria.exists('.currentMaxPrice')).toEqual(false)
 })
 
 it('renders maxPrice', () => {
   props.maxPrice = 1000
-  let currentCriteria = mount(<CurrentCriteria {...props} />)
+  const currentCriteria = mount(<CurrentCriteria {...props} />)
   expect(currentCriteria.exists('.currentMinPrice')).toEqual(false)
   expect(currentCriteria.exists('.currentMaxPrice')).toEqual(true)
 })
@@ -114,7 +120,7 @@ it('renders maxPrice', () => {
 it('renders both price bounds', () => {
   props.minPrice = 1000
   props.maxPrice = 2000
-  let currentCriteria = mount(<CurrentCriteria {...props} />)
+  const currentCriteria = mount(<CurrentCriteria {...props} />)
   expect(currentCriteria.exists('.currentMinPrice')).toEqual(true)
   expect(currentCriteria.exists('.currentMaxPrice')).toEqual(true)
 })

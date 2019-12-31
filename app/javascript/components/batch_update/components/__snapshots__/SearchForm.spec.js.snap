@@ -1418,6 +1418,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   <a
     className="c6"
     href="http://helix/genome/artworks?artwork_ids="
+    rel="noopener noreferrer"
     target="_blank"
   >
     Open selected works in Helix

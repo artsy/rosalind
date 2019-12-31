@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'react/jsx-handler-names': 'off',
     'react/prop-types': 'off',
     'space-before-function-paren': ['error', 'never'],
 

@@ -244,7 +244,6 @@ class BatchUpdateForm extends React.Component {
           const { tag, toAdd, toRemove } = item
           const tagProps = {
             name: tag,
-            key: tag,
             pendingAction: null,
             onClick: () => this.onRemoveExistingTag(tag),
           }
@@ -257,7 +256,7 @@ class BatchUpdateForm extends React.Component {
             tagProps.onClick = () => this.onCancelRemoveTag(tag)
           }
 
-          return <TagInput {...tagProps} />
+          return <TagInput key={tag} {...tagProps} />
         })}
       </Inputs>
     )
