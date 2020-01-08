@@ -39,6 +39,7 @@ class App extends React.Component {
       publishedFilter: 'SHOW_ALL',
       selectedArtworkIds: [],
       size: 100,
+      sort: 'RECENTLY_PUBLISHED',
       tags: [],
       totalHits: null,
     }
@@ -147,6 +148,7 @@ class App extends React.Component {
       partner,
       publishedFilter,
       size,
+      sort,
       tags,
     } = this.state
 
@@ -172,6 +174,7 @@ class App extends React.Component {
         partner,
         publishedFilter,
         size,
+        sort,
         tags,
       })
 
@@ -192,6 +195,7 @@ class App extends React.Component {
   fetchMoreArtworks() {
     const {
       artists,
+      artworks,
       attributionClass,
       createdAfterDate,
       createdBeforeDate,
@@ -204,10 +208,10 @@ class App extends React.Component {
       minPrice,
       partner,
       publishedFilter,
+      size,
+      sort,
       tags,
     } = this.state
-
-    const { artworks, size } = this.state
 
     const from = artworks.length
 
@@ -227,6 +231,7 @@ class App extends React.Component {
       partner,
       publishedFilter,
       size,
+      sort,
       tags,
     })
 

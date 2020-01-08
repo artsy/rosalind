@@ -17,6 +17,7 @@ describe('buildElasticsearchQuery', () => {
       minPrice: null,
       partner: null,
       publishedFilter: null,
+      sort: 'RECENTLY_PUBLISHED',
       tags: [],
     }
   })

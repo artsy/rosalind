@@ -1,6 +1,10 @@
 const defaultPageSize = 100
 const DEBUG = false
 
+const SORT_CLAUSES = {
+  RECENTLY_PUBLISHED: { published_at: 'desc' },
+}
+
 export function buildElasticsearchQuery(args) {
   const {
     acquireableOrOfferableFilter,
@@ -18,6 +22,7 @@ export function buildElasticsearchQuery(args) {
     partner,
     publishedFilter,
     size,
+    sort,
     tags,
   } = args
 
@@ -67,6 +72,8 @@ export function buildElasticsearchQuery(args) {
     }
   })
 
+  const sortClause = buildSort(sort)
+
   const query = {
     query: {
       bool: {
@@ -85,7 +92,7 @@ export function buildElasticsearchQuery(args) {
         ].filter(m => m !== null),
       },
     },
-    sort: [{ published_at: 'desc' }, { id: 'desc' }],
+    sort: sortClause,
     from: from || 0,
     size: size || defaultPageSize,
   }
@@ -116,6 +123,10 @@ const buildCreatedDateRange = ({ createdAfterDate, createdBeforeDate }) => {
   }
 
   return query
+}
+
+const buildSort = sort => {
+  return [SORT_CLAUSES[sort], { id: 'desc' }]
 }
 
 const buildFilterMatches = ({
