@@ -10,7 +10,6 @@ export function buildElasticsearchQuery(args) {
     fair,
     from,
     genes,
-    genomedFilter,
     keywords,
     acquireableOrOfferableFilter,
     partner,
@@ -32,7 +31,6 @@ export function buildElasticsearchQuery(args) {
   })
   const filterMatches = buildFilterMatches({
     publishedFilter,
-    genomedFilter,
     acquireableOrOfferableFilter,
   })
   const partnerMatch = partner ? { match: { partner_id: partner.id } } : null
@@ -120,11 +118,9 @@ const buildCreatedDateRange = ({ createdAfterDate, createdBeforeDate }) => {
 
 const buildFilterMatches = ({
   publishedFilter,
-  genomedFilter,
   acquireableOrOfferableFilter,
 }) => [
   publishedMatcher(publishedFilter),
-  genomedMatcher(genomedFilter),
   acquireableOrOfferableMatcher(acquireableOrOfferableFilter),
 ]
 
@@ -143,17 +139,6 @@ const publishedMatcher = publishedFilter => {
       return { match: { published: true } }
     case 'SHOW_NOT_PUBLISHED':
       return { match: { published: false } }
-    default:
-      return null
-  }
-}
-
-const genomedMatcher = genomedFilter => {
-  switch (genomedFilter) {
-    case 'SHOW_GENOMED':
-      return { match: { genomed: true } }
-    case 'SHOW_NOT_GENOMED':
-      return { match: { genomed: false } }
     default:
       return null
   }

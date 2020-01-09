@@ -12,7 +12,6 @@ beforeEach(() => {
     image_url: 'can.jpg',
     deleted: false,
     published: true,
-    genomed: true,
   }
   shark = {
     id: 'shark',
@@ -20,7 +19,6 @@ beforeEach(() => {
     image_url: 'shark.jpg',
     deleted: false,
     published: true,
-    genomed: true,
   }
   artworks = [soup, shark]
   selectedArtworkIds = []

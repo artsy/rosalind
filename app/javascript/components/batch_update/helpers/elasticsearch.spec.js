@@ -687,39 +687,6 @@ describe('buildElasticsearchQuery', () => {
       expect(actualQuery).toEqual(expectedQuery)
     })
 
-    it('modifies a query with the value of the "genomed" filter', () => {
-      const expectedQuery = {
-        query: {
-          bool: {
-            must: [
-              { match: { deleted: false } },
-              { match: { 'genes.raw': 'Gene 1' } },
-              { match: { genomed: true } },
-            ],
-          },
-        },
-        from: 0,
-        size: 100,
-        sort: [{ published_at: 'desc' }, { id: 'desc' }],
-      }
-      genomedFilter = 'SHOW_GENOMED'
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
-      const actualQuery = buildElasticsearchQuery(params)
-      expect(actualQuery).toEqual(expectedQuery)
-    })
-
     it('modifies a query with the value of the "acquireable or offerable" filter', () => {
       const expectedQuery = {
         query: {

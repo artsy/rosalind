@@ -747,34 +747,6 @@ exports[`renders correctly 1`] = `
           className="filter"
         >
           <div>
-            Genomed?
-          </div>
-          <a
-            className="active"
-            href="#"
-            onClick={[Function]}
-          >
-            All
-          </a>
-          <a
-            className={null}
-            href="#"
-            onClick={[Function]}
-          >
-            True
-          </a>
-          <a
-            className={null}
-            href="#"
-            onClick={[Function]}
-          >
-            False
-          </a>
-        </div>
-        <div
-          className="filter"
-        >
-          <div>
             Acquireable Or Offerable?
           </div>
           <a
