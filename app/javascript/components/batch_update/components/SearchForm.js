@@ -1,4 +1,5 @@
 import React from 'react'
+import copy from 'copy-to-clipboard'
 import styled from 'styled-components'
 import CurrentCriteria from './CurrentCriteria'
 import { CreatedAfterDateInput, CreatedBeforeDateInput } from './DateInput'
@@ -45,6 +46,7 @@ class SearchForm extends React.Component {
             Edit Artworks
           </Button>
           <HelixLink selectedArtworkIds={selectedArtworkIds} />
+          <CopyIdsToClipboard mt={1} selectedArtworkIds={selectedArtworkIds} />
         </>
       )
     }
@@ -162,6 +164,22 @@ const HelixLink = ({ selectedArtworkIds }) => {
         )
       }}
     </SitesConsumer>
+  )
+}
+
+const CopyIdsToClipboard = ({ selectedArtworkIds, ...props }) => {
+  return (
+    <Button
+      variant="secondaryGray"
+      onClick={() => {
+        event.preventDefault()
+        copy(selectedArtworkIds)
+        return false
+      }}
+      {...props}
+    >
+      Copy selected works to clipboard
+    </Button>
   )
 }
 
