@@ -2,6 +2,7 @@ const defaultPageSize = 100
 const DEBUG = false
 
 const SORT_CLAUSES = {
+  MERCHANDISABILITY: { merchandisability: 'desc' },
   RECENTLY_PUBLISHED: { published_at: 'desc' },
 }
 

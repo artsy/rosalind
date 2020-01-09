@@ -516,4 +516,52 @@ describe('buildElasticsearchQuery', () => {
       expect(actualQuery).toEqual(expectedQuery)
     })
   })
+
+  describe('sort orders', () => {
+    beforeEach(() => {
+      params.genes = [{ id: 'gene1', name: 'Gene 1' }]
+    })
+
+    it('sorts by merchandisability', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ merchandisability: 'desc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'MERCHANDISABILITY'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('sorts by publish date', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'RECENTLY_PUBLISHED'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+  })
 })
