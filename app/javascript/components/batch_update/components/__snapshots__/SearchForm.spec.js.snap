@@ -369,34 +369,6 @@ exports[`"edit artworks" button does not render an edit button if there are no a
       className="filter"
     >
       <div>
-        Genomed?
-      </div>
-      <a
-        className="active"
-        href="#"
-        onClick={[Function]}
-      >
-        All
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        True
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        False
-      </a>
-    </div>
-    <div
-      className="filter"
-    >
-      <div>
         Acquireable Or Offerable?
       </div>
       <a
@@ -816,34 +788,6 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     >
       <div>
         Published?
-      </div>
-      <a
-        className="active"
-        href="#"
-        onClick={[Function]}
-      >
-        All
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        True
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        False
-      </a>
-    </div>
-    <div
-      className="filter"
-    >
-      <div>
-        Genomed?
       </div>
       <a
         className="active"
@@ -1384,34 +1328,6 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
       className="filter"
     >
       <div>
-        Genomed?
-      </div>
-      <a
-        className="active"
-        href="#"
-        onClick={[Function]}
-      >
-        All
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        True
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        False
-      </a>
-    </div>
-    <div
-      className="filter"
-    >
-      <div>
         Acquireable Or Offerable?
       </div>
       <a
@@ -1865,34 +1781,6 @@ exports[`does not render attribution class autosuggest if it is already selected
       className="filter"
     >
       <div>
-        Genomed?
-      </div>
-      <a
-        className="active"
-        href="#"
-        onClick={[Function]}
-      >
-        All
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        True
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        False
-      </a>
-    </div>
-    <div
-      className="filter"
-    >
-      <div>
         Acquireable Or Offerable?
       </div>
       <a
@@ -2274,34 +2162,6 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     >
       <div>
         Published?
-      </div>
-      <a
-        className="active"
-        href="#"
-        onClick={[Function]}
-      >
-        All
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        True
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        False
-      </a>
-    </div>
-    <div
-      className="filter"
-    >
-      <div>
-        Genomed?
       </div>
       <a
         className="active"
@@ -2737,34 +2597,6 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
       className="filter"
     >
       <div>
-        Genomed?
-      </div>
-      <a
-        className="active"
-        href="#"
-        onClick={[Function]}
-      >
-        All
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        True
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        False
-      </a>
-    </div>
-    <div
-      className="filter"
-    >
-      <div>
         Acquireable Or Offerable?
       </div>
       <a
@@ -3135,34 +2967,6 @@ exports[`renders correctly 1`] = `
     >
       <div>
         Published?
-      </div>
-      <a
-        className="active"
-        href="#"
-        onClick={[Function]}
-      >
-        All
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        True
-      </a>
-      <a
-        className={null}
-        href="#"
-        onClick={[Function]}
-      >
-        False
-      </a>
-    </div>
-    <div
-      className="filter"
-    >
-      <div>
-        Genomed?
       </div>
       <a
         className="active"

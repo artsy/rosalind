@@ -26,7 +26,6 @@ class App extends React.Component {
       createdBeforeDate: null,
       fair: null,
       genes: [],
-      genomedFilter: 'SHOW_ALL',
       isLoading: false,
       isSpecifyingBatchUpdate: false,
       keywords: [],
@@ -107,7 +106,6 @@ class App extends React.Component {
       this.state.createdBeforeDate !== prevState.createdBeforeDate ||
       this.state.fair !== prevState.fair ||
       this.state.genes !== prevState.genes ||
-      this.state.genomedFilter !== prevState.genomedFilter ||
       this.state.keywords !== prevState.keywords ||
       this.state.acquireableOrOfferableFilter !==
         prevState.acquireableOrOfferableFilter ||
@@ -139,7 +137,6 @@ class App extends React.Component {
       createdBeforeDate,
       fair,
       genes,
-      genomedFilter,
       keywords,
       acquireableOrOfferableFilter,
       maxPrice,
@@ -164,7 +161,6 @@ class App extends React.Component {
         createdBeforeDate,
         fair,
         genes,
-        genomedFilter,
         keywords,
         acquireableOrOfferableFilter,
         maxPrice,
@@ -197,7 +193,6 @@ class App extends React.Component {
       createdBeforeDate,
       fair,
       genes,
-      genomedFilter,
       keywords,
       acquireableOrOfferableFilter,
       maxPrice,
@@ -219,7 +214,6 @@ class App extends React.Component {
       fair,
       from,
       genes,
-      genomedFilter,
       keywords,
       acquireableOrOfferableFilter,
       maxPrice,
@@ -415,7 +409,6 @@ class App extends React.Component {
       createdBeforeDate,
       fair,
       genes,
-      genomedFilter,
       isLoading,
       isSpecifyingBatchUpdate,
       keywords,
@@ -441,7 +434,6 @@ class App extends React.Component {
             createdBeforeDate={createdBeforeDate}
             fair={fair}
             genes={genes}
-            genomedFilter={genomedFilter}
             keywords={keywords}
             acquireableOrOfferableFilter={acquireableOrOfferableFilter}
             maxPrice={maxPrice}

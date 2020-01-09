@@ -16,7 +16,6 @@ beforeEach(() => {
     createdBeforeDate: null,
     fair: null,
     genes: [],
-    genomedFilter: 'SHOW_ALL',
     keywords: [],
     acquireableOrOfferableFilter: 'SHOW_ALL',
     minPrice: null,
