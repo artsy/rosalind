@@ -71,12 +71,14 @@ class SearchForm extends React.Component {
       onRemoveTag,
       onRemoveArtist,
       partner,
+      restrictedArtworkIDs,
       sort,
       tags,
     } = this.props
 
     const {
       onAddKeyword,
+      onAddRestrictedArtworkIDs,
       onAddGene,
       onAddTag,
       onAddArtist,
@@ -93,6 +95,7 @@ class SearchForm extends React.Component {
       <div className={this.props.className}>
         <CurrentCriteria
           artists={artists}
+          restrictedArtworkIDs={restrictedArtworkIDs}
           attributionClass={attributionClass}
           clearState={clearState}
           createdAfterDate={createdAfterDate}
@@ -139,6 +142,11 @@ class SearchForm extends React.Component {
           minPrice={minPrice}
           maxPrice={maxPrice}
           updateState={updateState}
+        />
+
+        <TextInput
+          placeholder="Restrict to artwork IDs"
+          onEnter={onAddRestrictedArtworkIDs}
         />
 
         <SortOptions sort={sort} updateState={updateState} />

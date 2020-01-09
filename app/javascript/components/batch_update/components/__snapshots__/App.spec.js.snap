@@ -781,6 +781,15 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
+        className="c3"
+      >
+        <input
+          onKeyUp={[Function]}
+          placeholder="Restrict to artwork IDs"
+          type="text"
+        />
+      </div>
+      <div
         className="c5"
       >
         <div
