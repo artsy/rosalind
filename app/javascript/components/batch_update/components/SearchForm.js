@@ -15,8 +15,7 @@ import {
 } from './Autosuggest'
 import FilterOptions from './FilterOptions'
 import { SortOptions } from './SortOptions'
-import { Button } from '@artsy/palette'
-import { Link } from './Links'
+import { Button, Flex } from '@artsy/palette'
 import { SitesConsumer } from '../SitesContext'
 
 class SearchForm extends React.Component {
@@ -46,8 +45,10 @@ class SearchForm extends React.Component {
           <Button width={1} onClick={onOpenBatchUpdate}>
             Edit Artworks
           </Button>
-          <HelixLink selectedArtworkIds={selectedArtworkIds} />
-          <CopyIdsToClipboard mt={1} selectedArtworkIds={selectedArtworkIds} />
+          <Flex mt={2} justifyContent="space-between">
+            <HelixButton selectedArtworkIds={selectedArtworkIds} />
+            <CopyIdsToClipboard selectedArtworkIds={selectedArtworkIds} />
+          </Flex>
         </>
       )
     }
@@ -155,7 +156,7 @@ class SearchForm extends React.Component {
   }
 }
 
-const HelixLink = ({ selectedArtworkIds }) => {
+const HelixButton = ({ selectedArtworkIds }) => {
   return (
     <SitesConsumer>
       {sites => {
@@ -163,9 +164,15 @@ const HelixLink = ({ selectedArtworkIds }) => {
           sites.helix
         }/genome/artworks?artwork_ids=${selectedArtworkIds.join(',')}`
         return (
-          <StyledLink target="_blank" rel="noopener noreferrer" href={href}>
-            Open selected works in Helix
-          </StyledLink>
+          <Button
+            width="50%"
+            mr={1}
+            size="small"
+            variant="secondaryGray"
+            onClick={() => window.open(href)}
+          >
+            Open in Helix
+          </Button>
         )
       }}
     </SitesConsumer>
@@ -175,6 +182,9 @@ const HelixLink = ({ selectedArtworkIds }) => {
 const CopyIdsToClipboard = ({ selectedArtworkIds, ...props }) => {
   return (
     <Button
+      width="50%"
+      ml={1}
+      size="small"
       variant="secondaryGray"
       onClick={() => {
         event.preventDefault()
@@ -183,15 +193,10 @@ const CopyIdsToClipboard = ({ selectedArtworkIds, ...props }) => {
       }}
       {...props}
     >
-      Copy selected works to clipboard
+      Copy IDs
     </Button>
   )
 }
-
-const StyledLink = styled(Link)`
-  display: block;
-  margin-top: 1em;
-`
 
 /* default styled component */
 

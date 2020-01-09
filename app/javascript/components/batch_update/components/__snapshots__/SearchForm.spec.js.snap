@@ -1204,6 +1204,18 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   margin-top: 8px;
 }
 
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
 .c5 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 12px;
@@ -1217,6 +1229,14 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
+  padding-top: 1px;
+}
+
+.c11 {
+  font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
   padding-top: 1px;
 }
 
@@ -1259,10 +1279,11 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   white-space: nowrap;
   border: 2px solid;
   border-radius: 3px;
-  margin-top: 10px;
+  margin-right: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  height: 41px;
+  width: 50%;
+  height: 26px;
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
   background-color: #E5E5E5;
@@ -1280,6 +1301,40 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 }
 
 .c10.disabled {
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #FFF;
+  pointer-events: none;
+}
+
+.c12 {
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  border: 2px solid;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 50%;
+  height: 26px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #000;
+}
+
+.c12.loading {
+  -webkit-transition: none;
+  transition: none;
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+  cursor: auto;
+}
+
+.c12.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
@@ -1342,12 +1397,6 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   top: 10px;
 }
 
-.c9 {
-  color: #666666;
-  display: block;
-  margin-top: 1em;
-}
-
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
   .c7:hover {
     background-color: #6E1EFF;
@@ -1358,6 +1407,14 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
   .c10:hover {
+    background-color: #C2C2C2;
+    border-color: #C2C2C2;
+    color: #000;
+  }
+}
+
+@media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
+  .c12:hover {
     background-color: #C2C2C2;
     border-color: #C2C2C2;
     color: #000;
@@ -1765,32 +1822,48 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
       Edit Artworks
     </div>
   </button>
-  <a
+  <div
     className="c9"
-    href="http://helix/genome/artworks?artwork_ids="
-    rel="noopener noreferrer"
-    target="_blank"
   >
-    Open selected works in Helix
-  </a>
-  <button
-    className="c10  "
-    height="41px"
-    onClick={[Function]}
-  >
-    <div
-      className="c8 "
-      fontFamily={
-        Object {
-          "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-          "fontWeight": 500,
-        }
-      }
-      fontSize="14px"
+    <button
+      className="c10  "
+      height="26px"
+      onClick={[Function]}
+      width="50%"
     >
-      Copy selected works to clipboard
-    </div>
-  </button>
+      <div
+        className="c11 "
+        fontFamily={
+          Object {
+            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            "fontWeight": 500,
+          }
+        }
+        fontSize="12px"
+      >
+        Open in Helix
+      </div>
+    </button>
+    <button
+      className="c12  "
+      height="26px"
+      onClick={[Function]}
+      width="50%"
+    >
+      <div
+        className="c11 "
+        fontFamily={
+          Object {
+            "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            "fontWeight": 500,
+          }
+        }
+        fontSize="12px"
+      >
+        Copy IDs
+      </div>
+    </button>
+  </div>
 </div>
 `;
 

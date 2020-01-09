@@ -141,7 +141,7 @@ describe('"edit artworks" button', () => {
   })
 })
 
-describe('Link to open artworks in Helix', () => {
+describe('Links to copy ids/open artworks in Helix', () => {
   it('does NOT render if there are NO selected artworks', () => {
     Object.assign(props, {
       artworksCount: 100,
@@ -149,8 +149,8 @@ describe('Link to open artworks in Helix', () => {
       selectedArtworkIds: [],
     })
     const wrapper = mount(<SearchForm {...props} />)
-    expect(wrapper.text()).not.toMatch(/open.*in Helix/i)
-    expect(wrapper.find('a[href*="helix"]')).toHaveLength(0)
+    expect(wrapper.text()).not.toMatch(/Open in Helix/i)
+    expect(wrapper.text()).not.toMatch(/Copy IDs/i)
   })
 
   it('renders if there are selected artworks', () => {
@@ -160,7 +160,7 @@ describe('Link to open artworks in Helix', () => {
       selectedArtworkIds: ['foo'],
     })
     const wrapper = mount(<SearchForm {...props} />)
-    expect(wrapper.text()).toMatch(/open.*in Helix/i)
-    expect(wrapper.find('a[href*="helix"]')).toHaveLength(1)
+    expect(wrapper.text()).toMatch(/Open in Helix/i)
+    expect(wrapper.text()).toMatch(/Copy IDs/i)
   })
 })
