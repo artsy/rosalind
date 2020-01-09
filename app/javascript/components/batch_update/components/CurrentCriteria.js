@@ -13,6 +13,7 @@ import {
   SelectedFair,
   SelectedPrices,
   SelectedAttributionClass,
+  SelectedRestrictedArtworkIDs,
 } from './Selected'
 
 function CurrentCriteria(props) {
@@ -31,6 +32,7 @@ function CurrentCriteria(props) {
     onRemoveTag,
     onRemoveArtist,
     partner,
+    restrictedArtworkIDs,
     tags,
     minPrice,
     maxPrice,
@@ -42,6 +44,12 @@ function CurrentCriteria(props) {
         <CurrentKeywords
           keywords={keywords}
           onRemoveKeyword={onRemoveKeyword}
+        />
+      )}
+      {restrictedArtworkIDs.length > 0 && (
+        <SelectedRestrictedArtworkIDs
+          artworkIDs={restrictedArtworkIDs}
+          onRemove={clearState}
         />
       )}
       {genes.length > 0 && (

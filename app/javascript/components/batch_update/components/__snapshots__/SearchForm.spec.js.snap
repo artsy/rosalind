@@ -403,6 +403,15 @@ exports[`"edit artworks" button does not render an edit button if there are no a
     </div>
   </div>
   <div
+    className="c1"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Restrict to artwork IDs"
+      type="text"
+    />
+  </div>
+  <div
     className="c3"
   >
     <div
@@ -978,6 +987,15 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         type="text"
       />
     </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Restrict to artwork IDs"
+      type="text"
+    />
   </div>
   <div
     className="c3"
@@ -1681,6 +1699,15 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <div
+    className="c1"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Restrict to artwork IDs"
+      type="text"
+    />
+  </div>
+  <div
     className="c3"
   >
     <div
@@ -2281,6 +2308,15 @@ exports[`does not render attribution class autosuggest if it is already selected
     </div>
   </div>
   <div
+    className="c2"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Restrict to artwork IDs"
+      type="text"
+    />
+  </div>
+  <div
     className="c4"
   >
     <div
@@ -2818,6 +2854,15 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
         type="text"
       />
     </div>
+  </div>
+  <div
+    className="c2"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Restrict to artwork IDs"
+      type="text"
+    />
   </div>
   <div
     className="c4"
@@ -3359,6 +3404,15 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     </div>
   </div>
   <div
+    className="c2"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Restrict to artwork IDs"
+      type="text"
+    />
+  </div>
+  <div
     className="c4"
   >
     <div
@@ -3885,6 +3939,15 @@ exports[`renders correctly 1`] = `
         type="text"
       />
     </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <input
+      onKeyUp={[Function]}
+      placeholder="Restrict to artwork IDs"
+      type="text"
+    />
   </div>
   <div
     className="c3"

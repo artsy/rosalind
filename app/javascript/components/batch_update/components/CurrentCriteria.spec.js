@@ -22,6 +22,7 @@ beforeEach(() => {
     onRemoveGene: jest.fn(),
     onRemoveTag: jest.fn(),
     partner: null,
+    restrictedArtworkIDs: [],
     tags: [],
   }
 })

@@ -37,6 +37,7 @@ class App extends React.Component {
       partner: null,
       previewedArtwork: null,
       publishedFilter: 'SHOW_ALL',
+      restrictedArtworkIDs: [],
       selectedArtworkIds: [],
       size: 100,
       sort: 'RECENTLY_PUBLISHED',
@@ -53,6 +54,7 @@ class App extends React.Component {
     this.onAddArtist = this.onAddArtist.bind(this)
     this.onRemoveKeyword = this.onRemoveKeyword.bind(this)
     this.onAddKeyword = this.onAddKeyword.bind(this)
+    this.onAddRestrictedArtworkIDs = this.onAddRestrictedArtworkIDs.bind(this)
     this.updateStateFor = this.updateStateFor.bind(this)
     this.clearStateFor = this.clearStateFor.bind(this)
 
@@ -117,7 +119,8 @@ class App extends React.Component {
       this.state.partner !== prevState.partner ||
       this.state.publishedFilter !== prevState.publishedFilter ||
       this.state.sort !== prevState.sort ||
-      this.state.tags !== prevState.tags
+      this.state.tags !== prevState.tags ||
+      this.state.restrictedArtworkIDs !== prevState.restrictedArtworkIDs
     )
   }
 
@@ -129,7 +132,8 @@ class App extends React.Component {
       this.state.genes.length !== 0 ||
       this.state.keywords.length !== 0 ||
       this.state.partner !== null ||
-      this.state.tags.length !== 0
+      this.state.tags.length !== 0 ||
+      this.state.restrictedArtworkIDs.length !== 0
     )
   }
 
@@ -313,8 +317,22 @@ class App extends React.Component {
       })
   }
 
+  onAddRestrictedArtworkIDs(artworkIDs) {
+    this.setState({
+      restrictedArtworkIDs: artworkIDs
+        .split(/\s+/)
+        .map(part => part.split(','))
+        .flat()
+        .map(id => id.trim()),
+    })
+  }
+
   clearStateFor(name = null, key) {
-    this.setState({ [key]: null })
+    if (Array.isArray(this.state[key])) {
+      this.setState({ [key]: [] })
+    } else {
+      this.setState({ [key]: null })
+    }
   }
 
   updateStateFor(key, newState) {
@@ -429,6 +447,7 @@ class App extends React.Component {
       partner,
       previewedArtwork,
       publishedFilter,
+      restrictedArtworkIDs,
       selectedArtworkIds,
       sort,
       tags,
@@ -453,6 +472,7 @@ class App extends React.Component {
             forSaleFilter={forSaleFilter}
             maxPrice={maxPrice}
             minPrice={minPrice}
+            onAddRestrictedArtworkIDs={this.onAddRestrictedArtworkIDs}
             onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
             onAddKeyword={this.onAddKeyword}
@@ -464,6 +484,7 @@ class App extends React.Component {
             onRemoveTag={this.onRemoveTag}
             partner={partner}
             publishedFilter={publishedFilter}
+            restrictedArtworkIDs={restrictedArtworkIDs}
             selectedArtworkIds={selectedArtworkIds}
             selectedArtworksCount={selectedArtworkIds.length}
             sort={sort}
