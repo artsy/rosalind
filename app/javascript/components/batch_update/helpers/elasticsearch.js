@@ -3,21 +3,22 @@ const DEBUG = false
 
 export function buildElasticsearchQuery(args) {
   const {
+    acquireableOrOfferableFilter,
     artists,
     attributionClass,
     createdAfterDate,
     createdBeforeDate,
     fair,
+    forSaleFilter,
     from,
     genes,
     keywords,
-    acquireableOrOfferableFilter,
+    maxPrice,
+    minPrice,
     partner,
     publishedFilter,
     size,
     tags,
-    minPrice,
-    maxPrice,
   } = args
 
   const geneMatches = genes.map(g => {
@@ -32,6 +33,7 @@ export function buildElasticsearchQuery(args) {
   const filterMatches = buildFilterMatches({
     publishedFilter,
     acquireableOrOfferableFilter,
+    forSaleFilter,
   })
   const partnerMatch = partner ? { match: { partner_id: partner.id } } : null
   const fairMatch = fair ? { match: { fair_ids: fair.id } } : null
@@ -119,9 +121,11 @@ const buildCreatedDateRange = ({ createdAfterDate, createdBeforeDate }) => {
 const buildFilterMatches = ({
   publishedFilter,
   acquireableOrOfferableFilter,
+  forSaleFilter,
 }) => [
   publishedMatcher(publishedFilter),
   acquireableOrOfferableMatcher(acquireableOrOfferableFilter),
+  forSaleMatcher(forSaleFilter),
 ]
 
 const buildPriceMatch = ({ minPrice, maxPrice }) => ({
@@ -164,6 +168,17 @@ const acquireableOrOfferableMatcher = acquireableOrOfferableFilter => {
           ],
         },
       }
+    default:
+      return null
+  }
+}
+
+const forSaleMatcher = forSaleFilter => {
+  switch (forSaleFilter) {
+    case 'SHOW_FOR_SALE':
+      return { match: { for_sale: true } }
+    case 'SHOW_NOT_FOR_SALE':
+      return { match: { for_sale: false } }
     default:
       return null
   }

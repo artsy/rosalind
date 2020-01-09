@@ -771,6 +771,34 @@ exports[`renders correctly 1`] = `
             False
           </a>
         </div>
+        <div
+          className="filter"
+        >
+          <div>
+            For Sale?
+          </div>
+          <a
+            className="active"
+            href="#"
+            onClick={[Function]}
+          >
+            All
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}
+          >
+            True
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}
+          >
+            False
+          </a>
+        </div>
       </div>
       <button
         className="c6  disabled"

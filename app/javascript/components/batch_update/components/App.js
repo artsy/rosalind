@@ -33,6 +33,7 @@ class App extends React.Component {
       minPrice: null,
       notices: [],
       acquireableOrOfferableFilter: 'SHOW_ALL',
+      forSaleFilter: 'SHOW_ALL',
       partner: null,
       previewedArtwork: null,
       publishedFilter: 'SHOW_ALL',
@@ -109,6 +110,7 @@ class App extends React.Component {
       this.state.keywords !== prevState.keywords ||
       this.state.acquireableOrOfferableFilter !==
         prevState.acquireableOrOfferableFilter ||
+      this.state.forSaleFilter !== prevState.forSaleFilter ||
       this.state.minPrice !== prevState.minPrice ||
       this.state.maxPrice !== prevState.maxPrice ||
       this.state.partner !== prevState.partner ||
@@ -139,6 +141,7 @@ class App extends React.Component {
       genes,
       keywords,
       acquireableOrOfferableFilter,
+      forSaleFilter,
       maxPrice,
       minPrice,
       partner,
@@ -163,6 +166,7 @@ class App extends React.Component {
         genes,
         keywords,
         acquireableOrOfferableFilter,
+        forSaleFilter,
         maxPrice,
         minPrice,
         partner,
@@ -195,6 +199,7 @@ class App extends React.Component {
       genes,
       keywords,
       acquireableOrOfferableFilter,
+      forSaleFilter,
       maxPrice,
       minPrice,
       partner,
@@ -216,6 +221,7 @@ class App extends React.Component {
       genes,
       keywords,
       acquireableOrOfferableFilter,
+      forSaleFilter,
       maxPrice,
       minPrice,
       partner,
@@ -413,6 +419,7 @@ class App extends React.Component {
       isSpecifyingBatchUpdate,
       keywords,
       acquireableOrOfferableFilter,
+      forSaleFilter,
       partner,
       previewedArtwork,
       publishedFilter,
@@ -436,6 +443,7 @@ class App extends React.Component {
             genes={genes}
             keywords={keywords}
             acquireableOrOfferableFilter={acquireableOrOfferableFilter}
+            forSaleFilter={forSaleFilter}
             maxPrice={maxPrice}
             minPrice={minPrice}
             onAddArtist={this.onAddArtist}
