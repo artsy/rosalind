@@ -493,5 +493,26 @@ describe('buildElasticsearchQuery', () => {
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
+
+    it('modifies a query with the value of the "for sale" filter', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+              { match: { for_sale: true } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+      params.forSaleFilter = 'SHOW_FOR_SALE'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
   })
 })
