@@ -3,7 +3,7 @@
 # Exit if any subcommand fails
 set -e
 
-STEPS=8
+STEPS=7
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -67,11 +67,6 @@ copy_env hokusai
 printf "${CLEAR_LINE}[7/${STEPS}]  database setup"
 RAILS_ENV=development bundle exec rake db:create db:migrate > /dev/null
 RAILS_ENV=test bundle exec rake db:create db:migrate > /dev/null
-
-# STEP 8
-printf "${CLEAR_LINE}[8/${STEPS}]  adding pre-push git hook"
-cp scripts/git.pre-push.sample .git/hooks/pre-push
-chmod +x .git/hooks/pre-push
 
 # FINISH
 printf "${CLEAR_LINE}[${STEPS}/${STEPS}]${GREEN}  finished!${NO_COLOR}\n"
