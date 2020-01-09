@@ -14,6 +14,7 @@ import {
   TagAutosuggest,
 } from './Autosuggest'
 import FilterOptions from './FilterOptions'
+import { SortOptions } from './SortOptions'
 import { Button } from '@artsy/palette'
 import { Link } from './Links'
 import { SitesConsumer } from '../SitesContext'
@@ -69,6 +70,7 @@ class SearchForm extends React.Component {
       onRemoveTag,
       onRemoveArtist,
       partner,
+      sort,
       tags,
     } = this.props
 
@@ -137,6 +139,9 @@ class SearchForm extends React.Component {
           maxPrice={maxPrice}
           updateState={updateState}
         />
+
+        <SortOptions sort={sort} updateState={updateState} />
+
         <FilterOptions
           acquireableOrOfferableFilter={acquireableOrOfferableFilter}
           forSaleFilter={forSaleFilter}

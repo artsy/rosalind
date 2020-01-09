@@ -116,6 +116,7 @@ class App extends React.Component {
       this.state.maxPrice !== prevState.maxPrice ||
       this.state.partner !== prevState.partner ||
       this.state.publishedFilter !== prevState.publishedFilter ||
+      this.state.sort !== prevState.sort ||
       this.state.tags !== prevState.tags
     )
   }
@@ -429,6 +430,7 @@ class App extends React.Component {
       previewedArtwork,
       publishedFilter,
       selectedArtworkIds,
+      sort,
       tags,
       totalHits,
       minPrice,
@@ -464,6 +466,7 @@ class App extends React.Component {
             publishedFilter={publishedFilter}
             selectedArtworkIds={selectedArtworkIds}
             selectedArtworksCount={selectedArtworkIds.length}
+            sort={sort}
             tags={tags}
             updateState={this.updateStateFor}
           />
