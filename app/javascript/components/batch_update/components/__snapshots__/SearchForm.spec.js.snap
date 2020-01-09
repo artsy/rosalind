@@ -1035,6 +1035,39 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   pointer-events: none;
 }
 
+.c7 {
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  border: 2px solid;
+  border-radius: 3px;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 41px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #000;
+}
+
+.c7.loading {
+  -webkit-transition: none;
+  transition: none;
+  background-color: transparent;
+  color: transparent;
+  border: 0;
+  cursor: auto;
+}
+
+.c7.disabled {
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
+  color: #FFF;
+  pointer-events: none;
+}
+
 .c6 {
   color: #666666;
   display: block;
@@ -1046,6 +1079,14 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
+  }
+}
+
+@media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
+  .c7:hover {
+    background-color: #C2C2C2;
+    border-color: #C2C2C2;
+    color: #000;
   }
 }
 
@@ -1423,6 +1464,24 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   >
     Open selected works in Helix
   </a>
+  <button
+    className="c7  "
+    height="41px"
+    onClick={[Function]}
+  >
+    <div
+      className="c5 "
+      fontFamily={
+        Object {
+          "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+          "fontWeight": 500,
+        }
+      }
+      fontSize="14px"
+    >
+      Copy selected works to clipboard
+    </div>
+  </button>
 </div>
 `;
 
