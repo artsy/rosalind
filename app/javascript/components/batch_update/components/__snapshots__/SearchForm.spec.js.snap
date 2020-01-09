@@ -1860,7 +1860,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         }
         fontSize="12px"
       >
-        Copy IDs
+        Copy IDs 
       </div>
     </button>
   </div>

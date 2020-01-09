@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import copy from 'copy-to-clipboard'
 import styled from 'styled-components'
 import CurrentCriteria from './CurrentCriteria'
@@ -180,6 +180,8 @@ const HelixButton = ({ selectedArtworkIds }) => {
 }
 
 const CopyIdsToClipboard = ({ selectedArtworkIds, ...props }) => {
+  const [clicked, setClicked] = useState(false)
+
   return (
     <Button
       width="50%"
@@ -187,13 +189,17 @@ const CopyIdsToClipboard = ({ selectedArtworkIds, ...props }) => {
       size="small"
       variant="secondaryGray"
       onClick={() => {
+        setClicked(true)
+        setTimeout(() => {
+          setClicked(false)
+        }, 1000)
         event.preventDefault()
         copy(selectedArtworkIds)
         return false
       }}
       {...props}
     >
-      Copy IDs
+      Copy IDs {clicked && '✔'}
     </Button>
   )
 }
