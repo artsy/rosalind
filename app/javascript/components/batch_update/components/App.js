@@ -186,7 +186,10 @@ class App extends React.Component {
       })
 
       this.setState({ isLoading: true })
-      matchArtworks(query).then(hits => {
+
+      const csrfToken = document.querySelector('meta[name=csrf-token]').content
+
+      matchArtworks(query, csrfToken).then(hits => {
         const totalHits = hits.total
         const artworks = hits.hits.map(hit => hit._source)
         this.setState({

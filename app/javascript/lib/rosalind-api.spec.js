@@ -62,12 +62,14 @@ describe('matchArtworks', () => {
     const query = {
       query: { bool: { must: [{ match: { genes: 'Kawaii' } }] } },
     }
-    const encodedQuery = encodeURIComponent(JSON.stringify(query))
 
     matchArtworks(query)
 
     const fetchedURI = window.fetch.mock.calls[0][0]
-    expect(fetchedURI).toMatch(`/match/artworks?query=${encodedQuery}`)
+    const postBody = JSON.parse(window.fetch.mock.calls[0][1].body)
+
+    expect(fetchedURI).toMatch(`/match/artworks`)
+    expect(postBody.query).toEqual(JSON.stringify(query))
   })
 })
 

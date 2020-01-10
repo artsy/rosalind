@@ -61,11 +61,25 @@ export const matchArtists = function(term) {
     })
 }
 
-export const matchArtworks = function(esQuery) {
+export const matchArtworks = function(esQuery, csrfToken) {
   const queryJSON = JSON.stringify(esQuery)
-  const uri = `/match/artworks?query=${encodeURIComponent(queryJSON)}`
+
+  const uri = `/match/artworks`
+  const headers = {
+    'X-CSRF-Token': csrfToken,
+    'Content-Type': 'application/json',
+  }
+  const body = JSON.stringify({
+    query: queryJSON,
+  })
+
   return window
-    .fetch(uri, { credentials: 'include' })
+    .fetch(uri, {
+      method: 'POST',
+      headers,
+      body,
+      credentials: 'include',
+    })
     .then(resp => resp.json())
     .then(esResponse => {
       return esResponse.hits
