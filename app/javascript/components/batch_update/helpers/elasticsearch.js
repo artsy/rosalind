@@ -22,6 +22,7 @@ export function buildElasticsearchQuery(args) {
     minPrice,
     partner,
     publishedFilter,
+    restrictedArtworkIDs,
     size,
     sort,
     tags,
@@ -30,24 +31,32 @@ export function buildElasticsearchQuery(args) {
   const geneMatches = genes.map(g => {
     return { match: { 'genes.raw': g.name } }
   })
+
   const tagMatches = tags.map(t => {
     return { match: { 'tags.raw': t.name } }
   })
+
   const artistMatches = artists.map(a => {
     return { match: { artist_id: a.id } }
   })
+
   const filterMatches = buildFilterMatches({
     publishedFilter,
     acquireableOrOfferableFilter,
     forSaleFilter,
   })
+
   const partnerMatch = partner ? { match: { partner_id: partner.id } } : null
+
   const fairMatch = fair ? { match: { fair_ids: fair.id } } : null
+
   const attributionClassMatch = attributionClass
     ? { match: { attribution: attributionClass.value } }
     : null
+
   const priceMatch =
     minPrice || maxPrice ? buildPriceMatch({ minPrice, maxPrice }) : null
+
   const createdDateRange = buildCreatedDateRange({
     createdAfterDate,
     createdBeforeDate,
@@ -73,6 +82,15 @@ export function buildElasticsearchQuery(args) {
     }
   })
 
+  const artworkIDsRestrictionFilter =
+    restrictedArtworkIDs && restrictedArtworkIDs.length > 0
+      ? {
+          filter: {
+            terms: { id: restrictedArtworkIDs },
+          },
+        }
+      : undefined
+
   const sortClause = buildSort(sort)
 
   const query = {
@@ -91,6 +109,7 @@ export function buildElasticsearchQuery(args) {
           priceMatch,
           createdDateRange,
         ].filter(m => m !== null),
+        ...artworkIDsRestrictionFilter,
       },
     },
     sort: sortClause,
