@@ -25,7 +25,7 @@ exports[`renders correctly 1`] = `
   padding: 1em;
 }
 
-.c8 {
+.c11 {
   -webkit-box-flex: 5;
   -webkit-flex-grow: 5;
   -ms-flex-positive: 5;
@@ -77,7 +77,7 @@ exports[`renders correctly 1`] = `
   outline: none;
 }
 
-.c5 {
+.c8 {
   font-size: 80%;
   color: #333;
   line-height: 140%;
@@ -87,22 +87,22 @@ exports[`renders correctly 1`] = `
   transition: opacity 0.5s;
 }
 
-.c5:hover {
+.c8:hover {
   opacity: 1;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.c5 .filter {
+.c8 .filter {
   margin-top: 1em;
 }
 
-.c5 .filter a {
+.c8 .filter a {
   color: #999;
   margin-right: 0.5em;
 }
 
-.c5 .filter a.active {
+.c8 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -110,7 +110,19 @@ exports[`renders correctly 1`] = `
   cursor: default;
 }
 
+.c5 {
+  margin-top: 8px;
+}
+
 .c7 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline;
+  margin-right: 0.5px;
+}
+
+.c10 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -118,7 +130,7 @@ exports[`renders correctly 1`] = `
   padding-top: 1px;
 }
 
-.c15 {
+.c18 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
@@ -126,7 +138,7 @@ exports[`renders correctly 1`] = `
   margin-top: 16px;
 }
 
-.c17 {
+.c20 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
@@ -134,7 +146,7 @@ exports[`renders correctly 1`] = `
   margin-top: 32px;
 }
 
-.c6 {
+.c9 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -151,7 +163,7 @@ exports[`renders correctly 1`] = `
   color: #FFF;
 }
 
-.c6.loading {
+.c9.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -160,14 +172,14 @@ exports[`renders correctly 1`] = `
   cursor: auto;
 }
 
-.c6.disabled {
+.c9.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
-.c14 {
+.c17 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -183,7 +195,7 @@ exports[`renders correctly 1`] = `
   color: #FFF;
 }
 
-.c14.loading {
+.c17.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -192,14 +204,14 @@ exports[`renders correctly 1`] = `
   cursor: auto;
 }
 
-.c14.disabled {
+.c17.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
-.c20 {
+.c23 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -217,7 +229,7 @@ exports[`renders correctly 1`] = `
   color: #000;
 }
 
-.c20.loading {
+.c23.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -226,18 +238,74 @@ exports[`renders correctly 1`] = `
   cursor: auto;
 }
 
-.c20.disabled {
+.c23.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
-.c13 {
+.c6 {
+  position: relative;
+}
+
+.c6 label {
+  padding: 0;
+  margin: 0;
+}
+
+.c6 select {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background-color: #E5E5E5;
+  border-radius: 2px;
+  font-size: px;
+  line-height: px;
+  padding: 5px 26px 5px 10px;
+}
+
+.c6 select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.c6 select option:not(:checked) {
+  color: black;
+}
+
+.c6 select:hover {
+  background-color: #C2C2C2;
+}
+
+.c6 select:focus {
+  border-color: #6E1EFF;
+}
+
+.c6::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  width: 0;
+  height: 0;
+  content: "";
+  cursor: pointer;
+  margin-left: -18px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+}
+
+.c16 {
   color: #666666;
 }
 
-.c9 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -247,24 +315,24 @@ exports[`renders correctly 1`] = `
   flex-direction: column;
 }
 
-.c9 .counts {
+.c12 .counts {
   display: inline-block;
   width: 75%;
   padding: 0.75em;
 }
 
-.c9 .select {
+.c12 .select {
   display: inline-block;
   width: 25%;
   padding: 0.75em;
   text-align: right;
 }
 
-.c9 .select a {
+.c12 .select a {
   margin: 0 0.25em;
 }
 
-.c9 .results {
+.c12 .results {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -274,7 +342,7 @@ exports[`renders correctly 1`] = `
   flex-flow: row wrap;
 }
 
-.c18 {
+.c21 {
   position: fixed;
   left: 50%;
   top: 40%;
@@ -292,7 +360,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c18.modal-open {
+.c21.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1) translate(-50%,-50%);
@@ -302,24 +370,24 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c18 h1 {
+.c21 h1 {
   font-weight: normal;
   font-size: 1.5em;
   color: #666666;
 }
 
-.c18 section {
+.c21 section {
   color: #333333;
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
 }
 
-.c18 section p {
+.c21 section p {
   margin-bottom: 1em;
 }
 
-.c19 {
+.c22 {
   border-top: solid 1px #E5E5E5;
   margin-top: 1em;
   padding-top: 1em;
@@ -336,15 +404,15 @@ exports[`renders correctly 1`] = `
   justify-content: flex-end;
 }
 
-.c19 a {
+.c22 a {
   margin-left: 1em;
 }
 
-.c11 {
+.c14 {
   padding: 18px 30px;
 }
 
-.c12 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -364,14 +432,14 @@ exports[`renders correctly 1`] = `
   border-bottom: solid 1px #DBDBDB;
 }
 
-.c16 {
+.c19 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   text-align: center;
 }
 
-.c10 {
+.c13 {
   position: fixed;
   left: 0px;
   top: 0px;
@@ -388,7 +456,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.25s;
 }
 
-.c10.modal-open {
+.c13.modal-open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1);
@@ -398,7 +466,7 @@ exports[`renders correctly 1`] = `
   transition: all 0.125s;
 }
 
-.c21 {
+.c24 {
   position: fixed;
   top: 0;
   right: 0;
@@ -424,7 +492,7 @@ exports[`renders correctly 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c6:hover {
+  .c9:hover {
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
@@ -432,7 +500,7 @@ exports[`renders correctly 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c14:hover {
+  .c17:hover {
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
@@ -440,7 +508,7 @@ exports[`renders correctly 1`] = `
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c20:hover {
+  .c23:hover {
     background-color: #FFF;
     border-color: #000;
     color: #000;
@@ -713,41 +781,59 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
+        className="c3"
+      >
+        <input
+          onKeyUp={[Function]}
+          placeholder="Restrict to artwork IDs"
+          type="text"
+        />
+      </div>
+      <div
         className="c5"
+      >
+        <div
+          className="c6"
+          onSelect={[Function]}
+          selected="RECENTLY_PUBLISHED"
+          title="Sort"
+        >
+          <label>
+            <div
+              className="c7 "
+              display="inline"
+              fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+              fontSize="12px"
+            >
+              Sort
+              :
+            </div>
+            <select
+              onChange={[Function]}
+              value="RECENTLY_PUBLISHED"
+            >
+              <option
+                value="MERCHANDISABILITY"
+              >
+                Merchandisability
+              </option>
+              <option
+                value="RECENTLY_PUBLISHED"
+              >
+                Recently published
+              </option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div
+        className="c8"
       >
         <div
           className="filter"
         >
           <div>
             Published?
-          </div>
-          <a
-            className="active"
-            href="#"
-            onClick={[Function]}
-          >
-            All
-          </a>
-          <a
-            className={null}
-            href="#"
-            onClick={[Function]}
-          >
-            True
-          </a>
-          <a
-            className={null}
-            href="#"
-            onClick={[Function]}
-          >
-            False
-          </a>
-        </div>
-        <div
-          className="filter"
-        >
-          <div>
-            Genomed?
           </div>
           <a
             className="active"
@@ -799,16 +885,44 @@ exports[`renders correctly 1`] = `
             False
           </a>
         </div>
+        <div
+          className="filter"
+        >
+          <div>
+            For Sale?
+          </div>
+          <a
+            className="active"
+            href="#"
+            onClick={[Function]}
+          >
+            All
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}
+          >
+            True
+          </a>
+          <a
+            className={null}
+            href="#"
+            onClick={[Function]}
+          >
+            False
+          </a>
+        </div>
       </div>
       <button
-        className="c6  disabled"
+        className="c9  disabled"
         disabled={true}
         height="41px"
         onClick={[Function]}
         width={1}
       >
         <div
-          className="c7 "
+          className="c10 "
           fontFamily={
             Object {
               "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -823,10 +937,10 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c8"
+    className="c11"
   >
     <div
-      className="c9"
+      className="c12"
     >
       <div
         className="results"
@@ -834,16 +948,16 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c10"
+    className="c13"
   >
     <div
-      className="c11"
+      className="c14"
     >
       <div
-        className="c12"
+        className="c15"
       >
         <a
-          className="c13 cancel"
+          className="c16 cancel"
           href="#"
           onClick={[Function]}
         >
@@ -854,13 +968,13 @@ exports[`renders correctly 1`] = `
            works selected
         </div>
         <button
-          className="c14  disabled"
+          className="c17  disabled"
           disabled={true}
           height="41px"
           onClick={[Function]}
         >
           <div
-            className="c7 "
+            className="c10 "
             fontFamily={
               Object {
                 "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -874,14 +988,14 @@ exports[`renders correctly 1`] = `
         </button>
       </div>
       <div
-        className="c15 "
+        className="c18 "
         fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
         fontSize="28px"
       >
         Tags
       </div>
       <div
-        className="c16"
+        className="c19"
       >
         There aren’t any tags that describe all of your selected works
       </div>
@@ -917,14 +1031,14 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c17 "
+        className="c20 "
         fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
         fontSize="28px"
       >
         Genes
       </div>
       <div
-        className="c16"
+        className="c19"
       >
         There aren’t any genes that describe all of your selected works
       </div>
@@ -960,7 +1074,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="c18"
+        className="c21"
       >
         <h1>
           Are you sure you want to queue these changes?
@@ -974,15 +1088,15 @@ exports[`renders correctly 1`] = `
           </p>
         </section>
         <div
-          className="c19"
+          className="c22"
         >
           <button
-            className="c20  "
+            className="c23  "
             height="41px"
             onClick={[Function]}
           >
             <div
-              className="c7 "
+              className="c10 "
               fontFamily={
                 Object {
                   "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -995,12 +1109,12 @@ exports[`renders correctly 1`] = `
             </div>
           </button>
           <button
-            className="c14  "
+            className="c17  "
             height="41px"
             onClick={[Function]}
           >
             <div
-              className="c7 "
+              className="c10 "
               fontFamily={
                 Object {
                   "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -1017,7 +1131,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c21"
+    className="c24"
   />
 </div>
 `;

@@ -1,35 +1,26 @@
 import { buildElasticsearchQuery } from './elasticsearch'
 
 describe('buildElasticsearchQuery', () => {
-  let genes,
-    createdAfterDate,
-    createdBeforeDate,
-    tags,
-    keywords,
-    artists,
-    acquireableOrOfferableFilter,
-    partner,
-    fair,
-    attributionClass,
-    publishedFilter,
-    genomedFilter,
-    minPrice,
-    maxPrice
+  let params
 
   beforeEach(() => {
-    createdAfterDate = null
-    createdBeforeDate = null
-    keywords = []
-    genes = []
-    tags = []
-    artists = []
-    partner = null
-    fair = null
-    attributionClass = null
-    publishedFilter = null
-    genomedFilter = null
-    minPrice = null
-    maxPrice = null
+    params = {
+      artists: [],
+      attributionClass: null,
+      createdAfterDate: null,
+      createdBeforeDate: null,
+      fair: null,
+      forSaleFilter: null,
+      genes: [],
+      keywords: [],
+      maxPrice: null,
+      minPrice: null,
+      partner: null,
+      publishedFilter: null,
+      restrictedArtworkIDs: [],
+      sort: 'RECENTLY_PUBLISHED',
+      tags: [],
+    }
   })
 
   it('queries only for non-deleted works', () => {
@@ -44,19 +35,6 @@ describe('buildElasticsearchQuery', () => {
       sort: [{ published_at: 'desc' }, { id: 'desc' }],
     }
 
-    const params = {
-      artists,
-      attributionClass,
-      createdAfterDate,
-      createdBeforeDate,
-      fair,
-      genes,
-      genomedFilter,
-      keywords,
-      partner,
-      publishedFilter,
-      tags,
-    }
     const actualQuery = buildElasticsearchQuery(params)
     expect(actualQuery).toEqual(expectedQuery)
   })
@@ -77,24 +55,12 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      genes = [
+
+      params.genes = [
         { id: 'gene1', name: 'Gene 1' },
         { id: 'gene2', name: 'Gene 2' },
       ]
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
@@ -142,21 +108,9 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      keywords = ['sherman', 'film still']
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
+      params.keywords = ['sherman', 'film still']
+
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
@@ -176,24 +130,12 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      tags = [
+
+      params.tags = [
         { id: 'tag1', name: 'Tag 1' },
         { id: 'tag2', name: 'Tag 2' },
       ]
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
@@ -213,24 +155,12 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      artists = [
+
+      params.artists = [
         { id: 'artistId1', name: 'Artist 1' },
         { id: 'artistId2', name: 'Artist 2' },
       ]
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
@@ -249,20 +179,9 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      partner = { id: 'some-partner', name: 'Some Partner' }
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
+
+      params.partner = { id: 'some-partner', name: 'Some Partner' }
+
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
@@ -281,20 +200,9 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      fair = { id: 'some-fair', name: 'Some Fair' }
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
+
+      params.fair = { id: 'some-fair', name: 'Some Fair' }
+
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
@@ -313,20 +221,9 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      attributionClass = { name: 'Ephemera', value: 'ephemera' }
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
+
+      params.attributionClass = { name: 'Ephemera', value: 'ephemera' }
+
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
@@ -345,20 +242,10 @@ describe('buildElasticsearchQuery', () => {
         size: 11,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      genes = [{ id: 'gene1', name: 'Gene 1' }]
-      const size = 11
-      const actualQuery = buildElasticsearchQuery({
-        artists,
-        attributionClass,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        size,
-        tags,
-      })
+
+      params.genes = [{ id: 'gene1', name: 'Gene 1' }]
+      params.size = 11
+      const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -376,26 +263,15 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      genes = [{ id: 'gene1', name: 'Gene 1' }]
-      const from = 111
-      const actualQuery = buildElasticsearchQuery({
-        artists,
-        attributionClass,
-        fair,
-        from,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      })
+
+      params.genes = [{ id: 'gene1', name: 'Gene 1' }]
+      params.from = 111
+
+      const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
     it('modifies a query with a createdAfterDate', () => {
-      createdAfterDate = 'a-real-date'
-
       const expectedQuery = {
         query: {
           bool: {
@@ -404,7 +280,7 @@ describe('buildElasticsearchQuery', () => {
               {
                 range: {
                   created_at: {
-                    gte: createdAfterDate,
+                    gte: '2013-01-01',
                   },
                 },
               },
@@ -416,27 +292,13 @@ describe('buildElasticsearchQuery', () => {
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
+      params.createdAfterDate = '2013-01-01'
 
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
     it('modifies a query with a createdBeforeDate', () => {
-      createdBeforeDate = 'a-real-date'
-
       const expectedQuery = {
         query: {
           bool: {
@@ -445,7 +307,7 @@ describe('buildElasticsearchQuery', () => {
               {
                 range: {
                   created_at: {
-                    lte: createdBeforeDate,
+                    lte: '2014-01-01',
                   },
                 },
               },
@@ -457,28 +319,13 @@ describe('buildElasticsearchQuery', () => {
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
+      params.createdBeforeDate = '2014-01-01'
 
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
     it('modifies a query with a createdAfterDate and a createdBeforeDate', () => {
-      createdAfterDate = 'a-real-date'
-      createdBeforeDate = 'another-real-date'
-
       const expectedQuery = {
         query: {
           bool: {
@@ -487,8 +334,8 @@ describe('buildElasticsearchQuery', () => {
               {
                 range: {
                   created_at: {
-                    gte: createdAfterDate,
-                    lte: createdBeforeDate,
+                    gte: '2013-01-01',
+                    lte: '2014-01-01',
                   },
                 },
               },
@@ -500,26 +347,14 @@ describe('buildElasticsearchQuery', () => {
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
+      params.createdAfterDate = '2013-01-01'
+      params.createdBeforeDate = '2014-01-01'
 
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
-    it('modifies a query with a minPrice', () => {
-      minPrice = 1000
 
+    it('modifies a query with a minPrice', () => {
       const expectedQuery = {
         query: {
           bool: {
@@ -528,7 +363,7 @@ describe('buildElasticsearchQuery', () => {
               {
                 range: {
                   prices: {
-                    gte: minPrice,
+                    gte: 1000,
                     lte: null,
                   },
                 },
@@ -541,28 +376,13 @@ describe('buildElasticsearchQuery', () => {
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-        minPrice,
-        maxPrice,
-      }
+      params.minPrice = 1000
 
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
-    it('modifies a query with a maxPrice', () => {
-      maxPrice = 1000
 
+    it('modifies a query with a maxPrice', () => {
       const expectedQuery = {
         query: {
           bool: {
@@ -572,7 +392,7 @@ describe('buildElasticsearchQuery', () => {
                 range: {
                   prices: {
                     gte: null,
-                    lte: maxPrice,
+                    lte: 1000,
                   },
                 },
               },
@@ -584,29 +404,13 @@ describe('buildElasticsearchQuery', () => {
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-        minPrice,
-        maxPrice,
-      }
+      params.maxPrice = 1000
 
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
-    it('modifies a query with both a minPrice and a maxPrice', () => {
-      minPrice = 1000
-      maxPrice = 2000
 
+    it('modifies a query with both a minPrice and a maxPrice', () => {
       const expectedQuery = {
         query: {
           bool: {
@@ -615,8 +419,8 @@ describe('buildElasticsearchQuery', () => {
               {
                 range: {
                   prices: {
-                    gte: minPrice,
-                    lte: maxPrice,
+                    gte: 1000,
+                    lte: 2000,
                   },
                 },
               },
@@ -628,21 +432,27 @@ describe('buildElasticsearchQuery', () => {
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
 
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-        minPrice,
-        maxPrice,
+      params.minPrice = 1000
+      params.maxPrice = 2000
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('filters a query with a list artwork ids', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [{ match: { deleted: false } }],
+            filter: { terms: { id: ['bson-id-1', 'bson-id-2', 'bson-id-3'] } },
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
+
+      params.restrictedArtworkIDs = ['bson-id-1', 'bson-id-2', 'bson-id-3']
 
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
@@ -651,7 +461,7 @@ describe('buildElasticsearchQuery', () => {
 
   describe('status filters', () => {
     beforeEach(() => {
-      genes = [{ id: 'gene1', name: 'Gene 1' }]
+      params.genes = [{ id: 'gene1', name: 'Gene 1' }]
     })
 
     it('modifies a query with the value of the "published" filter', () => {
@@ -669,53 +479,9 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      publishedFilter = 'SHOW_PUBLISHED'
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
-      const actualQuery = buildElasticsearchQuery(params)
-      expect(actualQuery).toEqual(expectedQuery)
-    })
 
-    it('modifies a query with the value of the "genomed" filter', () => {
-      const expectedQuery = {
-        query: {
-          bool: {
-            must: [
-              { match: { deleted: false } },
-              { match: { 'genes.raw': 'Gene 1' } },
-              { match: { genomed: true } },
-            ],
-          },
-        },
-        from: 0,
-        size: 100,
-        sort: [{ published_at: 'desc' }, { id: 'desc' }],
-      }
-      genomedFilter = 'SHOW_GENOMED'
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        partner,
-        publishedFilter,
-        tags,
-      }
+      params.publishedFilter = 'SHOW_PUBLISHED'
+
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
@@ -742,21 +508,78 @@ describe('buildElasticsearchQuery', () => {
         size: 100,
         sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
-      acquireableOrOfferableFilter = 'SHOW_ACQUIREABLE_OR_OFFERABLE'
-      const params = {
-        artists,
-        attributionClass,
-        createdAfterDate,
-        createdBeforeDate,
-        fair,
-        genes,
-        genomedFilter,
-        keywords,
-        acquireableOrOfferableFilter,
-        partner,
-        publishedFilter,
-        tags,
+
+      params.acquireableOrOfferableFilter = 'SHOW_ACQUIREABLE_OR_OFFERABLE'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('modifies a query with the value of the "for sale" filter', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+              { match: { for_sale: true } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
       }
+      params.forSaleFilter = 'SHOW_FOR_SALE'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+  })
+
+  describe('sort orders', () => {
+    beforeEach(() => {
+      params.genes = [{ id: 'gene1', name: 'Gene 1' }]
+    })
+
+    it('sorts by merchandisability', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ merchandisability: 'desc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'MERCHANDISABILITY'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('sorts by publish date', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'RECENTLY_PUBLISHED'
+
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })

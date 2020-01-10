@@ -399,8 +399,6 @@ exports[`renders a modal when previewing 1`] = `
           true
            
           <br />
-          Genomed: 
-          true
         </p>
         …
       </div>

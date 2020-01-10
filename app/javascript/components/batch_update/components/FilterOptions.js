@@ -6,8 +6,8 @@ function FilterOptions(props) {
   const {
     className,
     publishedFilter,
-    genomedFilter,
     acquireableOrOfferableFilter,
+    forSaleFilter,
     updateState,
   } = props
 
@@ -19,13 +19,13 @@ function FilterOptions(props) {
         updateState={updateState}
       />
       <FilterOption
-        current={genomedFilter}
-        name="genomed"
+        current={acquireableOrOfferableFilter}
+        name="acquireableOrOfferable"
         updateState={updateState}
       />
       <FilterOption
-        current={acquireableOrOfferableFilter}
-        name="acquireableOrOfferable"
+        current={forSaleFilter}
+        name="forSale"
         updateState={updateState}
       />
     </div>

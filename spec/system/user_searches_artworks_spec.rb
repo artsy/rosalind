@@ -2,10 +2,16 @@ require 'rails_helper'
 
 describe 'User searches artworks', js: true do
   before do
+    ActionController::Base.allow_forgery_protection = true
+
     allow_any_instance_of(ApplicationController).to receive(:find_current_user)
     allow_any_instance_of(ApplicationController).to receive(:require_admin_or_genomer)
 
     allow(ArtworkSearchService).to receive(:call).and_return(search_response)
+  end
+
+  after do
+    ActionController::Base.allow_forgery_protection = false
   end
 
   let(:hits) do

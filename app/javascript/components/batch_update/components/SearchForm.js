@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import copy from 'copy-to-clipboard'
 import styled from 'styled-components'
 import CurrentCriteria from './CurrentCriteria'
 import { CreatedAfterDateInput, CreatedBeforeDateInput } from './DateInput'
@@ -13,8 +14,8 @@ import {
   TagAutosuggest,
 } from './Autosuggest'
 import FilterOptions from './FilterOptions'
-import { Button } from '@artsy/palette'
-import { Link } from './Links'
+import { SortOptions } from './SortOptions'
+import { Button, Flex } from '@artsy/palette'
 import { SitesConsumer } from '../SitesContext'
 
 class SearchForm extends React.Component {
@@ -44,7 +45,10 @@ class SearchForm extends React.Component {
           <Button width={1} onClick={onOpenBatchUpdate}>
             Edit Artworks
           </Button>
-          <HelixLink selectedArtworkIds={selectedArtworkIds} />
+          <Flex mt={2} justifyContent="space-between">
+            <HelixButton selectedArtworkIds={selectedArtworkIds} />
+            <CopyIdsToClipboard selectedArtworkIds={selectedArtworkIds} />
+          </Flex>
         </>
       )
     }
@@ -67,11 +71,14 @@ class SearchForm extends React.Component {
       onRemoveTag,
       onRemoveArtist,
       partner,
+      restrictedArtworkIDs,
+      sort,
       tags,
     } = this.props
 
     const {
       onAddKeyword,
+      onAddRestrictedArtworkIDs,
       onAddGene,
       onAddTag,
       onAddArtist,
@@ -79,15 +86,16 @@ class SearchForm extends React.Component {
     } = this.props
 
     const {
-      genomedFilter,
       acquireableOrOfferableFilter,
       publishedFilter,
+      forSaleFilter,
     } = this.props
 
     return (
       <div className={this.props.className}>
         <CurrentCriteria
           artists={artists}
+          restrictedArtworkIDs={restrictedArtworkIDs}
           attributionClass={attributionClass}
           clearState={clearState}
           createdAfterDate={createdAfterDate}
@@ -135,9 +143,17 @@ class SearchForm extends React.Component {
           maxPrice={maxPrice}
           updateState={updateState}
         />
+
+        <TextInput
+          placeholder="Restrict to artwork IDs"
+          onEnter={onAddRestrictedArtworkIDs}
+        />
+
+        <SortOptions sort={sort} updateState={updateState} />
+
         <FilterOptions
-          genomedFilter={genomedFilter}
           acquireableOrOfferableFilter={acquireableOrOfferableFilter}
+          forSaleFilter={forSaleFilter}
           publishedFilter={publishedFilter}
           updateState={updateState}
         />
@@ -148,7 +164,7 @@ class SearchForm extends React.Component {
   }
 }
 
-const HelixLink = ({ selectedArtworkIds }) => {
+const HelixButton = ({ selectedArtworkIds }) => {
   return (
     <SitesConsumer>
       {sites => {
@@ -156,19 +172,45 @@ const HelixLink = ({ selectedArtworkIds }) => {
           sites.helix
         }/genome/artworks?artwork_ids=${selectedArtworkIds.join(',')}`
         return (
-          <StyledLink target="_blank" rel="noopener noreferrer" href={href}>
-            Open selected works in Helix
-          </StyledLink>
+          <Button
+            width="50%"
+            mr={1}
+            size="small"
+            variant="secondaryGray"
+            onClick={() => window.open(href)}
+          >
+            Open in Helix
+          </Button>
         )
       }}
     </SitesConsumer>
   )
 }
 
-const StyledLink = styled(Link)`
-  display: block;
-  margin-top: 1em;
-`
+const CopyIdsToClipboard = ({ selectedArtworkIds, ...props }) => {
+  const [clicked, setClicked] = useState(false)
+
+  return (
+    <Button
+      width="50%"
+      ml={1}
+      size="small"
+      variant="secondaryGray"
+      onClick={() => {
+        setClicked(true)
+        setTimeout(() => {
+          setClicked(false)
+        }, 1000)
+        event.preventDefault()
+        copy(selectedArtworkIds)
+        return false
+      }}
+      {...props}
+    >
+      Copy IDs {clicked && '✔'}
+    </Button>
+  )
+}
 
 /* default styled component */
 

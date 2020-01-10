@@ -22,6 +22,18 @@ beforeEach(() => {
 
 describe('state mutations', () => {
   describe('search criteria', () => {
+    beforeAll(() => {
+      // We assume the existence of a <meta> tag containing the
+      // Rails-generated CSRF token. This is how we mock access to
+      // that tag.
+      // https://github.com/facebook/jest/issues/2297
+      Object.defineProperty(document, 'querySelector', {
+        value: () => {
+          return { content: 'very secret csrf token' }
+        },
+      })
+    })
+
     test('genes can be added and removed', () => {
       const gene1 = { id: 'one', name: 'One' }
       const gene2 = { id: 'two', name: 'Two' }

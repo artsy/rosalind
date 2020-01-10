@@ -119,6 +119,18 @@ $ hokusai dev start
 Rosalind uses Gravity to get detail about some models. See the [gravity
 docs][xapp] for the process.
 
+## Elasticsearch Connection
+
+Rosalind communicates directly with the Elasticsearch cluster to search for
+artworks. Elasticsearch is guarded behind a VPN, so to retrieve artwork search
+results locally, make sure you're connected to VPN associated with the
+environment you're targeting (production or staging).
+
+See documentation available [here][readme-vpn-docs] or [here][infra-vpn-docs]
+
+[readme-vpn-docs]: https://github.com/artsy/potential/blob/master/platform/VPN.md
+[infra-vpn-docs]: https://github.com/artsy/infrastructure#vpn
+
 ## Contributing Pull Requests
 
 Rosalind accepts PRs from branches on the main artsy/rosalind repo. PRs from forks will not be built in the CI environment and cannot be merged directly.

@@ -83,7 +83,6 @@ class ArtworkPreviewModal extends React.Component {
       name,
       image_url: imageUrl,
       published,
-      genomed,
       deleted,
     } = this.props.artwork
     const moreInfo = this.state.fullArtworksById[id]
@@ -102,7 +101,6 @@ class ArtworkPreviewModal extends React.Component {
             <p className="status">
               Deleted: {deleted.toString()} <br />
               Published: {published.toString()} <br />
-              Genomed: {genomed.toString()}
             </p>
             {moreInfo ? (
               <p className="more">

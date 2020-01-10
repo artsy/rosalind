@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :artworks, only: :show
 
   # searches and autocompletes
-  get 'match/artworks'
+  post 'match/artworks'
   get 'match/genes'
   get 'match/tags'
   get 'match/fairs'

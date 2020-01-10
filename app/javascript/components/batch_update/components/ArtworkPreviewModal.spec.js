@@ -15,7 +15,6 @@ beforeEach(() => {
     image_url: 'can.jpg',
     deleted: false,
     published: true,
-    genomed: true,
     category: 'Painting',
     medium: 'oil on canvas',
     dimensions: {

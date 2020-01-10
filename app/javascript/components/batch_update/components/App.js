@@ -26,7 +26,6 @@ class App extends React.Component {
       createdBeforeDate: null,
       fair: null,
       genes: [],
-      genomedFilter: 'SHOW_ALL',
       isLoading: false,
       isSpecifyingBatchUpdate: false,
       keywords: [],
@@ -34,11 +33,14 @@ class App extends React.Component {
       minPrice: null,
       notices: [],
       acquireableOrOfferableFilter: 'SHOW_ALL',
+      forSaleFilter: 'SHOW_ALL',
       partner: null,
       previewedArtwork: null,
       publishedFilter: 'SHOW_ALL',
+      restrictedArtworkIDs: [],
       selectedArtworkIds: [],
       size: 100,
+      sort: 'RECENTLY_PUBLISHED',
       tags: [],
       totalHits: null,
     }
@@ -52,6 +54,7 @@ class App extends React.Component {
     this.onAddArtist = this.onAddArtist.bind(this)
     this.onRemoveKeyword = this.onRemoveKeyword.bind(this)
     this.onAddKeyword = this.onAddKeyword.bind(this)
+    this.onAddRestrictedArtworkIDs = this.onAddRestrictedArtworkIDs.bind(this)
     this.updateStateFor = this.updateStateFor.bind(this)
     this.clearStateFor = this.clearStateFor.bind(this)
 
@@ -107,15 +110,17 @@ class App extends React.Component {
       this.state.createdBeforeDate !== prevState.createdBeforeDate ||
       this.state.fair !== prevState.fair ||
       this.state.genes !== prevState.genes ||
-      this.state.genomedFilter !== prevState.genomedFilter ||
       this.state.keywords !== prevState.keywords ||
       this.state.acquireableOrOfferableFilter !==
         prevState.acquireableOrOfferableFilter ||
+      this.state.forSaleFilter !== prevState.forSaleFilter ||
       this.state.minPrice !== prevState.minPrice ||
       this.state.maxPrice !== prevState.maxPrice ||
       this.state.partner !== prevState.partner ||
       this.state.publishedFilter !== prevState.publishedFilter ||
-      this.state.tags !== prevState.tags
+      this.state.sort !== prevState.sort ||
+      this.state.tags !== prevState.tags ||
+      this.state.restrictedArtworkIDs !== prevState.restrictedArtworkIDs
     )
   }
 
@@ -127,7 +132,8 @@ class App extends React.Component {
       this.state.genes.length !== 0 ||
       this.state.keywords.length !== 0 ||
       this.state.partner !== null ||
-      this.state.tags.length !== 0
+      this.state.tags.length !== 0 ||
+      this.state.restrictedArtworkIDs.length !== 0
     )
   }
 
@@ -139,14 +145,16 @@ class App extends React.Component {
       createdBeforeDate,
       fair,
       genes,
-      genomedFilter,
       keywords,
       acquireableOrOfferableFilter,
+      forSaleFilter,
       maxPrice,
       minPrice,
       partner,
       publishedFilter,
+      restrictedArtworkIDs,
       size,
+      sort,
       tags,
     } = this.state
 
@@ -164,19 +172,24 @@ class App extends React.Component {
         createdBeforeDate,
         fair,
         genes,
-        genomedFilter,
         keywords,
         acquireableOrOfferableFilter,
+        forSaleFilter,
         maxPrice,
         minPrice,
         partner,
         publishedFilter,
+        restrictedArtworkIDs,
         size,
+        sort,
         tags,
       })
 
       this.setState({ isLoading: true })
-      matchArtworks(query).then(hits => {
+
+      const csrfToken = document.querySelector('meta[name=csrf-token]').content
+
+      matchArtworks(query, csrfToken).then(hits => {
         const totalHits = hits.total
         const artworks = hits.hits.map(hit => hit._source)
         this.setState({
@@ -192,22 +205,24 @@ class App extends React.Component {
   fetchMoreArtworks() {
     const {
       artists,
+      artworks,
       attributionClass,
       createdAfterDate,
       createdBeforeDate,
       fair,
       genes,
-      genomedFilter,
       keywords,
       acquireableOrOfferableFilter,
+      forSaleFilter,
       maxPrice,
       minPrice,
       partner,
       publishedFilter,
+      restrictedArtworkIDs,
+      size,
+      sort,
       tags,
     } = this.state
-
-    const { artworks, size } = this.state
 
     const from = artworks.length
 
@@ -219,14 +234,16 @@ class App extends React.Component {
       fair,
       from,
       genes,
-      genomedFilter,
       keywords,
       acquireableOrOfferableFilter,
+      forSaleFilter,
       maxPrice,
       minPrice,
       partner,
       publishedFilter,
+      restrictedArtworkIDs,
       size,
+      sort,
       tags,
     })
 
@@ -307,8 +324,22 @@ class App extends React.Component {
       })
   }
 
+  onAddRestrictedArtworkIDs(artworkIDs) {
+    this.setState({
+      restrictedArtworkIDs: artworkIDs
+        .split(/\s+/)
+        .map(part => part.split(','))
+        .flat()
+        .map(id => id.trim()),
+    })
+  }
+
   clearStateFor(name = null, key) {
-    this.setState({ [key]: null })
+    if (Array.isArray(this.state[key])) {
+      this.setState({ [key]: [] })
+    } else {
+      this.setState({ [key]: null })
+    }
   }
 
   updateStateFor(key, newState) {
@@ -415,15 +446,17 @@ class App extends React.Component {
       createdBeforeDate,
       fair,
       genes,
-      genomedFilter,
       isLoading,
       isSpecifyingBatchUpdate,
       keywords,
       acquireableOrOfferableFilter,
+      forSaleFilter,
       partner,
       previewedArtwork,
       publishedFilter,
+      restrictedArtworkIDs,
       selectedArtworkIds,
+      sort,
       tags,
       totalHits,
       minPrice,
@@ -441,11 +474,12 @@ class App extends React.Component {
             createdBeforeDate={createdBeforeDate}
             fair={fair}
             genes={genes}
-            genomedFilter={genomedFilter}
             keywords={keywords}
             acquireableOrOfferableFilter={acquireableOrOfferableFilter}
+            forSaleFilter={forSaleFilter}
             maxPrice={maxPrice}
             minPrice={minPrice}
+            onAddRestrictedArtworkIDs={this.onAddRestrictedArtworkIDs}
             onAddArtist={this.onAddArtist}
             onAddGene={this.onAddGene}
             onAddKeyword={this.onAddKeyword}
@@ -457,8 +491,10 @@ class App extends React.Component {
             onRemoveTag={this.onRemoveTag}
             partner={partner}
             publishedFilter={publishedFilter}
+            restrictedArtworkIDs={restrictedArtworkIDs}
             selectedArtworkIds={selectedArtworkIds}
             selectedArtworksCount={selectedArtworkIds.length}
+            sort={sort}
             tags={tags}
             updateState={this.updateStateFor}
           />
