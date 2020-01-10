@@ -10,7 +10,7 @@ RSpec.describe MatchController, type: :controller do
       let!(:elasticsearch_request) { stub_elasticsearch_request path: 'artwork/_search', query: query, response_hits: hits }
 
       it 'issues the correct elasticsearch query' do
-        get :artworks, params: { query: query }
+        post :artworks, params: { query: query }
         expect(elasticsearch_request).to have_been_made
       end
     end
