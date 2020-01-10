@@ -39,6 +39,7 @@ class App extends React.Component {
       publishedFilter: 'SHOW_ALL',
       selectedArtworkIds: [],
       size: 100,
+      sort: 'RECENTLY_PUBLISHED',
       tags: [],
       totalHits: null,
     }
@@ -115,6 +116,7 @@ class App extends React.Component {
       this.state.maxPrice !== prevState.maxPrice ||
       this.state.partner !== prevState.partner ||
       this.state.publishedFilter !== prevState.publishedFilter ||
+      this.state.sort !== prevState.sort ||
       this.state.tags !== prevState.tags
     )
   }
@@ -147,6 +149,7 @@ class App extends React.Component {
       partner,
       publishedFilter,
       size,
+      sort,
       tags,
     } = this.state
 
@@ -172,6 +175,7 @@ class App extends React.Component {
         partner,
         publishedFilter,
         size,
+        sort,
         tags,
       })
 
@@ -192,6 +196,7 @@ class App extends React.Component {
   fetchMoreArtworks() {
     const {
       artists,
+      artworks,
       attributionClass,
       createdAfterDate,
       createdBeforeDate,
@@ -204,10 +209,10 @@ class App extends React.Component {
       minPrice,
       partner,
       publishedFilter,
+      size,
+      sort,
       tags,
     } = this.state
-
-    const { artworks, size } = this.state
 
     const from = artworks.length
 
@@ -227,6 +232,7 @@ class App extends React.Component {
       partner,
       publishedFilter,
       size,
+      sort,
       tags,
     })
 
@@ -424,6 +430,7 @@ class App extends React.Component {
       previewedArtwork,
       publishedFilter,
       selectedArtworkIds,
+      sort,
       tags,
       totalHits,
       minPrice,
@@ -459,6 +466,7 @@ class App extends React.Component {
             publishedFilter={publishedFilter}
             selectedArtworkIds={selectedArtworkIds}
             selectedArtworksCount={selectedArtworkIds.length}
+            sort={sort}
             tags={tags}
             updateState={this.updateStateFor}
           />
