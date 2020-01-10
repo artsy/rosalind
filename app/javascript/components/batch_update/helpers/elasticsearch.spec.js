@@ -17,6 +17,7 @@ describe('buildElasticsearchQuery', () => {
       minPrice: null,
       partner: null,
       publishedFilter: null,
+      restrictedArtworkIDs: [],
       sort: 'RECENTLY_PUBLISHED',
       tags: [],
     }
@@ -433,6 +434,25 @@ describe('buildElasticsearchQuery', () => {
 
       params.minPrice = 1000
       params.maxPrice = 2000
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('filters a query with a list artwork ids', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [{ match: { deleted: false } }],
+            filter: { terms: { id: ['bson-id-1', 'bson-id-2', 'bson-id-3'] } },
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+
+      params.restrictedArtworkIDs = ['bson-id-1', 'bson-id-2', 'bson-id-3']
 
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
