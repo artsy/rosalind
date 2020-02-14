@@ -15,3 +15,4 @@ services:
     image: postgres:9.6
     environment:
       - POSTGRES_DB=rosalind_test
+      - POSTGRES_HOST_AUTH_METHOD=trust
