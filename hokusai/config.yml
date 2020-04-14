@@ -1,5 +1,7 @@
 ---
 project-name: rosalind
 git-remote: git@github.com:artsy/rosalind.git
-hokusai-required-version: "~=0.5"
+hokusai-required-version: ">=0.5.8"
 pre-deploy: 'rake db:migrate'
+template-config-files:
+  - s3://artsy-citadel/k8s/hokusai-vars.yml
