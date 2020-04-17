@@ -110,7 +110,6 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   font-size: px;
   line-height: px;
   padding: 5px 26px 5px 10px;
-  margin: 0;
 }
 
 .c4 select:-moz-focusring {
@@ -689,7 +688,6 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   font-size: px;
   line-height: px;
   padding: 5px 26px 5px 10px;
-  margin: 0;
 }
 
 .c4 select:-moz-focusring {
@@ -1384,7 +1382,6 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   font-size: px;
   line-height: px;
   padding: 5px 26px 5px 10px;
-  margin: 0;
 }
 
 .c4 select:-moz-focusring {
@@ -2031,7 +2028,6 @@ exports[`does not render attribution class autosuggest if it is already selected
   font-size: px;
   line-height: px;
   padding: 5px 26px 5px 10px;
-  margin: 0;
 }
 
 .c5 select:-moz-focusring {
@@ -2580,7 +2576,6 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
   font-size: px;
   line-height: px;
   padding: 5px 26px 5px 10px;
-  margin: 0;
 }
 
 .c5 select:-moz-focusring {
@@ -3129,7 +3124,6 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
   font-size: px;
   line-height: px;
   padding: 5px 26px 5px 10px;
-  margin: 0;
 }
 
 .c5 select:-moz-focusring {
@@ -3654,7 +3648,6 @@ exports[`renders correctly 1`] = `
   font-size: px;
   line-height: px;
   padding: 5px 26px 5px 10px;
-  margin: 0;
 }
 
 .c4 select:-moz-focusring {
