@@ -1300,8 +1300,8 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   border: 2px solid;
   border-radius: 3px;
   margin-right: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   width: 50%;
   height: 26px;
   -webkit-transition: 0.25s ease;
@@ -1334,8 +1334,8 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   border: 2px solid;
   border-radius: 3px;
   margin-left: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   width: 50%;
   height: 26px;
   -webkit-transition: 0.25s ease;
