@@ -426,6 +426,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
           display="inline"
           fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
           fontSize="12px"
+          style={Object {}}
         >
           Sort
           :
@@ -1013,6 +1014,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
           display="inline"
           fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
           fontSize="12px"
+          style={Object {}}
         >
           Sort
           :
@@ -1138,6 +1140,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
         }
       }
       fontSize="14px"
+      style={Object {}}
     >
       Edit Artworks
     </div>
@@ -1724,6 +1727,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
           display="inline"
           fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
           fontSize="12px"
+          style={Object {}}
         >
           Sort
           :
@@ -1848,6 +1852,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         }
       }
       fontSize="14px"
+      style={Object {}}
     >
       Edit Artworks
     </div>
@@ -1870,6 +1875,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
           }
         }
         fontSize="12px"
+        style={Object {}}
       >
         Open in Helix
       </div>
@@ -1889,6 +1895,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
           }
         }
         fontSize="12px"
+        style={Object {}}
       >
         Copy IDs 
       </div>
@@ -2334,6 +2341,7 @@ exports[`does not render attribution class autosuggest if it is already selected
           display="inline"
           fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
           fontSize="12px"
+          style={Object {}}
         >
           Sort
           :
@@ -2883,6 +2891,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
           display="inline"
           fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
           fontSize="12px"
+          style={Object {}}
         >
           Sort
           :
@@ -3432,6 +3441,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
           display="inline"
           fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
           fontSize="12px"
+          style={Object {}}
         >
           Sort
           :
@@ -3970,6 +3980,7 @@ exports[`renders correctly 1`] = `
           display="inline"
           fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
           fontSize="12px"
+          style={Object {}}
         >
           Sort
           :

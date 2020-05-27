@@ -178,6 +178,7 @@ exports[`renders correctly when closed 1`] = `
           }
         }
         fontSize="14px"
+        style={Object {}}
       >
         Go back
       </div>
@@ -196,6 +197,7 @@ exports[`renders correctly when closed 1`] = `
           }
         }
         fontSize="14px"
+        style={Object {}}
       >
         Continue
       </div>
@@ -382,6 +384,7 @@ exports[`renders correctly when open 1`] = `
           }
         }
         fontSize="14px"
+        style={Object {}}
       >
         Go back
       </div>
@@ -400,6 +403,7 @@ exports[`renders correctly when open 1`] = `
           }
         }
         fontSize="14px"
+        style={Object {}}
       >
         Continue
       </div>
