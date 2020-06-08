@@ -240,6 +240,7 @@ exports[`renders correctly 1`] = `
           }
         }
         fontSize="14px"
+        style={Object {}}
       >
         Queue changes
       </div>
@@ -249,6 +250,7 @@ exports[`renders correctly 1`] = `
     className="c5 "
     fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
     fontSize="28px"
+    style={Object {}}
   >
     Tags
   </div>
@@ -292,6 +294,7 @@ exports[`renders correctly 1`] = `
     className="c7 "
     fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
     fontSize="28px"
+    style={Object {}}
   >
     Genes
   </div>
@@ -362,6 +365,7 @@ exports[`renders correctly 1`] = `
             }
           }
           fontSize="14px"
+          style={Object {}}
         >
           Go back
         </div>
@@ -380,6 +384,7 @@ exports[`renders correctly 1`] = `
             }
           }
           fontSize="14px"
+          style={Object {}}
         >
           Continue
         </div>
