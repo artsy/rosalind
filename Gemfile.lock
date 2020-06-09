@@ -378,13 +378,13 @@ DEPENDENCIES
   pg
   pry-rails
   puma
-  rails (~> 5.2.0)
+  rails (= 5.2.4.1)
   rspec-rails
   rubocop
   rubocop-rails
   sassc-rails
   sentry-raven
-  sidekiq (~> 5.2)
+  sidekiq (= 5.2.7)
   spring
   spring-watcher-listen
   typhoeus
