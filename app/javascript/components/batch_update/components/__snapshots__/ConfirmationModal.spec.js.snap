@@ -15,6 +15,7 @@ exports[`renders correctly when closed 1`] = `
   white-space: nowrap;
   border: 2px solid;
   border-radius: 3px;
+  border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;
   padding-left: 20px;
@@ -48,6 +49,7 @@ exports[`renders correctly when closed 1`] = `
   position: relative;
   white-space: nowrap;
   border: 2px solid;
+  border-radius: 3px;
   border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
@@ -165,7 +167,7 @@ exports[`renders correctly when closed 1`] = `
     className="c1"
   >
     <button
-      className="c2  "
+      className="c2 dismiss"
       height="41px"
       onClick={[Function]}
     >
@@ -184,7 +186,7 @@ exports[`renders correctly when closed 1`] = `
       </div>
     </button>
     <button
-      className="c4  "
+      className="c4 accept"
       height="41px"
       onClick={[Function]}
     >
@@ -221,6 +223,7 @@ exports[`renders correctly when open 1`] = `
   white-space: nowrap;
   border: 2px solid;
   border-radius: 3px;
+  border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;
   padding-left: 20px;
@@ -254,6 +257,7 @@ exports[`renders correctly when open 1`] = `
   position: relative;
   white-space: nowrap;
   border: 2px solid;
+  border-radius: 3px;
   border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
@@ -371,7 +375,7 @@ exports[`renders correctly when open 1`] = `
     className="c1"
   >
     <button
-      className="c2  "
+      className="c2 dismiss"
       height="41px"
       onClick={[Function]}
     >
@@ -390,7 +394,7 @@ exports[`renders correctly when open 1`] = `
       </div>
     </button>
     <button
-      className="c4  "
+      className="c4 accept"
       height="41px"
       onClick={[Function]}
     >

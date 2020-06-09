@@ -134,16 +134,16 @@ exports[`renders correctly 1`] = `
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
-  margin-bottom: 4px;
   margin-top: 16px;
+  margin-bottom: 4px;
 }
 
 .c20 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
-  margin-bottom: 4px;
   margin-top: 32px;
+  margin-bottom: 4px;
 }
 
 .c9 {
@@ -151,6 +151,7 @@ exports[`renders correctly 1`] = `
   position: relative;
   white-space: nowrap;
   border: 2px solid;
+  border-radius: 3px;
   border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
@@ -185,6 +186,7 @@ exports[`renders correctly 1`] = `
   white-space: nowrap;
   border: 2px solid;
   border-radius: 3px;
+  border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
   height: 41px;
@@ -216,6 +218,7 @@ exports[`renders correctly 1`] = `
   position: relative;
   white-space: nowrap;
   border: 2px solid;
+  border-radius: 3px;
   border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;
@@ -265,8 +268,6 @@ exports[`renders correctly 1`] = `
   text-overflow: "";
   background-color: #E5E5E5;
   border-radius: 2px;
-  font-size: px;
-  line-height: px;
   padding: 5px 26px 5px 10px;
   margin: 0;
 }
@@ -917,7 +918,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <button
-        className="c9  disabled"
+        className="c9 disabled"
         disabled={true}
         height="41px"
         onClick={[Function]}
@@ -971,7 +972,7 @@ exports[`renders correctly 1`] = `
            works selected
         </div>
         <button
-          className="c17  disabled"
+          className="c17 disabled queue"
           disabled={true}
           height="41px"
           onClick={[Function]}
@@ -1097,7 +1098,7 @@ exports[`renders correctly 1`] = `
           className="c22"
         >
           <button
-            className="c23  "
+            className="c23 dismiss"
             height="41px"
             onClick={[Function]}
           >
@@ -1116,7 +1117,7 @@ exports[`renders correctly 1`] = `
             </div>
           </button>
           <button
-            className="c17  "
+            className="c17 accept"
             height="41px"
             onClick={[Function]}
           >
