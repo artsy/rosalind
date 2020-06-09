@@ -107,8 +107,6 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   text-overflow: "";
   background-color: #E5E5E5;
   border-radius: 2px;
-  font-size: px;
-  line-height: px;
   padding: 5px 26px 5px 10px;
   margin: 0;
 }
@@ -640,6 +638,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   white-space: nowrap;
   border: 2px solid;
   border-radius: 3px;
+  border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
@@ -687,8 +686,6 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   text-overflow: "";
   background-color: #E5E5E5;
   border-radius: 2px;
-  font-size: px;
-  line-height: px;
   padding: 5px 26px 5px 10px;
   margin: 0;
 }
@@ -1125,7 +1122,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <button
-    className="c7  disabled"
+    className="c7 disabled"
     disabled={true}
     height="41px"
     onClick={[Function]}
@@ -1232,11 +1229,11 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 8px;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin-top: 8px;
 }
 
 .c5 {
@@ -1268,6 +1265,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   position: relative;
   white-space: nowrap;
   border: 2px solid;
+  border-radius: 3px;
   border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
@@ -1302,6 +1300,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   white-space: nowrap;
   border: 2px solid;
   border-radius: 3px;
+  border-radius: 3px;
   margin-right: 10px;
   padding-left: 15px;
   padding-right: 15px;
@@ -1335,6 +1334,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   position: relative;
   white-space: nowrap;
   border: 2px solid;
+  border-radius: 3px;
   border-radius: 3px;
   margin-left: 10px;
   padding-left: 15px;
@@ -1384,8 +1384,6 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   text-overflow: "";
   background-color: #E5E5E5;
   border-radius: 2px;
-  font-size: px;
-  line-height: px;
   padding: 5px 26px 5px 10px;
   margin: 0;
 }
@@ -1838,7 +1836,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <button
-    className="c7  "
+    className="c7"
     height="41px"
     onClick={[Function]}
     width={1}
@@ -1861,7 +1859,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     className="c9"
   >
     <button
-      className="c10  "
+      className="c10"
       height="26px"
       onClick={[Function]}
       width="50%"
@@ -1881,7 +1879,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
       </div>
     </button>
     <button
-      className="c12  "
+      className="c12"
       height="26px"
       onClick={[Function]}
       width="50%"
@@ -2035,8 +2033,6 @@ exports[`does not render attribution class autosuggest if it is already selected
   text-overflow: "";
   background-color: #E5E5E5;
   border-radius: 2px;
-  font-size: px;
-  line-height: px;
   padding: 5px 26px 5px 10px;
   margin: 0;
 }
@@ -2585,8 +2581,6 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
   text-overflow: "";
   background-color: #E5E5E5;
   border-radius: 2px;
-  font-size: px;
-  line-height: px;
   padding: 5px 26px 5px 10px;
   margin: 0;
 }
@@ -3135,8 +3129,6 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
   text-overflow: "";
   background-color: #E5E5E5;
   border-radius: 2px;
-  font-size: px;
-  line-height: px;
   padding: 5px 26px 5px 10px;
   margin: 0;
 }
@@ -3661,8 +3653,6 @@ exports[`renders correctly 1`] = `
   text-overflow: "";
   background-color: #E5E5E5;
   border-radius: 2px;
-  font-size: px;
-  line-height: px;
   padding: 5px 26px 5px 10px;
   margin: 0;
 }

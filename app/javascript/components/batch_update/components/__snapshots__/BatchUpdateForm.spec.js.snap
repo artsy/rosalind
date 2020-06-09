@@ -17,16 +17,16 @@ exports[`renders correctly 1`] = `
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
-  margin-bottom: 4px;
   margin-top: 16px;
+  margin-bottom: 4px;
 }
 
 .c7 {
   font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 28px;
   line-height: 36px;
-  margin-bottom: 4px;
   margin-top: 32px;
+  margin-bottom: 4px;
 }
 
 .c3 {
@@ -34,6 +34,7 @@ exports[`renders correctly 1`] = `
   position: relative;
   white-space: nowrap;
   border: 2px solid;
+  border-radius: 3px;
   border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
@@ -66,6 +67,7 @@ exports[`renders correctly 1`] = `
   position: relative;
   white-space: nowrap;
   border: 2px solid;
+  border-radius: 3px;
   border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;
@@ -226,7 +228,7 @@ exports[`renders correctly 1`] = `
        works selected
     </div>
     <button
-      className="c3  disabled"
+      className="c3 disabled queue"
       disabled={true}
       height="41px"
       onClick={[Function]}
@@ -352,7 +354,7 @@ exports[`renders correctly 1`] = `
       className="c9"
     >
       <button
-        className="c10  "
+        className="c10 dismiss"
         height="41px"
         onClick={[Function]}
       >
@@ -371,7 +373,7 @@ exports[`renders correctly 1`] = `
         </div>
       </button>
       <button
-        className="c3  "
+        className="c3 accept"
         height="41px"
         onClick={[Function]}
       >
