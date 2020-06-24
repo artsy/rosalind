@@ -190,6 +190,10 @@ spec:
       containers:
         - name: rosalind-sidekiq
           env:
+            - name: TRACE_AGENT_HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
             - name: MALLOC_ARENA_MAX
               value: "2"
           envFrom:
