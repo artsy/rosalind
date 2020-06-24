@@ -190,6 +190,8 @@ spec:
       containers:
         - name: rosalind-sidekiq
           env:
+            - name: RAILS_LOG_TO_STDOUT
+              value: 'true'
             - name: TRACE_AGENT_HOSTNAME
               valueFrom:
                 fieldRef:
