@@ -36,6 +36,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
+            - name: MALLOC_ARENA_MAX
+              value: "2"
           envFrom:
             - configMapRef:
                 name: rosalind-environment
@@ -187,6 +189,9 @@ spec:
     spec:
       containers:
         - name: rosalind-sidekiq
+          env:
+            - name: MALLOC_ARENA_MAX
+              value: "2"
           envFrom:
             - configMapRef:
                 name: rosalind-environment
