@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@artsy/palette@10.1.0":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-10.1.0.tgz#bceb841d339871451c47bed51c80d86b0a03609e"
-  integrity sha512-49ANTIMBFMFLsj1SYqtjoAFoQsb30O01jd/LVF3HVZU9I+H9OHEhHeBDtFBlZddXnVQXlMLrQJB5TsidU0MSkQ==
+"@artsy/palette@11.6.0":
+  version "11.6.0"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-11.6.0.tgz#b860134c1c434cc5104122d49a4e4e3b915915e6"
+  integrity sha512-zX5j1fN5t6oUHvoAymh2dBOvXeyYJVCMX7p1qd3eSNLujQVyNzb367vYji59qEsV05BEnAMNRmfXsp6xeRkEEA==
   dependencies:
     "@styled-system/theme-get" "^5.1.2"
     babel-plugin-styled-components "^1.10.0"
@@ -13,7 +13,7 @@
     d3-shape "^1.3.5"
     luxon "^1.15"
     rc-slider "^8.6.2"
-    react-lazy-load-image-component "^1.4.1-beta.0"
+    react-lazy-load-image-component "1.5.0"
     react-live "^1.12.0"
     react-powerplug "^1.0.0"
     react-remove-scroll "^2.3.0"
@@ -12567,10 +12567,10 @@ react-is@^16.6.3:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.3.tgz#d2d7462fcfcbe6ec0da56ad69047e47e56e7eac0"
   integrity sha512-u7FDWtthB4rWibG/+mFbVd5FvdI20yde86qKGx4lVUTWmPlSWQ4QxbBIrrs+HnXGbxOUlUzTAP/VDmvCwaP2yA==
 
-react-lazy-load-image-component@^1.4.1-beta.0:
-  version "1.4.1-beta.0"
-  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.4.1-beta.0.tgz#4b47fcda23b40412bc03f66442e419a23e5cae9d"
-  integrity sha512-SFYu44wAMRpN9afyoeerlSprjl3K/aokueZgTW/qbqmxkEbRLUSWubr5dM1cXEAcLxFruqGdjswzB8YI3KaPBQ==
+react-lazy-load-image-component@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.5.0.tgz#48939f86cb262b93b345c6fa6322f75ede55160d"
+  integrity sha512-dAvuueTq0FNjswHEII8tcd0FRRHZgPoIdVhE1fcAfCdqY7LZ37IHd0xWb2c6rCl+dsSm9Z4AloEffM8JYPxTlA==
   dependencies:
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"

@@ -1225,15 +1225,15 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
 }
 
 .c9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   margin-top: 8px;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .c5 {
@@ -1857,6 +1857,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   </button>
   <div
     className="c9"
+    display="flex"
   >
     <button
       className="c10"
