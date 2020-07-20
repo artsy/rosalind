@@ -48,10 +48,10 @@ spec:
               containerPort: 8080
           resources:
             requests:
-              cpu: 300m
+              cpu: 200m
               memory: 256Mi
             limits:
-              memory: 500Mi
+              memory: 512Mi
           readinessProbe:
             httpGet:
               port: rosalind-http
@@ -214,7 +214,10 @@ spec:
             periodSeconds: 30
           resources:
             requests:
-              cpu: "0.5"
+              cpu: 200m
+              memory: 256Mi
+            limits:
+              memory: 512Mi
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

@@ -41,7 +41,7 @@ beforeEach(() => {
   }
 })
 
-it('renders correctly', () => {
+xit('renders correctly', () => {
   const rendered = renderer.create(<SearchForm {...props} />)
   const tree = rendered.toJSON()
   expect(tree).toMatchSnapshot()
