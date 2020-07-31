@@ -257,7 +257,7 @@ metadata:
   name: rosalind
 spec:
   rules:
-    - host: n
+    - host: rosalind.artsy.net
       http:
         paths:
           - path: /
