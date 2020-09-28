@@ -2,16 +2,18 @@
 # yarn lockfile v1
 
 
-"@artsy/palette@11.13.0":
-  version "11.13.0"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-11.13.0.tgz#6ed31fe1d7e6917f375bb451d6131c3b444722c1"
-  integrity sha512-j4qhw0BZg/EV5v9fqW3oXHDybpOq7fo2oQciC6JaJzrYdKhSe5lt+T6DYMYiDYtMieaDio0gaeUNiuqNXrKaFw==
+"@artsy/palette@13.7.3":
+  version "13.7.3"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-13.7.3.tgz#f9a5d13e73ec9bf15ba625912f808e54bc3cd268"
+  integrity sha512-u74PFRpaBnH0NtPlT/jwhwBvz6Z/SEisseaqTUxgHudNgNpw6An8dVroOtNz4dgkD6KpGi4Cwq6tpHYDMBFTCw==
   dependencies:
     "@styled-system/theme-get" "^5.1.2"
     babel-plugin-styled-components "^1.10.0"
     d3-interpolate "^1.3.2"
     d3-shape "^1.3.5"
+    debounce "^1.2.0"
     luxon "^1.15"
+    proportional-scale "^4.0.0"
     rc-slider "^8.6.2"
     react-lazy-load-image-component "1.5.0"
     react-live "^1.12.0"
@@ -5558,6 +5560,11 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
+
+debounce@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
+  integrity sha512-mYtLl1xfZLi1m4RtQYlZgJUNQjl4ZxVnHzIR8nLLgi4q1YT8o/WM+MK/f8yfcc9s5Ir5zRaPZyZU6xs1Syoocg==
 
 debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
@@ -12014,6 +12021,11 @@ property-information@^5.0.0, property-information@^5.0.1:
   integrity sha512-tODH6R3+SwTkAQckSp2S9xyYX8dEKYkeXw+4TmJzTxnNzd6mQPu1OD4f9zPrvw/Rm4wpPgI+Zp63mNSGNzUgHg==
   dependencies:
     xtend "^4.0.1"
+
+proportional-scale@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/proportional-scale/-/proportional-scale-4.0.0.tgz#888ecdb1e5e710645601bc4edc73d619bca28ff7"
+  integrity sha512-QW0HeiudSHjBQvGnJ35W/gQYaOP09gFSf+xsYSfMYE1DQ+g26aKRN0Hlvce06WeARCUQSlLE7a+jFVMN5feB4Q==
 
 proxy-addr@~2.0.5:
   version "2.0.5"

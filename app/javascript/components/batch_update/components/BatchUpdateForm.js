@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import zipObject from 'lodash.zipobject'
 import pickBy from 'lodash.pickby'
 import { Link } from './Links'
-import { Button, Sans } from '@artsy/palette'
+import { Button, Text } from '@artsy/palette' // TODO
 import { colors } from './Layout'
 import GeneInput from './GeneInput'
 import { GeneAutosuggest, TagAutosuggest } from './Autosuggest'
@@ -309,17 +309,17 @@ class BatchUpdateForm extends React.Component {
           </Button>
         </Controls>
 
-        <Sans size="8" mt={3} mb={1}>
+        <Text variant="title" mt={3} mb={1}>
           Tags
-        </Sans>
+        </Text>
 
         {this.renderTagInputs()}
 
         <TagAutosuggest placeholder="Add a tag" onSelectTag={this.onAddTag} />
 
-        <Sans size="8" mt={4} mb={1}>
+        <Text variant="title" mt={4} mb={1}>
           Genes
-        </Sans>
+        </Text>
 
         {this.renderGeneInputs()}
 
