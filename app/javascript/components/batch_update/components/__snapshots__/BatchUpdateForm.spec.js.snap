@@ -5,28 +5,38 @@ exports[`renders correctly 1`] = `
   color: #666666;
 }
 
+.c5 {
+  margin-top: 16px;
+  margin-bottom: 4px;
+  font-size: size6;
+  line-height: title;
+  -webkit-letter-spacing: tight;
+  -moz-letter-spacing: tight;
+  -ms-letter-spacing: tight;
+  letter-spacing: tight;
+  font-weight: normal;
+  font-family: sans;
+}
+
+.c7 {
+  margin-top: 32px;
+  margin-bottom: 4px;
+  font-size: size6;
+  line-height: title;
+  -webkit-letter-spacing: tight;
+  -moz-letter-spacing: tight;
+  -ms-letter-spacing: tight;
+  letter-spacing: tight;
+  font-weight: normal;
+  font-family: sans;
+}
+
 .c4 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   padding-top: 1px;
-}
-
-.c5 {
-  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 28px;
-  line-height: 36px;
-  margin-top: 16px;
-  margin-bottom: 4px;
-}
-
-.c7 {
-  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 28px;
-  line-height: 36px;
-  margin-top: 32px;
-  margin-bottom: 4px;
 }
 
 .c3 {
@@ -194,6 +204,32 @@ exports[`renders correctly 1`] = `
   text-align: center;
 }
 
+@media (min-width:) {
+  .c5 {
+    font-size: size7;
+    line-height: title;
+    -webkit-letter-spacing: tight;
+    -moz-letter-spacing: tight;
+    -ms-letter-spacing: tight;
+    letter-spacing: tight;
+    font-weight: normal;
+    font-family: sans;
+  }
+}
+
+@media (min-width:) {
+  .c7 {
+    font-size: size7;
+    line-height: title;
+    -webkit-letter-spacing: tight;
+    -moz-letter-spacing: tight;
+    -ms-letter-spacing: tight;
+    letter-spacing: tight;
+    font-weight: normal;
+    font-family: sans;
+  }
+}
+
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
   .c3:hover {
     background-color: #6E1EFF;
@@ -249,10 +285,8 @@ exports[`renders correctly 1`] = `
     </button>
   </div>
   <div
-    className="c5 "
-    fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
-    fontSize="28px"
-    style={Object {}}
+    className="c5"
+    fontFamily="sans"
   >
     Tags
   </div>
@@ -293,10 +327,8 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="c7 "
-    fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
-    fontSize="28px"
-    style={Object {}}
+    className="c7"
+    fontFamily="sans"
   >
     Genes
   </div>
