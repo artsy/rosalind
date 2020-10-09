@@ -97,6 +97,8 @@ GEM
     connection_pool (2.2.2)
     cork (0.3.0)
       colored2 (~> 3.1)
+    coverband (5.0.3)
+      redis
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.5)
@@ -365,6 +367,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coffee-rails
+  coverband
   danger
   ddtrace
   decent_exposure
