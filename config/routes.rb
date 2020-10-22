@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get 'match/partners'
   get 'match/artists'
 
-  mount Sidekiq::Web => '/sidekiq', :constraints => AdminConstraint.new
+  mount Sidekiq::Web, at: '/sidekiq', constraints: AdminConstraint.new
+  mount Coverband::Reporters::Web.new, at: '/coverage', constraints: AdminConstraint.new
 end
