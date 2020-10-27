@@ -4,9 +4,7 @@ services:
   rosalind:
     command: sh -c 'bundle exec rails db:migrate && bundle exec puma -C config/puma.config'
     env_file: ../.env
-    extends:
-      file: build.yml
-      service: rosalind
+{% include 'templates/docker-compose-service.yml.j2' %}
     ports:
       - 5000:5000
     volumes:
@@ -19,9 +17,7 @@ services:
       - RAILS_ENV=development
       - REDIS_URL=redis://rosalind-redis
   worker:
-    extends:
-      file: build.yml
-      service: rosalind
+{% include 'templates/docker-compose-service.yml.j2' %}
     environment:
       - RAILS_ENV=development
       - DATABASE_URL=postgresql://postgres:@rosalind-postgres/rosalind_development
