@@ -1,15 +1,24 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rosalind-web
   namespace: default
+  labels:
+    app: rosalind
+    component: web
+    layer: application
 spec:
   strategy:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
     type: RollingUpdate
+  selector:
+    matchLabels:
+      app: rosalind
+      component: web
+      layer: application
   template:
     metadata:
       labels:
@@ -84,7 +93,7 @@ metadata:
   namespace: default
 spec:
   scaleTargetRef:
-    apiVersion: extensions/v1beta1
+    apiVersion: apps/v1
     kind: Deployment
     name: rosalind-web
   minReplicas: 1
@@ -98,23 +107,32 @@ metadata:
   namespace: default
 spec:
   scaleTargetRef:
-    apiVersion: extensions/v1beta1
+    apiVersion: apps/v1
     kind: Deployment
     name: rosalind-sidekiq
   minReplicas: 1
   maxReplicas: 2
   targetCPUUtilizationPercentage: 80
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rosalind-sidekiq
+  labels:
+    app: rosalind
+    layer: application
+    component: sidekiq
 spec:
   strategy:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
     type: RollingUpdate
+  selector:
+    matchLabels:
+      app: rosalind
+      layer: application
+      component: sidekiq
   template:
     metadata:
       labels:
@@ -188,16 +206,18 @@ spec:
   type: ClusterIP
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: rosalind
 spec:
+  ingressClassName: nginx
   rules:
     - host: rosalind-staging.artsy.net
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
               serviceName: rosalind-web-internal
               servicePort: http
