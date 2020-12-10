@@ -12,4 +12,6 @@ Coverband.configure do |config|
     'config/spring.rb',
     'lib/tasks/*'
   ]
+
+  config.use_oneshot_lines_coverage = true
 end
