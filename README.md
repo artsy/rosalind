@@ -159,8 +159,8 @@ pioneering work in X-ray crystallography led to the discovery of the double
 [deploy]: https://github.com/artsy/rosalind/compare/release...staging?expand=1
 [pull_1]: https://github.com/artsy/rosalind/pull/1
 [blog_post]: https://artsy.github.io/blog/2019/05/09/rosalind/
-[kubernetes_staging]: https://kubernetes-staging.artsy.net/#!/search?namespace=default&q=rosalind
-[kubernetes_production]: https://kubernetes.artsy.net/#!/search?namespace=default&q=rosalind
+[kubernetes_staging]: https://kubernetes.stg.artsy.systems/#!/search?namespace=default&q=rosalind
+[kubernetes_production]: https://kubernetes.prd.artsy.systems/#!/search?namespace=default&q=rosalind
 [sidekiq_staging]: https://rosalind-staging.artsy.net/sidekiq/
 [sidekiq_production]: https://rosalind.artsy.net/sidekiq/
 [papertrail_staging_web]: https://papertrailapp.com/searches/66122132
