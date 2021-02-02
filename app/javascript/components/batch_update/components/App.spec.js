@@ -1,14 +1,7 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import { shallow } from 'enzyme'
 import App from './App'
-
-xit('renders correctly', () => {
-  const app = renderer.create(<App />)
-  const tree = app.toJSON()
-  expect(tree).toMatchSnapshot()
-})
 
 let app
 

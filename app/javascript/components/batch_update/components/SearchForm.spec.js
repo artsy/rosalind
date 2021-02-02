@@ -42,12 +42,6 @@ beforeEach(() => {
   }
 })
 
-xit('renders correctly', () => {
-  const rendered = renderer.create(<SearchForm {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
-})
-
 it('does not render partner autosuggest if partner is already selected', () => {
   const partner = { id: 'nice-gallery', name: 'Nice Gallery' }
   Object.assign(props, { partner })

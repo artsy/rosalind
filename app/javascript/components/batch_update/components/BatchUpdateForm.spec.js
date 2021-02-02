@@ -1,5 +1,4 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import { mount } from 'enzyme'
 import BatchUpdateForm from './BatchUpdateForm'
@@ -22,12 +21,6 @@ beforeEach(() => {
     getCommonTags: jest.fn().mockReturnValueOnce(defaultCommonTags),
     onAddNotice: jest.fn(),
   }
-})
-
-it('renders correctly', () => {
-  const rendered = renderer.create(<BatchUpdateForm {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
 })
 
 it('renders the common genes for each new artwork selection', () => {
