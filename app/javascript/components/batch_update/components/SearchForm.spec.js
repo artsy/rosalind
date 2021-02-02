@@ -4,6 +4,7 @@ import 'jest-styled-components'
 import { mount } from 'enzyme'
 import moment from 'moment'
 import SearchForm from './SearchForm'
+import { Button } from '@artsy/palette'
 
 let props
 
@@ -130,15 +131,20 @@ describe('"edit artworks" button', () => {
   it('renders a disabled edit button if there are artworks, but none selected', () => {
     Object.assign(props, { artworksCount: 100, selectedArtworksCount: 0 })
     const rendered = renderer.create(<SearchForm {...props} />)
-    const tree = rendered.toJSON()
-    expect(tree).toMatchSnapshot()
+    const editButton = rendered.root
+      .findAllByType(Button)
+      .find(b => b.props.children === 'Edit Artworks')
+    expect(editButton.props.disabled).toEqual(true)
   })
 
   it('renders an enabled edit button if there are selected artworks', () => {
     Object.assign(props, { artworksCount: 100, selectedArtworksCount: 1 })
     const rendered = renderer.create(<SearchForm {...props} />)
-    const tree = rendered.toJSON()
-    expect(tree).toMatchSnapshot()
+    const editButton = rendered.root
+      .findAllByType(Button)
+      .find(b => b.props.children === 'Edit Artworks')
+    expect(editButton.props).not.toContain('disabled')
+    expect(true).toBe(true)
   })
 })
 
