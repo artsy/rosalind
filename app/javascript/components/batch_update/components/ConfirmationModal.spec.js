@@ -17,8 +17,8 @@ it('renders correctly when closed', () => {
   const rendered = renderer.create(
     <ConfirmationModal {...props}>I am closed</ConfirmationModal>
   )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const classNames = rendered.root.findByType('div').props.className
+  expect(classNames).not.toMatch('modal-open')
 })
 
 it('renders correctly when open', () => {
@@ -27,8 +27,8 @@ it('renders correctly when open', () => {
       I am open
     </ConfirmationModal>
   )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const classNames = rendered.root.findByType('div').props.className
+  expect(classNames).toMatch('modal-open')
 })
 
 describe('when the "Go back" button is clicked', () => {
