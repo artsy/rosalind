@@ -25,7 +25,7 @@ it('displays all options upon focus', () => {
   setImmediate(() => {
     // wait for next tick for promised matches
     wrapper.update()
-    expect(wrapper.find('li[role="option"]')).toHaveLength(7)
+    expect(wrapper.find('li[role="option"]')).toHaveLength(4)
   })
 })
 

@@ -4,13 +4,10 @@ import GenericAutosuggest from './GenericAutosuggest'
 import { getSuggestionValue, renderSuggestion } from './helpers'
 
 const attributionClasses = [
-  { name: 'Editioned multiple', value: 'editioned multiple' },
-  { name: 'Ephemera', value: 'ephemera' },
-  { name: 'Limited edition', value: 'limited edition' },
-  { name: 'Made-to-order', value: 'made-to-order' },
-  { name: 'Non-editioned multiple', value: 'non-editioned multiple' },
-  { name: 'Reproduction', value: 'reproduction' },
   { name: 'Unique', value: 'unique' },
+  { name: 'Limited edition', value: 'limited edition' },
+  { name: 'Open edition', value: 'open edition' },
+  { name: 'Unknown edition', value: 'unknown edition' },
 ]
 
 const getSuggestions = value => {
