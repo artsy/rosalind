@@ -1,6 +1,6 @@
 # Rosalind [![CircleCI][badge]][circle_ci]
 
-Rosalind is an admin app for large-batch operations on artist and artwork
+Rosalind is an admin app for large-batch operations on artwork
 genomes (Artsy-created genomes as well as "partner-applied categories").
 
 Among its major components are [Rails 5][rails_5] + [Kinetic][kinetic] on the
