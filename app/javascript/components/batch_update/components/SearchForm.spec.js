@@ -5,6 +5,11 @@ import { mount } from 'enzyme'
 import moment from 'moment'
 import SearchForm from './SearchForm'
 import { Button } from '@artsy/palette'
+import {
+  AttributionClassAutosuggest,
+  FairAutosuggest,
+  PartnerAutosuggest,
+} from './Autosuggest'
 
 let props
 
@@ -46,24 +51,23 @@ it('does not render partner autosuggest if partner is already selected', () => {
   const partner = { id: 'nice-gallery', name: 'Nice Gallery' }
   Object.assign(props, { partner })
   const rendered = renderer.create(<SearchForm {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  expect(rendered.root.findAllByType(PartnerAutosuggest)).toHaveLength(0)
 })
 
 it('does not render fair autosuggest if fair is already selected', () => {
   const fair = { id: 'nice-fair', name: 'Nice Fair' }
   Object.assign(props, { fair })
   const rendered = renderer.create(<SearchForm {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  expect(rendered.root.findAllByType(FairAutosuggest)).toHaveLength(0)
 })
 
 it('does not render attribution class autosuggest if it is already selected', () => {
   const attributionClass = { id: 'ephemera', name: 'Ephemera' }
   Object.assign(props, { attributionClass })
   const rendered = renderer.create(<SearchForm {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  expect(rendered.root.findAllByType(AttributionClassAutosuggest)).toHaveLength(
+    0
+  )
 })
 
 it('does not render createdAfterDate input if createdAfterDate is already entered', () => {
@@ -118,8 +122,10 @@ describe('"edit artworks" button', () => {
   it('does not render an edit button if there are no artworks', () => {
     Object.assign(props, { artworksCount: 0 })
     const rendered = renderer.create(<SearchForm {...props} />)
-    const tree = rendered.toJSON()
-    expect(tree).toMatchSnapshot()
+    const editButton = rendered.root
+      .findAllByType(Button)
+      .find(b => b.props.children === 'Edit Artworks')
+    expect(editButton).not.toBeDefined()
   })
 
   it('renders a disabled edit button if there are artworks, but none selected', () => {
