@@ -1,6 +1,6 @@
 {
   "extends": ["@artsy:app", "schedule:nonOfficeHours"],
-  "assignees": ["zephraph", "mzikherman"],
+  "assignees": ["mzikherman"],
   "reviewers": ["anandaroop"],
   "packageRules": [
     {
