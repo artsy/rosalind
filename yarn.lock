@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@artsy/palette@14.38.2":
-  version "14.38.2"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-14.38.2.tgz#666bf2af292294f927c86dea2878d4d11042519d"
-  integrity sha512-4+A8/t6bZe+NaEb6gvabxIguMaEM8A6hhFTu4hDN30S16Qtll8G4Z4S7DyXCKDD9CK9uBMltpxmV+24FiMcYFw==
+"@artsy/palette@14.42.0":
+  version "14.42.0"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-14.42.0.tgz#f075eb227a90836bf77722fe31d01856195261f7"
+  integrity sha512-kIu6tXQ3Wg/H7uqezTpb5u0QQbw14TwWQRw8c3D4qF2Q16lhy5hxeJwBmHpUOeII4Zctp0a6BsMh45vUsfaXlg==
   dependencies:
     "@seznam/compose-react-refs" "^1.0.6"
     "@styled-system/theme-get" "^5.1.2"
