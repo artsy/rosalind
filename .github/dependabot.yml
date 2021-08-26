@@ -1,0 +1,21 @@
+version: 2
+registries:
+  github-private:
+    type: git
+    url: https://github.com
+    username: x-access-token
+    password: ${{secrets.PRIVATE_GITHUB_TOKEN}}
+updates:
+  - package-ecosystem: bundler
+    directory: "/"
+    registries:
+      - github-private
+    insecure-external-code-execution: allow
+    schedule:
+      interval: daily
+    # Limit to 0 to enable only security updates:
+    open-pull-requests-limit: 0
+    assignees:
+      - anandaroop
+    reviewers:
+      - artsy/platform-engineers
