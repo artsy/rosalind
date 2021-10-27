@@ -19,7 +19,7 @@ RUN adduser --disabled-password --gecos '' deploy && \
     mkdir /shared/sockets && \
     chown -R deploy:deploy /shared
 
-RUN gem install bundler
+RUN gem install bundler:1.17.2
 
 # Throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
