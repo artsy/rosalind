@@ -7,15 +7,14 @@
   resolved "https://registry.yarnpkg.com/@artsy/palette-tokens/-/palette-tokens-2.6.0.tgz#3d780ff65994fef0daadef29d43d11f89470b728"
   integrity sha512-UQP6P+xv/5hm82ep0z5X3kCFFnk03H6y8kdW/wTU+xPq45ESUay7aNFYXeub47tmW2v6dXJ8Oa01Z0iwc6BVpA==
 
-"@artsy/palette@18.7.1":
-  version "18.7.1"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-18.7.1.tgz#9fcda01f976077c144d48d144656aceb4ff94834"
-  integrity sha512-W9Ao1boE+rXrSdc3TMfwArBQDMfmxpOLLdKcL4xJJM2pfqQYuEUg7xTtgtqHcr6+hWocGJw3PBYFjQe6l7SX9g==
+"@artsy/palette@18.7.2":
+  version "18.7.2"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-18.7.2.tgz#22cf70388e1d67fdfa5c37ccac1e4f784a63ff52"
+  integrity sha512-ZwoYPsl1VMPVBpZW6u/Ry2Nf8RAZdy+yX0Irp9XBsRvfw2nS4972o9n+SFq7tLJARrYgAAMSVpq2JXkatUH6dw==
   dependencies:
     "@artsy/palette-tokens" "^2.6.0"
     "@seznam/compose-react-refs" "^1.0.6"
     "@styled-system/theme-get" "^5.1.2"
-    debounce "^1.2.0"
     luxon "^1.15"
     proportional-scale "^4.0.0"
     react-lazy-load-image-component "1.5.0"
@@ -24,7 +23,7 @@
     styled-system "^5.1.5"
     trunc-html "^1.1.2"
     use-cursor "^1.2.3"
-    use-keyboard-list-navigation "2.4.1"
+    use-keyboard-list-navigation "2.4.2"
 
 "@babel/cli@7.7.7":
   version "7.7.7"
@@ -6223,11 +6222,6 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
-
-debounce@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
-  integrity sha512-mYtLl1xfZLi1m4RtQYlZgJUNQjl4ZxVnHzIR8nLLgi4q1YT8o/WM+MK/f8yfcc9s5Ir5zRaPZyZU6xs1Syoocg==
 
 debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
@@ -16232,10 +16226,10 @@ use-isomorphic-layout-effect@^1.0.0:
   resolved "https://registry.yarnpkg.com/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.1.1.tgz#7bb6589170cd2987a152042f9084f9effb75c225"
   integrity sha512-L7Evj8FGcwo/wpbv/qvSfrkHFtOpCzvM5yl2KVyDJoylVuSvzphiiasmjgQPttIGBAy2WKiBNR98q8w7PiNgKQ==
 
-use-keyboard-list-navigation@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/use-keyboard-list-navigation/-/use-keyboard-list-navigation-2.4.1.tgz#e6d2ee6188da005deebf443356f1dfbb20d86030"
-  integrity sha512-ghycnT+Hp86CUS780pp+ZcPhffYMUQvcofMq3US7kzNZCZ5eAL+vs+vR6BaTBcbSPJklIcEKvwJUcajeny/YkQ==
+use-keyboard-list-navigation@2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/use-keyboard-list-navigation/-/use-keyboard-list-navigation-2.4.2.tgz#d237e6cc35886c0f541d9e65eb5b3d2a65e6498d"
+  integrity sha512-PCoIDKsEmYaoce6pOwgU5xsqBjrRuUwcNNdIP1ZTmxyz9716zOAFJJHAp44QE74Zmnxc1VvgYxAfIkaCbq105A==
   dependencies:
     map-cursor-to-max "^1.0.0"
 
