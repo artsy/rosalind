@@ -13,7 +13,7 @@ import { Notices, Notice } from './Notices'
 const findByName = (items, item) => items.find(i => i.name === item.name)
 const findById = (items, item) => items.find(i => i.id === item.id)
 
-const commonGenesBlacklist = ['Art', 'Career Stage Gene']
+const commonGenesToIgnore = ['Art', 'Career Stage Gene']
 
 class App extends React.Component {
   constructor(props) {
@@ -380,7 +380,7 @@ class App extends React.Component {
       .filter(artwork => selectedArtworkIds.indexOf(artwork.id) > -1)
       .map(artwork => artwork.genes)
     const commonGenes = intersection(...geneArraysForSelectedArtworks).filter(
-      g => commonGenesBlacklist.indexOf(g) === -1
+      g => commonGenesToIgnore.indexOf(g) === -1
     )
     return commonGenes
   }
