@@ -1,12 +1,12 @@
 class ArtsyTagsUpdater
-  def self.update(artwork_id, tags_to_add = [], tags_to_remove = [])
-    new(artwork_id, tags_to_add, tags_to_remove).update
+  def self.update(artwork_id, tags_whitelist = [], tags_blacklist = [])
+    new(artwork_id, tags_whitelist, tags_blacklist).update
   end
 
-  def initialize(artwork_id, tags_to_add, tags_to_remove)
+  def initialize(artwork_id, tags_whitelist, tags_blacklist)
     @artwork_id = artwork_id
-    @tags_to_add = tags_to_add
-    @tags_to_remove = tags_to_remove
+    @tags_whitelist = tags_whitelist
+    @tags_blacklist = tags_blacklist
   end
 
   def update
@@ -17,11 +17,11 @@ class ArtsyTagsUpdater
   private
 
   def additional_tags
-    @tags_to_add
+    @tags_whitelist
   end
 
   def superfluous_tags
-    @tags_to_remove
+    @tags_blacklist
   end
 
   def current_tags
