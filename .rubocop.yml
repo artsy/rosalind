@@ -38,3 +38,4 @@ AllCops:
     - vendor/**/*
     - node_modules/**/*
     - bin/webpack*
+  NewCops: enable

@@ -14,7 +14,7 @@ def warn_if_adding(term:, files:)
     diff = git.diff_for_file(file)
     next unless diff
 
-    added_lines = diff.patch.split(/\n/).select { |line| line =~ /^\+/ }
+    added_lines = diff.patch.split(/\n/).grep(/^\+/)
     warn "Please think twice before adding #{term} to the project 😱 (#{file})" if added_lines.any? { |line| line =~ regexp }
   end
 end

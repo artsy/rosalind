@@ -18,7 +18,7 @@ module ArtworkSearchService
 
     def api_url
       "#{Rails.application.config_for(:elasticsearch)['url']}/#{Rails.application.config_for(:elasticsearch)['index']}" \
-      '/artwork/_search'
+        '/artwork/_search'
     end
 
     def basic_auth_credentials
