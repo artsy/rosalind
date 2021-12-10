@@ -2,7 +2,7 @@
 
 messaging.fail 'Please provide a summary in the Pull Request description' if github.pr_body.length < 5
 
-if git.commits.any? { |c| c.message =~ /^Merge branch 'master'/ }
+if git.commits.any? { |c| c.message =~ /^Merge branch 'main'/ }
   messaging.warn 'Please rebase to get rid of the merge commits in this PR'
 end
 
