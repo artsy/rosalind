@@ -26,7 +26,7 @@ and in the [blog post][blog_post] we wrote when we open-sourced it.
   - Papertrail [Web][papertrail_production_web] | [Sidekiq][papertrail_production_sidekiq]
 * __GitHub:__ [https://github.com/artsy/rosalind][github]
 * __Deployment:__
-  - PRs from feature branches ([on this repo](#contributing-pull-requests)) → master will automatically deploy to staging
+  - PRs from feature branches ([on this repo](#contributing-pull-requests)) → main will automatically deploy to staging
   - PRs from staging → release will automatically deploy to production. ([Start a deploy][deploy])
 * __Point People:__ [@anandaroop][anandaroop]
 
@@ -128,7 +128,7 @@ environment you're targeting (production or staging).
 
 See documentation available [here][readme-vpn-docs] or [here][infra-vpn-docs]
 
-[readme-vpn-docs]: https://github.com/artsy/potential/blob/master/platform/VPN.md
+[readme-vpn-docs]: https://github.com/artsy/potential/blob/main/platform/VPN.md
 [infra-vpn-docs]: https://github.com/artsy/infrastructure#vpn
 
 ## Contributing Pull Requests
