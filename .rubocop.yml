@@ -32,9 +32,13 @@ Metrics/BlockLength:
 Rails/FilePath:
   Enabled: false
 
+Naming/InclusiveLanguage:
+  Enabled: true
+
 AllCops:
   Exclude:
     - Gemfile
     - vendor/**/*
     - node_modules/**/*
     - bin/webpack*
+  NewCops: enable
