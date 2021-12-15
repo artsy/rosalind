@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/artsy/kinetic.git
   revision: 4f4c9d08f069d2e82aefde8327235baf24d79da0
-  branch: master
+  branch: main
   specs:
     kinetic (0.1.0)
       active_attr
