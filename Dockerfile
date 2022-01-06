@@ -1,13 +1,14 @@
-FROM artsy/ruby:2.6.5-node-chrome
+FROM artsy/ruby:2.6.8-node-14-yarn
 ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
 
-RUN apt-get update -qq && apt-get install -y \
+RUN apk update && apk add \
+  build-base \
   dumb-init \
-  libpq-dev \
-  postgresql-client \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  git \
+  postgresql-dev \
+  tzdata
 
 # Set up deploy user, working directory and shared folders for Puma / Nginx
 RUN adduser --disabled-password --gecos '' deploy && \
