@@ -20,7 +20,7 @@ gem 'sentry-raven'
 gem 'sidekiq', '5.2.7'
 gem 'typhoeus'
 gem 'uglifier'
-gem 'webpacker'
+gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'danger'
