@@ -7,14 +7,16 @@
   resolved "https://registry.yarnpkg.com/@artsy/palette-tokens/-/palette-tokens-2.6.0.tgz#3d780ff65994fef0daadef29d43d11f89470b728"
   integrity sha512-UQP6P+xv/5hm82ep0z5X3kCFFnk03H6y8kdW/wTU+xPq45ESUay7aNFYXeub47tmW2v6dXJ8Oa01Z0iwc6BVpA==
 
-"@artsy/palette@18.20.0":
-  version "18.20.0"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-18.20.0.tgz#c8cc3aee5d45f009797557a726d4ec649216295b"
-  integrity sha512-MWmmbj1hrzqzYU3/jwAn1wkub9LGMqHrnN7N1YIq7csVOhVFS13A2uw8TQ6GOYom+ccWR0THyR6mMQIli2LKuw==
+"@artsy/palette@18.23.0":
+  version "18.23.0"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-18.23.0.tgz#d2f9e2d68ed57db88836a4ebca0c53cb82944c0f"
+  integrity sha512-Fuev9xFgN6egD58de77kA3JQ9udZJq5IUiSD6eKjp2L1z3uEPA7IC/TQyHEN5070rFB7q1m26jyIDzVZuTeiOA==
   dependencies:
     "@artsy/palette-tokens" "^2.6.0"
     "@seznam/compose-react-refs" "^1.0.6"
     "@styled-system/theme-get" "^5.1.2"
+    "@types/styled-components" "4.0.3"
+    "@types/styled-system" "5.1.9"
     lodash "^4.17.21"
     luxon "^1.15"
     proportional-scale "^4.0.0"
@@ -3427,6 +3429,21 @@
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
 
+"@types/styled-components@4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.0.3.tgz#8287e54e446302369eecc521243a2f32cf9122ee"
+  integrity sha512-LzntHlOKEOxUxMkVmQPNG88TsldeHO2NlwNkzHnw4wL8qhHQgd7u+u3yw84hZgoFh4ugsLCbFtjYcbP7v5WC5Q==
+  dependencies:
+    "@types/node" "*"
+    "@types/react" "*"
+
+"@types/styled-system@5.1.9":
+  version "5.1.9"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-5.1.9.tgz#8baac8f6eca9e0bd5768c175ca5ce1f2d6f61ade"
+  integrity sha512-QlWv6tmQV8dqk8s+LSLb9QAtmuQEnfv4f8lKKZkMgDqRFVmxJDBwEw0u4zhpxp56u0hdR+TCIk9dGfOw3TkCoQ==
+  dependencies:
+    csstype "^2.6.9"
+
 "@types/tapable@^1", "@types/tapable@^1.0.5":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.8.tgz#b94a4391c85666c7b73299fd3ad79d4faa435310"
@@ -6185,6 +6202,11 @@ csstype@^2.5.7:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.4.tgz#d585a6062096e324e7187f80e04f92bd0f00e37f"
   integrity sha512-lAJUJP3M6HxFXbqtGRc0iZrdyeN+WzOWeY0q/VnFzI+kqVrYIzC7bWlKqCW7oCIdzoPkvfp82EVvrTlQ8zsWQg==
+
+csstype@^2.6.9:
+  version "2.6.19"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.19.tgz#feeb5aae89020bb389e1f63669a5ed490e391caa"
+  integrity sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
