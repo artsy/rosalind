@@ -41,6 +41,14 @@ RSpec.describe FilteredArtworkSearchService, type: :model do
       expect(response['hits'][0]).to eq artwork_hit
     end
 
+    context 'with unrecognized parameters' do
+      it 'raises an error' do
+        expect do
+          FilteredArtworkSearchService.call({ lol: 'jkjk' })
+        end.to raise_error FilteredArtworkSearchService::ServiceError, /Unrecognized parameters/
+      end
+    end
+
     context 'on failure' do
       let(:params) do
         { sort: 'lolol' }
@@ -62,7 +70,7 @@ RSpec.describe FilteredArtworkSearchService, type: :model do
         stub_filter_artworks_request(400, params, response.to_json)
         expect do
           FilteredArtworkSearchService.call(params)
-        end.to raise_error FilteredArtworkSearchService::ServiceError
+        end.to raise_error FilteredArtworkSearchService::ServiceError, /Invalid parameters/
       end
     end
   end
