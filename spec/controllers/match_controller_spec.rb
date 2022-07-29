@@ -15,6 +15,27 @@ RSpec.describe MatchController, type: :controller do
       end
     end
 
+    describe '#filter_artworks' do
+      let(:params) do
+        { for_sale: true, attribution_class: 'unique', gene_ids: ['sculpture'] }
+      end
+
+      let(:artwork_hit) { read_sample_artwork_fixture }
+
+      let(:response) do
+        { hits: [artwork_hit], aggregations: [] }
+      end
+
+      let!(:gravity_request) do
+        stub_filter_artworks_request(200, params, response.to_json)
+      end
+
+      it 'issues the correct gravity query' do
+        get :filter_artworks, params: params
+        expect(gravity_request).to have_been_made
+      end
+    end
+
     describe '#genes' do
       let(:gene) { Fabricate(:kinetic_gene, name: 'Photojournalism') }
       let!(:gravity_request) { Kinetic::Stub::Gravity::GravityModel.match([gene]) }
