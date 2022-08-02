@@ -40,6 +40,8 @@
     "@storybook/addon-links": "6.4.19",
     "@storybook/addons": "6.4.19",
     "@storybook/react": "6.4.19",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.3",
     "babel-jest": "24.9.0",
@@ -87,7 +89,7 @@
     "testURL": "http://localhost"
   },
   "scripts": {
-    "lint": "eslint app/javascript --ext .js,.jsx",
+    "lint": "eslint app/javascript --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:verbose": "jest --verbose",
@@ -105,7 +107,7 @@
     }
   },
   "lint-staged": {
-    "app/javascript/**/*.{js,jsx}": [
+    "app/javascript/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "git add"
     ],

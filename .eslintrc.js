@@ -9,7 +9,7 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
   },
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -17,7 +17,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['react', 'inclusive-language'],
+  plugins: ['@typescript-eslint', 'react', 'inclusive-language'],
   rules: {
     'react/jsx-handler-names': 'off',
     'react/prop-types': 'off',
