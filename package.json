@@ -94,7 +94,8 @@
     "test:watch": "jest --watch",
     "test:verbose": "jest --verbose",
     "storybook": "./script/check_for_server.rb && start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "type-check": "tsc --noEmit"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -103,7 +104,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn type-check"
     }
   },
   "lint-staged": {
