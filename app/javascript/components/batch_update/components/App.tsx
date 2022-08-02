@@ -5,45 +5,76 @@ import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import BatchUpdateForm from './BatchUpdateForm'
 import { buildElasticsearchQuery } from '../helpers/elasticsearch'
-import { matchArtworks } from 'lib/rosalind-api'
+import { matchArtworks } from '../../../lib/rosalind-api'
 import { Wrapper, Sidebar, Content } from './Layout'
 import FullScreenModal from './FullScreenModal'
 import { Notices, Notice } from './Notices'
+import { Artist, Artwork, Gene, Tag, Notice as NoticeType } from '../types'
 
 const findByName = (items, item) => items.find(i => i.name === item.name)
 const findById = (items, item) => items.find(i => i.id === item.id)
 
 const commonGenesToIgnore = ['Art', 'Career Stage Gene']
 
-class App extends React.Component {
-  constructor(props) {
+type Props = never
+
+type State = {
+  artists: Artist[]
+  artworks: Artwork[]
+  attributionClass: string
+  createdAfterDate: string
+  createdBeforeDate: string
+  fair: string
+  genes: Gene[]
+  isLoading: boolean
+  isSpecifyingBatchUpdate: boolean
+  keywords: string[]
+  maxPrice: number
+  minPrice: number
+  notices: NoticeType[]
+  acquireableOrOfferableFilter: string /* enum */
+  forSaleFilter: string /* enum */
+  partner: string
+  previewedArtwork: Artwork
+  publishedFilter: string /* enum */
+  restrictedArtworkIDs: string[]
+  selectedArtworkIds: string[]
+  size: number
+  sort: string /* enum */
+  tags: Tag[]
+  totalHits: number
+}
+
+class App extends React.Component<Props, State> {
+  state: State = {
+    artists: [],
+    artworks: [],
+    attributionClass: null,
+    createdAfterDate: null,
+    createdBeforeDate: null,
+    fair: null,
+    genes: [],
+    isLoading: false,
+    isSpecifyingBatchUpdate: false,
+    keywords: [],
+    maxPrice: null,
+    minPrice: null,
+    notices: [],
+    acquireableOrOfferableFilter: 'SHOW_ALL',
+    forSaleFilter: 'SHOW_ALL',
+    partner: null,
+    previewedArtwork: null,
+    publishedFilter: 'SHOW_ALL',
+    restrictedArtworkIDs: [],
+    selectedArtworkIds: [],
+    size: 100,
+    sort: 'RECENTLY_PUBLISHED',
+    tags: [],
+    totalHits: null,
+  }
+
+  constructor(props: never) {
     super(props)
-    this.state = {
-      artists: [],
-      artworks: [],
-      attributionClass: null,
-      createdAfterDate: null,
-      createdBeforeDate: null,
-      fair: null,
-      genes: [],
-      isLoading: false,
-      isSpecifyingBatchUpdate: false,
-      keywords: [],
-      maxPrice: null,
-      minPrice: null,
-      notices: [],
-      acquireableOrOfferableFilter: 'SHOW_ALL',
-      forSaleFilter: 'SHOW_ALL',
-      partner: null,
-      previewedArtwork: null,
-      publishedFilter: 'SHOW_ALL',
-      restrictedArtworkIDs: [],
-      selectedArtworkIds: [],
-      size: 100,
-      sort: 'RECENTLY_PUBLISHED',
-      tags: [],
-      totalHits: null,
-    }
 
     this.shouldComponentUpdate = this.shouldComponentUpdate.bind(this)
     this.onRemoveGene = this.onRemoveGene.bind(this)
@@ -187,7 +218,10 @@ class App extends React.Component {
 
       this.setState({ isLoading: true })
 
-      const csrfToken = document.querySelector('meta[name=csrf-token]').content
+      const meta: HTMLMetaElement = document.querySelector(
+        'meta[name=csrf-token]'
+      )
+      const csrfToken = meta.content
 
       matchArtworks(query, csrfToken).then(hits => {
         const totalHits = hits.total
@@ -247,7 +281,10 @@ class App extends React.Component {
       tags,
     })
 
-    const csrfToken = document.querySelector('meta[name=csrf-token]').content
+    const meta: HTMLMetaElement = document.querySelector(
+      'meta[name=csrf-token]'
+    )
+    const csrfToken = meta.content
 
     matchArtworks(query, csrfToken).then(hits => {
       const totalHits = hits.total
@@ -338,13 +375,16 @@ class App extends React.Component {
 
   clearStateFor(name = null, key) {
     if (Array.isArray(this.state[key])) {
+      // @ts-ignore
       this.setState({ [key]: [] })
     } else {
+      // @ts-ignore
       this.setState({ [key]: null })
     }
   }
 
   updateStateFor(key, newState) {
+    // @ts-ignore
     this.setState({ [key]: newState })
   }
 
@@ -380,7 +420,7 @@ class App extends React.Component {
       .filter(artwork => selectedArtworkIds.indexOf(artwork.id) > -1)
       .map(artwork => artwork.genes)
     const commonGenes = intersection(...geneArraysForSelectedArtworks).filter(
-      g => commonGenesToIgnore.indexOf(g) === -1
+      (g: string) => commonGenesToIgnore.indexOf(g) === -1
     )
     return commonGenes
   }
