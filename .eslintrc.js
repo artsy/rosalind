@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     jest: true
   },
-  extends: ['plugin:prettier/recommended'],
+  extends: ['plugin:prettier/recommended', 'plugin:@typescript-eslint/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -34,6 +34,9 @@ module.exports = {
         ]
       }
     ],
+    '@typescript-eslint/no-loss-of-precision': 'off', // incompatible with ESLint v6
+    '@typescript-eslint/ban-ts-comment': 'off', // can consider turning on as ts conversion progresses
+    '@typescript-eslint/no-empty-function': 'warn',
 
     // next two rules are a workaround, see
     // https://github.com/babel/babel-eslint/issues/681#issuecomment-420663038

@@ -303,7 +303,7 @@ class App extends React.Component<Props, State> {
     }
   }
 
-  onRemoveGene(geneName, key = null) {
+  onRemoveGene(geneName) {
     const { genes } = this.state
     this.setState({
       genes: genes.filter(g => g.name !== geneName),
@@ -318,7 +318,7 @@ class App extends React.Component<Props, State> {
       })
   }
 
-  onRemoveTag(tagName, key = null) {
+  onRemoveTag(tagName) {
     const { tags } = this.state
     this.setState({
       tags: tags.filter(t => t.name !== tagName),
@@ -373,6 +373,7 @@ class App extends React.Component<Props, State> {
     })
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   clearStateFor(name = null, key) {
     if (Array.isArray(this.state[key])) {
       // @ts-ignore
