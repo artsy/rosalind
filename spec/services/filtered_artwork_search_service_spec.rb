@@ -3,11 +3,6 @@ require './app/services/filtered_artwork_search_service'
 
 RSpec.describe FilteredArtworkSearchService, type: :model do
   describe '.call' do
-    def stub_filter_artworks_request(status, params, body)
-      endpoint = "#{Rails.application.config_for(:gravity)['api_root']}/filter/artworks"
-      WebMock.stub_request(:get, endpoint).with(query: params).to_return(status: status, body: body, headers: {})
-    end
-
     let(:params) do
       # kitchen-sink query that should match kiki-smith-the-falls-i
       {
@@ -32,9 +27,7 @@ RSpec.describe FilteredArtworkSearchService, type: :model do
       { hits: [artwork_hit], aggregations: [] }
     end
 
-    let(:artwork_hit) do
-      JSON.parse(File.read('./spec/fixtures/kiki-smith-the-falls-i.json'))
-    end
+    let(:artwork_hit) { read_sample_artwork_fixture }
 
     it 'issues the correct gravity request' do
       request = stub_filter_artworks_request(200, params, response.to_json)
@@ -46,6 +39,14 @@ RSpec.describe FilteredArtworkSearchService, type: :model do
       stub_filter_artworks_request(200, params, response.to_json)
       response = FilteredArtworkSearchService.call(params)
       expect(response['hits'][0]).to eq artwork_hit
+    end
+
+    context 'with unrecognized parameters' do
+      it 'raises an error' do
+        expect do
+          FilteredArtworkSearchService.call({ lol: 'jkjk' })
+        end.to raise_error FilteredArtworkSearchService::ServiceError, /Unrecognized parameters/
+      end
     end
 
     context 'on failure' do
@@ -69,7 +70,7 @@ RSpec.describe FilteredArtworkSearchService, type: :model do
         stub_filter_artworks_request(400, params, response.to_json)
         expect do
           FilteredArtworkSearchService.call(params)
-        end.to raise_error FilteredArtworkSearchService::ServiceError
+        end.to raise_error FilteredArtworkSearchService::ServiceError, /Invalid parameters/
       end
     end
   end

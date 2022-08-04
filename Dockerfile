@@ -1,4 +1,4 @@
-FROM artsy/ruby:2.7.3-node-chrome
+FROM artsy/ruby:2.7.3-node-14-chrome
 ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
@@ -19,7 +19,7 @@ RUN adduser --disabled-password --gecos '' deploy && \
     mkdir /shared/sockets && \
     chown -R deploy:deploy /shared
 
-RUN gem install bundler:1.17.2
+RUN gem install bundler:2.1.4
 
 # Throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1

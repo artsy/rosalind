@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # searches and autocompletes
   post 'match/artworks'
+  get 'filter/artworks'
   get 'match/genes'
   get 'match/tags'
   get 'match/fairs'
