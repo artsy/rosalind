@@ -7,7 +7,7 @@ RSpec.describe MatchController, type: :controller do
     describe '#artworks' do
       let(:query) { '{"query":{"match_all":{}}}' }
       let(:hits) { elasticsearch_sample_artwork_hits }
-      let!(:elasticsearch_request) { stub_elasticsearch_request path: 'artwork/_search', query: query, response_hits: hits }
+      let!(:elasticsearch_request) { stub_elasticsearch_request path: '_search', query: query, response_hits: hits }
 
       it 'issues the correct elasticsearch query' do
         post :artworks, params: { query: query }
