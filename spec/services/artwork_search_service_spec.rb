@@ -1,11 +1,11 @@
-require 'spec_helper'
+require 'rails_helper'
 require './app/services/artwork_search_service'
 
 RSpec.describe ArtworkSearchService, type: :model do
   describe '.call' do
     let(:query) { '{"query":{"bool":{"must":[{"match":{"genes":"Kawaii"}}]}}}' }
     let(:hits) { elasticsearch_sample_artwork_hits }
-    let!(:elasticsearch_request) { stub_elasticsearch_request path: 'artwork/_search', query: query, response_hits: hits }
+    let!(:elasticsearch_request) { stub_elasticsearch_request path: '_search', query: query, response_hits: hits }
 
     it 'issues the correct elasticsearch request' do
       ArtworkSearchService.call(query: query)

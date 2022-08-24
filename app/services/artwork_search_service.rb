@@ -3,7 +3,7 @@ module ArtworkSearchService
 
   class << self
     def call(query:)
-      response = Typhoeus.post(api_url, body: query, userpwd: basic_auth_credentials,
+      response = Typhoeus.post(api_url, body: query,
                                         headers: headers, accept_encoding: 'gzip')
       if response.success?
         response.body
@@ -18,11 +18,7 @@ module ArtworkSearchService
 
     def api_url
       "#{Rails.application.config_for(:elasticsearch)['url']}/#{Rails.application.config_for(:elasticsearch)['index']}" \
-        '/artwork/_search'
-    end
-
-    def basic_auth_credentials
-      "#{Rails.application.config_for(:elasticsearch)['username']}:#{Rails.application.config_for(:elasticsearch)['password']}"
+        '/_search'
     end
 
     def headers
