@@ -1,12 +1,13 @@
 import React from 'react'
-import { SelectSmall, Box } from '@artsy/palette'
+import { Select, Box } from '@artsy/palette'
 
 export const SortOptions = props => {
   const { sort, updateState } = props
 
   return (
     <Box mt={2}>
-      <SelectSmall
+      <Select
+        variant="inline"
         title="Sort"
         options={[
           {
