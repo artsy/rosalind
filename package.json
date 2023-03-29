@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@artsy/palette": "31.1.0",
+    "@artsy/palette": "31.2.0",
     "@types/react": "^16.0.0",
     "@types/react-dom": "^16.0.0",
     "chrono-node": "1.3.11",
