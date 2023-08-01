@@ -29,7 +29,7 @@ WORKDIR /tmp
 ADD .ruby-version .ruby-version
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
-RUN bundle install -j4
+RUN bundle install -j4 --no-cache
 
 # Switch to deploy user
 USER deploy
