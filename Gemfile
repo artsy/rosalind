@@ -42,8 +42,8 @@ end
 group :test do
   gem 'capybara'
   gem 'fabrication'
-  gem 'webdrivers'
   gem 'webmock'
+  gem 'selenium-webdriver'
 end
 
 gem 'coverband'
