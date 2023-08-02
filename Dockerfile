@@ -54,16 +54,6 @@ ADD Gemfile.lock Gemfile.lock
 RUN bundle install -j4 && \
     rm -rf /usr/local/bundle/cache
 
-
-# Clean up APT and bundler when done.
-RUN apt-get remove -y \
-    curl \
-    git \
-    dumb-init \
-    libpq-dev \
-    build-essential \
-    postgresql-client
-
 # Switch to deploy user
 USER deploy
 ENV USER deploy
