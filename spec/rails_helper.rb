@@ -36,4 +36,4 @@ end
 
 # only look for driver updates if the previous check was
 # longer ago than a specified number of seconds
-Webdrivers.cache_time = 86_400
+# Webdrivers.cache_time = 86_400
