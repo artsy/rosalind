@@ -1,7 +1,16 @@
-FROM ruby:2.7.5-alpine
+FROM ruby:2.7.5-slim
 ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
+
+RUN apt-get update -qq && apt-get install -y \
+  curl \
+  git \
+  dumb-init \
+  libpq-dev \
+  build-essential \
+  postgresql-client \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install NodeJS apt sources
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
@@ -21,12 +30,6 @@ RUN gem update --system
 RUN gem install bundler
 
 RUN npm install -g yarn
-
-RUN apt-get update -qq && apt-get install -y \
-  dumb-init \
-  libpq-dev \
-  postgresql-client \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Set up deploy user, working directory and shared folders for Puma / Nginx
 RUN adduser --disabled-password --gecos '' deploy && \
@@ -50,6 +53,16 @@ ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 RUN bundle install -j4 && \
     rm -rf /usr/local/bundle/cache
+
+
+# Clean up APT and bundler when done.
+RUN apt-get remove -y \
+    curl \
+    git \
+    dumb-init \
+    libpq-dev \
+    build-essential \
+    postgresql-client
 
 # Switch to deploy user
 USER deploy
