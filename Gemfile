@@ -42,7 +42,7 @@ end
 group :test do
   gem 'capybara'
   gem 'fabrication'
-  gem 'webdrivers'
+  gem 'selenium-webdriver'
   gem 'webmock'
 end
 
