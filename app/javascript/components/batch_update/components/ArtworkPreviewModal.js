@@ -46,7 +46,7 @@ class ArtworkPreviewModal extends React.Component {
     clearTimeout(this._moreInfoTimer)
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     const isNewArtwork =
       this.props.artwork &&
       prevProps.artwork &&

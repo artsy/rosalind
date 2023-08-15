@@ -7,7 +7,9 @@ import GenericAutosuggest from './GenericAutosuggest'
 let props
 
 beforeEach(() => {
+  // eslint-disable-next-line  @typescript-eslint/no-unused-vars
   const mockSuggestionsFetcher = jest.fn(searchTerm => {
+    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
     return new Promise((resolve, reject) => {
       resolve([
         /* listOfMatchingSuggestionObjects */

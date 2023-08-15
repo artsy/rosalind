@@ -278,7 +278,10 @@ describe('with pending changes', () => {
       beforeEach(() => {
         // mock the function that submits the request to the backend and returns
         // window.fetch's promise, to be handled by the client
+
+        // eslint-disable-next-line  @typescript-eslint/no-unused-vars
         rosalindApi.submitBatchUpdate = jest.fn((artworks, genes, token) => {
+          // eslint-disable-next-line  @typescript-eslint/no-unused-vars
           return new Promise((resolve, reject) => {
             resolve({ ok: true })
           })
