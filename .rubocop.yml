@@ -21,10 +21,6 @@ Style/FrozenStringLiteralComment:
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
-Naming/FileName:
-  Exclude:
-    - Dangerfile
-
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
