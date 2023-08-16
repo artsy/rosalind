@@ -17,6 +17,10 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 
 # Add Chrome source
 
+# Temporary install older chrom version
+# Can be reverted back to stable once this project is under Ruby 3
+# and Selenium is updated
+
 ENV CHROME_VERSION 114.0.5735.90-1
 RUN curl -o /tmp/chrome-114.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb
 RUN apt-get update -qq && apt-get install -y nodejs libnss3 libgconf-2-4 && apt-get install -y /tmp/chrome-114.deb && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
