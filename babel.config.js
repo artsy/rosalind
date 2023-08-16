@@ -1,5 +1,3 @@
-const { moduleExists } = require('@rails/webpacker')
-
 module.exports = function(api) {
   var validEnv = ['development', 'test', 'production']
   var currentEnv = api.env()
