@@ -6,6 +6,7 @@ import App from './App'
 let app
 
 beforeEach(() => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const fetchArtworksPromise = new Promise(() => {})
   window.fetch = jest.fn(() => fetchArtworksPromise)
 
