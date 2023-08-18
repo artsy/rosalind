@@ -17,7 +17,7 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 
 # Add Chrome source
 
-# Temporary install older chrom version
+# Temporary install older chrome version
 # Can be reverted back to stable once this project is under Ruby 3
 # and Selenium is updated
 
