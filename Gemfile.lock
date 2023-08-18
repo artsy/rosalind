@@ -379,7 +379,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   sentry-raven
-  shakapacker
+  shakapacker (= 7.0.3)
   sidekiq (= 6.4.1)
   spring
   spring-watcher-listen
