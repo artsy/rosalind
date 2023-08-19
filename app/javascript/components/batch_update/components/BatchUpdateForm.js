@@ -110,6 +110,7 @@ class BatchUpdateForm extends React.Component {
   submit() {
     const { selectedArtworkIds } = this.props
     const { geneValues, tagsToAdd, tagsToRemove } = this.state
+    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
     const validGenes = pickBy(geneValues, (value, _key) => value !== null)
     const validTags = { toAdd: tagsToAdd, toRemove: tagsToRemove }
     const csrfToken = document.querySelector('meta[name=csrf-token]').content

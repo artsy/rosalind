@@ -9,6 +9,7 @@ import {
 } from './rosalind-api'
 
 beforeEach(() => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const p = new Promise(() => {})
   window.fetch = jest.fn(() => p)
 })

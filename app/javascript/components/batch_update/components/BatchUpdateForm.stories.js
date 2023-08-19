@@ -7,7 +7,9 @@ import BatchUpdateForm from './BatchUpdateForm'
 let props = {
   getCommonGenes: () => [],
   getCommonTags: () => [],
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onAddNotice: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onCancel: () => {},
   selectedArtworkIds: [],
 }
