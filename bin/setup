@@ -1,72 +1,67 @@
 #!/bin/sh
 
-# Exit if any subcommand fails
+# This assumes you have general prerequisites installed as by:
+# https://github.com/artsy/potential/blob/main/scripts/setup
+
+trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
+
 set -e
 
-STEPS=7
+echo "Installing dependencies..."
+brew bundle
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-NO_COLOR='\033[0m'
-CLEAR_LINE='\r\033[K'
+ruby_version=`cat .ruby-version`
+echo "Configuring Ruby $ruby_version..."
 
-# STEP 1
-printf "[1/${STEPS}]  checking dependencies"
+if command -v rbenv >/dev/null; then # skip rbenv steps if not available (RVM user?)
+  if ! rbenv versions | grep -Fq "$ruby_version"; then
+    rbenv install -s "$ruby_version"
+  fi
 
-if ! command -v psql > /dev/null; then
-  printf "${CLEAR_LINE}${RED}  You must install postgres before setup can continue${NO_COLOR}\n"
-  printf "    You should:\n"
-  printf "      $ brew install postgresql\n"
-  exit -1
+  eval "$(rbenv init - --no-rehash)"
+  rbenv shell "$ruby_version"
 fi
 
-if ! command -v bundler > /dev/null; then
-  printf "${CLEAR_LINE}${RED}  You must install bundler before setup can continue${NO_COLOR}\n"
-  printf "    You should:\n"
-  printf "      $ gem install bundler\n"
-  exit -1
+if [ ! -z $NVM_DIR ]; then # skip nvm steps if not available
+  echo "Configuring Node..."
+  source ~/.nvm/nvm.sh
+  nvm install
 fi
 
-if ! command -v yarn > /dev/null; then
-  printf "${CLEAR_LINE}${RED}  You must install yarn before setup can continue${NO_COLOR}\n"
-  printf "    You should:\n"
-  printf "      $ brew install yarn\n"
-  exit -1
+echo "Installing dependencies..."
+yarn install || (npm install --global yarn@latest && yarn install)
+
+echo "Installing foreman for local configuration..."
+gem update --system
+gem install foreman
+
+echo "Downloading .env.shared (for common internal configuration)..."
+aws s3 cp s3://artsy-citadel/dev/.env.rosalind .env.shared
+
+if [ ! -e ".env" ]; then
+  echo "Initializing .env from .env.example (for any custom configuration)..."
+  # Certain values must be in .env for docker build, so substitute in shared values
+  foreman run envsubst < .env.example > .env
 fi
 
-if ! command -v copy_env > /dev/null; then
-  printf "${CLEAR_LINE}${RED}  You must install copy_env before setup can continue${NO_COLOR}\n"
-  printf "    You should:\n"
-  printf "      $ brew tap artsy/formulas\n"
-  printf "      $ brew install copy_env\n"
-  exit -1
-fi
+echo "Setting up bundler..."
+gem install bundler
+if command -v rbenv >/dev/null; then rbenv rehash; fi
 
-# STEP 2
-printf "${CLEAR_LINE}[2/${STEPS}]  installing gems"
-bundle install > /dev/null
+echo "Installing gems..."
+# To mitigate 'BuildError: No pg_config..' when installing pg 1.1.4: get pg path via brew info, cleanup output with cut, get version with basename, set bundler config option for pg gem
+bundle config build.pg --with-pg-config=$(brew --prefix)/Cellar/postgresql@12/$(brew info postgresql@12 | grep $(brew --prefix)/Cellar/postgresql@12 | cut -d' ' -f1 | xargs basename)/bin/pg_config
+bundle install
 
-# STEP 3
-printf "${CLEAR_LINE}[3/${STEPS}]  installing packages"
-yarn install > /dev/null
+echo "Setting up database..."
+bundle exec rails db:create db:migrate --trace
 
-# STEP 4
-printf "${CLEAR_LINE}[4/${STEPS}]  adding remotes"
-git remote add upstream git@github.com:artsy/rosalind.git
+echo "
+Done! You should be able to run some tests, as in:
 
-# STEP 5
-printf "${CLEAR_LINE}[5/${STEPS}]  fetching remotes"
-git fetch --all --quiet > /dev/null
+    bundle exec rake
 
-# STEP 6
-printf "${CLEAR_LINE}[6/${STEPS}]  setting up dotenv"
-copy_env hokusai
+To start a local server (at http://localhost:3000):
 
-# STEP 7
-printf "${CLEAR_LINE}[7/${STEPS}]  database setup"
-RAILS_ENV=development bundle exec rake db:create db:migrate > /dev/null
-RAILS_ENV=test bundle exec rake db:create db:migrate > /dev/null
-
-# FINISH
-printf "${CLEAR_LINE}[${STEPS}/${STEPS}]${GREEN}  finished!${NO_COLOR}\n"
+    foreman start
+"

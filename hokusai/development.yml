@@ -3,7 +3,9 @@ version: '2'
 services:
   rosalind:
     command: sh -c 'bundle exec rails db:migrate && bundle exec puma -C config/puma.config'
-    env_file: ../.env
+    env_file:
+      - ../.env.shared
+      - ../.env
 {% include 'templates/docker-compose-service.yml.j2' %}
     ports:
       - 5000:5000
