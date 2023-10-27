@@ -1,7 +1,8 @@
 !/log/.keep
 !/tmp/.keep
 .byebug_history
-.env
+.env*
+!.env.example
 .ruby-gemset
 /.bundle
 /log/*
@@ -16,3 +17,5 @@ npm-debug.log
 yarn-debug.log*
 .yarn-integrity
 yarn-error.log
+
+Brewfile.lock.json
