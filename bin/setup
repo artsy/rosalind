@@ -36,7 +36,7 @@ gem update --system
 gem install foreman
 
 echo "Downloading .env.shared (for common internal configuration)..."
-aws s3 cp s3://artsy-citadel/dev/.env.rosalind .env.shared
+aws s3 cp s3://artsy-citadel/rosalind/.env.shared ./
 
 if [ ! -e ".env" ]; then
   echo "Initializing .env from .env.example (for any custom configuration)..."
