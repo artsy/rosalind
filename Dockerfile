@@ -57,7 +57,6 @@ RUN bundle config --global frozen 1
 
 # Set up gems
 WORKDIR /tmp
-ADD .ruby-version .ruby-version
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 RUN bundle install -j4 && \
