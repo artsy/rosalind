@@ -35,8 +35,7 @@ RUN apt-get update -qq && apt-get install -y nodejs libnss3 libgconf-2-4 && apt-
 # Disable Chrome sandbox
 RUN sed -i 's|HERE/chrome"|HERE/chrome" --disable-setuid-sandbox --no-sandbox|g' "/opt/google/chrome/google-chrome"
 
-RUN gem update --system
-RUN gem install bundler
+RUN gem install bundler -v 2.4.22
 
 RUN npm install -g yarn
 
