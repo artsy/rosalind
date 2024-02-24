@@ -10,22 +10,11 @@ set -e
 echo "Installing dependencies..."
 brew bundle
 
-ruby_version=`cat .ruby-version`
-echo "Configuring Ruby $ruby_version..."
-
-if command -v rbenv >/dev/null; then # skip rbenv steps if not available (RVM user?)
-  if ! rbenv versions | grep -Fq "$ruby_version"; then
-    rbenv install -s "$ruby_version"
-  fi
-
-  eval "$(rbenv init - --no-rehash)"
-  rbenv shell "$ruby_version"
-fi
-
-if [ ! -z $NVM_DIR ]; then # skip nvm steps if not available
-  echo "Configuring Node..."
-  source ~/.nvm/nvm.sh
-  nvm install
+if command -v asdf >/dev/null; then
+  echo "Installing language dependencies with asdf"
+  asdf install
+else
+  echo "Skipping language dependencies installation (asdf not found)"
 fi
 
 echo "Installing dependencies..."

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby File.read('.ruby-version')
+ruby '2.7.3'
 
 gem 'pg'
 gem 'puma'
