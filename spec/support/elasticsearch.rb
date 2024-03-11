@@ -11,7 +11,6 @@ def elasticsearch_sample_artwork_hits
   [
     {
       '_index' => 'gravity',
-      '_type' => 'artwork',
       '_id' => '1234',
       '_source' => {
         'id' => '1234',
@@ -23,7 +22,6 @@ def elasticsearch_sample_artwork_hits
     },
     {
       '_index' => 'gravity',
-      '_type' => 'artwork',
       '_id' => '5678',
       '_source' => {
         'id' => '5678',
