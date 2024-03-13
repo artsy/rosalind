@@ -34,7 +34,7 @@ describe 'User updates artworks', js: true do
     ]
   end
 
-  let(:search_response) { { hits: { total: hits.count, hits: hits } }.to_json }
+  let(:search_response) { { hits: { total: { value: hits.count }, hits: hits } }.to_json }
 
   before do
     ActionController::Base.allow_forgery_protection = true

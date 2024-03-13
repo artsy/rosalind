@@ -119,7 +119,7 @@ const Controls = ({
 }) => (
   <div>
     <div className="counts">
-      Displaying {displayed.toLocaleString()} of {total.toLocaleString()}{' '}
+      Displaying {displayed.toLocaleString()} of {total.value.toLocaleString()}{' '}
       matching artworks
     </div>
     <div className="select">
