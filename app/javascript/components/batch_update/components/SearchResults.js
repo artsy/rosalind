@@ -47,7 +47,7 @@ class SearchResults extends React.Component {
       onSelectAllArtworks,
       onDeselectAllArtworks,
     } = this.props
-    if (totalHits && artworks && artworks.length > 0) {
+    if (totalHits.value && artworks && artworks.length > 0) {
       return (
         <Controls
           displayed={artworks.length}
@@ -63,7 +63,7 @@ class SearchResults extends React.Component {
 
   maybeRenderMoreButton() {
     const { artworks, totalHits, onLoadMore } = this.props
-    if (totalHits > artworks.length) {
+    if (totalHits.value > artworks.length) {
       return <LoadMore onLoadMore={onLoadMore} />
     } else {
       return null
@@ -108,7 +108,10 @@ SearchResults.propTypes = {
   onToggleArtwork: PropTypes.func,
   previewedArtwork: PropTypes.object,
   selectedArtworkIds: PropTypes.arrayOf(PropTypes.string),
-  totalHits: PropTypes.number,
+  totalHits: PropTypes.shape({
+    value: PropTypes.string,
+    relation: PropTypes.string,
+  }),
 }
 
 const Controls = ({
