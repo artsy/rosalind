@@ -118,10 +118,7 @@ const Controls = ({
   onDeselectAllArtworks,
 }) => (
   <div>
-    <div className="counts">
-      Displaying {displayed.toLocaleString()} of {total.value.toLocaleString()}{' '}
-      matching artworks
-    </div>
+    <Counts displayed={displayed} total={total} />
     <div className="select">
       Select:
       <Link
@@ -146,6 +143,18 @@ const Controls = ({
     </div>
   </div>
 )
+
+const Counts = ({ displayed, total }) => {
+  const totalCount = total.value.toLocaleString()
+  const hasMore = total.relation === 'gte'
+
+  return (
+    <div className="counts">
+      Displaying {displayed.toLocaleString()} of {totalCount.toLocaleString()}
+      {hasMore ? '+' : ''} matching artworks
+    </div>
+  )
+}
 
 const ArtworkResultList = ({
   artworks,

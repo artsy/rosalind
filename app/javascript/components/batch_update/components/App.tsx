@@ -42,7 +42,10 @@ type State = {
   size: number
   sort: string /* enum */
   tags: Tag[]
-  totalHits: number
+  totalHits: {
+    value: number
+    relation: string
+  }
 }
 
 class App extends React.Component<Props, State> {
