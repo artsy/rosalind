@@ -28,6 +28,7 @@ it('renders a collection of artworks', () => {
   const rendered = renderer.create(
     <SearchResults
       artworks={artworks}
+      totalHits={{}}
       selectedArtworkIds={selectedArtworkIds}
     />
   )
@@ -40,6 +41,7 @@ it('renders a modal when previewing', () => {
     <SearchResults
       previewedArtwork={soup}
       artworks={artworks}
+      totalHits={{}}
       selectedArtworkIds={selectedArtworkIds}
     />
   )
@@ -52,6 +54,7 @@ it('does not render a modal when not previewing', () => {
     <SearchResults
       previewedArtwork={null}
       artworks={artworks}
+      totalHits={{}}
       selectedArtworkIds={selectedArtworkIds}
     />
   )
@@ -65,6 +68,7 @@ it('renders a spinner while fetching artworks', () => {
       isLoading
       previewedArtwork={null}
       artworks={artworks}
+      totalHits={{}}
       selectedArtworkIds={selectedArtworkIds}
     />
   )

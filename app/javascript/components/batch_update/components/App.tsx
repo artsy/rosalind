@@ -42,7 +42,10 @@ type State = {
   size: number
   sort: string /* enum */
   tags: Tag[]
-  totalHits: number
+  totalHits: {
+    value: number
+    relation: string
+  }
 }
 
 class App extends React.Component<Props, State> {
@@ -70,7 +73,7 @@ class App extends React.Component<Props, State> {
     size: 100,
     sort: 'RECENTLY_PUBLISHED',
     tags: [],
-    totalHits: null,
+    totalHits: { value: 0, relation: 'eq' },
   }
 
   constructor(props: never) {
@@ -193,7 +196,7 @@ class App extends React.Component<Props, State> {
       this.setState({
         artworks: [],
         selectedArtworkIds: [],
-        totalHits: 0,
+        totalHits: { value: 0, relation: 'eq' },
       })
     } else {
       const query = buildElasticsearchQuery({
