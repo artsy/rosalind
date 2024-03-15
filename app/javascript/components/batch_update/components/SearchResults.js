@@ -47,7 +47,7 @@ class SearchResults extends React.Component {
       onSelectAllArtworks,
       onDeselectAllArtworks,
     } = this.props
-    if (totalHits && artworks && artworks.length > 0) {
+    if (totalHits.value && artworks && artworks.length > 0) {
       return (
         <Controls
           displayed={artworks.length}
@@ -63,7 +63,7 @@ class SearchResults extends React.Component {
 
   maybeRenderMoreButton() {
     const { artworks, totalHits, onLoadMore } = this.props
-    if (totalHits > artworks.length) {
+    if (totalHits.value > artworks.length) {
       return <LoadMore onLoadMore={onLoadMore} />
     } else {
       return null
@@ -108,7 +108,10 @@ SearchResults.propTypes = {
   onToggleArtwork: PropTypes.func,
   previewedArtwork: PropTypes.object,
   selectedArtworkIds: PropTypes.arrayOf(PropTypes.string),
-  totalHits: PropTypes.number,
+  totalHits: PropTypes.shape({
+    value: PropTypes.string,
+    relation: PropTypes.string,
+  }),
 }
 
 const Controls = ({
@@ -118,10 +121,7 @@ const Controls = ({
   onDeselectAllArtworks,
 }) => (
   <div>
-    <div className="counts">
-      Displaying {displayed.toLocaleString()} of {total.value.toLocaleString()}{' '}
-      matching artworks
-    </div>
+    <Counts displayed={displayed} total={total} />
     <div className="select">
       Select:
       <Link
@@ -146,6 +146,18 @@ const Controls = ({
     </div>
   </div>
 )
+
+const Counts = ({ displayed, total }) => {
+  const totalCount = total.value.toLocaleString()
+  const hasMore = total.relation === 'gte'
+
+  return (
+    <div className="counts">
+      Displaying {displayed.toLocaleString()} of {totalCount.toLocaleString()}
+      {hasMore ? '+' : ''} matching artworks
+    </div>
+  )
+}
 
 const ArtworkResultList = ({
   artworks,
