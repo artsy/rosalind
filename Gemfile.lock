@@ -89,6 +89,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colored2 (3.1.2)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     coverband (5.0.3)
@@ -363,6 +364,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coffee-rails
+  colored2
   coverband
   ddtrace
   decent_exposure
