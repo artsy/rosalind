@@ -13,7 +13,7 @@ RUN apt-get update -qq && apt-get install -y \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install NodeJS apt sources
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 
 # Add Chrome source
 

@@ -36,6 +36,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
+  gem 'colored2'
 end
 
 group :test do
