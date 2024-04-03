@@ -4,7 +4,7 @@ class ArtsyTags
   end
 
   def self.update_tags(artwork_id, tags)
-    params = { tags: tags }
+    params = {tags: tags}
     new(artwork_id, params, :put).update_tags
   end
 
@@ -18,7 +18,7 @@ class ArtsyTags
     response = request.run
     if response.body.present?
       json = JSON.parse(response.body)
-      return json['tags'] || []
+      return json["tags"] || []
     end
 
     []
@@ -32,7 +32,7 @@ class ArtsyTags
 
   def request
     url = api_url
-    url += '/tags' if @method == :put
+    url += "/tags" if @method == :put
     Typhoeus::Request.new(
       url,
       headers: headers,
@@ -43,7 +43,7 @@ class ArtsyTags
   end
 
   def api_root
-    gravity_config['api_root']
+    gravity_config["api_root"]
   end
 
   def api_url
@@ -51,7 +51,7 @@ class ArtsyTags
   end
 
   def headers
-    { 'X-XAPP-TOKEN' => gravity_config['xapp_token'] }
+    {"X-XAPP-TOKEN" => gravity_config["xapp_token"]}
   end
 
   def gravity_config

@@ -4,7 +4,7 @@ class ArtsyGenome < Genome
   end
 
   def self.update_genes(artwork_id, genes)
-    params = { genes: genes }
+    params = {genes: genes}
     new(artwork_id, params, :put).update_genes
   end
 
