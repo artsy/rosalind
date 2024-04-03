@@ -1,40 +1,13 @@
-inherit_from: .rubocop_todo.yml
-require: rubocop-rails
-
-
-Layout/LineLength:
-  Max: 132 # good for desktop Github
-
-Style/BlockComments:
-  Exclude:
-    - 'spec/spec_helper.rb'
-
-Style/Documentation:
-  Enabled: false
-
-Layout/FirstArgumentIndentation:
-  EnforcedStyle: consistent
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Metrics/BlockLength:
-  Exclude:
-    - spec/**/*
-
-Rails/FilePath:
-  Enabled: false
-
-Naming/InclusiveLanguage:
+Layout/SpaceInsideHashLiteralBraces:
   Enabled: true
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBraces: no_space
 
-AllCops:
-  Exclude:
-    - Gemfile
-    - vendor/**/*
-    - node_modules/**/*
-    - bin/webpack*
-  NewCops: enable
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: false
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
