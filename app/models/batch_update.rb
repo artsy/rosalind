@@ -8,7 +8,7 @@ class BatchUpdate < ApplicationRecord
   end
 
   def increment_updated_artworks
-    increment! :updated_artworks # rubocop:disable Rails/SkipsModelValidations
+    increment! :updated_artworks
   end
 
   def changes_to_submit?

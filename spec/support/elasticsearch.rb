@@ -6,7 +6,6 @@ def stub_elasticsearch_request(path:, query:, response_hits:)
          .to_return(body: { hits: { hits: response_hits } }.to_json)
 end
 
-# rubocop:disable Metrics/MethodLength
 def elasticsearch_sample_artwork_hits
   [
     {
@@ -33,4 +32,3 @@ def elasticsearch_sample_artwork_hits
     }
   ]
 end
-# rubocop:enable Metrics/MethodLength
