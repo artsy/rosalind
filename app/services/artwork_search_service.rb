@@ -4,7 +4,7 @@ module ArtworkSearchService
   class << self
     def call(query:)
       response = Typhoeus.post(api_url, body: query,
-                                        headers: headers, accept_encoding: "gzip")
+        headers: headers, accept_encoding: "gzip")
       if response.success?
         response.body
       else

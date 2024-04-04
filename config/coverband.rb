@@ -1,7 +1,7 @@
 Coverband.configure do |config|
   # supress some commonly un-informative file reports
   # https://github.com/danmayer/coverband/#ignoring-files
-  config.ignore +=  [
+  config.ignore += [
     "app/mailers/*",
     "bin/*",
     "config/application.rb",
