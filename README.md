@@ -52,7 +52,7 @@ those at the Javascript level. Same goes for linting. That means to run
 everything individually you would do:
 
 ```
-$ bundle exec rubocop
+$ bundle exec standard
 $ bundle exec rspec
 $ yarn run lint
 $ yarn run test

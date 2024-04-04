@@ -132,7 +132,7 @@
       "git add"
     ],
     "**/*.rb": [
-      "bundle exec rubocop -a",
+      "bundle exec standardrb --fix",
       "git add"
     ]
   }

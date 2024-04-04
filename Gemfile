@@ -25,8 +25,7 @@ gem "shakapacker", "7.0.3"
 group :development, :test do
   gem "pry-rails"
   gem "rspec-rails"
-  gem "rubocop", ">=1.21"
-  gem "rubocop-rails"
+  gem "standard"
   gem "dotenv"
 end
 
