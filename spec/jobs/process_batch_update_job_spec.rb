@@ -1,16 +1,16 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe ProcessBatchUpdateJob do
-  context 'with a bogus batch update id' do
-    it 'does not enqueue any jobs' do
+  context "with a bogus batch update id" do
+    it "does not enqueue any jobs" do
       ProcessBatchUpdateJob.new.perform(123)
       jobs = ActiveJob::Base.queue_adapter.enqueued_jobs
       expect(jobs.count).to eq 0
     end
   end
 
-  context 'with some artworks' do
-    it 'enqueues a job for each artwork' do
+  context "with some artworks" do
+    it "enqueues a job for each artwork" do
       artwork_ids = %w[a1 b2 c3]
       batch_update = Fabricate :batch_update, artworks: artwork_ids
 

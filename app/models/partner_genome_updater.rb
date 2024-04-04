@@ -26,7 +26,7 @@ class PartnerGenomeUpdater
   end
 
   def partner_id
-    @partner_id = partner_attrs['id']
+    @partner_id = partner_attrs["id"]
   end
 
   def current_genes

@@ -1,10 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe PartnerGenome do
   before do
     gravity_config = {
-      'api_root' => 'http://gravity.test/api/v1',
-      'xapp_token' => 'trusted_token'
+      "api_root" => "http://gravity.test/api/v1",
+      "xapp_token" => "trusted_token"
     }
 
     application = double(:application, config_for: gravity_config)
@@ -12,19 +12,19 @@ describe PartnerGenome do
     allow(Rails).to receive(:application).and_return(application)
   end
 
-  describe '.genes' do
-    it 'returns parsed genes' do
-      partner_id = 'def456'
-      artwork_id = 'abc123'
-      genes = { 'Photography' => 100 }
-      genes_json = { genes: genes }.to_json
+  describe ".genes" do
+    it "returns parsed genes" do
+      partner_id = "def456"
+      artwork_id = "abc123"
+      genes = {"Photography" => 100}
+      genes_json = {genes: genes}.to_json
 
       response = double(:response, body: genes_json)
       request = double(:request, run: response)
 
       expect(Typhoeus::Request).to receive(:new).with(
-        'http://gravity.test/api/v1/partner/def456/artwork/abc123/genome',
-        headers: { 'X-XAPP-TOKEN' => 'trusted_token' },
+        "http://gravity.test/api/v1/partner/def456/artwork/abc123/genome",
+        headers: {"X-XAPP-TOKEN" => "trusted_token"},
         params: {},
         method: :get
       ).and_return(request)
@@ -33,18 +33,18 @@ describe PartnerGenome do
     end
   end
 
-  describe '.update_genes' do
-    it 'hits Gravity with updates' do
-      partner_id = 'def456'
-      artwork_id = 'abc123'
-      genes = { 'Photography' => 100 }
+  describe ".update_genes" do
+    it "hits Gravity with updates" do
+      partner_id = "def456"
+      artwork_id = "abc123"
+      genes = {"Photography" => 100}
 
       request = double(:request, run: nil)
 
       expect(Typhoeus::Request).to receive(:new).with(
-        'http://gravity.test/api/v1/partner/def456/artwork/abc123/genome',
-        headers: { 'X-XAPP-TOKEN' => 'trusted_token' },
-        params: { genes: genes },
+        "http://gravity.test/api/v1/partner/def456/artwork/abc123/genome",
+        headers: {"X-XAPP-TOKEN" => "trusted_token"},
+        params: {genes: genes},
         method: :put
       ).and_return(request)
 

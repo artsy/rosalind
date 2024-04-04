@@ -8,7 +8,7 @@ class Genome
   def genes
     response = request.run
     json = JSON.parse(response.body)
-    json['genes']
+    json["genes"]
   end
 
   def update_genes
@@ -27,15 +27,15 @@ class Genome
   end
 
   def api_root
-    gravity_config['api_root']
+    gravity_config["api_root"]
   end
 
   def api_url
-    throw 'Implement in subclass'
+    throw "Implement in subclass"
   end
 
   def headers
-    { 'X-XAPP-TOKEN' => gravity_config['xapp_token'] }
+    {"X-XAPP-TOKEN" => gravity_config["xapp_token"]}
   end
 
   def gravity_config

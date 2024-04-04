@@ -10,7 +10,7 @@ bundle exec rails db:drop db:create db:migrate
 
 # run linters
 yarn run lint
-bundle exec rubocop
+bundle exec standardrb
 
 # run specs
 yarn run test --runInBand
