@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe ArtsyTagsUpdater do
-  it 'correctly combines existing tags, tags to add and tags to remove' do
-    artwork_id = 'abcdef'
+  it "correctly combines existing tags, tags to add and tags to remove" do
+    artwork_id = "abcdef"
     current_tags = %w[foo bar bat]
     tags_to_add = %w[bang]
     tags_to_remove = %w[bat]

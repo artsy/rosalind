@@ -14,9 +14,9 @@ class UpdateArtworkJob < ApplicationJob
   end
 
   def handle_tags
-    return if @tags.blank? || (@tags['toAdd'].blank? && @tags['toRemove'].blank?)
+    return if @tags.blank? || (@tags["toAdd"].blank? && @tags["toRemove"].blank?)
 
-    ArtsyTagsUpdater.update(@artwork_id, @tags['toAdd'], @tags['toRemove'])
+    ArtsyTagsUpdater.update(@artwork_id, @tags["toAdd"], @tags["toRemove"])
   end
 
   def handle_genes

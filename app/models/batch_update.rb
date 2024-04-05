@@ -8,12 +8,12 @@ class BatchUpdate < ApplicationRecord
   end
 
   def increment_updated_artworks
-    increment! :updated_artworks # rubocop:disable Rails/SkipsModelValidations
+    increment! :updated_artworks
   end
 
   def changes_to_submit?
     return if genes.present? || tags.present?
 
-    errors.add(:changes, 'You must submit at least genes or tags to update this artwork.')
+    errors.add(:changes, "You must submit at least genes or tags to update this artwork.")
   end
 end

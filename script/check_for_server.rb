@@ -1,11 +1,11 @@
 #! /usr/bin/env ruby
 
-require 'rubygems'
-require 'bundler'
+require "rubygems"
+require "bundler"
 Bundler.setup(:default, :development)
-require 'dotenv/load'
-require 'typhoeus'
-require 'colored2'
+require "dotenv/load"
+require "typhoeus"
+require "colored2"
 
 def check_for_running_rosalind_server!
   response = Typhoeus.get(app_url)
@@ -26,11 +26,11 @@ def app_url
 end
 
 def port
-  (ENV['PORT'] || 5000).to_i
+  (ENV["PORT"] || 5000).to_i
 end
 
 def looks_like_rosalind?(response)
-  response.headers['Set-Cookie'] =~ /rosalind/i
+  response.headers["Set-Cookie"] =~ /rosalind/i
 end
 
 def no_server?(response)
@@ -41,7 +41,7 @@ def fail_with(msg)
   puts
   puts msg
   puts
-  puts 'You must have a running Rosalind rails server in order to see accurate styles in Storybook'.red
+  puts "You must have a running Rosalind rails server in order to see accurate styles in Storybook".red
   puts
   exit 1
 end

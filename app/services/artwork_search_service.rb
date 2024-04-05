@@ -4,7 +4,7 @@ module ArtworkSearchService
   class << self
     def call(query:)
       response = Typhoeus.post(api_url, body: query,
-                                        headers: headers, accept_encoding: 'gzip')
+        headers: headers, accept_encoding: "gzip")
       if response.success?
         response.body
       else
@@ -17,14 +17,14 @@ module ArtworkSearchService
     private
 
     def api_url
-      "#{Rails.application.config_for(:elasticsearch)['url']}/#{Rails.application.config_for(:elasticsearch)['index']}" \
-        '/_search'
+      "#{Rails.application.config_for(:elasticsearch)["url"]}/#{Rails.application.config_for(:elasticsearch)["index"]}" \
+        "/_search"
     end
 
     def headers
       {
-        'Content-type' => 'application/json',
-        'Accept' => 'application/json'
+        "Content-type" => "application/json",
+        "Accept" => "application/json"
       }
     end
   end

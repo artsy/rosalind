@@ -20,7 +20,7 @@ module FilteredArtworkSearchService
     def call(params = {})
       validate_parameters!(params)
 
-      response = Typhoeus.get(api_url, params: params, params_encoding: :rack, headers: headers, accept_encoding: 'gzip')
+      response = Typhoeus.get(api_url, params: params, params_encoding: :rack, headers: headers, accept_encoding: "gzip")
 
       if response.success?
         JSON.parse(response.body)
@@ -34,16 +34,16 @@ module FilteredArtworkSearchService
     private
 
     def api_url
-      "#{Rails.application.config_for(:gravity)['api_root']}/filter/artworks"
+      "#{Rails.application.config_for(:gravity)["api_root"]}/filter/artworks"
     end
 
     def headers
       {
-        'Content-type' => 'application/json',
-        'Accept' => 'application/json',
+        "Content-type" => "application/json",
+        "Accept" => "application/json",
 
         # TODO: replace with user access token, to support fetching unpublished works
-        'X-XAPP-TOKEN' => Rails.application.config_for(:gravity)['xapp_token']
+        "X-XAPP-TOKEN" => Rails.application.config_for(:gravity)["xapp_token"]
       }
     end
 

@@ -1,36 +1,34 @@
 def stub_elasticsearch_request(path:, query:, response_hits:)
   root_url, index_name = Rails.application.config_for(:elasticsearch)
-                              .values_at 'url', 'index'
+    .values_at "url", "index"
   WebMock.stub_request(:post, "#{root_url}/#{index_name}/#{path}")
-         .with(body: query)
-         .to_return(body: { hits: { hits: response_hits } }.to_json)
+    .with(body: query)
+    .to_return(body: {hits: {hits: response_hits}}.to_json)
 end
 
-# rubocop:disable Metrics/MethodLength
 def elasticsearch_sample_artwork_hits
   [
     {
-      '_index' => 'gravity',
-      '_id' => '1234',
-      '_source' => {
-        'id' => '1234',
-        'genes' => [
-          'Kawaii'
+      "_index" => "gravity",
+      "_id" => "1234",
+      "_source" => {
+        "id" => "1234",
+        "genes" => [
+          "Kawaii"
         ],
-        'name' => 'Pikachu'
+        "name" => "Pikachu"
       }
     },
     {
-      '_index' => 'gravity',
-      '_id' => '5678',
-      '_source' => {
-        'id' => '5678',
-        'genes' => [
-          'Kawaii'
+      "_index" => "gravity",
+      "_id" => "5678",
+      "_source" => {
+        "id" => "5678",
+        "genes" => [
+          "Kawaii"
         ],
-        'name' => 'Jigglypuff'
+        "name" => "Jigglypuff"
       }
     }
   ]
 end
-# rubocop:enable Metrics/MethodLength
