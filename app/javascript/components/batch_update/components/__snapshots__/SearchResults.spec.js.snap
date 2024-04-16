@@ -75,6 +75,8 @@ exports[`does not render a modal when not previewing 1`] = `
       />
       <figcaption>
         Soup Can
+        <br />
+        Visibility level: listed
       </figcaption>
     </div>
     <div
@@ -87,6 +89,8 @@ exports[`does not render a modal when not previewing 1`] = `
       />
       <figcaption>
         Shark
+        <br />
+        Visibility level: unlisted
       </figcaption>
     </div>
   </div>
@@ -168,6 +172,8 @@ exports[`renders a collection of artworks 1`] = `
       />
       <figcaption>
         Soup Can
+        <br />
+        Visibility level: listed
       </figcaption>
     </div>
     <div
@@ -180,6 +186,8 @@ exports[`renders a collection of artworks 1`] = `
       />
       <figcaption>
         Shark
+        <br />
+        Visibility level: unlisted
       </figcaption>
     </div>
   </div>
@@ -417,6 +425,8 @@ exports[`renders a modal when previewing 1`] = `
       />
       <figcaption>
         Soup Can
+        <br />
+        Visibility level: listed
       </figcaption>
     </div>
     <div
@@ -429,6 +439,8 @@ exports[`renders a modal when previewing 1`] = `
       />
       <figcaption>
         Shark
+        <br />
+        Visibility level: unlisted
       </figcaption>
     </div>
   </div>
@@ -551,6 +563,8 @@ exports[`renders a spinner while fetching artworks 1`] = `
       />
       <figcaption>
         Soup Can
+        <br />
+        Visibility level: listed
       </figcaption>
     </div>
     <div
@@ -563,6 +577,8 @@ exports[`renders a spinner while fetching artworks 1`] = `
       />
       <figcaption>
         Shark
+        <br />
+        Visibility level: unlisted
       </figcaption>
     </div>
   </div>

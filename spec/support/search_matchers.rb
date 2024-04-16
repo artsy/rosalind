@@ -46,7 +46,10 @@ RSpec::Matchers.define :have_results do |hits|
     actual_srcs = page.all(".results img").map { |node| node["src"] }
     expect(actual_srcs).to eq expected_srcs
 
-    expected_captions = hits.map { |hit| hit["_source"]["name"] }
+    expected_captions = hits.map do |hit|
+      "#{hit["_source"]["name"]}\nVisibility level: #{hit["_source"]["visibility_level"]}"
+    end
+
     actual_captions = page.all(".results figcaption").map(&:text)
     expect(actual_captions).to eq expected_captions
   end

@@ -26,7 +26,11 @@ class ArtworkSearchResult extends React.Component {
     return (
       <div className={className} onClick={this.handleClick}>
         <img src={imageUrl || missingImage} alt={name} />
-        <figcaption>{name}</figcaption>
+        <figcaption>
+          {name}
+          <br />
+          {`Visibility level: ${artwork.visibility_level}`}
+        </figcaption>
       </div>
     )
   }

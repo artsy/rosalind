@@ -20,14 +20,16 @@ describe "User searches artworks", js: true do
         "_source" => {
           "id" => "1234",
           "name" => "Pikachu",
-          "image_url" => "https://d32dm0rphc51dk.cloudfront.net/Zm4R54uWxcufME7KJBRxdw/square.jpg"
+          "image_url" => "https://d32dm0rphc51dk.cloudfront.net/Zm4R54uWxcufME7KJBRxdw/square.jpg",
+          "visibility_level" => "listed"
         }
       },
       {
         "_source" => {
           "id" => "5678",
           "name" => "Jigglypuff",
-          "image_url" => "https://d32dm0rphc51dk.cloudfront.net/s8oMXsCa4LFVnsBc7sQluA/square.jpg"
+          "image_url" => "https://d32dm0rphc51dk.cloudfront.net/s8oMXsCa4LFVnsBc7sQluA/square.jpg",
+          "visibility_level" => "unlisted"
         }
       }
     ]
