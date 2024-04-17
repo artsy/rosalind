@@ -13,6 +13,7 @@ beforeEach(() => {
       name: 'Soup Can',
       image_url: 'can.jpg',
       deleted: false,
+      visibility_level: 'listed',
       published: true,
     },
     onPreviewArtwork: jest.fn(),
