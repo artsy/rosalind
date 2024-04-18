@@ -32,6 +32,8 @@ exports[`renders correctly 1`] = `
   />
   <figcaption>
     Soup Can
+    <br />
+    Visibility level: listed
   </figcaption>
 </div>
 `;
@@ -71,6 +73,8 @@ exports[`renders in the selected state 1`] = `
   />
   <figcaption>
     Soup Can
+    <br />
+    Visibility level: listed
   </figcaption>
 </div>
 `;
