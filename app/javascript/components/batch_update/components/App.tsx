@@ -37,6 +37,7 @@ type State = {
   partner: string
   previewedArtwork: Artwork
   publishedFilter: string /* enum */
+  listedFilter: string /* enum */
   restrictedArtworkIDs: string[]
   selectedArtworkIds: string[]
   size: number
@@ -68,6 +69,7 @@ class App extends React.Component<Props, State> {
     partner: null,
     previewedArtwork: null,
     publishedFilter: 'SHOW_ALL',
+    listedFilter: 'SHOW_ALL',
     restrictedArtworkIDs: [],
     selectedArtworkIds: [],
     size: 100,
@@ -152,6 +154,7 @@ class App extends React.Component<Props, State> {
       this.state.maxPrice !== prevState.maxPrice ||
       this.state.partner !== prevState.partner ||
       this.state.publishedFilter !== prevState.publishedFilter ||
+      this.state.listedFilter !== prevState.listedFilter ||
       this.state.sort !== prevState.sort ||
       this.state.tags !== prevState.tags ||
       this.state.restrictedArtworkIDs !== prevState.restrictedArtworkIDs
@@ -186,6 +189,7 @@ class App extends React.Component<Props, State> {
       minPrice,
       partner,
       publishedFilter,
+      listedFilter,
       restrictedArtworkIDs,
       size,
       sort,
@@ -213,6 +217,7 @@ class App extends React.Component<Props, State> {
         minPrice,
         partner,
         publishedFilter,
+        listedFilter,
         restrictedArtworkIDs,
         size,
         sort,
@@ -255,6 +260,7 @@ class App extends React.Component<Props, State> {
       minPrice,
       partner,
       publishedFilter,
+      listedFilter,
       restrictedArtworkIDs,
       size,
       sort,
@@ -278,6 +284,7 @@ class App extends React.Component<Props, State> {
       minPrice,
       partner,
       publishedFilter,
+      listedFilter,
       restrictedArtworkIDs,
       size,
       sort,
@@ -500,6 +507,7 @@ class App extends React.Component<Props, State> {
       partner,
       previewedArtwork,
       publishedFilter,
+      listedFilter,
       restrictedArtworkIDs,
       selectedArtworkIds,
       sort,
@@ -537,6 +545,7 @@ class App extends React.Component<Props, State> {
             onRemoveTag={this.onRemoveTag}
             partner={partner}
             publishedFilter={publishedFilter}
+            listedFilter={listedFilter}
             restrictedArtworkIDs={restrictedArtworkIDs}
             selectedArtworkIds={selectedArtworkIds}
             selectedArtworksCount={selectedArtworkIds.length}

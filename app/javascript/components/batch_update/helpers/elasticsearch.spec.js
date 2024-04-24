@@ -486,6 +486,28 @@ describe('buildElasticsearchQuery', () => {
       expect(actualQuery).toEqual(expectedQuery)
     })
 
+    it('enables results to be filtered according to visibility level', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+              { match: { visibility_level: 'unlisted' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+
+      params.listedFilter = 'SHOW_NOT_LISTED'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
     it('modifies a query with the value of the "acquireable or offerable" filter', () => {
       const expectedQuery = {
         query: {

@@ -6,6 +6,7 @@ function FilterOptions(props) {
   const {
     className,
     publishedFilter,
+    listedFilter,
     acquireableOrOfferableFilter,
     forSaleFilter,
     updateState,
@@ -16,6 +17,11 @@ function FilterOptions(props) {
       <FilterOption
         current={publishedFilter}
         name="published"
+        updateState={updateState}
+      />
+      <FilterOption
+        current={listedFilter}
+        name="listed"
         updateState={updateState}
       />
       <FilterOption
