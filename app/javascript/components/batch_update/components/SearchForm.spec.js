@@ -39,6 +39,7 @@ beforeEach(() => {
     onRemoveArtist: jest.fn(),
     partner: null,
     publishedFilter: 'SHOW_ALL',
+    listedFilter: 'SHOW_ALL',
     restrictedArtworkIDs: [],
     selectedArtworkIds: [],
     selectedArtworksCount: 0,

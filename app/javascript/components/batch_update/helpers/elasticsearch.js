@@ -22,6 +22,7 @@ export function buildElasticsearchQuery(args) {
     minPrice,
     partner,
     publishedFilter,
+    listedFilter,
     restrictedArtworkIDs,
     size,
     sort,
@@ -42,6 +43,7 @@ export function buildElasticsearchQuery(args) {
 
   const filterMatches = buildFilterMatches({
     publishedFilter,
+    listedFilter,
     acquireableOrOfferableFilter,
     forSaleFilter,
   })
@@ -151,10 +153,12 @@ const buildSort = sort => {
 
 const buildFilterMatches = ({
   publishedFilter,
+  listedFilter,
   acquireableOrOfferableFilter,
   forSaleFilter,
 }) => [
   publishedMatcher(publishedFilter),
+  listedMatcher(listedFilter),
   acquireableOrOfferableMatcher(acquireableOrOfferableFilter),
   forSaleMatcher(forSaleFilter),
 ]
@@ -174,6 +178,17 @@ const publishedMatcher = publishedFilter => {
       return { match: { published: true } }
     case 'SHOW_NOT_PUBLISHED':
       return { match: { published: false } }
+    default:
+      return null
+  }
+}
+
+const listedMatcher = listedFilter => {
+  switch (listedFilter) {
+    case 'SHOW_LISTED':
+      return { match: { visibility_level: 'listed' } }
+    case 'SHOW_NOT_LISTED':
+      return { match: { visibility_level: 'unlisted' } }
     default:
       return null
   }
