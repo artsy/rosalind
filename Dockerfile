@@ -29,6 +29,8 @@ RUN tar -xzf /tmp/google-chrome.tar.gz -C /tmp/
 RUN apt -y install /tmp/${CHROME_VERSION}/install-dependencies.deb
 RUN mkdir -p /opt/google/chrome
 RUN cp -R /tmp/${CHROME_VERSION}/* /opt/google/chrome/
+# Ensure Chrome is in the PATH
+RUN ln -s /opt/google/chrome/google-chrome /usr/bin/google-chrome
 
 # Disable Chrome sandbox
 RUN sed -i 's|HERE/chrome"|HERE/chrome" --disable-setuid-sandbox --no-sandbox|g' "/opt/google/chrome/google-chrome"
