@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.7.3"
+ruby "3.0.7"
 
 gem "pg"
 gem "puma"

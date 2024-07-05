@@ -1,4 +1,4 @@
-FROM ruby:2.7.3-slim
+FROM ruby:3.0.7-slim
 ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
@@ -16,21 +16,12 @@ RUN apt-get update -qq && apt-get install -y \
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 
 # Add Chrome source
+RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 
-# Temporary install older chrome version
-# Can be reverted back to stable once this project is under Ruby 3
-# and Selenium is updated
-# We need to host our own tar of 114 because chrome has stopped hosting it
-# This is even more reason to get to ruby 3.0 and later selenium and chrome
-
-ENV CHROME_VERSION 114.0.5735.90
-RUN curl -L -o /tmp/google-chrome.tar.gz https://artsy-public.s3.amazonaws.com/google-chrome/chrome_${CHROME_VERSION}_linux.tar.gz
-RUN tar -xzf /tmp/google-chrome.tar.gz -C /tmp/
-RUN apt -y install /tmp/${CHROME_VERSION}/install-dependencies.deb
-RUN mkdir -p /opt/google/chrome
-RUN cp -R /tmp/${CHROME_VERSION}/* /opt/google/chrome/
-# Ensure Chrome is in the PATH
-RUN ln -s /opt/google/chrome/google-chrome /usr/bin/google-chrome
+RUN apt-get update -qq
+RUN apt-get install -y nodejs libnss3 libgconf-2-4 google-chrome-stable
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Disable Chrome sandbox
 RUN sed -i 's|HERE/chrome"|HERE/chrome" --disable-setuid-sandbox --no-sandbox|g' "/opt/google/chrome/google-chrome"
