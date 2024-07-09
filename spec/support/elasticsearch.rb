@@ -1,6 +1,6 @@
 def stub_elasticsearch_request(path:, query:, response_hits:)
   root_url, index_name = Rails.application.config_for(:elasticsearch)
-    .values_at "url", "index"
+    .values_at :url, :index
   WebMock.stub_request(:post, "#{root_url}/#{index_name}/#{path}")
     .with(body: query)
     .to_return(body: {hits: {hits: response_hits}}.to_json)
