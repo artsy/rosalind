@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
-ruby "2.7.3"
+ruby "3.0.7"
 
 gem "pg"
 gem "puma"
-gem "rails", "~> 5.2.8.1"
+gem "rails", "~> 6.1.7.8"
 
 kinetic_gem_spec = {git: "https://github.com/artsy/kinetic.git", branch: "main"}
 # kinetic_gem_spec = { path: '../kinetic' }
@@ -16,7 +16,7 @@ gem "decent_exposure"
 gem "haml-rails"
 gem "jbuilder"
 gem "sassc-rails"
-gem "sentry-raven"
+gem "sentry-ruby"
 gem "sidekiq", "6.5.10"
 gem "typhoeus"
 gem "uglifier"
