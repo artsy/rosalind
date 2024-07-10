@@ -26,8 +26,6 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # Disable Chrome sandbox
 RUN sed -i 's|HERE/chrome"|HERE/chrome" --disable-setuid-sandbox --no-sandbox|g' "/opt/google/chrome/google-chrome"
 
-RUN apt-get update -qq && apt-get install -y nodejs libnss3 libgconf-2-4 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 RUN gem install bundler -v 2.4.22
 
 RUN npm install -g yarn
@@ -41,8 +39,6 @@ RUN adduser --disabled-password --gecos '' deploy && \
   mkdir /shared/pids && \
   mkdir /shared/sockets && \
   chown -R deploy:deploy /shared
-
-RUN gem install bundler:2.1.4
 
 # Throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
