@@ -102,7 +102,7 @@ describe "POST /batch_updates" do
 
     it "returns an informative json error" do
       expect(response).to have_http_status(:unprocessable_entity)
-      expect(response.content_type).to eq "application/json"
+      expect(response.content_type).to eq "application/json; charset=utf-8"
       err = JSON.parse(response.body)
       expect(err).to match("error_message" => /You must submit at least genes or tags to update this artwork./)
     end

@@ -1,41 +1,33 @@
-FROM ruby:2.7.3-slim
+FROM ruby:3.0.7-slim
 ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
 
+# Install curl
+RUN apt-get update -qq && \
+  apt-get install -y curl && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Install alternate NodeJS and Chrome apt sources
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+    curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+    echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+
+# Install dependencies
 RUN apt-get update -qq && apt-get install -y \
-  build-essential \
-  curl \
-  dumb-init \
-  git \
-  libpq-dev \
-  postgresql-client \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# Install NodeJS apt sources
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
-
-# Add Chrome source
-
-# Temporary install older chrome version
-# Can be reverted back to stable once this project is under Ruby 3
-# and Selenium is updated
-# We need to host our own tar of 114 because chrome has stopped hosting it
-# This is even more reason to get to ruby 3.0 and later selenium and chrome
-
-ENV CHROME_VERSION 114.0.5735.90
-RUN curl -L -o /tmp/google-chrome.tar.gz https://artsy-public.s3.amazonaws.com/google-chrome/chrome_${CHROME_VERSION}_linux.tar.gz
-RUN tar -xzf /tmp/google-chrome.tar.gz -C /tmp/
-RUN apt -y install /tmp/${CHROME_VERSION}/install-dependencies.deb
-RUN mkdir -p /opt/google/chrome
-RUN cp -R /tmp/${CHROME_VERSION}/* /opt/google/chrome/
-# Ensure Chrome is in the PATH
-RUN ln -s /opt/google/chrome/google-chrome /usr/bin/google-chrome
+      build-essential \
+      dumb-init \
+      git \
+      google-chrome-stable \
+      libgconf-2-4 \
+      libnss3 \
+      libpq-dev \
+      nodejs \
+      postgresql-client && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Disable Chrome sandbox
 RUN sed -i 's|HERE/chrome"|HERE/chrome" --disable-setuid-sandbox --no-sandbox|g' "/opt/google/chrome/google-chrome"
-
-RUN apt-get update -qq && apt-get install -y nodejs libnss3 libgconf-2-4 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN gem install bundler -v 2.4.22
 
@@ -50,8 +42,6 @@ RUN adduser --disabled-password --gecos '' deploy && \
   mkdir /shared/pids && \
   mkdir /shared/sockets && \
   chown -R deploy:deploy /shared
-
-RUN gem install bundler:2.1.4
 
 # Throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
