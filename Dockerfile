@@ -3,25 +3,28 @@ ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
 
+# Install curl
+RUN apt-get update -qq && \
+  apt-get install -y curl && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Install alternate NodeJS and Chrome apt sources
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+    curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+    echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+
+# Install dependencies
 RUN apt-get update -qq && apt-get install -y \
-  build-essential \
-  curl \
-  dumb-init \
-  git \
-  libpq-dev \
-  postgresql-client \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# Install NodeJS apt sources
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
-
-# Add Chrome source
-RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
-
-RUN apt-get update -qq
-RUN apt-get install -y nodejs libnss3 libgconf-2-4 google-chrome-stable
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+      build-essential \
+      dumb-init \
+      git \
+      google-chrome-stable \
+      libgconf-2-4 \
+      libnss3 \
+      libpq-dev \
+      nodejs \
+      postgresql-client && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Disable Chrome sandbox
 RUN sed -i 's|HERE/chrome"|HERE/chrome" --disable-setuid-sandbox --no-sandbox|g' "/opt/google/chrome/google-chrome"
