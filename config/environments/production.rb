@@ -86,4 +86,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Enable host header validation to prevent header manipulation attacks
+  config.hosts << ".artsy.net"
+  config.hosts << IPAddr.new("100.64.0.0/10") # k8s IPs
 end
