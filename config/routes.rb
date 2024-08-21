@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "match/genes"
   get "match/tags"
   get "match/fairs"
+  get "match/sales"
   get "match/partners"
   get "match/artists"
 

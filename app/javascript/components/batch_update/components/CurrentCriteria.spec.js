@@ -84,6 +84,13 @@ it('renders the selected fair', () => {
   expect(tree).toMatchSnapshot()
 })
 
+it('renders the selected sale', () => {
+  props.sale = { id: 'foo', name: 'Phillips' }
+  const rendered = renderer.create(<CurrentCriteria {...props} />)
+  const tree = rendered.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 it('renders the selected attribution class', () => {
   props.attributionClass = { id: 'foo', name: 'Foo Edition' }
   const rendered = renderer.create(<CurrentCriteria {...props} />)

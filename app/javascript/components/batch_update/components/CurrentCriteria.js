@@ -11,6 +11,7 @@ import {
   SelectedArtist,
   SelectedPartner,
   SelectedFair,
+  SelectedSale,
   SelectedPrices,
   SelectedAttributionClass,
   SelectedRestrictedArtworkIDs,
@@ -33,6 +34,7 @@ function CurrentCriteria(props) {
     onRemoveArtist,
     partner,
     restrictedArtworkIDs,
+    sale,
     tags,
     minPrice,
     maxPrice,
@@ -63,6 +65,7 @@ function CurrentCriteria(props) {
         <SelectedPartner name={partner.name} clearState={clearState} />
       )}
       {fair && <SelectedFair name={fair.name} clearState={clearState} />}
+      {sale && <SelectedSale name={sale.name} clearState={clearState} />}
       {attributionClass && (
         <SelectedAttributionClass
           name={attributionClass.name}
@@ -102,6 +105,7 @@ CurrentCriteria.propTypes = {
   onRemoveGene: PropTypes.func.isRequired,
   onRemoveTag: PropTypes.func.isRequired,
   partner: PropTypes.object,
+  sale: PropTypes.object,
   tags: PropTypes.arrayOf(PropTypes.object),
 }
 

@@ -11,6 +11,7 @@ import {
   FairAutosuggest,
   GeneAutosuggest,
   PartnerAutosuggest,
+  SaleAutosuggest,
   TagAutosuggest,
 } from './Autosuggest'
 import FilterOptions from './FilterOptions'
@@ -72,6 +73,7 @@ class SearchForm extends React.Component {
       onRemoveArtist,
       partner,
       restrictedArtworkIDs,
+      sale,
       sort,
       tags,
     } = this.props
@@ -111,6 +113,7 @@ class SearchForm extends React.Component {
           onRemoveTag={onRemoveTag}
           onRemoveArtist={onRemoveArtist}
           partner={partner}
+          sale={sale}
           tags={tags}
           updateState={updateState}
         />
@@ -124,6 +127,7 @@ class SearchForm extends React.Component {
         />
         {partner === null && <PartnerAutosuggest updateState={updateState} />}
         {fair === null && <FairAutosuggest updateState={updateState} />}
+        {sale === null && <SaleAutosuggest updateState={updateState} />}
         {attributionClass === null && (
           <AttributionClassAutosuggest updateState={updateState} />
         )}

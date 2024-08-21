@@ -39,6 +39,7 @@ type State = {
   publishedFilter: string /* enum */
   listedFilter: string /* enum */
   restrictedArtworkIDs: string[]
+  sale: string
   selectedArtworkIds: string[]
   size: number
   sort: string /* enum */
@@ -71,6 +72,7 @@ class App extends React.Component<Props, State> {
     publishedFilter: 'SHOW_ALL',
     listedFilter: 'SHOW_ALL',
     restrictedArtworkIDs: [],
+    sale: null,
     selectedArtworkIds: [],
     size: 100,
     sort: 'RECENTLY_PUBLISHED',
@@ -155,6 +157,7 @@ class App extends React.Component<Props, State> {
       this.state.partner !== prevState.partner ||
       this.state.publishedFilter !== prevState.publishedFilter ||
       this.state.listedFilter !== prevState.listedFilter ||
+      this.state.sale !== prevState.sale ||
       this.state.sort !== prevState.sort ||
       this.state.tags !== prevState.tags ||
       this.state.restrictedArtworkIDs !== prevState.restrictedArtworkIDs
@@ -169,6 +172,7 @@ class App extends React.Component<Props, State> {
       this.state.genes.length !== 0 ||
       this.state.keywords.length !== 0 ||
       this.state.partner !== null ||
+      this.state.sale !== null ||
       this.state.tags.length !== 0 ||
       this.state.restrictedArtworkIDs.length !== 0
     )
@@ -191,6 +195,7 @@ class App extends React.Component<Props, State> {
       publishedFilter,
       listedFilter,
       restrictedArtworkIDs,
+      sale,
       size,
       sort,
       tags,
@@ -219,6 +224,7 @@ class App extends React.Component<Props, State> {
         publishedFilter,
         listedFilter,
         restrictedArtworkIDs,
+        sale,
         size,
         sort,
         tags,
@@ -262,6 +268,7 @@ class App extends React.Component<Props, State> {
       publishedFilter,
       listedFilter,
       restrictedArtworkIDs,
+      sale,
       size,
       sort,
       tags,
@@ -286,6 +293,7 @@ class App extends React.Component<Props, State> {
       publishedFilter,
       listedFilter,
       restrictedArtworkIDs,
+      sale,
       size,
       sort,
       tags,
@@ -509,6 +517,7 @@ class App extends React.Component<Props, State> {
       publishedFilter,
       listedFilter,
       restrictedArtworkIDs,
+      sale,
       selectedArtworkIds,
       sort,
       tags,
@@ -547,6 +556,7 @@ class App extends React.Component<Props, State> {
             publishedFilter={publishedFilter}
             listedFilter={listedFilter}
             restrictedArtworkIDs={restrictedArtworkIDs}
+            sale={sale}
             selectedArtworkIds={selectedArtworkIds}
             selectedArtworksCount={selectedArtworkIds.length}
             sort={sort}
