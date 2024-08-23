@@ -54,5 +54,15 @@ RSpec.describe MatchController, type: :controller do
         expect(gravity_request).to have_been_made
       end
     end
+
+    describe "#sales" do
+      let(:sale) { Fabricate(:kinetic_sale, name: "Phillips Editions") }
+      let!(:gravity_request) { Kinetic::Stub::Gravity::GravityModel.match([sale]) }
+
+      it "issues the correct gravity query" do
+        get :sales, params: {term: "phillips"}
+        expect(gravity_request).to have_been_made
+      end
+    end
   end
 end

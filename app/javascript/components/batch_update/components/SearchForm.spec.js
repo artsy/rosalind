@@ -9,6 +9,7 @@ import {
   AttributionClassAutosuggest,
   FairAutosuggest,
   PartnerAutosuggest,
+  SaleAutosuggest,
 } from './Autosuggest'
 
 let props
@@ -60,6 +61,13 @@ it('does not render fair autosuggest if fair is already selected', () => {
   Object.assign(props, { fair })
   const rendered = renderer.create(<SearchForm {...props} />)
   expect(rendered.root.findAllByType(FairAutosuggest)).toHaveLength(0)
+})
+
+it('does not render sale autosuggest if sale is already selected', () => {
+  const sale = { id: 'phillips-sale', name: 'Phillips' }
+  Object.assign(props, { sale })
+  const rendered = renderer.create(<SearchForm {...props} />)
+  expect(rendered.root.findAllByType(SaleAutosuggest)).toHaveLength(0)
 })
 
 it('does not render attribution class autosuggest if it is already selected', () => {

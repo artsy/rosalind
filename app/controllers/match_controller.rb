@@ -43,6 +43,12 @@ class MatchController < ApplicationController
     render json: fairs
   end
 
+  def sales
+    term = params.require(:term)
+    sales = Kinetic::Sale.match term: term, size: 5
+    render json: sales
+  end
+
   def artists
     term = params.require(:term)
     artists = Artist.match term: term, size: 5
