@@ -24,6 +24,7 @@ export function buildElasticsearchQuery(args) {
     publishedFilter,
     listedFilter,
     restrictedArtworkIDs,
+    sale,
     size,
     sort,
     tags,
@@ -51,6 +52,8 @@ export function buildElasticsearchQuery(args) {
   const partnerMatch = partner ? { match: { partner_id: partner.id } } : null
 
   const fairMatch = fair ? { match: { fair_ids: fair.id } } : null
+
+  const saleMatch = sale ? { match: { sale_ids: sale.id } } : null
 
   const attributionClassMatch = attributionClass
     ? { match: { attribution: attributionClass.value } }
@@ -107,6 +110,7 @@ export function buildElasticsearchQuery(args) {
           ...filterMatches,
           partnerMatch,
           fairMatch,
+          saleMatch,
           attributionClassMatch,
           priceMatch,
           createdDateRange,

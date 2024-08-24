@@ -12,6 +12,7 @@ module FilteredArtworkSearchService
     offerable
     partner_id
     price_range
+    sale_id
     sort
     tag_id
   ].freeze
