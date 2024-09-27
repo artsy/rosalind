@@ -7,9 +7,7 @@ describe ArtsyGenome do
       "xapp_token" => "trusted_token"
     }
 
-    application = double(:application, config_for: gravity_config)
-
-    allow(Rails).to receive(:application).and_return(application)
+    allow(Rails.application).to receive(:config_for).and_return(gravity_config)
   end
 
   describe ".genes" do
