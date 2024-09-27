@@ -17,5 +17,6 @@ npm-debug.log
 yarn-debug.log*
 .yarn-integrity
 yarn-error.log
+.ruby-version
 
 Brewfile.lock.json
