@@ -10,20 +10,26 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@artsy/palette-tokens@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@artsy/palette-tokens/-/palette-tokens-4.0.1.tgz#ef171c0449f3c0a1c0765253a06beec160b0eed1"
-  integrity sha512-JQ4t6eCAL3LpYnwyIMJCKc3UiVWY17IvKadNXRXfplo+GFZUqZs61nFGlchNWZvtNESpHkGKOksA5dZq3G1wiw==
+"@artsy/icons@^3.2.2":
+  version "3.22.0"
+  resolved "https://registry.yarnpkg.com/@artsy/icons/-/icons-3.22.0.tgz#e80c3b3b8774471f3a32ccbfb4260ae99fc8b4bd"
+  integrity sha512-lJY+SMG7tYwwMvF16WiAfnoTleg5iv3yoPAAQVppSTlU40Sflnl11/l8iCK3cWcjQPMWPKEiAgi4wYLQ2ESvfA==
 
-"@artsy/palette@31.2.0":
-  version "31.2.0"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-31.2.0.tgz#7714d04f0618723f89efb22dc541577831b2f2da"
-  integrity sha512-2FjfBvMTIRJpdWusnsGJnSkpF6VLuwjXfH+Xdpri+7UOXlpOr25l++EWQHJDUxbvwMDlzMdwTo8qwZxRbJ0e3g==
+"@artsy/palette-tokens@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@artsy/palette-tokens/-/palette-tokens-6.1.0.tgz#f79a1304b59741e982eae98f07d9099d7f1c9347"
+  integrity sha512-heBh9cuGIECWHdXPLFqmliKKIHob5iSKxi7SlsN36wkLrfIfwhy/NYUhP1OO/u24Khl7ixpTrKzkt6tQEyCSzw==
+
+"@artsy/palette@39.1.2":
+  version "39.1.2"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-39.1.2.tgz#8d12b5a1531bfc3a63057a643cbf2c3d79beacb3"
+  integrity sha512-giuzM56qKsfCBtsiKKjZfVMn7CdnU0xLTb4kD4V8/Ff9qvoMxde3ip9Qy+yR8fyIOxtSmjnbBT9mNcvxYNQWWg==
   dependencies:
-    "@artsy/palette-tokens" "^4.0.1"
+    "@artsy/icons" "^3.2.2"
+    "@artsy/palette-tokens" "^6.1.0"
     "@seznam/compose-react-refs" "^1.0.6"
     "@styled-system/theme-get" "^5.1.2"
-    lodash "^4.17.21"
+    es-toolkit "^1.16.0"
     proportional-scale "^4.0.0"
     react-focus-on "^3.7.0"
     react-lazy-load-image-component "1.5.5"
@@ -6033,6 +6039,11 @@ es-to-primitive@^1.2.1:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
+
+es-toolkit@^1.16.0:
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/es-toolkit/-/es-toolkit-1.27.0.tgz#affc1aaf78d47e42d282c427c14bf8b610923f12"
+  integrity sha512-ETSFA+ZJArcuSCpzD2TjAy6UHpx4E4uqFsoDg9F/nTLogrLmVVZQ+zNxco5h7cWnA1nNak07IXsLcaSMih+ZPQ==
 
 es5-shim@^4.5.13:
   version "4.6.7"

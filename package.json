@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@artsy/palette": "31.2.0",
+    "@artsy/palette": "39.1.2",
     "@babel/runtime": "^7.22.10",
     "@types/react": "^16.0.0",
     "@types/react-dom": "^16.0.0",
