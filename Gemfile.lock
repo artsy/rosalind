@@ -421,7 +421,7 @@ DEPENDENCIES
   pg
   pry-rails
   puma
-  rails (~> 6.1.7.8)
+  rails (= 6.1.7.8)
   rspec-rails
   sassc-rails
   selenium-webdriver
