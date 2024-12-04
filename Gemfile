@@ -4,7 +4,7 @@ ruby "3.0.7"
 
 gem "pg"
 gem "puma"
-gem "rails", "~> 6.1.7.8"
+gem "rails", "6.1.7.8"
 
 kinetic_gem_spec = {git: "https://github.com/artsy/kinetic.git", branch: "main"}
 # kinetic_gem_spec = { path: '../kinetic' }
