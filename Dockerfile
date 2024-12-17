@@ -69,5 +69,5 @@ RUN yarn install && yarn cache clean
 # Precompile Rails assets
 RUN bundle exec rake assets:precompile
 
-ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+ENTRYPOINT ["/usr/bin/dumb-init", "./scripts/load_secrets_and_run.sh"]
 CMD ["bundle", "exec", "puma", "-C", "config/puma.config"]
