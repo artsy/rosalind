@@ -29,6 +29,22 @@ spec:
       name: rosalind-web
       namespace: default
     spec:
+      initContainers:
+      - name: setenv
+        image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/fortress:staging
+        imagePullPolicy: Always
+        command:
+        - python
+        - src/load/load.py
+        - kubernetes
+        - staging
+        - rosalind
+        envFrom:
+        - configMapRef:
+            name: secrets-config
+        volumeMounts:
+        - name: secrets
+          mountPath: /secrets
       containers:
       - name: rosalind-web
         env:
@@ -55,6 +71,12 @@ spec:
         envFrom:
         - configMapRef:
             name: rosalind-environment
+        - configMapRef:
+            name: secrets-config
+        volumeMounts:
+        - name: secrets
+          mountPath: /secrets
+          readOnly: true
         image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/rosalind:staging
         imagePullPolicy: Always
         ports:
@@ -81,6 +103,7 @@ spec:
         options:
         - name: ndots
           value: '1'
+      serviceAccountName: rosalind
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -90,6 +113,9 @@ spec:
                 operator: In
                 values:
                 - foreground
+      volumes:
+      - name: secrets
+        emptyDir: {}
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -149,6 +175,22 @@ spec:
       name: rosalind-sidekiq
       namespace: default
     spec:
+      initContainers:
+      - name: setenv
+        image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/fortress:staging
+        imagePullPolicy: Always
+        command:
+        - python
+        - src/load/load.py
+        - kubernetes
+        - staging
+        - rosalind
+        envFrom:
+        - configMapRef:
+            name: secrets-config
+        volumeMounts:
+        - name: secrets
+          mountPath: /secrets
       containers:
       - name: rosalind-sidekiq
         env:
@@ -167,6 +209,12 @@ spec:
         envFrom:
         - configMapRef:
             name: rosalind-environment
+        - configMapRef:
+            name: secrets-config
+        volumeMounts:
+        - name: secrets
+          mountPath: /secrets
+          readOnly: true
         image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/rosalind:staging
         imagePullPolicy: Always
         args:
@@ -188,6 +236,7 @@ spec:
             memory: 256Mi
           limits:
             memory: 512Mi
+      serviceAccountName: rosalind
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -197,6 +246,9 @@ spec:
                 operator: In
                 values:
                 - background
+      volumes:
+      - name: secrets
+        emptyDir: {}
 ---
 apiVersion: v1
 kind: Service

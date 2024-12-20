@@ -111,7 +111,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:verbose": "jest --verbose",
-    "storybook": "./script/check_for_server.rb && NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
+    "storybook": "./scripts/check_for_server.rb && NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "type-check": "tsc --noEmit"
   },
