@@ -10,7 +10,7 @@ services:
       - RAILS_ENV=test
       - DATABASE_URL=postgresql://postgres:@rosalind-postgres/rosalind_test
   rosalind-postgres:
-    image: postgres:14.17-alpine
+    image: postgres:14.12-alpine
     environment:
       - POSTGRES_DB=rosalind_test
       - POSTGRES_HOST_AUTH_METHOD=trust
