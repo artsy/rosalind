@@ -39,7 +39,7 @@ if command -v rbenv >/dev/null; then rbenv rehash; fi
 
 echo "Installing gems..."
 # To mitigate 'BuildError: No pg_config..' when installing pg 1.1.4: get pg path via brew info, cleanup output with cut, get version with basename, set bundler config option for pg gem
-bundle config build.pg --with-pg-config=$(brew --prefix)/Cellar/postgresql@12/$(brew info postgresql@12 | grep $(brew --prefix)/Cellar/postgresql@12 | cut -d' ' -f1 | xargs basename)/bin/pg_config
+bundle config build.pg --with-pg-config=$(brew --prefix)/Cellar/postgresql@14/$(brew info postgresql@14 | grep $(brew --prefix)/Cellar/postgresql@14 | cut -d' ' -f1 | xargs basename)/bin/pg_config
 bundle install
 
 echo "Setting up database..."
