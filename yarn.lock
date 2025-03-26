@@ -10,23 +10,29 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@artsy/palette-tokens@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@artsy/palette-tokens/-/palette-tokens-4.0.1.tgz#ef171c0449f3c0a1c0765253a06beec160b0eed1"
-  integrity sha512-JQ4t6eCAL3LpYnwyIMJCKc3UiVWY17IvKadNXRXfplo+GFZUqZs61nFGlchNWZvtNESpHkGKOksA5dZq3G1wiw==
+"@artsy/icons@^3.2.2":
+  version "3.26.0"
+  resolved "https://registry.yarnpkg.com/@artsy/icons/-/icons-3.26.0.tgz#eae81c31ccb34b992b017358b0871f3e3419951e"
+  integrity sha512-vqKlTqiNWY2pRjzNCgibCSWaCDUUaKwRCJFhWExIk7AwA2BoXrNnS2WKpmpQnoDcJBdeVrKk2KcErT+grxIkzQ==
 
-"@artsy/palette@31.2.0":
-  version "31.2.0"
-  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-31.2.0.tgz#7714d04f0618723f89efb22dc541577831b2f2da"
-  integrity sha512-2FjfBvMTIRJpdWusnsGJnSkpF6VLuwjXfH+Xdpri+7UOXlpOr25l++EWQHJDUxbvwMDlzMdwTo8qwZxRbJ0e3g==
+"@artsy/palette-tokens@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@artsy/palette-tokens/-/palette-tokens-6.3.0.tgz#1eab1354f90644214a0d8d481c302b3c5e58699f"
+  integrity sha512-UmpwWW7aLeQ5cnQopBmq34IlXar8QedEEjwQVqgUIHTTkMz7Sk3/3QkXYjHhx6UEQprsv5X64f0gvLv6Y+6fFw==
+
+"@artsy/palette@40.7.1":
+  version "40.7.1"
+  resolved "https://registry.yarnpkg.com/@artsy/palette/-/palette-40.7.1.tgz#ecc1d88823e045d49e20b486445ca934cd29d72d"
+  integrity sha512-Q0naoVjMFK8qrADUdW2LxkJiJovHl5X2Kcp9EaTabzM4aR7o8IFdqvqdAvFd1res+H/biCJ2X9Hobz0CmT6PVw==
   dependencies:
-    "@artsy/palette-tokens" "^4.0.1"
+    "@artsy/icons" "^3.2.2"
+    "@artsy/palette-tokens" "^6.3.0"
     "@seznam/compose-react-refs" "^1.0.6"
     "@styled-system/theme-get" "^5.1.2"
-    lodash "^4.17.21"
+    es-toolkit "^1.16.0"
     proportional-scale "^4.0.0"
     react-focus-on "^3.7.0"
-    react-lazy-load-image-component "1.5.5"
+    react-lazy-load-image-component "1.6.2"
     styled-system "^5.1.5"
     trunc-html "^1.1.2"
     use-cursor "^1.2.3"
@@ -6034,6 +6040,11 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
+es-toolkit@^1.16.0:
+  version "1.33.0"
+  resolved "https://registry.yarnpkg.com/es-toolkit/-/es-toolkit-1.33.0.tgz#bcc9d92ef2e1ed4618c00dd30dfda9faddf4a0b7"
+  integrity sha512-X13Q/ZSc+vsO1q600bvNK4bxgXMkHcf//RxCmYDaRY5DAcT+eoXjY5hoAPGMdRnWQjvyLEcyauG3b6hz76LNqg==
+
 es5-shim@^4.5.13:
   version "4.6.7"
   resolved "https://registry.yarnpkg.com/es5-shim/-/es5-shim-4.6.7.tgz#bc67ae0fc3dd520636e0a1601cc73b450ad3e955"
@@ -11088,10 +11099,10 @@ react-is@^17.0.2:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-lazy-load-image-component@1.5.5:
-  version "1.5.5"
-  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.5.5.tgz#ef6630a4cf5d604d36b0ca808dbe92eca8c81759"
-  integrity sha512-pPtq48tIhkLIZg6MAhB3VvVhntJLrc3MBun/lQkNmNtrRFXdjEc5aHlPT5EhpXPQR1nsNVwN91ne6Aagm3rtNQ==
+react-lazy-load-image-component@1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.6.2.tgz#af1773e4d66519ad6b3c2015290c23b5de97c81b"
+  integrity sha512-dAdH5PsRgvDMlHC7QpZRA9oRzEZl1kPFwowmR9Mt0IUUhxk2wwq43PB6Ffwv84HFYuPmsxDUCka0E9KVXi8roQ==
   dependencies:
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
