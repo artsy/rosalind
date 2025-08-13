@@ -1,5 +1,5 @@
 development: &default
-  url: <%= ENV['ELASTICSEARCH_URL'] || 'http://localhost:9200' %>
+  url: <%= ENV['USE_OPENSEARCH'] == 'true' ? (ENV['OPENSEARCH_URL'] || 'http://localhost:9200') : (ENV['ELASTICSEARCH_URL'] || 'http://localhost:9200') %>
   index: <%= ENV['ELASTICSEARCH_INDEX'] || 'gravity' %>
 test:
   <<: *default
