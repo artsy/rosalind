@@ -1,6 +1,6 @@
-import { buildElasticsearchQuery } from './elasticsearch'
+import { buildSearchQuery } from './search'
 
-describe('buildElasticsearchQuery', () => {
+describe('buildSearchQuery', () => {
   let params
 
   beforeEach(() => {
@@ -35,7 +35,7 @@ describe('buildElasticsearchQuery', () => {
       sort: [{ published_at: 'desc' }, { id: 'desc' }],
     }
 
-    const actualQuery = buildElasticsearchQuery(params)
+    const actualQuery = buildSearchQuery(params)
     expect(actualQuery).toEqual(expectedQuery)
   })
 
@@ -61,7 +61,7 @@ describe('buildElasticsearchQuery', () => {
         { id: 'gene2', name: 'Gene 2' },
       ]
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -111,7 +111,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.keywords = ['sherman', 'film still']
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -136,7 +136,7 @@ describe('buildElasticsearchQuery', () => {
         { id: 'tag2', name: 'Tag 2' },
       ]
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -161,7 +161,7 @@ describe('buildElasticsearchQuery', () => {
         { id: 'artistId2', name: 'Artist 2' },
       ]
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -182,7 +182,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.partner = { id: 'some-partner', name: 'Some Partner' }
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -203,7 +203,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.fair = { id: 'some-fair', name: 'Some Fair' }
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -224,7 +224,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.attributionClass = { name: 'Ephemera', value: 'ephemera' }
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -245,7 +245,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.genes = [{ id: 'gene1', name: 'Gene 1' }]
       params.size = 11
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -267,7 +267,7 @@ describe('buildElasticsearchQuery', () => {
       params.genes = [{ id: 'gene1', name: 'Gene 1' }]
       params.from = 111
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -294,7 +294,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.createdAfterDate = '2013-01-01'
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -321,7 +321,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.createdBeforeDate = '2014-01-01'
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -350,7 +350,7 @@ describe('buildElasticsearchQuery', () => {
       params.createdAfterDate = '2013-01-01'
       params.createdBeforeDate = '2014-01-01'
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -378,7 +378,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.minPrice = 1000
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -406,7 +406,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.maxPrice = 1000
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -435,7 +435,7 @@ describe('buildElasticsearchQuery', () => {
       params.minPrice = 1000
       params.maxPrice = 2000
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -454,7 +454,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.restrictedArtworkIDs = ['bson-id-1', 'bson-id-2', 'bson-id-3']
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
   })
@@ -482,7 +482,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.publishedFilter = 'SHOW_PUBLISHED'
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -504,7 +504,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.listedFilter = 'SHOW_NOT_LISTED'
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -533,7 +533,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.acquireableOrOfferableFilter = 'SHOW_ACQUIREABLE_OR_OFFERABLE'
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -554,7 +554,7 @@ describe('buildElasticsearchQuery', () => {
       }
       params.forSaleFilter = 'SHOW_FOR_SALE'
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
   })
@@ -581,7 +581,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.sort = 'MERCHANDISABILITY'
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
 
@@ -602,7 +602,7 @@ describe('buildElasticsearchQuery', () => {
 
       params.sort = 'RECENTLY_PUBLISHED'
 
-      const actualQuery = buildElasticsearchQuery(params)
+      const actualQuery = buildSearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)
     })
   })
