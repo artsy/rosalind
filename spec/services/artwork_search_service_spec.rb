@@ -5,7 +5,7 @@ RSpec.describe ArtworkSearchService, type: :model do
   describe ".call" do
     let(:query) { '{"query":{"bool":{"must":[{"match":{"genes":"Kawaii"}}]}}}' }
     let(:hits) { search_sample_artwork_hits }
-    let!(:search_request) { stub_elasticsearch_request path: "_search", query: query, response_hits: hits }
+    let!(:search_request) { stub_search_request path: "_search", query: query, response_hits: hits }
 
     it "issues the correct search request" do
       ArtworkSearchService.call(query: query)
