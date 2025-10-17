@@ -121,8 +121,8 @@ docs][xapp] for the process.
 
 ## Search Connection
 
-Rosalind communicates directly with the search cluster to search for
-artworks. Search is guarded behind a VPN, so to retrieve artwork search
+Rosalind communicates directly with the OpenSearch cluster to search for
+artworks. OpenSearch is guarded behind a VPN, so to retrieve artwork search
 results locally, make sure you're connected to VPN associated with the
 environment you're targeting (production or staging).
 
