@@ -1,12 +1,12 @@
-def stub_elasticsearch_request(path:, query:, response_hits:)
-  root_url, index_name = Rails.application.config_for(:elasticsearch)
+def stub_search_request(path:, query:, response_hits:)
+  root_url, index_name = Rails.application.config_for(:search)
     .values_at :url, :index
   WebMock.stub_request(:post, "#{root_url}/#{index_name}/#{path}")
     .with(body: query)
     .to_return(body: {hits: {hits: response_hits}}.to_json)
 end
 
-def elasticsearch_sample_artwork_hits
+def search_sample_artwork_hits
   [
     {
       "_index" => "gravity",

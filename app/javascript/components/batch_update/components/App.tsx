@@ -4,7 +4,7 @@ import defaults from 'lodash.defaults'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import BatchUpdateForm from './BatchUpdateForm'
-import { buildElasticsearchQuery } from '../helpers/elasticsearch'
+import { buildSearchQuery } from '../helpers/search'
 import { matchArtworks } from '../../../lib/rosalind-api'
 import { Wrapper, Sidebar, Content } from './Layout'
 import FullScreenModal from './FullScreenModal'
@@ -208,7 +208,7 @@ class App extends React.Component<Props, State> {
         totalHits: { value: 0, relation: 'eq' },
       })
     } else {
-      const query = buildElasticsearchQuery({
+      const query = buildSearchQuery({
         artists,
         attributionClass,
         createdAfterDate,
