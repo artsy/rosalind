@@ -119,10 +119,10 @@ $ hokusai dev start
 Rosalind uses Gravity to get detail about some models. See the [gravity
 docs][xapp] for the process.
 
-## Elasticsearch Connection
+## Search Connection
 
-Rosalind communicates directly with the Elasticsearch cluster to search for
-artworks. Elasticsearch is guarded behind a VPN, so to retrieve artwork search
+Rosalind communicates directly with the OpenSearch cluster to search for
+artworks. OpenSearch is guarded behind a VPN, so to retrieve artwork search
 results locally, make sure you're connected to VPN associated with the
 environment you're targeting (production or staging).
 

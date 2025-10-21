@@ -6,7 +6,7 @@ const SORT_CLAUSES = {
   RECENTLY_PUBLISHED: { published_at: 'desc' },
 }
 
-export function buildElasticsearchQuery(args) {
+export function buildSearchQuery(args) {
   const {
     acquireableOrOfferableFilter,
     artists,
