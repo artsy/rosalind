@@ -276,7 +276,7 @@ class App extends React.Component<Props, State> {
 
     const from = artworks.length
 
-    const query = buildElasticsearchQuery({
+    const query = buildSearchQuery({
       artists,
       attributionClass,
       createdAfterDate,
