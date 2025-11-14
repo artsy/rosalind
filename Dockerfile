@@ -64,7 +64,7 @@ ENV HOME /home/deploy
 ADD --chown=deploy:deploy . /app
 WORKDIR /app
 
-RUN yarn install && yarn cache clean
+RUN yarn install --ignore-scripts && yarn cache clean
 
 # Precompile Rails assets
 RUN bundle exec rake assets:precompile
