@@ -76,19 +76,10 @@
       "original_height": 4000,
       "is_default": true,
       "image_url": "https://d32dm0rphc51dk.cloudfront.net/nolSJgrMAMoTFNxwgM7CUQ/:version.jpg",
-      "image_versions": [
-        "large",
-        "large_rectangle",
-        "medium",
-        "medium_rectangle",
-        "small",
-        "square"
-      ],
+      "image_versions": ["large", "medium", "small", "square"],
       "image_urls": {
         "large": "https://d32dm0rphc51dk.cloudfront.net/nolSJgrMAMoTFNxwgM7CUQ/large.jpg",
-        "large_rectangle": "https://d32dm0rphc51dk.cloudfront.net/nolSJgrMAMoTFNxwgM7CUQ/large_rectangle.jpg",
         "medium": "https://d32dm0rphc51dk.cloudfront.net/nolSJgrMAMoTFNxwgM7CUQ/medium.jpg",
-        "medium_rectangle": "https://d32dm0rphc51dk.cloudfront.net/nolSJgrMAMoTFNxwgM7CUQ/medium_rectangle.jpg",
         "small": "https://d32dm0rphc51dk.cloudfront.net/nolSJgrMAMoTFNxwgM7CUQ/small.jpg",
         "square": "https://d32dm0rphc51dk.cloudfront.net/nolSJgrMAMoTFNxwgM7CUQ/square.jpg"
       },
