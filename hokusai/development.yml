@@ -35,4 +35,4 @@ services:
       - POSTGRES_DB=rosalind_development
       - PGDATA=/tmp
   rosalind-redis:
-    image: redis:3.2-alpine
+    image: redis:6.2.21-alpine
