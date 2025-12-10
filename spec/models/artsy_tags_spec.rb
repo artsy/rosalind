@@ -7,7 +7,8 @@ describe ArtsyTags do
       "xapp_token" => "trusted_token"
     }
 
-    application = double(:application, config_for: gravity_config)
+    config = double(:config).as_null_object
+    application = double(:application, config_for: gravity_config, config: config)
 
     allow(Rails).to receive(:application).and_return(application)
   end
