@@ -117,11 +117,16 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    date (3.3.4)
-    ddtrace (0.54.2)
-      debase-ruby_core_source (<= 0.10.14)
+    datadog-ci (0.8.3)
       msgpack
-    debase-ruby_core_source (0.10.14)
+    date (3.3.4)
+    ddtrace (1.23.3)
+      datadog-ci (~> 0.8.1)
+      debase-ruby_core_source (= 3.3.1)
+      libdatadog (~> 7.0.0.1.0)
+      libddwaf (~> 1.14.0.0.0)
+      msgpack
+    debase-ruby_core_source (3.3.1)
     decent_exposure (3.0.4)
       activesupport (>= 4.0)
     diff-lcs (1.5.1)
@@ -136,7 +141,7 @@ GEM
       logger
     faraday-net_http (3.1.0)
       net-http
-    ffi (1.17.0)
+    ffi (1.17.2)
     foreman (0.88.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -160,6 +165,9 @@ GEM
     jwt (2.8.2)
       base64
     language_server-protocol (3.17.0.3)
+    libdatadog (7.0.0.1.0)
+    libddwaf (1.14.0.0.0)
+      ffi (~> 1.0)
     lint_roller (1.1.0)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -179,7 +187,7 @@ GEM
     mini_mime (1.1.5)
     mini_portile2 (2.8.7)
     minitest (5.24.1)
-    msgpack (1.7.2)
+    msgpack (1.8.0)
     multi_xml (0.6.0)
     net-http (0.4.1)
       uri
@@ -220,7 +228,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.6)
-    pry (0.14.2)
+    pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-rails (0.3.11)
@@ -437,7 +445,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 3.1.4p223
+   ruby 3.2.3p157
 
 BUNDLED WITH
    2.5.14
