@@ -1,4 +1,4 @@
-FROM ruby:3.1.4-slim
+FROM ruby:3.2.3-slim
 ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
