@@ -237,7 +237,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.8.0)
-    rack (2.2.9)
+    rack (2.2.20)
     rack-protection (3.2.0)
       base64 (>= 0.1.0)
       rack (~> 2.2, >= 2.2.4)
@@ -445,7 +445,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 3.2.3p157
+   ruby 3.3.0p0
 
 BUNDLED WITH
    2.5.14
