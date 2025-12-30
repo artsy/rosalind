@@ -389,7 +389,7 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.5.0)
-    uri (0.13.0)
+    uri (0.13.3)
     version_gem (1.1.4)
     web-console (3.7.0)
       actionview (>= 5.0)
