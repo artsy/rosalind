@@ -136,11 +136,12 @@ GEM
       ffi (>= 1.15.0)
     execjs (2.9.1)
     fabrication (2.31.0)
-    faraday (2.10.0)
-      faraday-net_http (>= 2.0, < 3.2)
+    faraday (2.14.1)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
       logger
-    faraday-net_http (3.1.0)
-      net-http
+    faraday-net_http (3.4.2)
+      net-http (~> 0.5)
     ffi (1.17.2)
     foreman (0.88.1)
     globalid (1.2.1)
@@ -172,7 +173,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.0)
+    logger (1.7.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -189,8 +190,8 @@ GEM
     minitest (5.24.1)
     msgpack (1.8.0)
     multi_xml (0.6.0)
-    net-http (0.4.1)
-      uri
+    net-http (0.9.1)
+      uri (>= 0.11.1)
     net-imap (0.4.14)
       date
       net-protocol
@@ -389,7 +390,7 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.5.0)
-    uri (0.13.0)
+    uri (1.1.1)
     version_gem (1.1.4)
     web-console (3.7.0)
       actionview (>= 5.0)
