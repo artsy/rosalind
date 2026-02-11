@@ -20,7 +20,7 @@ gem "sentry-ruby"
 gem "sidekiq", "6.5.10"
 gem "typhoeus"
 gem "uglifier"
-gem "shakapacker", "7.0.3"
+gem "shakapacker", "9.5.0"
 
 group :development, :test do
   gem "pry-rails"
