@@ -14,7 +14,7 @@ it('renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
-it('displays all options upon focus', () => {
+it('displays all options upon focus', async () => {
   const wrapper = mount(
     <AttributionClassAutosuggest updateState={mockUpdater} />
   )
@@ -22,14 +22,12 @@ it('displays all options upon focus', () => {
 
   const input = wrapper.find('input[type="text"]')
   input.simulate('focus')
-  setImmediate(() => {
-    // wait for next tick for promised matches
-    wrapper.update()
-    expect(wrapper.find('li[role="option"]')).toHaveLength(4)
-  })
+  await new Promise(resolve => setTimeout(resolve, 0))
+  wrapper.update()
+  expect(wrapper.find('li[role="option"]')).toHaveLength(4)
 })
 
-it('filters as you type', () => {
+it('filters as you type', async () => {
   const wrapper = mount(
     <AttributionClassAutosuggest updateState={mockUpdater} />
   )
@@ -38,9 +36,7 @@ it('filters as you type', () => {
   const input = wrapper.find('input[type="text"]')
   input.simulate('focus')
   input.simulate('change', { target: { value: 'editio' } })
-  setImmediate(() => {
-    // wait for next tick for promised matches
-    wrapper.update()
-    expect(wrapper.find('li[role="option"]')).toHaveLength(3)
-  })
+  await new Promise(resolve => setTimeout(resolve, 0))
+  wrapper.update()
+  expect(wrapper.find('li[role="option"]')).toHaveLength(3)
 })
