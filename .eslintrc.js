@@ -21,7 +21,7 @@ module.exports = {
   rules: {
     'react/jsx-handler-names': 'off',
     'react/prop-types': 'off',
-    'space-before-function-paren': ['error', 'never'],
+    'space-before-function-paren': ['error', { anonymous: 'never', named: 'never', asyncArrow: 'always' }],
     'inclusive-language/use-inclusive-words': [
       "error",
       {
