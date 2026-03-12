@@ -1,2 +1,5 @@
 ruby 3.3.0
 nodejs 18.20.0
+
+# Chrome DevTools MCP requires a more recent Node version
+# nodejs 20.20.1

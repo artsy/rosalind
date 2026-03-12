@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(foreman start -f Procfile.dev)",
+      "Bash(lsof -ti:5000 | xargs kill -9:*)",
+      "Bash(until nc -z localhost 5000:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_type",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__fill",
+      "mcp__chrome-devtools__wait_for",
+      "mcp__chrome-devtools__press_key",
+      "mcp__chrome-devtools__new_page"
+    ]
+  },
+  "enableAllProjectMcpServers": true
+}
