@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 import 'jest-styled-components'
 import { SelectedTag } from './SelectedTag'
 
@@ -13,7 +13,6 @@ beforeEach(() => {
 })
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<SelectedTag {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<SelectedTag {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })

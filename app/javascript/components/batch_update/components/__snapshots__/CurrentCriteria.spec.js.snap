@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders nothing if there are no selected criteria 1`] = `
-.c0 h2 {
+<DocumentFragment>
+  .c0 h2 {
   font-family: 'ITC Avant Garde Gothic W01';
   color: #999;
   font-size: 0.75em;
@@ -15,12 +16,14 @@ exports[`renders nothing if there are no selected criteria 1`] = `
 }
 
 <div
-  className="c0"
-/>
+    class="c0"
+  />
+</DocumentFragment>
 `;
 
 exports[`renders the selected artists 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -58,42 +61,42 @@ exports[`renders the selected artists 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div>
-    <h2>
-      Artists
-    </h2>
-    <div
-      className="c1"
-    >
-      Alice
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+    class="c0"
+  >
+    <div>
+      <h2>
+        Artists
+      </h2>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
-    </div>
-    <div
-      className="c1"
-    >
-      Bob
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+        Alice
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
+        Bob
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders the selected attribution class 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -131,30 +134,31 @@ exports[`renders the selected attribution class 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div>
-    <h2>
-      Attribution Class
-    </h2>
-    <div
-      className="c1"
-    >
-      Foo Edition
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+    class="c0"
+  >
+    <div>
+      <h2>
+        Attribution Class
+      </h2>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
+        Foo Edition
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders the selected fair 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -192,30 +196,31 @@ exports[`renders the selected fair 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div>
-    <h2>
-      Fair
-    </h2>
-    <div
-      className="c1"
-    >
-      FooFair
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+    class="c0"
+  >
+    <div>
+      <h2>
+        Fair
+      </h2>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
+        FooFair
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders the selected genes 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -253,42 +258,42 @@ exports[`renders the selected genes 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div>
-    <h2>
-      Genes
-    </h2>
-    <div
-      className="c1"
-    >
-      Foo
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+    class="c0"
+  >
+    <div>
+      <h2>
+        Genes
+      </h2>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
-    </div>
-    <div
-      className="c1"
-    >
-      Bar
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+        Foo
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
+        Bar
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders the selected keywords 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -326,42 +331,42 @@ exports[`renders the selected keywords 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div>
-    <h2>
-      Keywords
-    </h2>
-    <div
-      className="c1"
-    >
-      soup
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+    class="c0"
+  >
+    <div>
+      <h2>
+        Keywords
+      </h2>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
-    </div>
-    <div
-      className="c1"
-    >
-      can
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+        soup
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
+        can
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders the selected partner 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -399,30 +404,31 @@ exports[`renders the selected partner 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div>
-    <h2>
-      Partner
-    </h2>
-    <div
-      className="c1"
-    >
-      Gallery Foo
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+    class="c0"
+  >
+    <div>
+      <h2>
+        Partner
+      </h2>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
+        Gallery Foo
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders the selected sale 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -460,30 +466,31 @@ exports[`renders the selected sale 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div>
-    <h2>
-      Sale
-    </h2>
-    <div
-      className="c1"
-    >
-      Phillips
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+    class="c0"
+  >
+    <div>
+      <h2>
+        Sale
+      </h2>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
+        Phillips
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders the selected tags 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -521,36 +528,35 @@ exports[`renders the selected tags 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div>
-    <h2>
-      Tags
-    </h2>
-    <div
-      className="c1"
-    >
-      Foo
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+    class="c0"
+  >
+    <div>
+      <h2>
+        Tags
+      </h2>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
-    </div>
-    <div
-      className="c1"
-    >
-      Bar
-      <a
-        className="remove"
-        href="#"
-        onClick={[Function]}
+        Foo
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
+      <div
+        class="c1"
       >
-        ✕
-      </a>
+        Bar
+        <a
+          class="remove"
+          href="#"
+        >
+          ✕
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

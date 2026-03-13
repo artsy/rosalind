@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`does not render a modal when not previewing 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   min-width: 115px;
   max-width: calc(20% - 1.5em);
   margin: 0.75em;
@@ -60,45 +61,45 @@ exports[`does not render a modal when not previewing 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div
-    className="results"
+    class="c0"
   >
     <div
-      className="c1"
-      onClick={[Function]}
+      class="results"
     >
-      <img
-        alt="Soup Can"
-        src="can.jpg"
-      />
-      <figcaption>
-        Soup Can
-        <br />
-        Visibility level: listed
-      </figcaption>
-    </div>
-    <div
-      className="c1"
-      onClick={[Function]}
-    >
-      <img
-        alt="Shark"
-        src="shark.jpg"
-      />
-      <figcaption>
-        Shark
-        <br />
-        Visibility level: unlisted
-      </figcaption>
+      <div
+        class="c1"
+      >
+        <img
+          alt="Soup Can"
+          src="can.jpg"
+        />
+        <figcaption>
+          Soup Can
+          <br />
+          Visibility level: listed
+        </figcaption>
+      </div>
+      <div
+        class="c1"
+      >
+        <img
+          alt="Shark"
+          src="shark.jpg"
+        />
+        <figcaption>
+          Shark
+          <br />
+          Visibility level: unlisted
+        </figcaption>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders a collection of artworks 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   min-width: 115px;
   max-width: calc(20% - 1.5em);
   margin: 0.75em;
@@ -157,45 +158,45 @@ exports[`renders a collection of artworks 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div
-    className="results"
+    class="c0"
   >
     <div
-      className="c1"
-      onClick={[Function]}
+      class="results"
     >
-      <img
-        alt="Soup Can"
-        src="can.jpg"
-      />
-      <figcaption>
-        Soup Can
-        <br />
-        Visibility level: listed
-      </figcaption>
-    </div>
-    <div
-      className="c1"
-      onClick={[Function]}
-    >
-      <img
-        alt="Shark"
-        src="shark.jpg"
-      />
-      <figcaption>
-        Shark
-        <br />
-        Visibility level: unlisted
-      </figcaption>
+      <div
+        class="c1"
+      >
+        <img
+          alt="Soup Can"
+          src="can.jpg"
+        />
+        <figcaption>
+          Soup Can
+          <br />
+          Visibility level: listed
+        </figcaption>
+      </div>
+      <div
+        class="c1"
+      >
+        <img
+          alt="Shark"
+          src="shark.jpg"
+        />
+        <figcaption>
+          Shark
+          <br />
+          Visibility level: unlisted
+        </figcaption>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders a modal when previewing 1`] = `
-.c1 {
+<DocumentFragment>
+  .c1 {
   position: fixed;
   top: 0;
   left: 0;
@@ -330,125 +331,117 @@ exports[`renders a modal when previewing 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div
-    className="c1"
-    onClick={[Function]}
-    z={1}
+    class="c0"
   >
     <div
-      className="c2"
-      onClickCapture={[Function]}
+      class="c1"
+      z="1"
     >
       <div
-        className="image"
+        class="c2"
+      >
+        <div
+          class="image"
+        >
+          <img
+            alt="Soup Can"
+            src="can.jpg"
+          />
+        </div>
+        <div
+          class="details"
+        >
+          <p
+            class="name"
+          >
+            Soup Can
+          </p>
+          <p
+            class="links"
+          >
+            View artwork in:
+            <a
+              href="http://helix/genome/artworks?artwork_ids=can"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Helix
+            </a>
+             |
+            <a
+              href="http://cms/artworks/can/edit?current_partner_id=undefined"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              CMS
+            </a>
+             |
+            <a
+              href="http://artsy/artwork/can"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Artsy.net
+            </a>
+            <br />
+            View artist in:
+            <a
+              href="http://helix/genome/artist?search[genome_artist_id]=undefined"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Helix
+            </a>
+          </p>
+          <p
+            class="status"
+          >
+            Deleted: false 
+            <br />
+            Published: true 
+            <br />
+          </p>
+          …
+        </div>
+      </div>
+    </div>
+    <div
+      class="results"
+    >
+      <div
+        class="c3"
       >
         <img
           alt="Soup Can"
           src="can.jpg"
         />
+        <figcaption>
+          Soup Can
+          <br />
+          Visibility level: listed
+        </figcaption>
       </div>
       <div
-        className="details"
+        class="c3"
       >
-        <p
-          className="name"
-        >
-          Soup Can
-        </p>
-        <p
-          className="links"
-        >
-          View artwork in:
-          <a
-            href="http://helix/genome/artworks?artwork_ids=can"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Helix
-          </a>
-           
-          |
-          <a
-            href="http://cms/artworks/can/edit?current_partner_id=undefined"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            CMS
-          </a>
-           
-          |
-          <a
-            href="http://artsy/artwork/can"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Artsy.net
-          </a>
+        <img
+          alt="Shark"
+          src="shark.jpg"
+        />
+        <figcaption>
+          Shark
           <br />
-          View artist in:
-          <a
-            href="http://helix/genome/artist?search[genome_artist_id]=undefined"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Helix
-          </a>
-        </p>
-        <p
-          className="status"
-        >
-          Deleted: 
-          false
-           
-          <br />
-          Published: 
-          true
-           
-          <br />
-        </p>
-        …
+          Visibility level: unlisted
+        </figcaption>
       </div>
     </div>
   </div>
-  <div
-    className="results"
-  >
-    <div
-      className="c3"
-      onClick={[Function]}
-    >
-      <img
-        alt="Soup Can"
-        src="can.jpg"
-      />
-      <figcaption>
-        Soup Can
-        <br />
-        Visibility level: listed
-      </figcaption>
-    </div>
-    <div
-      className="c3"
-      onClick={[Function]}
-    >
-      <img
-        alt="Shark"
-        src="shark.jpg"
-      />
-      <figcaption>
-        Shark
-        <br />
-        Visibility level: unlisted
-      </figcaption>
-    </div>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders a spinner while fetching artworks 1`] = `
-.c3 {
+<DocumentFragment>
+  .c3 {
   min-width: 115px;
   max-width: calc(20% - 1.5em);
   margin: 0.75em;
@@ -540,47 +533,46 @@ exports[`renders a spinner while fetching artworks 1`] = `
 }
 
 <div
-  className="c0"
->
-  <div
-    className="c1"
+    class="c0"
   >
     <div
-      className="c2"
-      color="black"
-    />
-  </div>
-  <div
-    className="results"
-  >
-    <div
-      className="c3"
-      onClick={[Function]}
+      class="c1"
     >
-      <img
-        alt="Soup Can"
-        src="can.jpg"
+      <div
+        class="c2"
+        color="black"
       />
-      <figcaption>
-        Soup Can
-        <br />
-        Visibility level: listed
-      </figcaption>
     </div>
     <div
-      className="c3"
-      onClick={[Function]}
+      class="results"
     >
-      <img
-        alt="Shark"
-        src="shark.jpg"
-      />
-      <figcaption>
-        Shark
-        <br />
-        Visibility level: unlisted
-      </figcaption>
+      <div
+        class="c3"
+      >
+        <img
+          alt="Soup Can"
+          src="can.jpg"
+        />
+        <figcaption>
+          Soup Can
+          <br />
+          Visibility level: listed
+        </figcaption>
+      </div>
+      <div
+        class="c3"
+      >
+        <img
+          alt="Shark"
+          src="shark.jpg"
+        />
+        <figcaption>
+          Shark
+          <br />
+          Visibility level: unlisted
+        </figcaption>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

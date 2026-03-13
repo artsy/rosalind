@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 import 'jest-styled-components'
 import { SelectedPartner } from './SelectedPartner'
 
@@ -13,7 +13,6 @@ beforeEach(() => {
 })
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<SelectedPartner {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<SelectedPartner {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })

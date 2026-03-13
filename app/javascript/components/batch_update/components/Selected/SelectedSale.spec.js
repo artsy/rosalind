@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 import 'jest-styled-components'
 import { SelectedSale } from './SelectedSale'
 
@@ -13,7 +13,6 @@ beforeEach(() => {
 })
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<SelectedSale {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<SelectedSale {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })

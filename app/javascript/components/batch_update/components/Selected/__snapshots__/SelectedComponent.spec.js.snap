@@ -1,14 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div>
-  Foo Name
-  <a
-    className="remove"
-    href="#"
-    onClick={[Function]}
-  >
-    ✕
-  </a>
-</div>
+<DocumentFragment>
+  <div>
+    Foo Name
+    <a
+      class="remove"
+      href="#"
+    >
+      ✕
+    </a>
+  </div>
+</DocumentFragment>
 `;

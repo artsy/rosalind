@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly when closed 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   position: fixed;
   left: 0px;
   top: 0px;
@@ -29,14 +30,16 @@ exports[`renders correctly when closed 1`] = `
 }
 
 <div
-  className="c0"
->
-  I am closed
-</div>
+    class="c0"
+  >
+    I am closed
+  </div>
+</DocumentFragment>
 `;
 
 exports[`renders correctly when open 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   position: fixed;
   left: 0px;
   top: 0px;
@@ -64,8 +67,9 @@ exports[`renders correctly when open 1`] = `
 }
 
 <div
-  className="c0 modal-open"
->
-  I am open
-</div>
+    class="c0 modal-open"
+  >
+    I am open
+  </div>
+</DocumentFragment>
 `;

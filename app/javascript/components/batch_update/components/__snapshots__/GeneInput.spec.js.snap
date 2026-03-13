@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders a null gene correctly 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   border: solid 1px #E5E5E5;
   width: 140px;
   height: 140px;
@@ -51,34 +52,32 @@ exports[`renders a null gene correctly 1`] = `
 }
 
 <div
-  className="c0"
-  value={null}
->
-  <div
-    className="c1"
-    value={null}
+    class="c0"
   >
-    Kawaii
     <div
-      className="c2"
-      value={null}
+      class="c1"
+    >
+      Kawaii
+      <div
+        class="c2"
+      />
+    </div>
+    <input
+      class="c3"
+      max="100"
+      min="0"
+      placeholder="Multiple"
+      step="10"
+      type="number"
+      value=""
     />
   </div>
-  <input
-    className="c3"
-    max="100"
-    min="0"
-    onChange={[Function]}
-    placeholder="Multiple"
-    step="10"
-    type="number"
-    value=""
-  />
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders a positive-valued gene correctly 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   border: solid 1px #6E1FFF;
   width: 140px;
   height: 140px;
@@ -128,34 +127,35 @@ exports[`renders a positive-valued gene correctly 1`] = `
 }
 
 <div
-  className="c0"
-  value={70}
->
-  <div
-    className="c1"
-    value={70}
+    class="c0"
+    value="70"
   >
-    Kawaii
     <div
-      className="c2"
-      value={70}
+      class="c1"
+      value="70"
+    >
+      Kawaii
+      <div
+        class="c2"
+        value="70"
+      />
+    </div>
+    <input
+      class="c3"
+      max="100"
+      min="0"
+      placeholder="Multiple"
+      step="10"
+      type="number"
+      value="70"
     />
   </div>
-  <input
-    className="c3"
-    max="100"
-    min="0"
-    onChange={[Function]}
-    placeholder="Multiple"
-    step="10"
-    type="number"
-    value={70}
-  />
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders a zero-valued gene correctly 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   border: solid 1px #F7625A;
   width: 140px;
   height: 140px;
@@ -205,30 +205,30 @@ exports[`renders a zero-valued gene correctly 1`] = `
 }
 
 <div
-  className="c0"
-  value={0}
->
-  <div
-    className="c1"
-    value={0}
+    class="c0"
+    value="0"
   >
-    <del>
-      Kawaii
-    </del>
     <div
-      className="c2"
-      value={0}
+      class="c1"
+      value="0"
+    >
+      <del>
+        Kawaii
+      </del>
+      <div
+        class="c2"
+        value="0"
+      />
+    </div>
+    <input
+      class="c3"
+      max="100"
+      min="0"
+      placeholder="Multiple"
+      step="10"
+      type="number"
+      value="0"
     />
   </div>
-  <input
-    className="c3"
-    max="100"
-    min="0"
-    onChange={[Function]}
-    placeholder="Multiple"
-    step="10"
-    type="number"
-    value={0}
-  />
-</div>
+</DocumentFragment>
 `;

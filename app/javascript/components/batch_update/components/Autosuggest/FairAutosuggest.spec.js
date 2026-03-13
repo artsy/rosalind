@@ -1,14 +1,11 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render, screen } from '@testing-library/react'
 import 'jest-styled-components'
 import { FairAutosuggest } from './FairAutosuggest'
 
 const mockHandler = jest.fn()
 
-it('renders correctly', () => {
-  const rendered = renderer.create(
-    <FairAutosuggest onSelectFair={mockHandler} />
-  )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+it('renders the fair autosuggest input', () => {
+  render(<FairAutosuggest onSelectFair={mockHandler} />)
+  expect(screen.getByPlaceholderText('Select a fair')).toBeInTheDocument()
 })

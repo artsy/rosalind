@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 import 'jest-styled-components'
 import SearchResults from './SearchResults'
 
@@ -27,19 +27,18 @@ beforeEach(() => {
 })
 
 it('renders a collection of artworks', () => {
-  const rendered = renderer.create(
+  const { asFragment } = render(
     <SearchResults
       artworks={artworks}
       totalHits={{}}
       selectedArtworkIds={selectedArtworkIds}
     />
   )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders a modal when previewing', () => {
-  const rendered = renderer.create(
+  const { asFragment } = render(
     <SearchResults
       previewedArtwork={soup}
       artworks={artworks}
@@ -47,12 +46,11 @@ it('renders a modal when previewing', () => {
       selectedArtworkIds={selectedArtworkIds}
     />
   )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('does not render a modal when not previewing', () => {
-  const rendered = renderer.create(
+  const { asFragment } = render(
     <SearchResults
       previewedArtwork={null}
       artworks={artworks}
@@ -60,12 +58,11 @@ it('does not render a modal when not previewing', () => {
       selectedArtworkIds={selectedArtworkIds}
     />
   )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders a spinner while fetching artworks', () => {
-  const rendered = renderer.create(
+  const { asFragment } = render(
     <SearchResults
       isLoading
       previewedArtwork={null}
@@ -74,6 +71,5 @@ it('renders a spinner while fetching artworks', () => {
       selectedArtworkIds={selectedArtworkIds}
     />
   )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  expect(asFragment()).toMatchSnapshot()
 })

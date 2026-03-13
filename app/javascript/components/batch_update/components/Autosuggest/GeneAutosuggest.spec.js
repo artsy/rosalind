@@ -1,14 +1,11 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render, screen } from '@testing-library/react'
 import 'jest-styled-components'
 import { GeneAutosuggest } from './GeneAutosuggest'
 
 const mockHandler = jest.fn()
 
-it('renders correctly', () => {
-  const rendered = renderer.create(
-    <GeneAutosuggest onSelectGene={mockHandler} />
-  )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+it('renders the gene autosuggest input', () => {
+  render(<GeneAutosuggest onSelectGene={mockHandler} />)
+  expect(screen.getByPlaceholderText('Select a gene')).toBeInTheDocument()
 })

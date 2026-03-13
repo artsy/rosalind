@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -26,38 +27,38 @@ exports[`renders correctly 1`] = `
 }
 
 <div>
-  <h2>
-    Price
-  </h2>
-  <div
-    className="c0 currentMinPrice"
-  >
-    Minimum: USD 1000
-    <a
-      className="remove"
-      href="#"
-      onClick={[Function]}
+    <h2>
+      Price
+    </h2>
+    <div
+      class="c0 currentMinPrice"
     >
-      ✕
-    </a>
-  </div>
-  <div
-    className="c0 currentMaxPrice"
-  >
-    Maximum: USD 2000
-    <a
-      className="remove"
-      href="#"
-      onClick={[Function]}
+      Minimum: USD 1000
+      <a
+        class="remove"
+        href="#"
+      >
+        ✕
+      </a>
+    </div>
+    <div
+      class="c0 currentMaxPrice"
     >
-      ✕
-    </a>
+      Maximum: USD 2000
+      <a
+        class="remove"
+        href="#"
+      >
+        ✕
+      </a>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders correctly when only max price is set 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -82,26 +83,27 @@ exports[`renders correctly when only max price is set 1`] = `
 }
 
 <div>
-  <h2>
-    Price
-  </h2>
-  <div
-    className="c0 currentMaxPrice"
-  >
-    Maximum: USD 2000
-    <a
-      className="remove"
-      href="#"
-      onClick={[Function]}
+    <h2>
+      Price
+    </h2>
+    <div
+      class="c0 currentMaxPrice"
     >
-      ✕
-    </a>
+      Maximum: USD 2000
+      <a
+        class="remove"
+        href="#"
+      >
+        ✕
+      </a>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`renders correctly when only min price is set 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -126,20 +128,20 @@ exports[`renders correctly when only min price is set 1`] = `
 }
 
 <div>
-  <h2>
-    Price
-  </h2>
-  <div
-    className="c0 currentMinPrice"
-  >
-    Minimum: USD 1000
-    <a
-      className="remove"
-      href="#"
-      onClick={[Function]}
+    <h2>
+      Price
+    </h2>
+    <div
+      class="c0 currentMinPrice"
     >
-      ✕
-    </a>
+      Minimum: USD 1000
+      <a
+        class="remove"
+        href="#"
+      >
+        ✕
+      </a>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

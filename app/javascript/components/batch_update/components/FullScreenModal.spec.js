@@ -1,59 +1,44 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 import 'jest-styled-components'
-import { mount } from 'enzyme'
 import FullScreenModal from './FullScreenModal'
 
 it('renders correctly when closed', () => {
-  const rendered = renderer.create(
-    <FullScreenModal>I am closed</FullScreenModal>
-  )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<FullScreenModal>I am closed</FullScreenModal>)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders correctly when open', () => {
-  const rendered = renderer.create(
+  const { asFragment } = render(
     <FullScreenModal isOpen>I am open</FullScreenModal>
   )
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  expect(asFragment()).toMatchSnapshot()
 })
 
 describe('body scrolling', () => {
-  let addClass, removeClass
+  let addSpy, removeSpy
 
-  beforeAll(() => {
-    addClass = jest.fn()
-    removeClass = jest.fn()
+  beforeEach(() => {
+    addSpy = jest.spyOn(document.body.classList, 'add')
+    removeSpy = jest.spyOn(document.body.classList, 'remove')
+  })
 
-    // Tricky way of mocking access to document.* methods
-    // https://github.com/facebook/jest/issues/2297
-    Object.defineProperty(document, 'body', {
-      value: {
-        classList: {
-          add: addClass,
-          remove: removeClass,
-        },
-      },
-    })
+  afterEach(() => {
+    addSpy.mockRestore()
+    removeSpy.mockRestore()
   })
 
   it('temporarily assigns a no-scroll css selector to the <body> element', () => {
-    const wrapper = mount(
+    const { rerender } = render(
       <FullScreenModal>No scrolling, not in my house.</FullScreenModal>
     )
 
-    wrapper.setProps({
-      isOpen: true,
-    })
-    expect(addClass.mock.calls.length).toBe(1)
-    expect(addClass.mock.calls[0][0]).toEqual('FullScreenModal--open')
+    rerender(
+      <FullScreenModal isOpen>No scrolling, not in my house.</FullScreenModal>
+    )
+    expect(addSpy).toHaveBeenCalledWith('FullScreenModal--open')
 
-    wrapper.setProps({
-      isOpen: false,
-    })
-    expect(removeClass.mock.calls.length).toBe(1)
-    expect(removeClass.mock.calls[0][0]).toEqual('FullScreenModal--open')
+    rerender(<FullScreenModal>No scrolling, not in my house.</FullScreenModal>)
+    expect(removeSpy).toHaveBeenCalledWith('FullScreenModal--open')
   })
 })

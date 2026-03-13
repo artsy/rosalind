@@ -1,8 +1,7 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render, screen, fireEvent } from '@testing-library/react'
 import 'jest-styled-components'
 import ConfirmationModal from './ConfirmationModal'
-import { mount } from 'enzyme'
 
 let props
 
@@ -14,41 +13,33 @@ beforeEach(() => {
 })
 
 it('renders correctly when closed', () => {
-  const rendered = renderer.create(
+  const { container } = render(
     <ConfirmationModal {...props}>I am closed</ConfirmationModal>
   )
-  const classNames = rendered.root.findByType('div').props.className
-  expect(classNames).not.toMatch('modal-open')
+  expect(container.firstChild.className).not.toMatch('modal-open')
 })
 
 it('renders correctly when open', () => {
-  const rendered = renderer.create(
+  const { container } = render(
     <ConfirmationModal {...props} isOpen>
       I am open
     </ConfirmationModal>
   )
-  const classNames = rendered.root.findByType('div').props.className
-  expect(classNames).toMatch('modal-open')
+  expect(container.firstChild.className).toMatch('modal-open')
 })
 
 describe('when the "Go back" button is clicked', () => {
   it('calls the correct handler', () => {
-    const wrapper = mount(
-      <ConfirmationModal {...props}>Dismiss me?</ConfirmationModal>
-    )
-    const mockClickEvent = { preventDefault: jest.fn() }
-    wrapper.find('Button.dismiss button').simulate('click', mockClickEvent)
-    expect(props.onDismiss.mock.calls.length).toEqual(1)
+    render(<ConfirmationModal {...props}>Dismiss me?</ConfirmationModal>)
+    fireEvent.click(screen.getByText('Go back'))
+    expect(props.onDismiss).toHaveBeenCalledTimes(1)
   })
 })
 
 describe('when the "Continue" button is clicked', () => {
   it('calls the correct handler', () => {
-    const wrapper = mount(
-      <ConfirmationModal {...props}>Accept me?</ConfirmationModal>
-    )
-    const mockClickEvent = { preventDefault: jest.fn() }
-    wrapper.find('Button.accept button').simulate('click', mockClickEvent)
-    expect(props.onAccept.mock.calls.length).toEqual(1)
+    render(<ConfirmationModal {...props}>Accept me?</ConfirmationModal>)
+    fireEvent.click(screen.getByText('Continue'))
+    expect(props.onAccept).toHaveBeenCalledTimes(1)
   })
 })

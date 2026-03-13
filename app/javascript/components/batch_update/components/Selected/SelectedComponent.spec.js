@@ -1,7 +1,6 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render, screen, fireEvent } from '@testing-library/react'
 import 'jest-styled-components'
-import { mount } from 'enzyme'
 import { SelectedComponent } from './SelectedComponent'
 
 let props
@@ -14,14 +13,12 @@ beforeEach(() => {
 })
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<SelectedComponent {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<SelectedComponent {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('fires the remove handler on click', () => {
-  const wrapper = mount(<SelectedComponent {...props} />)
-  const mockClickEvent = { preventDefault: jest.fn() }
-  wrapper.find('a').simulate('click', mockClickEvent)
-  expect(props.onRemove.mock.calls.length).toEqual(1)
+  render(<SelectedComponent {...props} />)
+  fireEvent.click(screen.getByText('✕'))
+  expect(props.onRemove).toHaveBeenCalledTimes(1)
 })

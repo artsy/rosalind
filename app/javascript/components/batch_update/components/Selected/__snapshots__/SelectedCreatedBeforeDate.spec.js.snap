@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   font-weight: bold;
   margin: 0.25em 0;
 }
@@ -26,20 +27,20 @@ exports[`renders correctly 1`] = `
 }
 
 <div>
-  <h2>
-    Created Before
-  </h2>
-  <div
-    className="c0"
-  >
-    Invalid date
-    <a
-      className="remove"
-      href="#"
-      onClick={[Function]}
+    <h2>
+      Created Before
+    </h2>
+    <div
+      class="c0"
     >
-      ✕
-    </a>
+      Invalid date
+      <a
+        class="remove"
+        href="#"
+      >
+        ✕
+      </a>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

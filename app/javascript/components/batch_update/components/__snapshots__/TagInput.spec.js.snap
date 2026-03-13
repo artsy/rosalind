@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders a to-add tag correctly 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   border: solid 1px #6E1FFF;
   background: #F7F3FF;
   border-radius: 5px;
@@ -17,14 +18,16 @@ exports[`renders a to-add tag correctly 1`] = `
 }
 
 <div
-  className="c0"
->
-  Hot Dog
-</div>
+    class="c0"
+  >
+    Hot Dog
+  </div>
+</DocumentFragment>
 `;
 
 exports[`renders a to-ignore tag correctly 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   border: solid 1px #E5E5E5;
   background: #F8F8F8;
   border-radius: 5px;
@@ -40,14 +43,16 @@ exports[`renders a to-ignore tag correctly 1`] = `
 }
 
 <div
-  className="c0"
->
-  Hot Dog
-</div>
+    class="c0"
+  >
+    Hot Dog
+  </div>
+</DocumentFragment>
 `;
 
 exports[`renders a to-remove tag correctly 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   border: solid 1px #F7625A;
   background: #FFF8F8;
   border-radius: 5px;
@@ -63,10 +68,11 @@ exports[`renders a to-remove tag correctly 1`] = `
 }
 
 <div
-  className="c0"
->
-  <strike>
-    Hot Dog
-  </strike>
-</div>
+    class="c0"
+  >
+    <strike>
+      Hot Dog
+    </strike>
+  </div>
+</DocumentFragment>
 `;

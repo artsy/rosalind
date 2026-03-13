@@ -1,7 +1,6 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render, screen } from '@testing-library/react'
 import 'jest-styled-components'
-import { mount } from 'enzyme'
 import moment from 'moment'
 import CurrentCriteria from './CurrentCriteria'
 
@@ -28,16 +27,14 @@ beforeEach(() => {
 })
 
 it('renders nothing if there are no selected criteria', () => {
-  const rendered = renderer.create(<CurrentCriteria {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<CurrentCriteria {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders the selected keywords', () => {
   props.keywords = ['soup', 'can']
-  const rendered = renderer.create(<CurrentCriteria {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<CurrentCriteria {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders the selected genes', () => {
@@ -45,9 +42,8 @@ it('renders the selected genes', () => {
     { id: 'foo', name: 'Foo' },
     { id: 'bar', name: 'Bar' },
   ]
-  const rendered = renderer.create(<CurrentCriteria {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<CurrentCriteria {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders the selected tags', () => {
@@ -55,9 +51,8 @@ it('renders the selected tags', () => {
     { id: 'foo', name: 'Foo' },
     { id: 'bar', name: 'Bar' },
   ]
-  const rendered = renderer.create(<CurrentCriteria {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<CurrentCriteria {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders the selected artists', () => {
@@ -65,70 +60,60 @@ it('renders the selected artists', () => {
     { id: 'abc123', name: 'Alice', slug: 'alice' },
     { id: 'def456', name: 'Bob', slug: 'bob' },
   ]
-  const rendered = renderer.create(<CurrentCriteria {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<CurrentCriteria {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders the selected partner', () => {
   props.partner = { id: 'foo', name: 'Gallery Foo' }
-  const rendered = renderer.create(<CurrentCriteria {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<CurrentCriteria {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders the selected fair', () => {
   props.fair = { id: 'foo', name: 'FooFair' }
-  const rendered = renderer.create(<CurrentCriteria {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<CurrentCriteria {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders the selected sale', () => {
   props.sale = { id: 'foo', name: 'Phillips' }
-  const rendered = renderer.create(<CurrentCriteria {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<CurrentCriteria {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders the selected attribution class', () => {
   props.attributionClass = { id: 'foo', name: 'Foo Edition' }
-  const rendered = renderer.create(<CurrentCriteria {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<CurrentCriteria {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders the created after date', () => {
   props.createdAfterDate = moment('2020-01-01T12:00:00-00:00')
     .utc()
     .format()
-  const currentCriteria = mount(<CurrentCriteria {...props} />)
-
-  const selectedCreatedAfterDate = currentCriteria.find(
-    'SelectedCreatedAfterDate'
-  )
-
-  expect(selectedCreatedAfterDate.length).toEqual(1)
+  render(<CurrentCriteria {...props} />)
+  expect(screen.getByText(/2020/)).toBeInTheDocument()
 })
 
 it('renders minPrice', () => {
   props.minPrice = 1000
-  const currentCriteria = mount(<CurrentCriteria {...props} />)
-  expect(currentCriteria.exists('.currentMinPrice')).toEqual(true)
-  expect(currentCriteria.exists('.currentMaxPrice')).toEqual(false)
+  const { container } = render(<CurrentCriteria {...props} />)
+  expect(container.querySelector('.currentMinPrice')).not.toBeNull()
+  expect(container.querySelector('.currentMaxPrice')).toBeNull()
 })
 
 it('renders maxPrice', () => {
   props.maxPrice = 1000
-  const currentCriteria = mount(<CurrentCriteria {...props} />)
-  expect(currentCriteria.exists('.currentMinPrice')).toEqual(false)
-  expect(currentCriteria.exists('.currentMaxPrice')).toEqual(true)
+  const { container } = render(<CurrentCriteria {...props} />)
+  expect(container.querySelector('.currentMinPrice')).toBeNull()
+  expect(container.querySelector('.currentMaxPrice')).not.toBeNull()
 })
 
 it('renders both price bounds', () => {
   props.minPrice = 1000
   props.maxPrice = 2000
-  const currentCriteria = mount(<CurrentCriteria {...props} />)
-  expect(currentCriteria.exists('.currentMinPrice')).toEqual(true)
-  expect(currentCriteria.exists('.currentMaxPrice')).toEqual(true)
+  const { container } = render(<CurrentCriteria {...props} />)
+  expect(container.querySelector('.currentMinPrice')).not.toBeNull()
+  expect(container.querySelector('.currentMaxPrice')).not.toBeNull()
 })

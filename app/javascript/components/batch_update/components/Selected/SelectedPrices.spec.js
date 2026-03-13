@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 import 'jest-styled-components'
 import { SelectedPrices } from './SelectedPrices'
 
@@ -14,21 +14,18 @@ beforeEach(() => {
 })
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<SelectedPrices {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<SelectedPrices {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders correctly when only min price is set', () => {
   props.maxPrice = null
-  const rendered = renderer.create(<SelectedPrices {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<SelectedPrices {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
 
 it('renders correctly when only max price is set', () => {
   props.minPrice = null
-  const rendered = renderer.create(<SelectedPrices {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+  const { asFragment } = render(<SelectedPrices {...props} />)
+  expect(asFragment()).toMatchSnapshot()
 })
