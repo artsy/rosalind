@@ -21,11 +21,14 @@ Done. All 41 suites, 190 tests, 51 snapshots pass. Lint and type-check clean.
 
 ## Phase 2: Enzyme → RTL migration
 
-### New dependencies
+### Setup ✅
 
-- Add: `@testing-library/react`, `@testing-library/jest-dom`
+Done. `@testing-library/react@12` (v12 supports React 16) and `@testing-library/jest-dom@6` installed. `@testing-library/jest-dom` added to `setupFilesAfterEnv` alongside existing Enzyme setup. Exemplar spec (`GeneAutosuggest.rtl.spec.js`) passes.
+
+### Remaining steps
+
 - Remove: `enzyme`, `enzyme-adapter-react-16`, `react-addons-test-utils`, `react-test-renderer`
-- Remove: `app/javascript/test/setup.js` (Enzyme adapter config)
+- Remove: `app/javascript/test/setup.js` (Enzyme adapter config) and its `setupFilesAfterEnv` entry
 
 ### Test file migration (41 files)
 
