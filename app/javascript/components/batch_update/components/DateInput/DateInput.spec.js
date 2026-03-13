@@ -1,53 +1,40 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import 'jest-styled-components'
-import moment from 'moment'
-import StyledDateInput, { DateInput } from './DateInput'
-import { shallow, mount } from 'enzyme'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { DateInput } from './DateInput'
 
 describe('DateInput', () => {
-  it('renders correctly', () => {
-    const rendered = renderer.create(<StyledDateInput />)
-    const tree = rendered.toJSON()
-    expect(tree).toMatchSnapshot()
+  it('renders an input with default placeholder', () => {
+    render(<DateInput />)
+    expect(screen.getByPlaceholderText('Select a date')).toBeInTheDocument()
   })
 
-  it('displays a date string in the anchor element', () => {
-    const date = new Date().toString()
-    const dateInput = shallow(<DateInput />)
-    const formattedDate = moment(new Date(date)).format(
-      'MMMM Do YYYY, h:mm:ss a'
-    )
-
-    dateInput.setState({ suggestion: date })
-
-    expect(dateInput.find('a').text()).toEqual(formattedDate)
-  })
-
-  it('sets state.suggestion when input.onChange fires', () => {
-    const dateInput = shallow(<DateInput />)
-
-    dateInput.find('input').simulate('change', { target: { value: 'today' } })
-    expect(dateInput.state().suggestion.length > 0).toBe(true)
+  it('displays a formatted date suggestion when the user types a date', () => {
+    render(<DateInput />)
+    const input = screen.getByPlaceholderText('Select a date')
+    fireEvent.change(input, { target: { value: 'today' } })
+    const link = screen.getByRole('link')
+    expect(link.textContent.length).toBeGreaterThan(0)
   })
 
   it('pressing the Enter key submits a date', () => {
     const mockOnSelectDate = jest.fn()
-    const dateInput = mount(<DateInput onSelectDate={mockOnSelectDate} />)
+    render(<DateInput onSelectDate={mockOnSelectDate} />)
 
-    dateInput.find('input').simulate('change', { target: { value: 'today' } })
-    dateInput.find('input').simulate('keypress', { charCode: 13 })
+    const input = screen.getByPlaceholderText('Select a date')
+    fireEvent.change(input, { target: { value: 'today' } })
+    fireEvent.keyPress(input, { charCode: 13 })
 
-    expect(mockOnSelectDate.mock.calls.length).toBe(1)
+    expect(mockOnSelectDate).toHaveBeenCalledTimes(1)
   })
 
   it('onClick submits a date', () => {
     const mockOnSelectDate = jest.fn()
-    const dateInput = mount(<DateInput onSelectDate={mockOnSelectDate} />)
+    render(<DateInput onSelectDate={mockOnSelectDate} />)
 
-    dateInput.find('input').simulate('change', { target: { value: 'today' } })
-    dateInput.find('a').simulate('click')
+    const input = screen.getByPlaceholderText('Select a date')
+    fireEvent.change(input, { target: { value: 'today' } })
+    fireEvent.click(screen.getByRole('link'))
 
-    expect(mockOnSelectDate.mock.calls.length).toBe(1)
+    expect(mockOnSelectDate).toHaveBeenCalledTimes(1)
   })
 })

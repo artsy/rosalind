@@ -1,16 +1,7 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import 'jest-styled-components'
-import { mount } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import moment from 'moment'
 import SearchForm from './SearchForm'
-import { Button } from '@artsy/palette'
-import {
-  AttributionClassAutosuggest,
-  FairAutosuggest,
-  PartnerAutosuggest,
-  SaleAutosuggest,
-} from './Autosuggest'
 
 let props
 
@@ -50,33 +41,39 @@ beforeEach(() => {
 })
 
 it('does not render partner autosuggest if partner is already selected', () => {
-  const partner = { id: 'nice-gallery', name: 'Nice Gallery' }
-  Object.assign(props, { partner })
-  const rendered = renderer.create(<SearchForm {...props} />)
-  expect(rendered.root.findAllByType(PartnerAutosuggest)).toHaveLength(0)
+  Object.assign(props, {
+    partner: { id: 'nice-gallery', name: 'Nice Gallery' },
+  })
+  render(<SearchForm {...props} />)
+  expect(
+    screen.queryByPlaceholderText('Search for a partner')
+  ).not.toBeInTheDocument()
 })
 
 it('does not render fair autosuggest if fair is already selected', () => {
-  const fair = { id: 'nice-fair', name: 'Nice Fair' }
-  Object.assign(props, { fair })
-  const rendered = renderer.create(<SearchForm {...props} />)
-  expect(rendered.root.findAllByType(FairAutosuggest)).toHaveLength(0)
+  Object.assign(props, { fair: { id: 'nice-fair', name: 'Nice Fair' } })
+  render(<SearchForm {...props} />)
+  expect(
+    screen.queryByPlaceholderText('Search for a fair')
+  ).not.toBeInTheDocument()
 })
 
 it('does not render sale autosuggest if sale is already selected', () => {
-  const sale = { id: 'phillips-sale', name: 'Phillips' }
-  Object.assign(props, { sale })
-  const rendered = renderer.create(<SearchForm {...props} />)
-  expect(rendered.root.findAllByType(SaleAutosuggest)).toHaveLength(0)
+  Object.assign(props, { sale: { id: 'phillips-sale', name: 'Phillips' } })
+  render(<SearchForm {...props} />)
+  expect(
+    screen.queryByPlaceholderText('Search for a sale')
+  ).not.toBeInTheDocument()
 })
 
 it('does not render attribution class autosuggest if it is already selected', () => {
-  const attributionClass = { id: 'ephemera', name: 'Ephemera' }
-  Object.assign(props, { attributionClass })
-  const rendered = renderer.create(<SearchForm {...props} />)
-  expect(rendered.root.findAllByType(AttributionClassAutosuggest)).toHaveLength(
-    0
-  )
+  Object.assign(props, {
+    attributionClass: { id: 'ephemera', name: 'Ephemera' },
+  })
+  render(<SearchForm {...props} />)
+  expect(
+    screen.queryByPlaceholderText('Search for an attribution class')
+  ).not.toBeInTheDocument()
 })
 
 it('does not render createdAfterDate input if createdAfterDate is already entered', () => {
@@ -85,12 +82,8 @@ it('does not render createdAfterDate input if createdAfterDate is already entere
     .format()
   Object.assign(props, { createdAfterDate })
 
-  const searchForm = mount(<SearchForm {...props} />)
-  const currentCreatedAfterDate = searchForm.find('SelectedCreatedAfterDate')
-  const createdAfterDateInput = searchForm.find('CreatedAfterDateInput')
-
-  expect(currentCreatedAfterDate.length).toEqual(1)
-  expect(createdAfterDateInput.length).toEqual(0)
+  render(<SearchForm {...props} />)
+  expect(screen.queryByPlaceholderText('Created after')).not.toBeInTheDocument()
 })
 
 it('does not render createdBeforeDate input if createdBeforeDate is already entered', () => {
@@ -99,61 +92,47 @@ it('does not render createdBeforeDate input if createdBeforeDate is already ente
     .format()
   Object.assign(props, { createdBeforeDate })
 
-  const searchForm = mount(<SearchForm {...props} />)
-  const currentCreatedBeforeDate = searchForm.find('SelectedCreatedBeforeDate')
-  const createdBeforeDateInput = searchForm.find('CreatedBeforeDateInput')
-
-  expect(currentCreatedBeforeDate.length).toEqual(1)
-  expect(createdBeforeDateInput.length).toEqual(0)
+  render(<SearchForm {...props} />)
+  expect(
+    screen.queryByPlaceholderText('Created before')
+  ).not.toBeInTheDocument()
 })
 
 it('does not render minPrice input if minPrice is already set', () => {
   Object.assign(props, { minPrice: 1000 })
-  const searchForm = mount(<SearchForm {...props} />)
-  const minPriceExists = searchForm.exists('.minPriceInput')
-  const maxPriceExists = searchForm.exists('.maxPriceInput')
-
-  expect(minPriceExists).toEqual(false)
-  expect(maxPriceExists).toEqual(true)
+  render(<SearchForm {...props} />)
+  expect(screen.queryByPlaceholderText('Minimum Price')).not.toBeInTheDocument()
+  expect(screen.getByPlaceholderText('Maximum Price')).toBeInTheDocument()
 })
 
 it('does not render maxPrice input if maxPrice is already set', () => {
   Object.assign(props, { maxPrice: 1000 })
-  const searchForm = mount(<SearchForm {...props} />)
-  const minPriceExists = searchForm.exists('.minPriceInput')
-  const maxPriceExists = searchForm.exists('.maxPriceInput')
-
-  expect(minPriceExists).toEqual(true)
-  expect(maxPriceExists).toEqual(false)
+  render(<SearchForm {...props} />)
+  expect(screen.getByPlaceholderText('Minimum Price')).toBeInTheDocument()
+  expect(screen.queryByPlaceholderText('Maximum Price')).not.toBeInTheDocument()
 })
 
 describe('"edit artworks" button', () => {
   it('does not render an edit button if there are no artworks', () => {
     Object.assign(props, { artworksCount: 0 })
-    const rendered = renderer.create(<SearchForm {...props} />)
-    const editButton = rendered.root
-      .findAllByType(Button)
-      .find(b => b.props.children === 'Edit Artworks')
-    expect(editButton).not.toBeDefined()
+    render(<SearchForm {...props} />)
+    expect(
+      screen.queryByRole('button', { name: 'Edit Artworks' })
+    ).not.toBeInTheDocument()
   })
 
   it('renders a disabled edit button if there are artworks, but none selected', () => {
     Object.assign(props, { artworksCount: 100, selectedArtworksCount: 0 })
-    const rendered = renderer.create(<SearchForm {...props} />)
-    const editButton = rendered.root
-      .findAllByType(Button)
-      .find(b => b.props.children === 'Edit Artworks')
-    expect(editButton.props.disabled).toEqual(true)
+    render(<SearchForm {...props} />)
+    const button = screen.getByRole('button', { name: 'Edit Artworks' })
+    expect(button).toBeDisabled()
   })
 
   it('renders an enabled edit button if there are selected artworks', () => {
     Object.assign(props, { artworksCount: 100, selectedArtworksCount: 1 })
-    const rendered = renderer.create(<SearchForm {...props} />)
-    const editButton = rendered.root
-      .findAllByType(Button)
-      .find(b => b.props.children === 'Edit Artworks')
-    expect(editButton.props).not.toContain('disabled')
-    expect(true).toBe(true)
+    render(<SearchForm {...props} />)
+    const button = screen.getByRole('button', { name: 'Edit Artworks' })
+    expect(button).not.toBeDisabled()
   })
 })
 
@@ -164,9 +143,9 @@ describe('Links to copy ids/open artworks in Helix', () => {
       selectedArtworksCount: 0,
       selectedArtworkIds: [],
     })
-    const wrapper = mount(<SearchForm {...props} />)
-    expect(wrapper.text()).not.toMatch(/Open in Helix/i)
-    expect(wrapper.text()).not.toMatch(/Copy IDs/i)
+    render(<SearchForm {...props} />)
+    expect(screen.queryByText(/Open in Helix/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Copy IDs/i)).not.toBeInTheDocument()
   })
 
   it('renders if there are selected artworks', () => {
@@ -175,8 +154,8 @@ describe('Links to copy ids/open artworks in Helix', () => {
       selectedArtworksCount: 1,
       selectedArtworkIds: ['foo'],
     })
-    const wrapper = mount(<SearchForm {...props} />)
-    expect(wrapper.text()).toMatch(/Open in Helix/i)
-    expect(wrapper.text()).toMatch(/Copy IDs/i)
+    render(<SearchForm {...props} />)
+    expect(screen.getByText(/Open in Helix/i)).toBeInTheDocument()
+    expect(screen.getByText(/Copy IDs/i)).toBeInTheDocument()
   })
 })

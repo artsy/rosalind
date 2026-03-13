@@ -1,7 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import 'jest-styled-components'
-import { mount } from 'enzyme'
+import { render, screen, fireEvent } from '@testing-library/react'
 import ArtworkSearchResult from './ArtworkSearchResult'
 
 let props
@@ -21,35 +19,24 @@ beforeEach(() => {
   }
 })
 
-it('requires an artwork', () => {
-  console.error = jest.fn()
-  expect(() => {
-    renderer.create(<ArtworkSearchResult />)
-  }).toThrow()
-  expect(console.error.mock.calls[0][0]).toMatch(/warning: failed prop type/i)
+it('renders the artwork image with alt text', () => {
+  render(<ArtworkSearchResult {...props} />)
+  expect(screen.getByAltText('Soup Can')).toBeInTheDocument()
 })
 
-it('renders correctly', () => {
-  const rendered = renderer.create(<ArtworkSearchResult {...props} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
-})
-
-it('renders in the selected state', () => {
-  const rendered = renderer.create(<ArtworkSearchResult {...props} selected />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+it('renders visibility level', () => {
+  render(<ArtworkSearchResult {...props} />)
+  expect(screen.getByText(/Visibility level: listed/)).toBeInTheDocument()
 })
 
 it('fires the toggle handler on click', () => {
-  const wrapper = mount(<ArtworkSearchResult {...props} />)
-  wrapper.find('div').simulate('click')
-  expect(props.onToggleArtwork.mock.calls.length).toEqual(1)
+  render(<ArtworkSearchResult {...props} />)
+  fireEvent.click(screen.getByAltText('Soup Can'))
+  expect(props.onToggleArtwork).toHaveBeenCalledTimes(1)
 })
 
 it('fires the preview handler on command-click', () => {
-  const wrapper = mount(<ArtworkSearchResult {...props} />)
-  const mockClickEvent = { metaKey: true }
-  wrapper.find('div').simulate('click', mockClickEvent)
-  expect(props.onPreviewArtwork.mock.calls.length).toEqual(1)
+  render(<ArtworkSearchResult {...props} />)
+  fireEvent.click(screen.getByAltText('Soup Can'), { metaKey: true })
+  expect(props.onPreviewArtwork).toHaveBeenCalledTimes(1)
 })

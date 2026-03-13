@@ -1,7 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import 'jest-styled-components'
-import { mount } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import ArtworkPreviewModal from './ArtworkPreviewModal'
 import { SitesProvider } from '../SitesContext'
 
@@ -27,10 +25,9 @@ beforeEach(() => {
   }
 })
 
-it('renders correctly', () => {
-  const rendered = renderer.create(<ArtworkPreviewModal artwork={artwork} />)
-  const tree = rendered.toJSON()
-  expect(tree).toMatchSnapshot()
+it('renders the artwork name', () => {
+  render(<ArtworkPreviewModal artwork={artwork} />)
+  expect(screen.getByText('Soup Can')).toBeInTheDocument()
 })
 
 it('fetches more data after a delay', () => {
@@ -41,7 +38,7 @@ it('fetches more data after a delay', () => {
     })
   })
 
-  mount(<ArtworkPreviewModal artwork={artwork} />)
+  render(<ArtworkPreviewModal artwork={artwork} />)
 
   expect(window.fetch).not.toHaveBeenCalled()
   jest.runAllTimers()
@@ -55,16 +52,22 @@ it('uses Context to render links to external sites', () => {
     helix: 'http://helix.mock',
   }
 
-  const wrapper = mount(
+  render(
     <SitesProvider sites={mockSites}>
       <ArtworkPreviewModal artwork={artwork} />
     </SitesProvider>
   )
 
-  const externalLinks = wrapper.find('ExternalLinks')
-  expect(externalLinks.find('a')).toHaveLength(4)
-  expect(externalLinks.html()).toMatch('http://artsy.mock/artwork/')
-  expect(externalLinks.html()).toMatch('http://cms.mock/artworks/')
-  expect(externalLinks.html()).toMatch('http://helix.mock/genome/artworks')
-  expect(externalLinks.html()).toMatch('http://helix.mock/genome/artist')
+  const links = screen.getAllByRole('link')
+  expect(links).toHaveLength(4)
+
+  const hrefs = links.map(link => link.getAttribute('href'))
+  expect(hrefs.some(h => h.includes('http://artsy.mock/artwork/'))).toBe(true)
+  expect(hrefs.some(h => h.includes('http://cms.mock/artworks/'))).toBe(true)
+  expect(hrefs.some(h => h.includes('http://helix.mock/genome/artworks'))).toBe(
+    true
+  )
+  expect(hrefs.some(h => h.includes('http://helix.mock/genome/artist'))).toBe(
+    true
+  )
 })

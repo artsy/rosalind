@@ -1,47 +1,33 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import 'jest-styled-components'
-import { mount, render } from 'enzyme'
+import { render, screen, fireEvent } from '@testing-library/react'
 import GenericAutosuggest from './GenericAutosuggest'
 
 let props
 
 beforeEach(() => {
-  // eslint-disable-next-line  @typescript-eslint/no-unused-vars
-  const mockSuggestionsFetcher = jest.fn(searchTerm => {
-    // eslint-disable-next-line  @typescript-eslint/no-unused-vars
-    return new Promise((resolve, reject) => {
-      resolve([
-        /* listOfMatchingSuggestionObjects */
-      ])
+  const mockSuggestionsFetcher = jest.fn(() => {
+    return new Promise(resolve => {
+      resolve([])
     })
   })
 
   props = {
     placeholder: 'start typing',
-    fetchSuggestions: mockSuggestionsFetcher, // searchTerm => listOfMatchingSuggestionObjects
-    getSuggestionValue: jest.fn(), // suggestionObject => displayName
-    renderSuggestion: jest.fn(), // suggestionObject => stringOrMarkupForSuggestionList
-    selectSuggestion: jest.fn(), // suggestionObject => { handlerFunction(suggestionObject) }
+    fetchSuggestions: mockSuggestionsFetcher,
+    getSuggestionValue: jest.fn(),
+    renderSuggestion: jest.fn(),
+    selectSuggestion: jest.fn(),
   }
 })
 
-it('renders correctly', () => {
-  const tree = renderer.create(<GenericAutosuggest {...props} />).toJSON()
-  expect(tree).toMatchSnapshot()
-})
-
-it('includes a placeholder text', () => {
-  const expected = 'start typing'
-  const wrapper = render(<GenericAutosuggest {...props} />)
-  const actual = wrapper.find('input').attr('placeholder')
-  expect(actual).toEqual(expected)
+it('renders with the placeholder text', () => {
+  render(<GenericAutosuggest {...props} />)
+  expect(screen.getByPlaceholderText('start typing')).toBeInTheDocument()
 })
 
 it('invokes the supplied fetch function when the user types something', () => {
-  const expectedCallCount = 1
-  const wrapper = mount(<GenericAutosuggest {...props} />)
-  wrapper.find('input').simulate('change', { target: { value: 'Kaw' } })
-  const actualCallCount = props.fetchSuggestions.mock.calls.length
-  expect(actualCallCount).toEqual(expectedCallCount)
+  render(<GenericAutosuggest {...props} />)
+  const input = screen.getByPlaceholderText('start typing')
+  fireEvent.change(input, { target: { value: 'Kaw' } })
+  expect(props.fetchSuggestions).toHaveBeenCalledTimes(1)
 })
