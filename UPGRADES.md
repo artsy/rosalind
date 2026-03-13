@@ -10,27 +10,14 @@ Cannot find module '@artsy/icons/SearchIcon' from 'AutocompleteInput.js'
 
 Webpack handles `exports` fine, so builds work — only Jest breaks.
 
-## Phase 1: Jest 29 + palette upgrade
+## Phase 1: Jest 29 + palette upgrade ✅
 
-Verified working in a worktree — all 41 suites, 190 tests, 51 snapshots pass.
+Done. All 41 suites, 190 tests, 51 snapshots pass. Lint and type-check clean.
 
-### Changes
-
-1. **Bump packages**:
-   - `jest` 24.9.0 → 29
-   - `babel-jest` 24.9.0 → 29
-   - Add `jest-environment-jsdom@29` (no longer bundled with Jest)
-   - `@artsy/palette` 31.2.0 → 31.7.1
-   - Keep `jest-styled-components@6.3.4` (v7 requires styled-components v5+)
-
-2. **Update Jest config** in `package.json`:
-   - Remove `"testURL": "http://localhost"` (deprecated)
-   - Add `"testEnvironment": "jsdom"`
-   - Add moduleNameMapper: `"@artsy/icons/(.*)": "<rootDir>/node_modules/@artsy/icons/dist/web/$1.js"`
-
-3. **Fix 1 test file**: `AttributionClassAutosuggest.spec.js`
-   - Replace `setImmediate(callback)` with `await new Promise(resolve => setTimeout(resolve, 0))`
-   - Jest 29's jsdom (v20) no longer provides the Node.js `setImmediate` global
+- Bumped `jest`, `babel-jest` to 29; added `jest-environment-jsdom@29`; bumped `@artsy/palette` to 31.7.1
+- Updated Jest config: removed `testURL`, added `testEnvironment: "jsdom"`, added `@artsy/icons` moduleNameMapper
+- Fixed `setImmediate` → `async/await` in `AttributionClassAutosuggest.spec.js`
+- Fixed `space-before-function-paren` ESLint rule to allow `asyncArrow: 'always'` (Prettier compatibility)
 
 ## Phase 2: Enzyme → RTL migration
 
