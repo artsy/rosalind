@@ -89,7 +89,7 @@
     "react-test-renderer": "16.8.6",
     "stats-webpack-plugin": "0.7.0",
     "style-loader": "1.1.2",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^5.2.1"
   },
   "jest": {
     "moduleNameMapper": {
