@@ -117,7 +117,7 @@ spec:
       - name: secrets
         emptyDir: {}
 ---
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: rosalind-web
@@ -129,9 +129,15 @@ spec:
     name: rosalind-web
   minReplicas: 1
   maxReplicas: 6
-  targetCPUUtilizationPercentage: 70
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
 ---
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: rosalind-sidekiq
@@ -143,7 +149,13 @@ spec:
     name: rosalind-sidekiq
   minReplicas: 1
   maxReplicas: 2
-  targetCPUUtilizationPercentage: 80
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
