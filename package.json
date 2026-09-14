@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@artsy/palette": "31.2.0",
+    "@artsy/palette": "38.15.0",
     "@babel/runtime": "^7.26.10",
     "@types/react": "^16.0.0",
     "@types/react-dom": "^16.0.0",
@@ -93,6 +93,8 @@
   },
   "jest": {
     "moduleNameMapper": {
+      "^@artsy/icons/native$": "<rootDir>/node_modules/@artsy/icons/dist/native/index.js",
+      "^@artsy/icons/(.+)$": "<rootDir>/node_modules/@artsy/icons/dist/web/$1",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/webpack/__mocks__/fileMock.js",
       "\\.(css|less|scss)$": "<rootDir>/webpack/__mocks__/styleMock.js"
     },

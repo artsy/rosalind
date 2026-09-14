@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-// import { colors } from './Layout'
-import { color } from '@artsy/palette'
+import { colors } from './Layout'
 import missingImage from './missing_image.png'
 
 class ArtworkSearchResult extends React.Component {
@@ -57,8 +56,8 @@ const StyledArtworkSearchResult = styled(ArtworkSearchResult)`
   ${props =>
     props.selected &&
     css`
-      background: ${color('purple100')};
-      outline: solid 5px ${color('purple100')};
+      background: ${colors.purple};
+      outline: solid 5px ${colors.purple};
       color: white;
     `}
 
