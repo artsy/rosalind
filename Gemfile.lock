@@ -116,7 +116,7 @@ GEM
     crack (1.0.0)
       bigdecimal
       rexml
-    crass (1.0.6)
+    crass (1.0.7)
     datadog-ci (0.8.3)
       msgpack
     date (3.3.4)
