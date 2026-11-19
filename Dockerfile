@@ -1,4 +1,4 @@
-FROM ruby:3.3.0-slim
+FROM ruby:3.3.14-slim-bookworm
 ENV LANG C.UTF-8
 
 ARG BUNDLE_GITHUB__COM
